@@ -107,9 +107,9 @@ class Item(models.Model):
     in_stock = models.BooleanField(default=False)
     sold = models.BooleanField(default=False)
     po_number = models.CharField(max_length=50, blank=True, null=True)
-    #confirmation_r = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
+    confirmation_r = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
     price = models.IntegerField()
-    #picture = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
+    picture = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
     created_date = models.DateField(auto_now_add=True)
     """
     class Meta:
@@ -143,8 +143,8 @@ class Customer(models.Model):
     company_name = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField()
     phone_number = models.IntegerField()
-    #original_contact = models.OneToOneField(Message, on_delete=models.SET_NULL, blank=True, null=True)
-    #purchased_item = models.ManyToManyField(Item, blank=True)
+    original_contact = models.OneToOneField(Message, on_delete=models.SET_NULL, blank=True, null=True)
+    purchased_item = models.ManyToManyField(Item, blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     """
     def __str__(self):
@@ -153,7 +153,7 @@ class Customer(models.Model):
 
 
 class CustomerShippingAddress(models.Model):
-    #customer = models.OneToOneField(Customer, on_delete=models.SET_NULL)
+    customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=2)
@@ -167,8 +167,8 @@ class CustomerShippingAddress(models.Model):
 
 
 class SoldDetail(models.Model):
-    #inventory_item = models.OneToOneField(Item, on_delete=models.SET_NULL)
-    #purchased_by = models.ForeignKey(Customer, on_delete=models.SET_NULL)
+    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    purchased_by = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date_sold = models.DateField(null=True, blank=True)
     info = models.TextField(blank=True, null=True)
     other = models.TextField(blank=True, null=True)
@@ -180,9 +180,9 @@ class SoldDetail(models.Model):
 
 
 class ShippingDetail(models.Model):
-    #inventory_item = models.OneToOneField(Item, on_delete=models.SET_NULL)
-    #sold_detail = models.OneToOneField(SoldDetail, on_delete=models.SET_NULL)
-    #shipping_address = models.ForeignKey(CustomerShippingAddress, on_delete=models.SET_NULL)
+    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    sold_detail = models.OneToOneField(SoldDetail, on_delete=models.CASCADE)
+    shipping_address = models.ForeignKey(CustomerShippingAddress, on_delete=models.CASCADE)
     date_shipped = models.DateField(null=True, blank=True)
     tracking_number = models.CharField(max_length=200, blank=True, null=True)
     Shipper_info1 = models.CharField(max_length=200, null=True, blank=True)
