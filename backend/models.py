@@ -194,3 +194,16 @@ class ShippingDetail(models.Model):
     """
 
 
+class InventoryObject(models.Model):
+    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    sold_data = models.OneToOneField(SoldDetail, on_delete=models.SET_NULL, blank=True, null=True)
+    shipping_data = models.OneToOneField(ShippingDetail, on_delete=models.SET_NULL, blank=True, null=True)
+    completed_order = models.BooleanField(default=False)
+    created_date = models.DateField(auto_now_add=True)
+    info = models.TextField(blank=True, null=True)
+    original_contact = models.ForeignKey(Message, on_delete=models.SET_NULL, blank=True, null=True)
+    """
+    def __str__(self):
+        return f"ID: {self.id} - Item: {self.inventory_item}"
+    """
+
