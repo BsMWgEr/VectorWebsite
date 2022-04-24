@@ -1,0 +1,29 @@
+body {
+    background: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+a {
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: center;
+    display: flex;
+    margin-left: 2%;
+    width: 200px;
+    padding:50px;
+    margin-top: 20px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    border: 2px solid;
+    text-decoration: none;
+    color: orangered;
+    background: radial-gradient(rgba(0,0,0,.5), aliceblue );
+    font-size: 25pt;
+    font-family: monospace;
+}
+
+a:hover {
+    background: rgba(0,0,0,.7);
+    box-shadow: 5px 5px 15px black;
+}

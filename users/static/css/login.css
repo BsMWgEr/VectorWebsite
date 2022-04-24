@@ -1,0 +1,97 @@
+body {
+    background-image: url("../images/16WINGSUIT1-superJumbo.jpg");
+    background-position: top;
+}
+
+a {
+    text-decoration: none;
+}
+
+.m-1 {
+   width: 300px;
+    border: hidden;
+    background: rgba(0,0,0,.5);
+    color: white;
+    font-size: 12pt;
+}
+
+.logoutbtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    border: 5px solid;
+    width: 300px;
+    transform: translate(150%, 150%);
+    font-size: 20pt;
+    text-decoration: none;
+    color: orangered;
+}
+
+.m-3 {
+    width: 300px;
+    border: none;
+    background: black;
+    color: white;
+    height: 30px;
+}
+
+.m-2 {
+    background: rgba(0,0,0,.5);
+    width: 300px;
+    border: hidden;
+    color: white;
+    font-size: 12pt;
+}
+
+.banner {
+    position: absolute;
+    top: 10px;
+    left: 35%;
+    font-size: 40pt
+}
+
+form {
+    margin-top: 200px;
+    margin-left: 35%;
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    align-content: center;
+    width: 400px;
+}
+
+.logout-group {
+    display: grid;
+}
+
+li {
+    color: orangered;
+}
+
+.a1 {
+    color: orangered;;
+}
+
+.return {
+    position: absolute;
+    display: inline;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 35pt;
+    color: #b5db1a;
+    width: fit-content;
+    top: 60%;
+    left: 38%;
+    transition: .1s;
+    padding: 10px;
+    box-shadow: 5px 5px 15px black;
+    border-radius: 5px;
+}
+
+.return:hover {
+    background-color: rgba(0,0,0,.4);
+    width: 100%;
+    font-family: cursive;
+    font-size: 40pt;
+    padding: 10px;
+}

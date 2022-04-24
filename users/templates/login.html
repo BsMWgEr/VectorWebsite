@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>login</title>
+</head>
+<body>
+
+
+{% if x %}
+    {{ message }}
+{% else %}
+    <h1 class="banner">Full Flight Sports</h1>
+{% endif %}
+{% if not request.user.is_authenticated %}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input class="m-1" type="text" name="username" placeholder="Username">
+            <input class="m-2" type="password" name="password" placeholder="Password">
+            <input class="m-3" type="submit" value="Login">
+        </form>
+        <a class="return" href="{% url 'home' %}">Return Home</a>
+    </div>
+{% else %}
+    <div class="lougout-group"><p>You're already logged in. Would you like to </p>
+        <ul>
+            <li><p><a class="a1" href="/builder/">Make a New Item?</a></p></li>
+            <li><p><a class="a1" href="/admin/">Head to the Main Admin Page?</a></p></li>
+            <li><a class="a1" href="/users/">Landing &#9992; Dashboard &#9992; Page</a></li>
+        </ul>
+
+
+</div>
+    <p><a class="logoutbtn" href="/users/logout/">logout?</a></p>
+{% endif %}
+
+</body>
+</html>
