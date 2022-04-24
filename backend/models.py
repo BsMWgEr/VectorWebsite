@@ -16,22 +16,22 @@ class Message(models.Model):
     comment = models.TextField()
     time = models.DateTimeField()
     confirmation_number = models.CharField(max_length=50)
-    """
+
     class Meta:
         ordering = ['-id']
 
     def __str__(self):
         return f"Subject: {self.subject} ----- Read Yet: {self.read} ----- {self.time}"
-    """
+
 
 
 class PageVisitData(models.Model):
     moment = models.DateTimeField()
     ip_address = models.GenericIPAddressField()
-    """
+
     class Meta:
         ordering = ['-id']
-    """
+
 
 
 class SearchQuery(models.Model):
@@ -39,11 +39,11 @@ class SearchQuery(models.Model):
     search = models.TextField(blank=True)
     ip_address = models.GenericIPAddressField(blank=True, null=True)
 
-    """
+
 
     class Meta:
         ordering = ['-id']
-    """
+
 
 # User = settings.AUTH_USER_MODEL
 
@@ -111,7 +111,7 @@ class Item(models.Model):
     price = models.IntegerField()
     picture = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
     created_date = models.DateField(auto_now_add=True)
-    """
+
     class Meta:
         ordering = ['-id']  # orders by descending remove the dash to make ascending
 
@@ -134,7 +134,7 @@ class Item(models.Model):
             'price': self.price,
             'picture': self.picture,
         }
-        """
+
 
 
 class Customer(models.Model):
@@ -146,10 +146,10 @@ class Customer(models.Model):
     original_contact = models.OneToOneField(Message, on_delete=models.SET_NULL, blank=True, null=True)
     purchased_item = models.ManyToManyField(Item, blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
-    """
+
     def __str__(self):
         return f"ID: {self.id} - Name: {self.last_name}, {self.first_name} - Phone #: {self.phone_number} - {self.email}"
-    """
+
 
 
 class CustomerShippingAddress(models.Model):
@@ -160,10 +160,10 @@ class CustomerShippingAddress(models.Model):
     country = models.CharField(max_length=100, blank=True, null=True)
     zip_code = models.CharField(max_length=10)
     other = models.TextField(blank=True, null=True)
-    """
+
     def __str__(self):
-        return f"ID: {self.id} Customer ID: {self.customer.id} - {self.customer.last_name} - {self.city}, {self.state}"
-    """
+        return f"ID: {self.id} Customer : {self.customer} - {self.city}, {self.state}"
+
 
 
 class SoldDetail(models.Model):
@@ -173,10 +173,10 @@ class SoldDetail(models.Model):
     info = models.TextField(blank=True, null=True)
     other = models.TextField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    """
+
     def __str__(self):
         return f"ID: {self.id} - Customer: {self.purchased_by} - Date Sold: {self.date_sold}"
-    """
+
 
 
 class ShippingDetail(models.Model):
@@ -188,10 +188,10 @@ class ShippingDetail(models.Model):
     Shipper_info1 = models.CharField(max_length=200, null=True, blank=True)
     Shipper_info2 = models.TextField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    """
+
     def __str__(self):
         return f"ID: {self.id} - Ship Date: {self.date_shipped} Tracking #: {self.tracking_number}"
-    """
+
 
 
 class InventoryObject(models.Model):
@@ -202,8 +202,8 @@ class InventoryObject(models.Model):
     created_date = models.DateField(auto_now_add=True)
     info = models.TextField(blank=True, null=True)
     original_contact = models.ForeignKey(Message, on_delete=models.SET_NULL, blank=True, null=True)
-    """
+
     def __str__(self):
         return f"ID: {self.id} - Item: {self.inventory_item}"
-    """
+
 
