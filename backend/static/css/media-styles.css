@@ -1,0 +1,13 @@
+.all-files {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 20px;
+}
+
+.left-div {
+    border-right: 10px solid black;
+}
+
+.right-div {
+
+}

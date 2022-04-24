@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'images/e53ea5_d747d21e4fc34a69b289aa2382dfc606.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/e53ea5_d747d21e4fc34a69b289aa2382dfc606.png' %}">
+    <link rel="stylesheet" href="{% static 'css/admin-index-styles.css' %}">
+    {% block styles %}<link rel="stylesheet"  href="{% static 'css/inventory.css' %}">{% endblock %}
+    {% block title %}<title>Inventory</title>{% endblock %}
+</head>
+
+
+<!-- NAV BAR -->
+  <div class="nav-container" {% block js %}{% endblock %}>
+        <div class="left-nav">
+            <div class="logo" id="logo-div"><img src="{% static 'images/logo.png' %}"></div>
+            <div class="title-banner"><a href="/admin/frontend/items"><h2>Full Flight Sports Admin</h2><h2>Inventory Manger</h2></a></div>
+            <div class="links" id="links" >
+                <div class="nav-links"><a class="top-nav-links" id="home-btn" href="/">HOME</a></div>
+                <!--<div class="nav-links"><a class="top-nav-links" id="in-stock-btn" href="/instock/">IN STOCK NOW</a></div>-->
+                <div class="nav-links"><a class="top-nav-links" id="vector3-btn" href="/manager/inventory-comingsoon/">Coming Soon</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-sportrigs/">all</a>
+                        <a href="###">by type</a>
+                        <a href="###">by date</a>
+                        <a href="###">by customer</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="tandem-btn" href="/manager/inventory-instock/">In Stock</a>
+                    <div class="dropdown-content">
+                        <a href="####">link1</a>
+                        <a href="###">link2</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="student-btn" href="/manager/inventory-sold/">Sold</a>
+                    <div class="dropdown-content">
+                        <a href="###">link1</a>
+                        <a href="###">link2</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="canopies-btn" href="/manager/inventory-shipping/">Shipping</a>
+                    <div class="dropdown-content">
+                        <a href="###">llink1</a>
+                        <a href="###">link2</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="javelin-btn" href="/manager/inventory-completed/">Completed Orders</a>
+                    <div class="dropdown-content">
+                        <a href="###">stuff1</a>
+                        <a href="###"> stuff2</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="contact-btn" href="/manager/builder">Build Item</a></div>
+                <div class="nav-links"><a class="top-nav-links" id="contact-btn" href="/manager/media">Media Manager</a>
+                <div class="dropdown-content">
+                        <a href="###">upload</a>
+                        <a href="###">Download</a>
+                        <a href="###">All Files</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<main>
+<div>
+ <div class="left-sidebar" id="left-sidebar">
+    <div><a href="/manager/inventory">Inventory Home</a></div>
+    <div><a href="/manager/inventory-comingsoon">Inventory Coming Soon</a></div>
+    <div><a href="/manager/inventory-instock">Inventory In Stock</a></div>
+    <div><a href="/manager/inventory-sold">Sold Inventory</a></div>
+    <div><a href="/manager/inventory-shipping">Inventory Currently Shipping</a></div>
+    <div><a href="/manager/inventory-completed">Completed Orders</a></div>
+    </div>
+  <!-- END NAV BAR -->
+</div>
+
+
+
+<div class="main-div">
+
+    {% block other_content %}
+    {% endblock %}
+    {% block nothing3 %}
+
+    <div>
+    <h3>Current Statistics</h3>
+    <ul>
+    <li>Total Active Items</li>
+    <li>Amount coming soon</li>
+    <li>Amount in stock</li>
+    </ul>
+        <ul>
+            <li>by type</li>
+            <li>by size</li>
+            <li>by due date</li>
+        </ul>
+    <ul>
+    <li>Amount shipping</li>
+    <li>Longest ship time/shortest ship time</li>
+    <li>Average ship time</li>
+    <li>average sold to shipped to complete time</li>
+    <li>Amount sold not in shipping</li>
+    <li>Dollar/Time sums and averages for all sections</li>
+    <li>Total completed</li>
+    </ul>
+    </div>
+{% endblock %}
+
+
+{% block nothing %}
+<details>
+    <summary>{{ summary_title }}</summary>
+{% endblock %}
+<ul>
+    {% for x in all %}
+        <li>
+        <hr>
+        <details><summary>Inventory Object: {{ x }}</summary>
+            <hr>
+            <ul>
+                <li>Inventory Item: {{ x.inventory_item }}</li>
+                <li>Sold Data: {{ x.sold_data }}</li>
+                <li>Shipping Data: {{ x.shipping_data }}</li>
+                <li>Customer: {{ x.sold_data.purchased_by }}</li>
+                <li>Completed Order: {{ x.completed_order }}</li>
+                <li>Date Created: {{ x.created_date }}</li>
+                <li>Inventory info: {{ x.info }}</li>
+            </ul>
+
+            <ol><li><hr><details><summary>Inventory Item: {{ x.inventory_item.id }}</summary><hr>
+            <ul>
+                <li>Name: {{ x.inventory_item.solddetail.purchased_by }}</li>
+                <li>Serial Number: {{ x.inventory_item.serial_number }}</li>
+                <li>Due Date: {{ x.inventory_item.due_date }}</li>
+                <li>Size: {{ x.inventory_item.size }}</li>
+                <li>In Stock: {{ x.inventory_item.in_stock }}</li>
+                <li>Sold: {{ x.inventory_item.sold }}</li>
+                <li>PO Number: {{ x.inventory_item.po_number }}</li>
+                <li>Price: ${{ x.inventory_item.price }}</li>
+                <li>Description: {{ x.inventory_item.description }}</li>
+            </ul>
+            </details>
+                {% if x.sold_data %}
+            </li>
+                <li><hr><details><summary>Sold Data: {{ x.sold_data.id }} --- Sold on: {{ x.sold_data.date_sold }}</summary><hr>
+                <ul>
+                    <li>Purchased By: {{ x.sold_data.purchased_by }}</li>
+                    <li>Item Purchased: {{ x.sold_data.inventory_item }}</li>
+                    <li>Date Sold: {{ x.sold_data.date_sold }}</li>
+                    <li>Info: {{ x.sold_data.info }}</li>
+                    <li>More Info: {{ x.sold_data.other }}</li>
+                    <li>Date Created: {{ x.sold_data.created_date }}</li>
+                </ul>
+                </details>
+            </li>
+                {% endif %}
+                {% if x.shipping_data %}
+                <li><hr><details><summary>Shipping Data: {{ x.shipping_data.id }} --- Shipped on: {{ x.shipping_data.date_shipped }}</summary><hr>
+                <ul>
+                    <li>Item: {{ x.shipping_data.inventory_item }}</li>
+                    <li>Sold Info: {{ x.shipping_data.sold_detail }}</li>
+                    <li>Shipping Address: {{ x.shipping_data.shipping_address }}</li>
+                    <li>Date Shipped: {{ x.shipping_data.date_shipped }}</li>
+                    <li>Date created: {{ x.shipping_data.created_date }}</li>
+                    <li>Tracking Number: {{ x.shipping_data.tracking_number }}</li>
+                    <li>Info 1{{ x.shipping_data.Shipper_info1 }}</li>
+                    <li>Info 2{{ x.shipping_data.Shipper_info2 }}</li>
+                </ul>
+            </details>
+            </li>
+            {% endif %}
+            {% if x.sold_data.purchased_by %}
+                <li><hr><details><summary>Customer: {{ x.sold_data.purchased_by.id }} - {{ x.customer.first_name }}</summary><hr>
+                <ul>
+                    <li>Name: {{ x.sold_data.purchased_by.first_name }} {{ x.sold_data.purchased_by.last_name }}</li>
+                    <li>Phone Number: {{ x.sold_data.purchased_by.phone_number }}</li>
+                    <li>Email: {{ x.sold_data.purchased_by.email }}</li>
+                    <li>Company: {{ x.sold_data.purchased_by.company_name }}</li>
+                </ul>
+                </details>
+            </li>
+            {% endif %}
+        </ol>
+        </details>
+        </li>
+{% endfor %}
+</ul>
+
+{% block nothing2 %}
+</details>
+{% endblock %}
+</div>
+
+</main>
+
+</html>
+
+
+
+

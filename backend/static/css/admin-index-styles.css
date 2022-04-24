@@ -1,0 +1,89 @@
+
+
+a {
+    text-decoration: none;
+}
+
+.left-nav {
+    display: inline-flex;
+}
+
+.top-nav-links {
+    padding: 10px;
+    color: rgba(232, 231, 231, 0.5);
+    font-size: 10pt;
+    text-align: center;
+    font-weight: 1000;
+    height: 20px;
+    width: auto;
+
+}
+
+.links a {
+    display: flex;
+    vertical-align: center;
+    cursor: progress;
+}
+
+
+.nav-container {
+    display: grid;
+    max-width: 98%;
+    margin: 1%;
+    grid-template-rows: 1fr;
+    background: black;
+    box-sizing: border-box;
+    border: 10px solid #b5db1a;
+    box-shadow: 5px 5px 15px black;
+   height: 170px;
+    border-radius: 5px;
+}
+
+.links {
+    margin-left: 25%;
+    margin-top: 100px;
+    display: inline-flex;
+}
+
+.logo {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 80px;
+}
+
+.phone-number {
+    position: absolute;
+    width: 190px;
+    height: 50px;
+    color: #b5db1a;
+    font-weight: bold;
+    top: 60px;
+    left: 170px;
+}
+
+.nav-links:hover {
+    background: black;
+    color: whitesmoke;
+    transition: .5s;
+}
+
+.nav-links:hover .top-nav-links {
+    color: white;
+}
+
+.nav-links {
+    height: 35px;
+    width: auto;
+}
+
+.f-book {
+    margin-left: 3%;
+    transform: translate(50%, 10%);
+}
+
+.title-banner a {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    color: red;
+}

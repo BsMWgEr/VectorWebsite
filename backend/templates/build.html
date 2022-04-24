@@ -1,0 +1,119 @@
+{% extends 'index-admin.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/build.css' %}">
+{% endblock %}
+{% block title %}
+    <title>Build a block</title>
+{% endblock %}
+{% block js %}onclick="closeFields()"{% endblock %}
+
+{% block content %}
+    <div class="total-pages-visits"><p>Total Page Visits: {{ total_visits }}</p></div>
+    <div id="container-main" class="container-main">
+    <div class="div-form" onmouseenter="closeFields()">
+        <form  id="form" class="form" method="POST" action="https://stockvectorrigs.herokuapp.com/api/builder/" >
+        {% csrf_token %}
+            <!--<input type="hidden" value="https://stockvectorrigs.herokuapp.com/manager/builder" name="next"> -->
+            <!--<label for="id_type">Type:</label>
+            <ul class="errorlist"><li>This field is required.</li></ul> -->
+            <select name="type" id="id_type">
+                <option value="" disabled selected hidden>Choose Display Page</option>
+                <option value="sport_rigs">Sport Rigs</option>
+                <option value="tandem">Tandem</option>
+                <option value="student">Vector SE Student</option>
+                <option value="canopies">Canopies</option>
+                <option value="javelin_odyssey">Javelin-Odyssey</option>
+                <option value="do_not_display">Do Not Display</option>
+            </select>
+           <!-- <label for="id_name">Name:</label> -->
+              <!--<ul class="errorlist"><li>This field is required.</li></ul> -->
+              <input type="text" name="name" maxlength="200" required="" id="id_name" placeholder="Enter Name**">
+            <!-- <label for="id_serial_number">Serial number:</label> -->
+              <input type="number" name="serial_number" id="id_serial_number" placeholder="Enter Serial #">
+            <!-- <label for="id_due_date">Due date:</label> -->
+              <input type="text" name="due_date" maxlength="100" id="id_due_date" placeholder="Enter Due Date">
+         <!-- <label for="id_size">Size:</label>  -->
+              <input type="text" name="size" maxlength="50" id="id_size" placeholder="Enter Size">
+           <!-- <label for="id_description">Description:</label> -->
+              <textarea name="description" cols="40" rows="10" id="id_description" placeholder="Description/Information goes here"></textarea>
+            <label for="id_in_stock">In stock:</label>
+              <input type="checkbox" name="in_stock" id="id_in_stock">
+            <label for="id_sold">Sold:</label>
+              <input type="checkbox" name="sold" id="id_sold">
+          <!--  <label for="id_po_number">Po number:</label> -->
+              <input type="text" name="po_number" maxlength="50" id="id_po_number" placeholder="Enter PO Number/Date">
+           <!-- <label for="id_confirmation_r">Confirmation r:</label> -->
+           <!--   <input type="text" name="confirmation_r" maxlength="100" id="id_confirmation_r" placeholder="confirmation_r/file-to-upload">-->
+            <select name="confirmation_r" id="id_confirmation_r">
+                <option value="" selected>Select a Confirmation Report</option>
+                {% for x in confirm %}
+                <option value="{{ x.id }}">{{ x.key }}</option>
+                {% endfor %}
+            </select>
+           <!-- <label for="id_price">Price:</label>
+              <ul class="errorlist"><li>This field is required.</li></ul> -->
+              <input type="number" name="price" required="" id="id_price" placeholder="Price**">
+         <!--   <label for="id_picture">Picture:</label>
+              <input type="text" name="picture" maxlength="100" id="id_picture" placeholder="images/image-file-upload-to-upload">-->
+            <select name="picture" id="id_picture">
+                <option value="" selected>Select a Picture</option>
+                {% for x in pict %}
+                <option value="{{ x.id }}">{{ x.key }}</option>
+                {% endfor %}
+            </select>
+            <button class="submit-new" type="submit">Create New Item</button>
+        </form>
+
+        </div>
+        <div id="display-right" class="display-right">
+        <div class="edit-btns-group">
+            <button id="display_id_btn" class="btnchanger" onclick=idChange()>Change display Item</button>
+            <button id="name_on_btn" class="btnchanger" onclick=NameChange()>Change Name</button>
+            <button id="price_btn" class="btnchanger" onclick=PriceChange()>Change Price</button>
+            <button id="size_btn" class="btnchanger" onclick=sizeChange()>Change Size</button>
+            <button id="serial_number_btn" class="btnchanger" onclick=serialNumberChange()>Change Serial Number</button>
+            <button id="due_date_btn" class="btnchanger" onclick=dueDateChange()>Change Due Date</button>
+            <button id="po_number_btn" class="btnchanger" onclick=poNumberChange()>Change PO Number</button>
+            <button id="description_btn" class="btnchanger" onclick=descriptionChange()>Change Description</button>
+            <button id="instockclicker" class="btnchanger" onclick=inStockChange()>Change In Stock</button>
+            <button id="soldclicker" class="btnchanger" onclick=soldChange()>Change Sold</button>
+            <button id="deletebtn" class="btnchanger" onclick=deleteContainer()>Delete Item</button>
+
+        </div>
+        <div id="main-edit-div">
+            <div id='div-change' class='none' >
+                 <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
+                    <!-- <input type='hidden' value='/builder' name='next'> -->
+                {% csrf_token %}
+                     <div id="change-display" class="change-display"></div>
+                 </form>
+            </div>
+            <div id="div-id-change" class="none">
+                <form id="form-id-change" action="/api/api" method="POST" onsubmit="updateFields(event)">
+                    {% csrf_token %}
+                    <!--<input type="hidden" value="/builder" name="next"> -->
+                    <div id="change-display-id" class="change-display"></div>
+                </form>
+                <form id="form-id-change2" class="id-dropdown-form" action="/api/api" method="POST" onsubmit="updateFields(event)">
+                    {% csrf_token %}
+                    <!-- <input type="hidden" value="/builder" name="next"> -->
+                    <select name="id">
+                        <option value="" selected disabled hidden>Choose a Container from the list!</option>
+                        {% for x in dropdown %}
+                        <option value="{{ x.id }}">{{ x.id }} : {{ x.type }}--{{ x.name }} -- {{ x.serial_number }} -- In Stock: {{ x.in_stock }} -- Sold: {{ x.sold }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit">submit</button>
+                </form>
+
+            </div>
+            <div class="clicker" onclick="closeFields()"><div class="container-display" id="container-display"></div></div>
+        </div>
+    </div>
+    </div>
+
+
+    <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
+{% endblock %}
