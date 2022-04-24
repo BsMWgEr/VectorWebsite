@@ -1,0 +1,312 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/canopies-styles.css' %}">
+{% endblock %}
+{% block scroll %} Scroll();{% endblock %}
+{% block content %}
+
+    <div class="main-container">
+    <div class="instock">
+        <div class="display-none" id="filter2">
+            <div class="grid2">
+                <div class="filter"><a href="/">Home</a></div>
+                <div class="filter"><a href="/instock/">In Stock</a></div>
+                <div class="filter"><a href="/vector3/">Vector</a></div>
+                <div class="filter"><a href="/tandem/">Tandem</a></div>
+                <div class="filter"><a href="/student/">Student</a></div>
+                <div class="filter"><a href="/javelin-odyssey/">Javelin</a></div>
+                <div class="filter"><a href="/#contact-footer">Contact Us!</a></div>
+                <div class="left-tag" id="sidebar-tag"><p class="sidebar-tag">NAVIGATION</p></div>
+                {% if stuff %}
+                <div class="filter"><a href="/admin/" target="_blank">Admin</a></div>
+                <div class="filter"><a href="manager/builder/" target="_blank">Add Item</a></div>
+                {% endif %}
+            </div>
+        </div>
+        {% if stuff %}
+        <p class="admin-banner">You are currently viewing an Admin-View logged in as {{ user.username }}</p>
+        {% endif %}
+        <div id="div-top">
+            <h1>CANOPIES IN STOCK OR COMING SOON</h1>
+            <p>Our focus here has always been on stocking Vector and then Javelin containers,
+                because they were the hard piece to find when trying to put a system together.
+                Lately though, and for several reasons, canopy manufacturers have been having
+                trouble keeping certain canopies in stock. Specifically, for our clientele,
+                the Sabre-3 has been impossible to find so we are starting to buy a few ourselves
+                for stock and we will continue to do so until the situation improves. The canopies
+                are listed here by size first and then by arrival date. A few are in stock but
+                most are due over the next three months. </p>
+            <h2>PD Sabre-3</h2>
+        </div>
+        <div id="filter" class="display-opac">
+            <div class="grid">
+            <div class="filter"><a href="/canopies/#div-top">Top</a></div>
+            <div class="filter"><a href="/canopies/#div-230">230's</a></div>
+            <div class="filter"><a href="/canopies/#div-210">210's</a></div>
+            <div class="filter"><a href="/canopies/#div-190">190's</a></div>
+            <div class="filter"><a href="/canopies/#div-170">170's</a></div>
+            <div class="filter"><a href="/canopies/#div-150">150's</a></div>
+            <div class="filter"><a href="/canopies/#div-135">135's</a></div>
+            <div class="filter"><a href="/canopies/#div-120">120's</a></div>
+
+            </div>
+        </div>
+
+        <div id="div-120" class="sections">
+        <h1>120's</h1>
+        {% for x in containers_120 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-135" class="sections">
+        <h1>135's</h1>
+        {% for x in containers_135 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-150" class="sections">
+        <h1>150's</h1>
+        {% for x in containers_150 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-170" class="sections">
+        <h1>170's</h1>
+        {% for x in containers_170 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-190" class="sections">
+        <h1>190's</h1>
+        {% for x in containers_190 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-210" class="sections">
+        <h1>210's</h1>
+        {% for x in containers_210 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        <div id="div-230" class="sections">
+        <h1>230's</h1>
+        {% for x in containers_230 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'javascript/canopies.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'images/e53ea5_d747d21e4fc34a69b289aa2382dfc606.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/e53ea5_d747d21e4fc34a69b289aa2382dfc606.png' %}">
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/nav-styles.css' %}">
+    {% block title %}{% endblock %}
+</head>
+<body onscroll="{% block scroll %}{% endblock %}" >
+  <div id="nav-home" class="nav-container"  {% block js %}{% endblock %} >
+      <button class="none" id="nav-button" onclick="NavButton()"><p>NAVIGATION</p></button>
+
+        <div class="left-nav" id="left-nav">
+            <div class="logo" id="logo-div"><img src="{% static 'images/logo.png' %}"></div>
+            <div class="phone-number" id="phone-number"><p>CALL NOW 772 713-8297</p></div>
+            <div class="login" id="login"><a href="/users/login/">LOGIN</a> </div>
+            <div class="sidebar-search" id="sidebar-search">
+                <form action="{% if admin %}/search/{% else %}/search/{% endif %}" method="GET">
+                    <input id="s1" class="searchbar" type="text" placeholder="Search the Site" name="q"/>
+                    <input id="s2" class="search-btn" value="Search" type="submit" />
+                </form>
+            </div>
+
+            <div class="links" id="links" >
+                <div class="nav-links"><a class="top-nav-links" id="home-btn" href="/">HOME</a></div>
+                <!--<div class="nav-links"><a class="top-nav-links" id="in-stock-btn" href="/instock/">IN STOCK NOW</a></div>-->
+                <div class="nav-links"><a class="top-nav-links" id="vector3-btn" href="/cs-sportrigs/">SPORT RIGS</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-sportrigs/">In Stock</a>
+                        <a href="/cs-sportrigs/">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="tandem-btn" href="/cs-tandem/">TANDEM</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-tandem/">In Stock</a>
+                        <a href="/cs-tandem/">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="student-btn" href="/cs-student/">STUDENT</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-student/">In Stock</a>
+                        <a href="/cs-student/">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="canopies-btn" href="/cs-canopies/">CANOPIES</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-canopies/">In Stock</a>
+                        <a href="/cs-canopies/">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="javelin-btn" href="/cs-javelin/">JAVELIN ODYSSEY</a>
+                    <div class="dropdown-content">
+                        <a href="/instock-javelin/">In Stock</a>
+                        <a href="/cs-javelin/">Coming Soon</a>
+                    </div>
+                </div>
+                <div class="nav-links"><a class="top-nav-links" id="contact-btn" onclick="Scrolled()" href="/#contact-footer">CONTACT</a></div>
+                <div class="f-book" id="f-book">
+                    <a class="f-book-btn" href="https://www.facebook.com/fullflightsports/">
+                        <img class="f-book-img" src="{% static 'images/fbook.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% block content %}
+{% endblock %}
+<script type="text/javascript" src="{% static 'javascript/index.js' %}"></script>
+</body>
+</html>

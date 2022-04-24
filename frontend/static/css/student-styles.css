@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+#student-btn {
+    color: #b5db1a;
+}
+
+#student-btn:hover {
+    color: white;
+}
+
+.box {
+    border-radius: 10px;
+}
+
+.top-box {
+    margin-left: 10%;
+    width: 70%;
+    height: 200px;
+    color: #b5db1a;
+    background: black;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.top-box h1 {
+    padding: 20px;
+    font-weight: 100;
+}
+
+.bottom-box {
+    margin-left: 10%;
+    width: 70%;
+    height: 100px;
+    color: black;
+    background: #b5db1a;
+    font-size: 20pt;
+    text-align: center;
+
+}
+
+.bottom-box p {
+    margin-top: 0;
+}
+
+.main-container {
+    margin-left: 10%;
+    width: 70%;
+}
+
+.instock {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.container {
+    background: black;
+    display: grid;
+    margin-top: 40px;
+    box-shadow: 5px 5px 25px black;
+    border-radius: 10px;
+}
+
+.inner-container {
+    color: white;
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    padding: 20px;
+    font-size: 12pt;
+}
+
+.description {
+    margin-top: 3%;
+    margin-bottom: 6%;
+    color: #bebcc2;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.description:hover {
+    color: white;
+}
+
+
+.container-right p {
+    display: inline;
+    margin-left: 20px;
+}
+
+.container-right a {
+    margin-left: 50px;
+}
+
+.container-left img {
+
+}
+
+.container-right {
+    margin-left: 50px;
+    font-family: Arial;
+}
+
+.color-student {
+    color: #b5db1a;
+    font-weight: 1000;
+}
+
+#color-student-a:hover {
+    background-color: rgba(181, 219, 26, 0.6);
+}
+
+.price-student {
+    color: black;
+    background: #b5db1a;
+    font-weight: 1000;
+    padding: 2px;
+}
+
+.price-student:hover {
+    color: white;
+    background-color: rgba(181, 219, 26, 0.5);
+}
+
+.sold-img {
+    position: absolute;
+    width: 190px;
+    transform: translate(-105%, 5%)
+}

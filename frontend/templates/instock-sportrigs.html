@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/instock-sportrigs.css' %}">
+{% endblock %}
+{% block title %}
+    <title>In Stock Sport Rigs</title>
+{% endblock %}
+{% block scroll %}ScrollingNavBar();{% endblock %}
+{% block content %}
+    <div class="main-container">
+    <div class="instock">
+    <h1>Currently In Stock</h1>
+        {% for x in containers %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left">
+                            <img src="{% static '' %}{{ x.picture }}" height="140" width="212">
+                            {% if x.sold %}
+                                <img class="sold-img" src="{% static sold.gif %}">
+                            {% endif %}
+                        </div>
+                        <div class="container-right">
+                            <p class="color-vector">Brand New Vector {{ x.name }}</p>
+                            {% if x.serial_number %}
+                                <p class="color-vector">Serial #{{ x.serial_number }}</p>
+                            {% else %}
+                                <p class="color-vector">Serial #: TBD</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-vector">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-vector">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-vector" id="color-vector-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/home-styles.css' %}">
+{% endblock %}
+{% block title %}
+    <title>Stock Vector Rigs</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+    <div class="main-container">
+        <div class="main-left">
+            <h1>FULL FLIGHT PARACHUTE SALES, INC</h1>
+            <h3>WE ONLY STOCK THE BEST HARNESS/ CONTAINERS IN THE INDUSTRY.
+                THESE CONTAINERS ARE ALL READY TO BE PACKED UP AND JUMPED TODAY.
+                TALK WITH OUR EXPERTS NOW,  WE REALLY KNOW THE PRODUCT.
+            </h3>
+            <div class="contact-div"><a class="contact-a" href="/#contact-footer">CONTACT OUR SUPPORT TEAM</a></div>
+            <div class="stillbrave">
+                <div><img class="stillbrave-img" src="{% static 'images/StillBrave-1.jpg' %}"></div>
+                <div><h4>Please have a look at the good work being done by this skydiver run charity. </h4></div>
+            </div>
+        </div>
+        <div class="front-page-pic">
+            <img src="{% static 'images/home-pic.jpg' %}">
+
+        </div>
+    </div>
+
+
+
+    </main>
+    <div class="middle-home">
+        <div class="middle-logos">
+            <div class="middlelogos"><img src="{% static 'images/m-series.jpg' %}"></div>
+            <div class="middlelogos"><img src="{% static 'images/micron.jpg' %}"></div>
+            <div class="middlelogos"><img src="{% static 'images/vector.jpg' %}"></div>
+        </div>
+    </div>
+    <div class="bottom-home">
+        <div class="bottom-left">
+            <h2>Stock Vector Rigs</h2>
+            <p>We now have over 50 brand new vector containers coming into our stock program every year to give our customers their best chance to find the container they need  - in their size. </p>
+            <p>As far as we know, these are the only stock rigs available anywhere in the country, and perhaps in the entire industry!  </p>
+            <h3>In Stock</h3>
+            <p>At any given time there will be about 12 to 15 containers in stock and another 15 in the Coming Soon section. Let's get your new Vector on it's way to you today. The shipment is fully insured, both domestic and international.</p>
+            <div class="divbtnone"><a class="divbtnone-a" href="/instock/">See All Stock Vectors</a></div>
+            <div class="divbtntwo"><a class="divbtntwo-a" href="/javelin-odyssey/">Stock Javelin Odysseys></a></div>
+        </div>
+        <div>
+            <div class="canopies">
+                <div class="canopies-inside">
+                <h1>CANOPIES</h1>
+                <h4>We are dealers for: PERFORMANCE DESIGNS, ICARUS USA, AERODYNE, & NZ AEROSPORTS. </h4>
+                <p>All canopies are sold at the manufacturer's lowest price. </p>
+                <div class="canopiesbtndiv"><a href="/#contact-footer" class="button-canopies" >CONTACT US HERE</a></div>
+                </div>
+            </div>
+            <div class="add">
+                <div class="add-inside">
+                <h1>ADD's</h1>
+                <p>CYPRES II       VIGIL Quatro</p>
+                <P>$1200.00          $1190.00</P>
+                <div class="addbtndiv"><a href="" class="button-add">Check ADD'S</a></div>
+                <div class="add-link-top"><a class="add-link-top-a" href="###">Vigil Product Advisory 01/17</a></div>
+                <div class="add-link-bottom"><a class="add-link-top-a" href="###">Cypress Extended Service Announcement</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-logos">
+        <div class="l"><img src="{% static 'images/1.jpg' %}"></div>
+        <div class="l"><img src="{% static 'images/2.jpg' %}"></div>
+        <div class="l"><img src="{% static 'images/3.jpg' %}"></div>
+        <div class="l"><img src="{% static 'images/4.jpg' %}"></div>
+    </div>
+    <div class="contact-footer" id="contact-footer">
+    <div class="contact-us">
+    <p id="ctg">Contact Us</p>
+    <p id="ctg2">Send a message or Call us: 772-713-8297</p>
+    <p id="ctg3">Question or Comment ?</p>
+    <p id="ctg4">Tell us what's on your mind and we'll see if we can help.</p>
+   <form class="contact-form" method="POST"  id="">
+                {% csrf_token %}
+                <div class="email" id="post-form1">
+                    {{ form.email }}
+                </div>
+                <div class="subject">
+                    {{ form.subject }}
+                </div>
+                <div class="comment">
+                    {{ form.comment }}
+                </div>
+                <button class="contact-submit" type="submit">Submit</button>
+            </form>
+    </div>
+    <div class="v3logo"><img class="v3logo-img" src="{% static 'images/v3logo.png' %}"></div>
+    </div>
+{% endblock %}

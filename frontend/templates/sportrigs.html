@@ -1,0 +1,96 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/vector3-styles.css' %}">
+{% endblock %}
+{% block title %}<title>Sport Rigs</title>{% endblock %}
+{% block scroll %}ScrollingNavBar();{% endblock %}
+{% block content %}
+<div class="main-container">
+    <div class="instock">
+    <h1>Coming Soon</h1>
+    <h2>Please Note: UPT is now 8 weeks behind - Price Increase Effective 1/21/22</h2>
+        {% for x in containers %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left">
+                            <img src="{% static '' %}{{ x.picture }}" height="140" width="212">
+                            {% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}
+                        </div>
+                        <div class="container-right">
+                            <p class="color-vector">Brand New Vector {{ x.name }}</p>
+                            {% if x.serial_number %}
+                                <p class="color-vector">Serial #{{ x.serial_number }}</p>
+                            {% else %}
+                                <p class="color-vector">Serial #: TBD</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-vector">{{ x.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-vector">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-vector" id="color-vector-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+    <!--
+    <script>
+    const element = document.getElementById('tweets')
+    element.innerHTML = "<button style='width: 100px; height: 100px' onclick=handleElement()>Display </button>"
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = '/cookie'
+    const responseType = 'json'
+    let f;
+
+     function handleElement2() {
+         element.innerHTML = "<button style='width: 100px; height: 100px' onclick=handleElement()>Display </button>"
+     }
+
+    function formatElement(element) {
+        return "<div><h1>" + element.id + "</h1>" + "<p>" + element.content + "</p><p>" + "Price: $" + element.price + "</p></div>"
+    }
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function() {
+        const serverResponse = xhr.response
+        let listItems = serverResponse.response
+        let final_str = ""
+        let i;
+        for (i=0;i<listItems.length; i++){
+            let obj = listItems[i]
+            let current = formatElement(obj)
+            final_str += current
+        }
+        final_str += "<button style='width: 100px; height: 100px' onclick=handleElement2()>Display </button>"
+        f = final_str
+
+
+    }
+    xhr.send()
+
+    function handleElement() {
+        if (document.getElementById('tweets').innerHTML !== f) {
+            element.innerHTML = f
+        }
+    }
+    </script>
+    -->
+{% endblock %}
+

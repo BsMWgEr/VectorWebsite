@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+#javelin-btn {
+    color: #b5db1a;
+}
+
+#javelin-btn:hover {
+    color: white;
+}
+
+.main-container {
+    margin-left: 10%;
+    width: 70%;
+}
+
+.outer-container {
+    width: 100%;
+    height: 100%;
+    background: white;
+    margin-top: 30px;
+}
+
+.container {
+    background: black;
+    display: grid;
+    margin-top: 40px;
+    box-shadow: 5px 5px 25px black;
+    border-radius: 10px;
+}
+
+.inner-container {
+    color: white;
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    padding: 20px;
+    font-size: 12pt;
+
+}
+
+.description {
+    margin-top: 3%;
+    margin-bottom: 6%;
+    color: #bebcc2;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.description:hover {
+    color: white;
+}
+
+
+.container-right p {
+    display: inline;
+    margin-left: 20px;
+}
+
+.container-right a {
+    margin-left: 50px;
+}
+
+.container-left img {
+
+}
+
+.container-right {
+    margin-left: 50px;
+    font-family: Arial;
+}
+
+.color-javelin {
+    color: #b5db1a;
+    font-weight: 1000;
+}
+
+#color-javelin-a:hover {
+    background-color: rgba(181, 219, 26, 0.6);
+}
+
+.price-javelin {
+    color: black;
+    background: #b5db1a;
+    font-weight: 1000;
+    padding: 2px;
+}
+
+.price-javelin:hover {
+    color: white;
+    background-color: rgba(181, 219, 26, 0.5);
+}
+
+.sold-img {
+    position: absolute;
+    width: 190px;
+    transform: translate(-105%, 5%)
+}
+
+.jo-logo-1 {
+    display: inline-flex;
+    margin: 50px 0 0 300px;
+}
+
+.jo-logo-2 {
+    display: inline-flex;
+    float: right;
+}

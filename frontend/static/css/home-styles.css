@@ -1,0 +1,368 @@
+body {
+    background: black;
+    margin: 0;
+    font-family: Arial;
+}
+
+#home-btn {
+    color: #b5db1a;
+}
+
+#home-btn:hover {
+    color: white;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 42% 100%;
+    height: 100%;
+    background: #242323;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.main-left {
+    color: white;
+    margin-top: 30px;
+}
+
+.main-left h1 {
+    font-family: Helvetica;
+    color: #b5db1a;
+    transform: translate(50%, 0);
+    width: 300px;
+    font-size: 16pt;
+}
+
+.main-left h3 {
+    margin-top: 50px;
+    transform: translate(50%, 0);
+    width: 300px;
+    font-size: 14pt;
+    font-family: "Arial Narrow";
+}
+
+
+.contact-div {
+    margin-top: 50px;
+    width: 300px;
+    height: 50px;
+    background: #b5db1a;
+    transform: translate(50%, 0);
+    font-weight: 1000;
+
+}
+
+.contact-a {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    width: 100%;
+    height: 70%;
+    color: black;
+}
+
+.contact-div:hover {
+    background-color: orangered;
+    transition: .5s;
+    box-shadow: 5px 5px 25px white;
+}
+
+.contact-a:hover {
+    color: white;
+}
+
+
+.front-page-pic {
+    overflow: hidden;
+    margin-left: 5%;
+
+}
+
+.stillbrave {
+    display: grid;
+    position: relative;
+    transform: translate(50%, 40%);
+    width: 300px;
+
+}
+
+.stillbrave h4 {
+    color: black;
+    transform: translate(0, -60%);
+    background-color: white;
+    font-size: 14pt;
+    padding: 10px;
+}
+
+.middle-home {
+    background: #fafafa;
+    height: 150px;
+}
+
+.middle-logos {
+}
+.middlelogos {
+    margin-left: 8%;
+    margin-top: 3%;
+    display: inline-flex;
+}
+
+.bottom-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #ffffff;
+    height: 800px;
+}
+
+.bottom-home h2 {
+    margin: 0;
+}
+
+.bottom-left {
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 500px;
+}
+
+.bottom-left h2 {
+    color: #1963bb;
+    font-size: 24pt;
+    margin-bottom: 50px;
+}
+
+.bottom-left h3 {
+    color: #1963bb;
+    font-weight: 100;
+    font-size: 16pt;
+}
+
+.bottom-left p {
+    font-size: 14pt;
+    margin-top: 20px;
+}
+
+.canopies {
+    width: 500px;
+    height: 300px;
+    background: rgb(181 219 26);
+    margin: 50px 100px 100px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 25px;
+}
+
+.canopies-inside {
+    padding-right: 40px;
+    transform: translate(5%, 10%);
+}
+
+.canopies-inside h1 {
+    border-bottom: 2px black solid;
+    padding-bottom: 20px;
+    width: 100px;
+}
+
+.canopies-inside p {
+    margin-top: 30px;
+    color:#1963bb;
+    font-size: 14pt;
+}
+
+.add {
+    margin: 100px 100px 100px 0;
+    width: 500px;
+    height: 300px;
+    background: #b5db1a;
+    border-radius: 10px;
+    box-shadow: 5px 5px 25px;
+}
+
+.add-inside {
+    transform: translate(5%, 6%);
+}
+
+.add-inside h1 {
+    border-bottom: 2px solid black;
+    width: 100px;
+    padding-bottom: 20px
+}
+
+.footer-logos {
+    display: flex;
+    height: 150px;
+    background: #fafafa;
+    padding-left: 7%;
+}
+
+.footer-logos img {
+    margin: 50px 70px;
+}
+
+.contact-footer {
+    background-color: black;
+    height: 700px;
+    border-top: 5px double yellow;
+    border-bottom: 5px double yellow;
+}
+
+.contact-us {
+    margin: 100px 35%;
+    color: white;
+    width: 400px;
+    text-align: center;
+}
+
+.contact-footer p {
+    margin: 10px 0 0 0;
+}
+
+.canopiesbtndiv {
+    width: 200px;
+    height: 30px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px;
+}
+
+.addbtndiv {
+    width: 200px;
+    height: 30px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px;
+}
+
+.button-add {
+    display:flex;
+    justify-content: center;
+    padding-top: 4%;
+    height: 100%;
+    color: black;
+}
+
+.addbtndiv:hover {
+    background: black;
+}
+
+.addbtndiv:hover a {
+    color: white;
+}
+
+.button-canopies {
+    display:flex;
+    justify-content: center;
+    padding-top: 4%;
+    height: 100%;
+    color: black;
+}
+
+.canopiesbtndiv:hover {
+    background: black;
+}
+
+.canopiesbtndiv:hover a{
+    color: white;
+}
+
+.divbtnone {
+    margin: 80px 10px 10px 10px;
+    width: 250px;
+    height: 40px;
+    background-color: #b5db1a;
+}
+
+.divbtnone-a {
+    height: 70%;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.divbtnone:hover {
+    background: orangered;
+}
+
+.divbtntwo {
+    margin: 40px 0 0 10px;
+    width: 250px;
+    height: 40px;
+    background-color: #b5db1a;
+}
+
+.divbtntwo-a {
+    height: 70%;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.divbtntwo:hover {
+    background: orangered;
+}
+
+.add-link-top {
+    margin-top: 30px;
+}
+
+.add-link-top-a {
+    color: #5f5e61;
+}
+
+.add-link-top-a:hover {
+    color: white;
+    text-shadow: 2px 2px 3px black;
+}
+
+.add-link-bottom {
+    margin-top: 10px;
+}
+
+.add-link-bottom-a {
+    color: #5f5e61;
+}
+
+.add-link-bottom-a:hover {
+    color: white;
+    text-shadow: 2px 2px 3px black;
+}
+
+.contact-form {
+
+}
+
+.contact-form div {
+    margin-top: 10px;
+}
+
+.contact-submit {
+    width: 200px;
+    height: 50px;
+    border: 0 black solid;
+    background: #b5db1a;
+    transform: translate(0, -50%);
+}
+
+#ctg {
+    color: #b5db1a;
+    font-size: 20pt;
+}
+
+#ctg2 {
+    font-size: 16pt;
+}
+
+#ctg3 {
+    color: #b5db1a;
+    font-size: 14pt;
+}
+
+.v3logo {
+    display:flex;
+    float: right;
+    margin-right: 150px;
+}
+
+#nav-home {
+    margin: 0;
+    width: 100%;
+}

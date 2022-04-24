@@ -1,0 +1,220 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+        <link rel="stylesheet" href="{% static 'css/in-stock-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container"  id="main" onscroll="Scroll()">
+    <div class="instock" id="instock-main">
+    {% if stuff %}
+        <p class="admin-banner">You are currently viewing Admin-Views logged in as {{ user.username }}</p>
+        <ul>
+            <li><h1 style="color: red">Click an Item to edit. Changes are only made when you press the submit button.</h1></li>
+            <li><h1 style="color: red">To get out of the edit view, click on the item you selected. (Click to edit/Click to go back)</h1></li>
+        </ul>
+    {% endif %}
+    <h1>IN STOCK NOW</h1>
+    <h2>
+        Most equipment is sold before it gets to us these past couple
+        of years but the following items are on the
+        shelf and ready to ship..............................
+    </h2>
+    <div id="filter" class="display-none">
+            <div class="grid">
+            <div class="filter"><a href="/">Home</a></div>
+            <div class="filter"><a href="/vector3/">Vector</a></div>
+            <div class="filter"><a href="/tandem/">Tandem</a></div>
+            <div class="filter"><a href="/student/">Student</a></div>
+            <div class="filter"><a href="/javelin-odyssey/">Javelin</a></div>
+            {% if admin %}
+                <div class="filter"><a href="/admin/" target="_blank">Admin</a></div>
+                <div class="filter"><a href="/builder/" target="_blank">Add Item</a></div>
+            {% endif %}
+            </div>
+        </div>
+        <h4>Search by item name, description info, serial #, or whether in stock/sold</h4>
+        <h4>(ex. 'J-1 KS' or # ex. '53572' or 'sold' or 'in stock' or a search term like, " fit range of 5' 4" to 5' 7" ")</h4>
+     <form action="{% if admin %}/admin-instock/{% else %}/instock/{% endif %}" method="GET">
+        <input class="searchbar" type="text" placeholder="Search term(s)" name="q"/>
+        <input class="search-btn" value="Search" type="submit" />
+    </form>
+    <div id="super-div" class="display-none">
+        <div id="inner-super-div" class="inner-super-div">
+         <div class="edit-btns-group">
+            <button id="name_on_btn" class="btnchanger" onclick=NameChange()>Change Name</button>
+            <button id="price_btn" class="btnchanger" onclick=PriceChange()>Change Price</button>
+            <button id="size_btn" class="btnchanger" onclick=sizeChange()>Change Size</button>
+            <button id="due_date_btn" class="btnchanger" onclick=dueDateChange()>Change Due Date</button>
+            <button id="description_btn" class="btnchanger" onclick=descriptionChange()>Change Description</button>
+            <button id="instockclicker" class="btnchanger" onclick=inStockChange()>Change In Stock</button>
+            <button id="serial-number-clicker" class="btnchanger" onclick=SerialNumberChange()>Change Serial Number</button>
+            <button id="soldclicker" class="btnchanger" onclick=soldChange()>Change Sold</button>
+            <button id="deletebtn" class="btnchanger" onclick=deleteContainer()>Delete Item</button>
+        </div>
+            <form action='/api'  method='POST' onsubmit="updateFields(event)" >
+            {% csrf_token %}
+            <div id="super-form"></div>
+            </form>
+        </div>
+    </div>
+
+    {% if w %}<h5>Search for: '{{ search_term }}'   Found: {{ search_count }} matching items</h5>{% endif %}
+    {% if no_return %}<h6>No matching results</h6>{% endif %}
+    {% if w %}
+    {% for x in w %}
+        <div id="container-{{ x.id }}" class="container" onclick="superButton({{ x.id }})">
+            <div class="inner-container">
+                <div class="container-left">
+                    <img src="./../../media/{{ x.picture }}" height="140" width="212">
+                    {% if x.sold %}
+                        <img id="sold-img-{{ x.id }}" class="sold-img" src="./../static/images/sold.gif">
+                    {% endif %}
+                </div>
+                <div class="container-right">
+                    {% if stuff %}
+                        <span id="id-display-{{ x.id }}" class="testing" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                    {% endif %}
+                    <p id="name-display-{{ x.id }}" class="color-vector">{{ x.name }}</p>
+                    {% if x.serial_number %}
+                        <p >Serial #</p><p class="color-vector">{{ x.serial_number }}</p>
+                    {% endif %}
+                    {% if x.in_stock %}
+                        <p id="p-instock-{{ x.id }}">IN STOCK NOW</p>
+                    {% else %}
+                        <p>{{ x.due_date }}</p>
+                    {% endif %}
+                    {% if x.size %}
+                        <p class="color-vector">{{ x.size }}</p>
+                    {% endif %}
+                    {% if x.description %}
+                        <div id="description-info-{{ x.id }}" class="description">{{ x.description }}</div>
+                    {% endif %}
+                    {% if x.price %}
+                        <p>$</p><p id="price-description-{{ x.id }}" class="price-vector">{{ x.price }}</p>
+                    {% endif %}
+                    {% if x.in_stock %}
+                        <p>IN STOCK NOW</p>
+                    {% else %}
+                        <p id="due_date-description-{{ x.id }}">{{ x.due_date }}</p>
+                    {% endif %}
+                    {% if x.po_number %}
+                        <p>{{ x.po_number }}</p>
+                    {% endif %}
+                    {% if x.confirmation_r %}
+                        <a class="color-vector" id="color-vector-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+    <h1>Vector Containers</h1>
+        {% for x in containers %}
+            {% if x.type == 'vector3' and x.in_stock %}
+                <div class="container" id="container-{{ x.id }}" onclick="superButton({{ x.id }})">
+                    <div class="inner-container">
+                        <div class="container-left">
+                            <img src="./../../media/{{ x.picture }}" height="140" width="212">
+                            {% if x.sold %}
+                                <img id="sold-img-{{ x.id }}" class="sold-img" src="./../static/images/sold.gif">
+                            {% endif %}</div>
+                        <div class="container-right">
+                            {% if stuff %}
+                                <span id="id-display-{{ x.id }}" class="testing" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p>Brand New Vector</p><p id="name-display-{{ x.id }}" class="color-vector">{{ x.name }}</p>
+                            {% if x.serial_number %}
+                                <p>Serial #: </p><p id="serial-number-{{ x.id }}" class="color-vector">{{ x.serial_number }}</p>
+                            {% else %}
+                                <p class="color-javelin">Serial #: TBD</p>
+                            {% endif %}
+
+                            {% if x.in_stock %}
+                                <p id="p-instock-{{ x.id }}">IN STOCK NOW</p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            {% if x.size %}
+                                <p id="size-description-{{ x.id }}" class="color-vector">{{ x.size }}</p>
+                            {% endif %}
+                            {% if x.description %}
+                                <div id="description-info-{{ x.id }}" class="description">{{ x.description }}</div>
+                            {% endif %}
+                            {% if x.price %}
+                                <p>$</p><p id="price-description-{{ x.id }}" class="price-vector">{{ x.price }}</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On: </p><p id="due_date-description-{{ x.id }}">{{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                                <p id="po-number-description-{{ x.id }}">{{ x.po_number }}</p>
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-vector" id="color-vector-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <h1>Javelin Containers</h1>
+        {% for x in containers %}
+            {% if x.type == 'javelin_odyssey' and x.in_stock %}
+                <div class="container" id="container-{{ x.id }}" onclick="superButton({{ x.id }})">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="./../../media/{{ x.picture }}" height="140" width="212">
+                            {% if x.sold %}
+                                <img id="sold-img-{{ x.id }}" class="sold-img" src="./../static/images/sold.gif">
+                            {% endif %}
+                        </div>
+                        <div class="container-right">
+                            {% if stuff %}
+                                <span id="id-display-{{ x.id }}" class="testing" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p id="name-display-{{ x.id }}" class="color-javelin">{{ x.name }}</p>
+                            {% if x.serial_number %}
+                                <p>Serial #</p><p id="serial-number-{{ x.id }}" class="color-javelin">{{ x.serial_number }}</p>
+                            {% else %}
+                                <p class="color-javelin">Serial #: TBD</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p id="p-instock-{{ x.id }}">IN STOCK NOW</p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            {% if x.size %}
+                                <p id="size-description-{{ x.size }}">{{ x.size }}</p>
+                            {% endif %}
+                            {% if x.description %}
+                                <div id="description-info-{{ x.id }}" class="description">{{ x.description }}</div>
+                            {% endif %}
+                            {% if x.price %}
+                                <p>$</p><p id="price-description-{{ x.id }}" class="price-javelin">{{ x.price }}</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p id="due_date-description-{{ x.id }}">{{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                                <p id="po-number-description-{{ x.id }}">{{ x.po_number }}</p>
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-javelin" id="color-javelin-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+</div>
+</div>
+
+    <script type="text/javascript" src="{% static 'javascript/in_stock.js' %}"></script>
+
+{% endblock %}

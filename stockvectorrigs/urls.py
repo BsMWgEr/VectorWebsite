@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
+admin.site.site_header = "Full Flight Sports"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('frontend.urls')),
+    path('api/', include('api.urls')),
+    path('manager/', include('backend.urls')),
+    path('users/', include('users.urls'))
 ]

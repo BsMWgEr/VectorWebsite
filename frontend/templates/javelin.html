@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/javelin-styles.css' %}">
+{% endblock %}
+{% block title %}
+    <title>Javelin-Odessey</title>
+{% endblock %}
+{% block scroll %}ScrollingNavBar();{% endblock %}
+{% block content %}
+ <div class="main-container">
+    <div class="outer-container">
+    <div class="jo-logo-1"><img src="{% static 'images/JavelinOdysseyLogo.jpg' %}"></div>
+    <div class="jo-logo-2"><img src="{% static 'images/JavelinOdysseyLogo2.jpg' %}"></div>
+    <h1>Coming Soon</h1>
+    <p>Our Stock Vector Program has been doing well, and we see a need for the same program with the Javelin Odyssey.
+        They are both brands I spent my entire career with and that I am proud to represent. Delivery times at Sun
+        Path are now double UPT at 26 weeks and even their pre-built stock rigs take 12 weeks for a custom harness.
+        We're starting off slow, but here are the first four Stock Javelin Odyssey's we have to offer. We look forward
+        to increasing our inventory next season.</p>
+    <p>As far as we know, these are the only true stock Javelin rigs available anywhere in the country, and perhaps in
+        the entire industry!  The 'Read More' link will take you to the confirmation report that contains all the
+        details of that container. A portion of our profits go to StillBrave.org, a skydiver run charity for non
+        medical aid to children with cancer. Spread the word and help us keep this stock program going.
+        Thank you, Lyle Presse</p>
+        {% for x in containers %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212">{% if x.sold %}<img class="sold-img" src="{% static 'sold.gif' %}">{% endif %}</div>
+                        <div class="container-right">
+                            <p class="color-javelin">{{ x.name }}</p>
+                            {% if x.serial_number %}
+                                <p class="color-javelin">Serial #{{ x.serial_number }}</p>
+                            {% else %}
+                                <P class="color-javelin">Serial #: TBD</P>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                {% if x.due_date %}
+                                    <p>{{ x.due_date }}</p>
+                                {% endif %}
+                            {% endif %}
+                            {% if size %}
+                                <p class="color-javelin">{{ x.size }}</p>
+                            {% endif %}
+                            {% if x.description %}
+                                <div class="description">{{ x.description }}</div>
+                            {% endif %}
+                            <p class="price-javelin">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                {% if x.due_date %}
+                                    <p>Due On : {{ x.due_date }}</p>
+                                {% endif %}
+                            {% endif %}
+                            {% if x.po_number %}
+                                <p>{{ x.po_number }}</p>
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-javelin" id="color-javelin-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
