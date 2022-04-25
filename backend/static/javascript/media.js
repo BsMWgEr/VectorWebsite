@@ -88,6 +88,7 @@ function constructFormData(policy, fileItem) {
     let x = fileItem
     let fd = new FormData() // multipart form
     let policyFields = policy.fields
+    policy.fields.key = "static/images/" + x.name
     let objectEntries = Object.entries(policyFields)
     console.log(objectEntries)
     for ( let [key, value] of  objectEntries){
@@ -113,7 +114,6 @@ function CreateImage(file_item){
 
 function usePolicyAndUpload(fileItem, policyData){
     policyData.key = "static/images/" + fileItem.name
-    policyData.fields.key = "static/images/" + fileItem.name
     console.log(policyData.key)
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
