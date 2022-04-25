@@ -112,8 +112,8 @@ function CreateImage(file_item){
 }
 
 function usePolicyAndUpload(fileItem, policyData){
-    policyData.key = fileItem.name
-    policyData.fields.key = fileItem.name
+    policyData.key = "static/images/" + fileItem.name
+    policyData.fields.key = "static/images/" + fileItem.name
     console.log(policyData.key)
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
