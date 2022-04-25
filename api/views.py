@@ -215,11 +215,11 @@ def UploadAPI(request):
         new.name = y
         new.save()
 
-    aws_instance = AWS()
-    q = "none"
-    if request == "PUT":
+        aws_instance = AWS()
+        q = "none"
         x = Image.objects.last()
         q = x.key
+
 
     presigned_data = aws_instance.presign_post_url(key=q)
 
