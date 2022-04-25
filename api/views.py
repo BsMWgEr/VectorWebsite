@@ -210,11 +210,17 @@ def UploadAPI(request):
     if request.GET:
         print(request.GET.get(''))
         y = request.GET.get('')
-        new = Image()
-        new.key = "images/" + y
-        new.name = y
-        new.save()
-
+        x = y.split(".")
+        if ".jpg" in x[1]:
+            new = Image()
+            new.key = "images/" + y
+            new.name = y
+            new.save()
+        else:
+            new = Image()
+            new.key = "confirmation_reports/" + y
+            new.name = y
+            new.save()
 
     aws_instance = AWS()
     x = Image.objects.last()
