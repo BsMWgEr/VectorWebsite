@@ -216,7 +216,7 @@ def UploadAPI(request):
         new.save()
 
     aws_instance = AWS()
-    q = {"key": "none"}
+    q = "none"
     if request == "PUT":
         x = Image.objects.last()
         q = x.key
