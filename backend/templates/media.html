@@ -21,10 +21,16 @@ or photos via this method! (There will be a private upload file section soon!)</
     OR search for s3 in the AWS Console search bar at the top of page after login. Select 'stockvectorigs' one under the bucket tab</p>
 <h4>NO SPACES IN File Name! (this can be fixed later, but for now. No spaces please!)</h4>
 <p>Upload Anything to Storage!</p>
+<div style="margin-left: 40%">
 <form method='POST' id='uploadForm'>
     {% csrf_token %}
     <input type='file' name='file' id='files' multiple='multiple' accept="image/*, video/*, audio/*, application/pdf" />
 </form>
+<div id='displayList'>
+    <p>Display List</p>
+    <div id="file-url"></div>
+</div>
+</div>
 <div class="all-files">
 <div class="left-div">
 <h1>Image Files</h1>
@@ -38,12 +44,7 @@ or photos via this method! (There will be a private upload file section soon!)</
 -->
 
 
-<div id='displayList'>
-    <p>Display List</p>
-    <div id="file-url"></div>
-    <ul>
-    </ul>
-</div>
+
 
 <ol>
     {% for x in bucket_object_name %}
