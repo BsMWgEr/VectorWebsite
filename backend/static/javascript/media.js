@@ -91,7 +91,7 @@ function constructFormData(policy, fileItem) {
     policy.fields.key = "static/images/" + x.name
     let objectEntries = Object.entries(policyFields)
     console.log(objectEntries)
-    for ( let [key, value] of  objectEntries){
+    for ( const [key, value] of  objectEntries){
         fd.append(key, value)
 
     }
@@ -113,8 +113,6 @@ function CreateImage(file_item){
 }
 
 function usePolicyAndUpload(fileItem, policyData){
-    policyData.key = "static/images/" + fileItem.name
-    console.log(policyData.key)
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
