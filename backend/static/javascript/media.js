@@ -114,7 +114,10 @@ function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
-    let awsUploadKey = "static/images/" + fileItem.name
+    let awsUploadKey = ""
+    if (fileItem.type === "image/jpg") {
+        awsUploadKey = "static/images/" + fileItem.name
+    } else awsUploadKey = "static/confirmation_reports/" + fileItem.name
     console.log(fileItem)
     console.log(policyData)
 
