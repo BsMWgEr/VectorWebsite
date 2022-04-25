@@ -97,7 +97,7 @@ function CreateImage(file_item){
     file_name = {key: file_item.name}
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://stockvectorrigs.herokuapp.com/api/createimageapi'
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi'
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
@@ -141,7 +141,7 @@ function usePolicyAndUpload(fileItem, policyData){
 
         let listElementId = fileItem.uploadListElID
         let liItem = document.getElementById(listElementId)
-        liItem.innerText = fileItem.name + " " + fileItem.size + " " + progress + "%"
+        liItem.innerText = awsUploadKey + " " + fileItem.size + " " + progress + "%"
         liItem.setAttribute('class', 'w-' + progress)
 
 
@@ -165,7 +165,7 @@ function usePolicyAndUpload(fileItem, policyData){
 
                 let listElementId = fileItem.uploadListElID
                 let liItem = document.getElementById(listElementId)
-                liItem.innerText = fileItem.name + " " + fileItem.size + " done. 100%"
+                liItem.innerText = awsUploadKey + " " + fileItem.size + " done. 100%"
                 liItem.setAttribute('class', 'w-done')
                 document.getElementById('file-url').innerHTML = '<a target="_blank" href=https://stockvectorrigs.s3.amazonaws.com/' + awsUploadKey + '>New Image File!!!</a>'
             } else {
