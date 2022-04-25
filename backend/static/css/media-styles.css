@@ -11,3 +11,14 @@
 .right-div {
 
 }
+
+#upload-div {
+    margin-left: 20%;
+    border: hidden;
+    box-shadow: 0 0 20px black;
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    background: rgba(100,100,25,.3);
+    padding: 10px;
+}
