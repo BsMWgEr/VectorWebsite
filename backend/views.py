@@ -10,9 +10,10 @@ from .models import InventoryObject, Item, PageVisitData, Image
 def media_view(request):
     if request.POST:
         print(request.POST)
+        x = request.POST.get('file')
         new = Image()
-        new.key = ""
-        new.name = ""
+        new.key = x
+        new.name = x
         new.save()
     buckets = s3.Bucket(name='stockvectorrigs')  # or just the variable AWS_BUCKET_NAME
     bucket_object_name = []
