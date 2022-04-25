@@ -208,8 +208,13 @@ def DownloadView(request, id, *args, **kwargs):
 
 def UploadAPI(request):
     aws_instance = AWS()
-    x = Image.objects.last()
-    key = str("500000" + x.key)
+    x = Image.objects.all().count()
+    key = str(x + 1)
+    new = Image()
+    new.key = key + ".jpg"
+    new.name = key
+    new.save()
+
     presigned_data = aws_instance.presign_post_url(key=key)
 
     return JsonResponse(presigned_data)
