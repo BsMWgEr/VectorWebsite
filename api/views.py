@@ -212,7 +212,7 @@ def UploadAPI(request):
     key = str(x + 1) + ".jpg"
     url = "static/images/"
     new = Image()
-    new.key = key + ".jpg"
+    new.key = url + key
     new.name = key
     new.save()
 
