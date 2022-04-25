@@ -128,7 +128,7 @@
                 + "<select name='picture' id='id_picture'>"
                 + "<option value='' selected>Select a Picture</option>"
                  {% for x in pict %}
-                + "<option value='" + {{ x.id }} + "'>" + {{ x.key }} + "</option>"
+                + "<option value='{{ x.id }}'>{{ x.key }}</option>"
                  {% endfor %}
                 +"</select>"
 
