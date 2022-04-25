@@ -210,13 +210,13 @@ def UploadAPI(request):
 
     print(request.GET.get(''))
 
-
+    y = request.GET.get('')
     aws_instance = AWS()
     x = Image.objects.all().count()
     key = str(x + 1) + ".jpg"
     url = "static/images/"
 
-    presigned_data = aws_instance.presign_post_url(key=url + key)
+    presigned_data = aws_instance.presign_post_url(key=url + y)
 
     return JsonResponse(presigned_data)
 
