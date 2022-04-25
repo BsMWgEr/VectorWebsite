@@ -127,7 +127,9 @@
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<select name='picture' id='id_picture'>"
                 + "<option value='' selected>Select a Picture</option>"
+                + "<option  value='selected-picture' selected>Choose a New Picture</option>"
                  {% for x in pict %}
+
                 + "<option value='{{ x.id }}'>{{ x.key }}</option>"
                  {% endfor %}
                 +"</select>"
@@ -136,6 +138,11 @@
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
+        {% for x in all_items %}
+            if (document.getElementById('e-id').innerHTML === document.getElementById('id').innerHTML) {
+                document.getElementById('selected-picture').innerHTML = "{{ x.picture }}"
+            }
+        {% endfor %}
     }
     </script>
     <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
