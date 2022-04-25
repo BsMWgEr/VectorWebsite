@@ -207,7 +207,7 @@ def DownloadView(request, id, *args, **kwargs):
 
 
 def UploadAPI(request):
-    y = request.POST
+    y = request
     print(y)
 
 
