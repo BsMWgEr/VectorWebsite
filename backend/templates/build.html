@@ -126,7 +126,6 @@
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<select name='picture' id='id_picture'>"
-                + "<option value='' selected>Select a Picture</option>"
                 + "<option  value='selected-picture' selected>Choose a New Picture</option>"
                  {% for x in pict %}
 
@@ -139,7 +138,7 @@
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
         {% for x in all_items %}
-            if (document.getElementById('e-id').innerHTML === document.getElementById('id').innerHTML) {
+            if (document.getElementById('e-id').innerHTML === "{{ x.id }}") {
                 document.getElementById('selected-picture').innerHTML = "{{ x.picture }}"
             }
         {% endfor %}
