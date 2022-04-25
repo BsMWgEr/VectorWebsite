@@ -174,6 +174,7 @@ def api_view(request):
         dict_serial_number = q_dict.get('serial_number')
         dict_duedate = q_dict.get('due_date')
         dict_description = q_dict.get('description')
+        dict_picture = q_dict.get('picture')
         dict_delete = q_dict.get('delete')
         if dict_name:
             Item.objects.filter(id=dict_id).update(name=dict_name)
@@ -193,6 +194,8 @@ def api_view(request):
             Item.objects.filter(id=dict_id).update(serial_number=dict_serial_number)
         if dict_po_number:
             Item.objects.filter(id=dict_id).update(po_number=dict_po_number)
+        if dict_picture:
+            Item.objects.filter(id=dict_id).update(po_number=dict_picture)
         if dict_delete:
             Item.objects.filter(id=dict_id).delete()
         if next_url is not None:
