@@ -79,6 +79,7 @@
             <button id="description_btn" class="btnchanger" onclick=descriptionChange()>Change Description</button>
             <button id="instockclicker" class="btnchanger" onclick=inStockChange()>Change In Stock</button>
             <button id="soldclicker" class="btnchanger" onclick=soldChange()>Change Sold</button>
+            <button id="confirm_btn" class="btnchanger" onclick=ConfirmChange()>Change Confirmation Report</button>
             <button id="picture_btn" class="btnchanger" onclick=PictureChange()>Change Picture</button>
             <button id="deletebtn" class="btnchanger" onclick=deleteContainer()>Delete Item</button>
 
@@ -134,6 +135,29 @@
                 +"</select>"
 
                 + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Picture</button>"
+            if (document.getElementById('e-id')) {
+                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+            }
+
+    }
+
+    function ConfirmChange() {
+
+            document.getElementById('deletebtn').className = 'btnchanger'
+            div_id_change.className = 'none'
+            change_display2.innerHTML = ''
+            div_change.className = 'div-change'
+            change_display.innerHTML =
+                "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
+                + "<select name='confirmation_r' id='id_confirmation_r'>"
+                + "<option  value='selected-picture' selected>Choose a New Picture</option>"
+                 {% for x in confirm %}
+
+                + "<option value='{{ x.id }}'>{{ x.key }}</option>"
+                 {% endfor %}
+                +"</select>"
+
+                + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
