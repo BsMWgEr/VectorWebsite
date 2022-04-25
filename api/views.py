@@ -211,7 +211,7 @@ def UploadAPI(request):
         print(request.GET.get(''))
         y = request.GET.get('')
         new = Image()
-        new.key = "static/images/" + y
+        new.key = "images/" + y
         new.name = y
         new.save()
 
