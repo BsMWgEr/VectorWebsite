@@ -145,6 +145,7 @@ def build_it(request):
     pict = Media.objects.all().filter(key__contains="images/")
     confirm = Media.objects.all().filter(key__contains="confirmation_reports/")
     form2 = BuildForm()
+    all_items = Item.objects.all()
 
     context = {
         'total_visits': total_visits,
@@ -153,5 +154,6 @@ def build_it(request):
         'pict': pict,
         'confirm': confirm,
         'form2': form2,
+        'all_items': all_items,
     }
     return render(request, "build.html", context=context)
