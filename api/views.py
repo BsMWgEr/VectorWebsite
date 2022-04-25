@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-
+import requests
 from backend.forms import BuildForm
 from backend.models import Item, InventoryObject, Image
 from stockvectorrigs.aws.utils import AWS
@@ -207,8 +207,8 @@ def DownloadView(request, id, *args, **kwargs):
 
 
 def UploadAPI(request):
-    print(request)
-    print(request.GET)
+
+    print(requests)
     aws_instance = AWS()
     x = Image.objects.all().count()
     key = str(x + 1) + ".jpg"
