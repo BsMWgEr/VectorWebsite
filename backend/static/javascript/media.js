@@ -48,9 +48,9 @@ function fileInputChanged(){
 
 function Upload_info(file_item){
     let data = {
-        name: fileItem.name,
-        raw_filename: fileItem.name,
-        filetype: fileItem.type
+        name: file_item.name,
+        raw_filename: file_item.name,
+        filetype: file_item.type
     }
     let jsonData = JSON.stringify(data)
 
