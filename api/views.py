@@ -208,8 +208,7 @@ def DownloadView(request, id, *args, **kwargs):
 
 def UploadAPI(request):
 
-    print(request.GET)
-    print(request.POST)
+    print(request.GET.get(''))
 
 
     aws_instance = AWS()
