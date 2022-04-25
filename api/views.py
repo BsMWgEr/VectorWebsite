@@ -224,6 +224,7 @@ def UploadAPI(request):
     aws_instance = AWS()
     x = Image.objects.last()
     q = x.key
+    print(q)
 
     presigned_data = aws_instance.presign_post_url(key=q)
 
