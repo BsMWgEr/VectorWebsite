@@ -46,26 +46,6 @@ function fileInputChanged(){
     }
 }
 
-function Upload_info(file_item){
-    let data = {
-        name: file_item.name,
-        raw_filename: file_item.name,
-        filetype: file_item.type
-    }
-    let jsonData = JSON.stringify(data)
-
-    const xhr = new XMLHttpRequest()
-    const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/upload-api'
-    const responseType = 'json'
-    xhr.responseType = responseType
-    xhr.open(method, url)
-    xhr.onload = function () {
-        const serverResponse = xhr.response
-        console.log('success')
-    }
-    xhr.send(jsonData)
-}
 
 
 function getPolicyAndUpload(fileItem){
@@ -135,6 +115,7 @@ function usePolicyAndUpload(fileItem, policyData){
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
     let awsUploadKey = policyData.fields.key
+    console.log(policyData)
 
 
 
