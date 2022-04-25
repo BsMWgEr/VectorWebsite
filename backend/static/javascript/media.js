@@ -41,7 +41,7 @@ function fileInputChanged(){
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
             getPolicyAndUpload(fileItem)
-            Upload_info(fileItem)
+
         }
     }
 }
