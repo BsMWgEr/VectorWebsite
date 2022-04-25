@@ -155,7 +155,7 @@ function usePolicyAndUpload(fileItem, policyData){
         let djUpdateData = {key: awsUploadKey}
         let djJsonUpdateData = JSON.stringify(djUpdateData)
         djJsonUpdateData = djJsonUpdateData
-        djHR.open(method, policyURL + "q=" + fileItem.name, true)
+        djHR.open(method, policyURL, true)
         djHR.setRequestHeader('Content-Type', 'application/json')
         djHR.setRequestHeader('X-CSRFTOKEN', crsfToken)
         djHR.onload = function() {
