@@ -163,6 +163,7 @@ def build_api_view(request):
 def api_view(request):
     q_dict = request.POST
     next_url = request.POST.get('next')
+    print(q_dict)
     if request.POST:
         dict_price = q_dict.get('price')
         dict_name = q_dict.get('name')
