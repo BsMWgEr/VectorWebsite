@@ -89,13 +89,13 @@ function constructFormData(policy, fileItem) {
     let fd = new FormData() // multipart form
     let policyFields = policy.fields
     let objectEntries = Object.entries(policyFields)
-    objectEntries[1][1] = x.name
     console.log(objectEntries)
     for ( let [key, value] of  objectEntries){
-        if (key === "key" || key === "name") {
+        if (key === 'key') {
             value = x.name
         }
         fd.append(key, value)
+
     }
     return fd
 }
