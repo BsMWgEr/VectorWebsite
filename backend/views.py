@@ -8,6 +8,12 @@ from .models import InventoryObject, Item, PageVisitData, Image
 
 @login_required
 def media_view(request):
+    if request.POST:
+        print(request.POST)
+        new = Image()
+        new.key = ""
+        new.name = ""
+        new.save()
     buckets = s3.Bucket(name='stockvectorrigs')  # or just the variable AWS_BUCKET_NAME
     bucket_object_name = []
     bucket_object2 = []

@@ -110,14 +110,9 @@ function CreateImage(file_item){
 function usePolicyAndUpload(fileItem, policyData){
 
     let fd = constructFormData(policyData)
-    console.log("Policy Data: ")
-    console.log(policyData)
-    console.log(fd)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
     let awsUploadKey = policyData.fields.key
-    console.log(awsUploadKey)
-
 
 
 

@@ -38,6 +38,7 @@ or photos via this method! (There will be a private upload file section soon!)</
 <form method='POST' id='uploadForm'>
     {% csrf_token %}
     <input type='file' name='file' id='files' multiple='multiple' accept="image/*, video/*, audio/*" />
+    <input type="submit" value="Upload">
 </form>
 
 <div id='displayList'>
