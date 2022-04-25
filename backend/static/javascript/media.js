@@ -1,4 +1,4 @@
-const baseURL = 'https://stockvectorrigs.herokuapp.com'
+const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
 let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
 let fileInput = document.getElementById('files')
