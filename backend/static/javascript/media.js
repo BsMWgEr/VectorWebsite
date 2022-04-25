@@ -110,6 +110,7 @@ function CreateImage(file_item){
 
 function usePolicyAndUpload(fileItem, policyData){
     policyData.name = "static/images/" + fileItem.name.toString()
+    policyData.key = "static/images/" + fileItem.name.toString()
     let fd = constructFormData(policyData)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
