@@ -78,7 +78,7 @@ function getPolicyAndUpload(fileItem){
             alert("File upload failed")
         }
     }
-
+    console.log(jsonData)
     xhr.send(jsonData)
 
 }
