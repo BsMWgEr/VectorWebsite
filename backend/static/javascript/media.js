@@ -117,7 +117,7 @@ function usePolicyAndUpload(fileItem, policyData){
     let awsUploadKey = ""
     if (fileItem.type === "image/jpeg") {
         awsUploadKey = "static/images/" + fileItem.name
-    } else awsUploadKey = "static/confirmation_reports/" + fileItem.name
+    } else {awsUploadKey = "static/confirmation_reports/" + fileItem.name}
     console.log(fileItem)
     console.log(policyData)
 
