@@ -143,7 +143,7 @@ def build_it(request):
     form = IdForm()
 
     pict = Image.objects.all().filter(key__contains="images/")
-    confirm = Image.objects.all().filter(key__contains="/confirmation_reports/")
+    confirm = Image.objects.all().filter(key__contains="confirmation_reports/")
     form2 = BuildForm()
 
     context = {
