@@ -68,7 +68,6 @@ function getPolicyAndUpload(fileItem){
         if (xhr.status === 200) {
             // do something
             let policyResponseData = JSON.parse(xhr.responseText)
-            console.log(policyResponseData)
 
             // actual perfom upload for this single file
             usePolicyAndUpload(fileItem, policyResponseData)
@@ -183,7 +182,7 @@ function usePolicyAndUpload(fileItem, policyData){
     xhr.upload.onabort = function (event) {
         console.log("File aborted")
     }
-
+    console.log(fd)
     xhr.send(fd)
 }
 
