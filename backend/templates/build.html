@@ -138,7 +138,7 @@
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
         {% for x in all_items %}
-            if (document.getElementById('e-id').innerHTML === {{ x.id }}) {
+            if (document.getElementById('e-id').innerHTML.toString() === "{{ x.id }}") {
                 document.getElementById('selected-picture').innerText = "{{ x.picture }}"
             }
         {% endfor %}
