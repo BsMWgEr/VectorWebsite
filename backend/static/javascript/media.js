@@ -60,8 +60,8 @@ function getPolicyAndUpload(fileItem){
 
     let xhr = new XMLHttpRequest() // async request
     // how are send it?
-
-    xhr.open("POST", policyURL, true)
+    let k = fileItem.name
+    xhr.open("POST", policyURL + "?key=" + k, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
     xhr.onload = function() {
@@ -85,10 +85,8 @@ function getPolicyAndUpload(fileItem){
 }
 
 function constructFormData(policy, fileItem) {
-    let x = fileItem
     let fd = new FormData() // multipart form
     let policyFields = policy.fields
-    policy.fields.key = "static/images/" + x.name
     let objectEntries = Object.entries(policyFields)
     console.log(objectEntries)
     for ( const [key, value] of  objectEntries){
