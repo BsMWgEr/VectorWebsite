@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from .forms import IdForm, BuildForm
-from .models import InventoryObject, Item, PageVisitData, Image
+from .models import InventoryObject, Item, PageVisitData, Media
 
 
 @login_required
@@ -142,8 +142,8 @@ def build_it(request):
     total_visits = len(PageVisitData.objects.all())
     form = IdForm()
 
-    pict = Image.objects.all().filter(key__contains="images/")
-    confirm = Image.objects.all().filter(key__contains="confirmation_reports/")
+    pict = Media.objects.all().filter(key__contains="images/")
+    confirm = Media.objects.all().filter(key__contains="confirmation_reports/")
     form2 = BuildForm()
 
     context = {

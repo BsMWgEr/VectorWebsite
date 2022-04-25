@@ -1,11 +1,11 @@
 
 from django.contrib import admin
-from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, Image, Item
+from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, Media, Item
 
 
 #admin.site.register(Item)
 
-admin.site.register(Image)
+admin.site.register(Media)
 admin.site.register(SoldDetail)
 admin.site.register(ShippingDetail)
 admin.site.register(CustomerShippingAddress)

@@ -48,11 +48,20 @@ class SearchQuery(models.Model):
 # User = settings.AUTH_USER_MODEL
 
 
-class Image(models.Model):
+class Media(models.Model):
+    IMAGE = 'image'
+    CONFIRMATION_REPORT = 'confirmation_r'
+    MEDIA = 'media'
+    MEDIA_TYPE = [
+        (IMAGE, 'Image'),
+        (CONFIRMATION_REPORT, 'Confirmation Report'),
+        (MEDIA, 'Other Media'),
+    ]
     # user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    media_type = models.CharField(max_length=120, choices=MEDIA_TYPE, default=IMAGE)
     name = models.CharField(max_length=220, blank=True, null=True)
     key = models.TextField()
-    filetype = models.CharField(max_length=120, default='img/jpg')
+    filetype = models.CharField(max_length=120, default="image/jpg")
     active = models.BooleanField(default=True)
     date_added = models.DateTimeField(auto_now_add=True)
     """
@@ -107,9 +116,9 @@ class Item(models.Model):
     in_stock = models.BooleanField(default=False)
     sold = models.BooleanField(default=False)
     po_number = models.CharField(max_length=50, blank=True, null=True)
-    confirmation_r = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
+    confirmation_r = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
     price = models.IntegerField()
-    picture = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
+    picture = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
     created_date = models.DateField(auto_now_add=True)
 
     class Meta:

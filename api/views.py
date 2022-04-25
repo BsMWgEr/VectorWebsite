@@ -3,10 +3,10 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm
-from backend.models import Item, InventoryObject, Image
+from backend.models import Item, InventoryObject, Media
 from stockvectorrigs.aws.utils import AWS
 
-S3File = Image
+S3File = Media
 
 
 
@@ -211,18 +211,18 @@ def UploadAPI(request):
         print(request.GET.get(''))
         y = request.GET.get('')
         if ".jpg" in y:
-            new = Image()
+            new = Media()
             new.key = "images/" + y
             new.name = y
             new.save()
         else:
-            new = Image()
+            new = Media()
             new.key = "confirmation_reports/" + y
             new.name = y
             new.save()
 
     aws_instance = AWS()
-    x = Image.objects.last()
+    x = Media.objects.last()
     q = "static/" + x.key
     print(q)
 
@@ -234,7 +234,7 @@ def UploadAPI(request):
 def create_image_api(request):
     if request.GET:
         print(request.GET)
-        new = Image()
+        new = Media()
         new.name = request.GET.get('key')
         print(new.name)
         new.key = request.GET.get('key')
