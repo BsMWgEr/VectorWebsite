@@ -214,11 +214,15 @@ def UploadAPI(request):
             new = Media()
             new.key = "images/" + y
             new.name = y
+            new.media_type = 'image'
+            new.filetype = 'image/jpeg'
             new.save()
         else:
             new = Media()
             new.key = "confirmation_reports/" + y
             new.name = y
+            new.media_type = 'confirmation_r'
+            new.filetype = 'application/pdf'
             new.save()
 
     aws_instance = AWS()
