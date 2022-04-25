@@ -196,7 +196,7 @@ def api_view(request):
         if dict_po_number:
             Item.objects.filter(id=dict_id).update(po_number=dict_po_number)
         if dict_picture:
-            Item.objects.filter(id=dict_id).update(po_number=dict_picture)
+            Item.objects.filter(id=dict_id).update(picture=dict_picture)
         if dict_delete:
             Item.objects.filter(id=dict_id).delete()
         if next_url is not None:
