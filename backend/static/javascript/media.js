@@ -89,9 +89,10 @@ function constructFormData(policy, fileItem) {
     let fd = new FormData() // multipart form
     let policyFields = policy.fields
     let objectEntries = Object.entries(policyFields)
+    console.log(objectEntries)
     for ( let [key, value] of  objectEntries){
-        if (key === "key") {
-            value = fileItem.name.toString()
+        if (key === "key" || key === "name") {
+            value = x.name.toString()
         }
         fd.append(key, value)
     }
@@ -114,8 +115,6 @@ function CreateImage(file_item){
 
 function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
-    policyData.name = "static/images/" + fileItem.name.toString()
-    policyData.key = "static/images/" + fileItem.name.toString()
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
     let awsUploadKey = "static/images/" + fileItem.name.toString()
