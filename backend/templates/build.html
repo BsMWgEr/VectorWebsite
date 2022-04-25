@@ -139,7 +139,7 @@
             }
         {% for x in all_items %}
             if (document.getElementById('e-id').innerHTML.toString() === "{{ x.id }}") {
-                document.getElementById('selected-picture').innerText = "{{ x.picture }}"
+                document.getElementById('selected-picture').innerHTML = "{{ x.picture }}"
             }
         {% endfor %}
     }
