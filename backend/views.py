@@ -142,7 +142,7 @@ def build_it(request):
     total_visits = len(PageVisitData.objects.all())
     form = IdForm()
 
-    pict = Image.objects.all().filter(key__contains="/images/")
+    pict = Image.objects.all().filter(key__contains="images/")
     confirm = Image.objects.all().filter(key__contains="/confirmation_reports/")
     form2 = BuildForm()
 
