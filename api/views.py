@@ -207,8 +207,10 @@ def DownloadView(request, id, *args, **kwargs):
 
 
 def UploadAPI(request):
-
-    print(request.POST.get("key"))
+    y = request.POST
+    y.split("q")
+    print(y[1])
+    print(y)
     aws_instance = AWS()
     x = Image.objects.all().count()
     key = str(x + 1) + ".jpg"

@@ -60,8 +60,8 @@ function getPolicyAndUpload(fileItem){
 
     let xhr = new XMLHttpRequest() // async request
     // how are send it?
-    let k = fileItem.name
-    xhr.open("POST", policyURL + "?key=" + k, true)
+    let k = {'key': fileItem.name}
+    xhr.open("POST", policyURL + "?=" + k, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
     xhr.onload = function() {
