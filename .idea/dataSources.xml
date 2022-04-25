@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="deghrv39ipdan6@ec2-3-209-124-113.compute-1.amazonaws.com" uuid="986ba1cd-b8fc-4e98-ac42-4a012be516a2">
+    <data-source source="LOCAL" name="d5mmuidaqm2j2@ec2-52-3-200-138.compute-1.amazonaws.com" uuid="70dd89b5-ba4f-4d26-b973-022805102a89">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-3-209-124-113.compute-1.amazonaws.com:5432/deghrv39ipdan6</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-52-3-200-138.compute-1.amazonaws.com:5432/d5mmuidaqm2j2</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
