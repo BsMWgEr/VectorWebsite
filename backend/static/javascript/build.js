@@ -386,26 +386,7 @@
 
     }
 
-    function PictureChange() {
 
-            document.getElementById('deletebtn').className = 'btnchanger'
-            div_id_change.className = 'none'
-            change_display2.innerHTML = ''
-            div_change.className = 'div-change'
-            change_display.innerHTML =
-                "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<select name='picture' id='id_picture'>"
-                + "<option value='' selected>Select a Picture</option>"
-                + "{% for x in pict %}"
-                + "<option value='{{ x.id }}'>{{ x.key }}</option>"
-                + "{% endfor %}"
-                +"</select>"
-
-                + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Picture</button>"
-            if (document.getElementById('e-id')) {
-                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-            }
-    }
 
     function closeFields() {
         document.getElementById('deletebtn').className = 'btnchanger'
