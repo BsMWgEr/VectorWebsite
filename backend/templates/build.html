@@ -137,11 +137,7 @@
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
-        {% for x in all_items %}
-            if (document.getElementById('e-id').innerHTML.toString() === "{{ x.id }}") {
-                document.getElementById('selected-picture').innerHTML = "{{ x.picture }}"
-            }
-        {% endfor %}
+
     }
     </script>
     <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
