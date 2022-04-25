@@ -207,15 +207,19 @@ def DownloadView(request, id, *args, **kwargs):
 
 
 def UploadAPI(request):
-    if not request == "PUT":
+    if request.GET:
         print(request.GET.get(''))
         y = request.GET.get('')
-    aws_instance = AWS()
-    x = Image.objects.all().count()
-    key = str(x + 1) + ".jpg"
-    url = "static/images/"
+        new = Image()
+        new.key = "static/images/" + y
+        new.name = y
+        new.save()
 
-    presigned_data = aws_instance.presign_post_url(key=url + y)
+    aws_instance = AWS()
+    presigned_data = ""
+    if request == "PUT":
+        x = Image.objects.last()
+        presigned_data = aws_instance.presign_post_url(key=x.key)
 
     return JsonResponse(presigned_data)
 
