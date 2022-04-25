@@ -15,7 +15,7 @@ function validateFileType(fileItem) {
         case 'audio':
             return true
         default:
-            return false
+            return true
     }
 }
 
