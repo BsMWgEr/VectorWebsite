@@ -41,8 +41,30 @@ function fileInputChanged(){
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
             getPolicyAndUpload(fileItem)
+            Upload_info(fileItem)
         }
     }
+}
+
+function Upload_info(file_item){
+    let data = {
+        name: fileItem.name,
+        raw_filename: fileItem.name,
+        filetype: fileItem.type
+    }
+    let jsonData = JSON.stringify(data)
+
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = 'https://vectorrigs.herokuapp.com/api/upload-api'
+    const responseType = 'json'
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+        console.log('success')
+    }
+    xhr.send(jsonData)
 }
 
 
