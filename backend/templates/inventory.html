@@ -134,15 +134,20 @@
             <ul>
                 <li>Inventory Item: {{ x.inventory_item }}</li>
                 {% if x.sold_data %}
-                <li>Sold Data: {{ x.sold_data }}</li><button>Update Sold Information</button>
+                    <li>Sold Data: {{ x.sold_data }}</li>
+                    <button>Update Sold Information</button>
                 {% else %}
-                <li>Sold Data: {% if not x.inventory_item.in_stock %}<button>Change to IN STOCK</button>{% endif %}<button>Add Sold Data</button></li>
+                    <li>Sold Data:
+                    {% if not x.inventory_item.in_stock %}
+                        <button>Change to IN STOCK</button>
+                    {% endif %}
+                    <button>Add Sold Data</button></li>
                 {% endif %}
                 {% if x.shipping_data %}
-                <li>Shipping Data: {{ x.shipping_data }}
-                {% endif %}
-                {% if x.shipping_data %}
-                <li>Customer: {{ x.sold_data.purchased_by }}</li>
+                    <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
+                    <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
+                {% else %}
+                    <li><button>Change to Shipping</button></li>
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
                 <li>Date Created: {{ x.created_date }}</li>
