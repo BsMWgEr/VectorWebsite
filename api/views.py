@@ -38,7 +38,7 @@ def build_api_new_view(request):
                        "description": x.description,
                        "po_number": x.po_number,
                        "in_stock": x.in_stock,
-                       "sold": x.sold,
+
                        "object_id": obj_id,
                        "confirmation_r": x.confirmation_r.key,
                        'price': x.price,
@@ -82,7 +82,7 @@ def cookie_list_view(request):
                        "po_number": x.po_number,
                        "description": x.description,
                        "in_stock": x.in_stock,
-                       "sold": x.sold,
+
                        "confirmation_r": confirm,
                        'price': x.price,
                        "picture": picture,
@@ -128,7 +128,7 @@ def endpoint_view(request):
                        "description": x.description,
                        "in_stock": x.in_stock,
                        "object_id": g.id,
-                       "sold": x.sold,
+
                        "confirmation_r": confirm,
                        'price': x.price,
                        "picture": picture
@@ -171,7 +171,7 @@ def api_view(request):
         dict_size = q_dict.get('size')
         dict_po_number = q_dict.get('po_number')
         dict_instock = q_dict.get('in_stock')
-        dict_sold = q_dict.get('sold')
+
         dict_serial_number = q_dict.get('serial_number')
         dict_duedate = q_dict.get('due_date')
         dict_description = q_dict.get('description')
@@ -188,8 +188,7 @@ def api_view(request):
             Item.objects.filter(id=dict_id).update(due_date=dict_duedate)
         if dict_description:
             Item.objects.filter(id=dict_id).update(description=dict_description)
-        if dict_sold:
-            Item.objects.filter(id=dict_id).update(sold=dict_sold)
+
         if dict_instock:
             Item.objects.filter(id=dict_id).update(in_stock=dict_instock)
         if dict_serial_number:
