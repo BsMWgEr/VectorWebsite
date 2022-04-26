@@ -40,7 +40,7 @@
                             {{ x.po_number }}
                             {% endif %}
                             {% if x.confirmation_r %}
-                                <a class="color-vector" id="color-vector-a" href="./../../media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                                <a class="color-vector" id="color-vector-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
                             {% endif %}
                         </div>
                     </div>

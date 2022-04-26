@@ -137,20 +137,20 @@
 
 
 
-     let serial_number_;
-     let serial_number_display;
-     let sold_display;
-     function formatElement(element) {
+    let serial_number_;
+    let serial_number_display;
+    let sold_display;
+    function formatElement(element) {
          if (element.serial_number === 0) {
             serial_number_display = 'Serial # TBD'
-        } else {
+         } else {
              serial_number_display = "Serial #: " + element.serial_number
              serial_number_ = element.serial_number
          }
          if (element.sold) {
              sold_display = "<img class='sold-img' src='{% static 'images/sold.gif' %}'>"
          } else sold_display = " "
-        return "<div class='bottom-display' id='div-box'>"
+         return "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
             + "<h1 class='sold-tag' id='gh3'>ITEM SOLD: " + element.sold + "</h1>"
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"

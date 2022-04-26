@@ -22,7 +22,7 @@
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left">
-                            <img src="{% static '' %}{{ x.picture }}" height="140" width="212">
+                            <img src="{% static '' %}{{ x.picture.key }}" height="140" width="212">
                         </div>
                         <div class="container-right">
                             <p class="color-tandem">{{ x.name }} - </p>
@@ -54,7 +54,7 @@
                                 <p>{{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
-                                <a class="color-tandem" id="color-tandem-a" href="{% static '' %}{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                                <a class="color-tandem" id="color-tandem-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
                             {% endif %}
                         </div>
                     </div>

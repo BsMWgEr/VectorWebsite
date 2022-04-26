@@ -27,7 +27,7 @@
         {% for x in containers %}
                 <div class="container">
                     <div class="inner-container">
-                        <div class="container-left"><img src="{% static '' %}{{ x.picture }}" height="140" width="212"></div>
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             <p class="color-student">{{ x.name }} - </p>
                             <p class="color-student">Serial #{{ x.serial_number }} - </p>
@@ -48,7 +48,7 @@
                             {{ x.po_number }}
                             {% endif %}
                             {% if x.confirmation_r %}
-                                <a class="color-student" id="color-student-a" href="{% static '' %}media/{{ x.confirmation_r }}">SEE CONFIRMATION REPORT</a>
+                                <a class="color-student" id="color-student-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
                             {% endif %}
                         </div>
                     </div>
