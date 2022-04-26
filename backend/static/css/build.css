@@ -313,7 +313,9 @@ button {
 
 .bottom-display p {
     margin-left: 100px;
-    color: red;
+    color: black;
+    font-weight: 1000;
+    font-family: Monospace;
 }
 
 .form button {
@@ -328,4 +330,8 @@ button {
     margin-left: 40%;
     width: 50%;
 
+}
+
+.change-display label {
+    color: #b5db1a;
 }
