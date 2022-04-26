@@ -176,6 +176,7 @@ def api_view(request):
         dict_duedate = q_dict.get('due_date')
         dict_description = q_dict.get('description')
         dict_picture = q_dict.get('picture')
+        dict_confirm = q_dict.get('confirmation_r')
         dict_delete = q_dict.get('delete')
         if dict_name:
             Item.objects.filter(id=dict_id).update(name=dict_name)
@@ -197,6 +198,8 @@ def api_view(request):
             Item.objects.filter(id=dict_id).update(po_number=dict_po_number)
         if dict_picture:
             Item.objects.filter(id=dict_id).update(picture=dict_picture)
+        if dict_confirm:
+            Item.objects.filter(id=dict_id).update(confirmation_r=dict_confirm)
         if dict_delete:
             Item.objects.filter(id=dict_id).delete()
         if next_url is not None:
