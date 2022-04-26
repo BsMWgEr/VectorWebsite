@@ -146,7 +146,7 @@
                 {% if x.shipping_data %}
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
 
-                {% else if x.sold_data %}
+                {% elif x.sold_data %}
                     <li><button>Change to Shipping</button></li>
                 {% endif %}
                 {% if x.sold_data.purchased_by %}
