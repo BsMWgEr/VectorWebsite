@@ -28,5 +28,12 @@
 }
 
 .media-intro {
-    text-align: center;
+
+}
+
+.instructions {
+    border: 5px solid black;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 0 20px black;
 }
