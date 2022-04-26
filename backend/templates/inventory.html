@@ -145,9 +145,12 @@
                 {% endif %}
                 {% if x.shipping_data %}
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
-                    <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
+
                 {% else %}
                     <li><button>Change to Shipping</button></li>
+                {% endif %}
+                {% if x.sold_data.purchased_by %}
+                <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>{% if x.sold_data or x.shipping_data %}<button>Changed to Completed</button>{% endif %}
                 <li>Date Created: {{ x.created_date }}</li>
@@ -161,7 +164,7 @@
                 <li>Due Date: {{ x.inventory_item.due_date }}</li>
                 <li>Size: {{ x.inventory_item.size }}</li>
                 <li>In Stock: {{ x.inventory_item.in_stock }}</li>
-                <li>Sold: {{ x.inventory_item.sold }}</li>
+
                 <li>PO Number: {{ x.inventory_item.po_number }}</li>
                 <li>Price: ${{ x.inventory_item.price }}</li>
                 <li>Description: {{ x.inventory_item.description }}</li>
