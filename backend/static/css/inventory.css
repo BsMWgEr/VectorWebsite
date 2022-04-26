@@ -73,7 +73,7 @@ main {
     position: absolute;
     background-color: black;
     color: #b5db1a;
-    transform: translate(0, 40%);
+    transform: translate(0, 35px);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;

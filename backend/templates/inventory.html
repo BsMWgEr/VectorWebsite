@@ -115,6 +115,12 @@
 <details>
     <summary>{{ summary_title }}</summary>
 {% endblock %}
+{% block search %}
+    <form>
+    <input type="text" placeholder="search inventory">
+    <input type="submit" value="Search">
+    </form>
+{% endblock %}
 <ul>
     {% for x in all %}
         <li>
@@ -123,9 +129,17 @@
             <hr>
             <ul>
                 <li>Inventory Item: {{ x.inventory_item }}</li>
-                <li>Sold Data: {{ x.sold_data }}</li>
-                <li>Shipping Data: {{ x.shipping_data }}</li>
+                {% if x.sold_data %}
+                <li>Sold Data: {{ x.sold_data }}</li><button>Update Sold Information</button>
+                {% else %}
+                <li>Sold Data: <button>Add Sold Data</button></li>
+                {% endif %}
+                {% if x.shipping_data %}
+                <li>Shipping Data: {{ x.shipping_data }}
+                {% endif %}
+                {% if x.shipping_data %}
                 <li>Customer: {{ x.sold_data.purchased_by }}</li>
+                {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
                 <li>Date Created: {{ x.created_date }}</li>
                 <li>Inventory info: {{ x.info }}</li>
@@ -142,6 +156,9 @@
                 <li>PO Number: {{ x.inventory_item.po_number }}</li>
                 <li>Price: ${{ x.inventory_item.price }}</li>
                 <li>Description: {{ x.inventory_item.description }}</li>
+                <li>Picture: {{ x.inventory_item.picture }}</li>
+                <li>Confirmation Report: {{ x.inventory_item.confirmation_r }}</li>
+
             </ul>
             </details>
                 {% if x.sold_data %}
