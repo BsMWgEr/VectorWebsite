@@ -127,7 +127,7 @@ main {
 
 .nav-links:hover .dropdown-content {
     display: block;
-    box-shadow: 0 0 25px #b5db1a;
+    box-shadow: 0 0 25px red;
 
 
 }
@@ -157,4 +157,9 @@ main {
 .main-div {
     margin-top: 50px;
     margin-bottom: 200px;
+}
+
+.edit-options-menu {
+    background: orange;
+    height: 100px;
 }

@@ -64,7 +64,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>  <!-- END NAV BAR -->
+<div id="slide-down-menu" class="edit-options-menu"></div>
 <main>
 <div>
  <div class="left-sidebar" id="left-sidebar">
@@ -75,8 +76,11 @@
     <div><a href="/manager/inventory-shipping">Inventory Currently Shipping</a></div>
     <div><a href="/manager/inventory-completed">Completed Orders</a></div>
     </div>
-  <!-- END NAV BAR -->
+
 </div>
+
+
+
 
 
 
@@ -132,7 +136,7 @@
                 {% if x.sold_data %}
                 <li>Sold Data: {{ x.sold_data }}</li><button>Update Sold Information</button>
                 {% else %}
-                <li>Sold Data: <button>Add Sold Data</button></li>
+                <li>Sold Data: {% if not x.inventory_item.in_stock %}<button>Change to IN STOCK</button>{% endif %}<button>Add Sold Data</button></li>
                 {% endif %}
                 {% if x.shipping_data %}
                 <li>Shipping Data: {{ x.shipping_data }}
