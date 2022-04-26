@@ -2,27 +2,6 @@
     color: white;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 20% 80%;
-}
-
-.left-sidebar {
-    position: sticky;
-    top: 300px;
-}
-
-#left-sidebar {
-    position: sticky;
-    top: 300px;
-    height: 10px;
-}
-
-.main-div {
-    margin-top: 50px;
-    margin-bottom: 200px;
-}
-
 .edit-options-menu {
     background: orange;
     height: 100px;
