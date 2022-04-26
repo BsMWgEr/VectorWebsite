@@ -28,7 +28,7 @@
 }
 
 .media-intro {
-
+    text-align: center;
 }
 
 .instructions {
@@ -36,4 +36,13 @@
     border-radius: 10px;
     text-align: left;
     box-shadow: 0 0 20px black;
+}
+
+.upload-instructions {
+    border: 2px solid black;
+    width: 300px;
+    margin-left: 38%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px black;
 }
