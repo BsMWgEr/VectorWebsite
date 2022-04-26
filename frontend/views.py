@@ -142,7 +142,7 @@ def index(request):
 
 
 def sportrigs_view(request):
-    containers_all = Item.objects.filter(type='sport_rigs', in_stock=False, sold=False)
+    containers_all = Item.objects.filter(type='sport_rigs', in_stock=False)
     context = {
         'containers': containers_all,
     }
@@ -151,7 +151,7 @@ def sportrigs_view(request):
 
 
 def sportrigs_instock_view(request):
-    containers_all = Item.objects.filter(type='sport_rigs', in_stock=True, sold=False)
+    containers_all = Item.objects.filter(type='sport_rigs', in_stock=True)
     context = {
         'containers': containers_all,
     }
@@ -160,7 +160,7 @@ def sportrigs_instock_view(request):
 
 
 def tandem(request):
-    containers_all = Item.objects.filter(type='tandem', in_stock=False, sold=False)
+    containers_all = Item.objects.filter(type='tandem', in_stock=False)
     context = {
         'containers': containers_all
     }
@@ -168,7 +168,7 @@ def tandem(request):
 
 
 def tandem_instock_view(request):
-    containers_all = Item.objects.filter(type='tandem', in_stock=True, sold=False)
+    containers_all = Item.objects.filter(type='tandem', in_stock=True)
     context = {
         'containers': containers_all
     }
@@ -176,7 +176,7 @@ def tandem_instock_view(request):
 
 
 def student(request):
-    containers_all = Item.objects.filter(type='student', in_stock=False, sold=False)
+    containers_all = Item.objects.filter(type='student', in_stock=False)
     context = {
         'containers': containers_all
     }
@@ -184,7 +184,7 @@ def student(request):
 
 
 def student_instock_view(request):
-    containers_all = Item.objects.filter(type='student', in_stock=True, sold=False)
+    containers_all = Item.objects.filter(type='student', in_stock=True)
     context = {
         'containers': containers_all
     }
@@ -219,7 +219,7 @@ def canopies(request):
 
 
 def javelin(request):
-    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=False, sold=False)
+    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=False)
     context = {
         'containers': containers_all,
     }
@@ -227,7 +227,7 @@ def javelin(request):
 
 
 def javelin_instock_view(request):
-    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=True, sold=False)
+    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=True)
     context = {
         'containers': containers_all,
     }
