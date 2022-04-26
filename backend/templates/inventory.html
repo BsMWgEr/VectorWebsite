@@ -149,7 +149,7 @@
                 {% else %}
                     <li><button>Change to Shipping</button></li>
                 {% endif %}
-                <li>Completed Order: {{ x.completed_order }}</li>
+                <li>Completed Order: {{ x.completed_order }}</li>{% if x.sold_data or x.shipping_data %}<button>Changed to Completed</button>{% endif %}
                 <li>Date Created: {{ x.created_date }}</li>
                 <li>Inventory info: {{ x.info }}</li>
             </ul>
