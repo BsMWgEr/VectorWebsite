@@ -87,3 +87,17 @@ a {
     right: 100px;
     color: red;
 }
+
+.admin-nav-links {
+    margin-left: 30%;
+    margin-bottom: 20px;
+
+}
+
+.admin-nav-link {
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 10px;
+    color: red;
+}
