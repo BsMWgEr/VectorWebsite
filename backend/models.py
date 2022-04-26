@@ -64,10 +64,10 @@ class Media(models.Model):
     filetype = models.CharField(max_length=120, default="image/jpg")
     active = models.BooleanField(default=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    """
+
     def __str__(self):
         return f"{self.id} -- {self.name}"
-
+"""
     def get_file_ext(self):
         return os.path.splitext(self.key)[1]  # path/to/file/upload.png - > path/to/file/upload, .png
 
