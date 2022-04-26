@@ -1,3 +1,7 @@
+#inventory-btn {
+    color: white;
+}
+
 main {
     display: grid;
     grid-template-columns: 20% 80%;
