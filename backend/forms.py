@@ -44,7 +44,7 @@ class BuildForm(forms.ModelForm):
                   'size',
                   'description',
                   'in_stock',
-                  'sold',
+
                   'po_number',
                   'confirmation_r',
                   'price',

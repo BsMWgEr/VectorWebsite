@@ -17,14 +17,6 @@ admin.site.register(Customer)
 
 
 
-@admin.action(description='Change to sold')
-def change_to_sold(modeladmin, request, queryset):
-    queryset.update(sold=True)
-
-
-@admin.action(description='Change to NOT sold')
-def change_to_not_sold(modeladmin, request, queryset):
-    queryset.update(sold=False)
 
 
 @admin.action(description='Change to in-stock')
@@ -45,11 +37,11 @@ class InventoryObjectAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class InventoryItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'size', 'serial_number', 'in_stock', 'sold')
+    list_display = ('id', 'name', 'size', 'serial_number', 'in_stock')
     ordering = ('-id',)
-    search_fields = ('id', 'name', 'serial_number', 'in_stock', 'sold')
-    actions = [change_to_sold, change_to_not_sold, change_to_out_of_stock, change_to_in_stock]
-    list_filter = ('type', 'in_stock', 'sold', 'size')
+    search_fields = ('id', 'name', 'serial_number', 'in_stock')
+    actions = [change_to_out_of_stock, change_to_in_stock]
+    list_filter = ('type', 'in_stock','size')
 
 
 @admin.register(Message)

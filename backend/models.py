@@ -114,7 +114,7 @@ class Item(models.Model):
     size = models.CharField(max_length=50, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     in_stock = models.BooleanField(default=False)
-    sold = models.BooleanField(default=False)
+
     po_number = models.CharField(max_length=50, blank=True, null=True)
     confirmation_r = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
     price = models.IntegerField()
@@ -126,7 +126,7 @@ class Item(models.Model):
 
     def __str__(self):
         return f"ID: {self.id} Type: {self.type} Name: {self.name} - Serial #: {self.serial_number} -----  " \
-               f"In Stock: {self.in_stock} - Sold: {self.sold}"
+               f"In Stock: {self.in_stock}"
 
     def serialize(self):
         return {
@@ -137,7 +137,7 @@ class Item(models.Model):
             'size': self.size,
             'description': self.description,
             'in_stock': self.in_stock,
-            'sold': self.sold,
+
             'po_number': self.po_number,
             'confirmation_r': self.confirmation_r,
             'price': self.price,
