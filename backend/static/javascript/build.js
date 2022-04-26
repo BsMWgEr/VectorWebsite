@@ -152,7 +152,7 @@
          } else sold_display = " "
          return "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
-            + "<h1 class='sold-tag' id='gh3'>ITEM SOLD: " + element.sold + "</h1>"
+
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
             + "<p>Item ID #: " + element.id + "</p>"
             + "<p>Inventory Object ID #: " + element.object_id + "</p>"
@@ -315,7 +315,7 @@
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
     }
-
+/*
     function soldChange() {
             let x;
             let y;
@@ -341,7 +341,7 @@
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
     }
-
+*/
     function deleteContainer() {
             div_change.className = 'none'
             change_display.innerHTML = ''
