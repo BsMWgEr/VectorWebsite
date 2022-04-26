@@ -159,18 +159,18 @@
 
             <ol><li><hr><details><summary>Inventory Item: {{ x.inventory_item.id }}</summary><hr>
             <ul>
-                <li>Name: {{ x.inventory_item.solddetail.purchased_by }}</li>
+                <li>Type: {{ x.inectory_item.type }}</li>
+                <li>Name: {{ x.inventory_item.name }}</li>
                 <li>Serial Number: {{ x.inventory_item.serial_number }}</li>
                 <li>Due Date: {{ x.inventory_item.due_date }}</li>
                 <li>Size: {{ x.inventory_item.size }}</li>
                 <li>In Stock: {{ x.inventory_item.in_stock }}</li>
-
                 <li>PO Number: {{ x.inventory_item.po_number }}</li>
                 <li>Price: ${{ x.inventory_item.price }}</li>
                 <li>Description: {{ x.inventory_item.description }}</li>
                 <li>Picture: {{ x.inventory_item.picture }}</li>
                 <li>Confirmation Report: {{ x.inventory_item.confirmation_r }}</li>
-
+                <li>Date Created: {{ x.inventory_item.created_date }}</li>
             </ul>
             </details>
                 {% if x.sold_data %}
@@ -178,7 +178,6 @@
                 <li><hr><details><summary>Sold Data: {{ x.sold_data.id }} --- Sold on: {{ x.sold_data.date_sold }}</summary><hr>
                 <ul>
                     <li>Purchased By: {{ x.sold_data.purchased_by }}</li>
-                    <li>Item Purchased: {{ x.sold_data.inventory_item }}</li>
                     <li>Date Sold: {{ x.sold_data.date_sold }}</li>
                     <li>Info: {{ x.sold_data.info }}</li>
                     <li>More Info: {{ x.sold_data.other }}</li>
@@ -207,6 +206,10 @@
                     <li>Phone Number: {{ x.sold_data.purchased_by.phone_number }}</li>
                     <li>Email: {{ x.sold_data.purchased_by.email }}</li>
                     <li>Company: {{ x.sold_data.purchased_by.company_name }}</li>
+                    <li>Created Date: {{ x.sold_data.purchased_by.created_date }}</li>
+                    {% if x.original_contact %}
+                        <li>Original Contact: {{ x.sold_data.purchased_by.original_contact }}</li>
+                    {% endif %}
                 </ul>
                 </details>
             </li>
