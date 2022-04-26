@@ -155,7 +155,7 @@
                 {% if x.sold_data.purchased_by %}
                 <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
                 {% endif %}
-                <li>Completed Order: {{ x.completed_order }}</li>{% if x.sold_data or x.shipping_data %}<button>Changed to Completed</button>{% endif %}
+                <li>Completed Order: {{ x.completed_order }}</li>{% if x.shipping_data %}<button>Changed to Completed</button>{% endif %}
                 <li>Date Created: {{ x.created_date }}</li>
                 <li>Inventory info: {{ x.info }}</li>
             </ul>
