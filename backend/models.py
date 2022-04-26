@@ -171,7 +171,7 @@ class CustomerShippingAddress(models.Model):
     other = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"ID: {self.id} Customer : {self.customer} - {self.city}, {self.state}"
+        return f"ID: {self.id} Customer ID#: {self.customer.id} -- {self.city}, {self.state}"
 
 
 
