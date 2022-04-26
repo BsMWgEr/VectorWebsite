@@ -190,8 +190,6 @@
                 {% if x.shipping_data %}
                 <li><hr><details><summary>Shipping Data: {{ x.shipping_data.id }} --- Shipped on: {{ x.shipping_data.date_shipped }}</summary><hr>
                 <ul>
-                    <li>Item: {{ x.shipping_data.inventory_item }}</li>
-                    <li>Sold Info: {{ x.shipping_data.sold_detail }}</li>
                     <li>Shipping Address: {{ x.shipping_data.shipping_address }}</li>
                     <li>Date Shipped: {{ x.shipping_data.date_shipped }}</li>
                     <li>Date created: {{ x.shipping_data.created_date }}</li>
