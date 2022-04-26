@@ -1,5 +1,8 @@
+{% extends 'index-admin.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/media-styles.css' %}">
+{% block content %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/media-styles.css' %}">{% endblock %}
+{% block title %}<title>Media Manager</title>{% endblock %}
 
 View All Files
 
@@ -69,3 +72,4 @@ or photos via this method! (There will be a private upload file section soon!)</
 </script>
 
 
+{% endblock %}
