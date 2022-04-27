@@ -262,8 +262,9 @@ def sold_data_api(request):
         # after creating new sold data --> link to object via id
         objs = InventoryObject.objects.all().filter(inventory_item_id=x)
         last_sold = SoldDetail.objects.last()
-        objs.sold_data = last_sold.id
-        objs.save()
+        objs.update(sold_data_id=last_sold.id)
+        print(objs)
+        print(last_sold)
     context = {
         'form': form,
         'object': objs
