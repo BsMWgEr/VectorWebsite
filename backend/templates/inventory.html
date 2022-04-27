@@ -232,8 +232,7 @@
 </div>
 
 </main>
-<script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
-    <script>
+<script>
     function soldDataForm() {
         document.getElementById('sold_data_form').innerHTML =
            '<form method="POST" action="/api/sold-data-api/">'
@@ -259,9 +258,11 @@
                 +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
                 +'<input onclick="soldDataSubmit()" type="submit" value="Submit">'
             +'</form>'
-}
+    }
 
-    </script>
+</script>
+<script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
+
 </html>
 
 
