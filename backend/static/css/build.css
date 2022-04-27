@@ -339,3 +339,7 @@ button {
 .change-display label {
     color: #b5db1a;
 }
+
+.item-update-btn-group {
+    display: flex;
+}
