@@ -23,7 +23,7 @@ function customer_Data_form(x) {
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(serverResponse)
-            document.getElementById('sold_data_form-' + sold_data_id.toString()).className = "none"
+            //document.getElementById('sold_data_form-' + sold_data_id.toString()).className = "none"
 
         }
         my_FormData.entries()
@@ -41,7 +41,7 @@ function customer_Data_form(x) {
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(serverResponse)
-            document.getElementById('create_customer_form-' + customer_data_id.toString()).className = "none"
+           // document.getElementById('create_customer_form-' + customer_data_id.toString()).className = "none"
 
         }
         my_FormData.entries()
