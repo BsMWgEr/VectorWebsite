@@ -14,10 +14,10 @@
     {% block title %}<title>Inventory</title>{% endblock %}
 </head>
 <script>
-    function soldDataForm() {
+    function sold_Data_form() {
         document.getElementById('sold_data_form').innerHTML =
            '<form method="POST" action="/api/sold-data-api/">'
-            {% csrf_token %}
+            +'{% csrf_token %}'
                 +'<select name="inventory_item" required id="id_inventory_item">'
                 {% for x in items %}
                     +'<option value="" selected>---------</option>'
@@ -172,7 +172,7 @@
                     {% if not x.inventory_item.in_stock %}
                         <button>Change to IN STOCK</button>
                     {% endif %}
-                    <button onclick="soldDataForm()">Add Sold Data</button></li>
+                    <button onclick="sold_Data_form()">Add Sold Data</button></li>
                     <div id="sold_data_form"></div>
                 {% endif %}
                 {% if x.shipping_data %}
