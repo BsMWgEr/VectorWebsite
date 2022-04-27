@@ -36,8 +36,7 @@ input {
 .container-main {
     min-width: 500px;
     max-width: 100%;
-    display: grid;
-    grid-template-columns: .3fr 1fr;
+    display: flex;
     margin-left: 1%;
     box-sizing: border-box;
     margin-right: 1%;

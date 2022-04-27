@@ -401,6 +401,18 @@
 
     }
 
+    function closeCreateForm(){
+        //document.getElementById('item-update-btn-group').className = 'none'
+        document.getElementById('create-form').className = 'none'
+        document.getElementById('display-form-btn').className = 'btnchanger'
+    }
+
+    function openCreateForm() {
+        document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
+        document.getElementById('create-form').className = 'div-form'
+
+    }
+
 
     function alertM() {
         alert('Container Deleted!')
