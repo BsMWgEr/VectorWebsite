@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
-from backend.models import Item, InventoryObject, Media, SoldDetail
+from backend.models import Item, InventoryObject, Media, SoldDetail, Customer
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -298,6 +298,23 @@ def customer_data_api(request):
     }
 
     return render(request, 'customer_data_api.html', context=context)
+
+def endpoint3(request):
+    customers = Customer.objects.all()
+    container_list = [{"id": x.id,
+                       "first_name": x.type,
+                       "last_name": x.name,
+                       "company_name": x.size,
+                       "email": x.due_date,
+                       "phone_number": x.po_number,
+                       "original_contact": x.description,
+                       "purchased_item": x.in_stock,
+                       "created date": x} for x in customers]
+    data = {
+        "response": container_list
+    }
+    print(data)
+    return JsonResponse(data)
 
 """
 def endpointInventoryView(request):

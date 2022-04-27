@@ -42,6 +42,16 @@ function customer_Data_form(x) {
             const serverResponse = xhr.response
             console.log(x)
             document.getElementById('create-customer-form-' + x.toString()).className = "none"
+            let data = {'key': 1234}
+            let jsondata = JSON.stringify(data)
+            const dxhr = new XMLHttpRequest()
+            dxhr.open('POST', '/api/endpoint3', true)
+            dxhr.onload = function () {
+                const serverResponse2 = dxhr.response
+                console.log(serverResponse2)
+            }
+            console.log(jsondata)
+            dxhr.send(jsondata)
 
         }
         my_FormData.entries()
