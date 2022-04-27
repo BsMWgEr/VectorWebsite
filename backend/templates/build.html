@@ -12,7 +12,7 @@
     <div class="total-pages-visits"><p>Total Page Visits: {{ total_visits }}</p></div>
     <div id="container-main" class="container-main">
     <div>
-        <div id="create-form" class="div-form" onmouseenter="closeFields()"></div>
+        <div id="create-form" class="none" onmouseenter="closeFields()"></div>
         <div class="clicker" onclick="closeFields()">
             <div class="container-display" id="container-display"></div>
         </div>
@@ -20,7 +20,8 @@
 
     <div id="display-right" class="display-right">
         <div class="edit-btns-group">
-            <button id="display_id_btn" class="btnchanger" onclick=idChange();createForm()>Change display Item</button>
+            <button id="display-form-btn" class="btnchanger" onclick="createForm()">Create A New Item</button>
+            <button id="display_id_btn" class="btnchanger" onclick=idChange()>Change display Item</button>
             <button id="name_on_btn" class="btnchanger" onclick=NameChange()>Change Name</button>
             <button id="price_btn" class="btnchanger" onclick=PriceChange()>Change Price</button>
             <button id="size_btn" class="btnchanger" onclick=sizeChange()>Change Size</button>
@@ -70,6 +71,8 @@
 
     <script>
     function createForm() {
+        document.getElementById('create-form').className = 'div-form'
+        document.getElementById('display-form-btn').className = 'none'
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
                 + '<select name="type" id="id_type">'
