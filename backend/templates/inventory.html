@@ -13,7 +13,35 @@
     {% block styles %}<link rel="stylesheet" href="{% static 'css/inventory.css' %}">{% endblock %}
     {% block title %}<title>Inventory</title>{% endblock %}
 </head>
+<script>
+    function soldDataForm() {
+        document.getElementById('sold_data_form').innerHTML =
+           '<form method="POST" action="/api/sold-data-api/">'
+            {% csrf_token %}
+                +'<select name="inventory_item" required id="id_inventory_item">'
+                {% for x in items %}
+                    +'<option value="" selected>---------</option>'
+                    +'<option value="{{ x.id }}">{{ x }}</option>'
+                {% endfor %}
+                +'</select>'
+                    //'<label htmlFor="id_purchased_by">Purchased by:</label>'
+                +'<select name="purchased_by" required id="id_purchased_by">'
+                {% for x in customers %}
+                    +'<option value="" selected>---------</option>'
+                    +'<option value="{{ x.id }}">{{ x }}</option>'
+                {% endfor %}
+                +'</select>'
+                    //<label htmlFor="id_date_sold">Date sold:</label>
+                +'<input type="text" name="date_sold" id="id_date_sold">'
+                    //<label htmlFor="id_info">Info:</label>
+                +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
+                    //<label htmlFor="id_other">Other:</label>
+                +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
+                +'<input onclick="soldDataSubmit()" type="submit" value="Submit">'
+            +'</form>'
+    }
 
+</script>
 
 <!-- NAV BAR -->
   <div class="nav-container" {% block js %}{% endblock %}>
@@ -232,35 +260,7 @@
 </div>
 
 </main>
-<script>
-    function soldDataForm() {
-        document.getElementById('sold_data_form').innerHTML =
-           '<form method="POST" action="/api/sold-data-api/">'
-            {% csrf_token %}
-                +'<select name="inventory_item" required id="id_inventory_item">'
-                {% for x in items %}
-                    +'<option value="" selected>---------</option>'
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
-                +'</select>'
-                    //'<label htmlFor="id_purchased_by">Purchased by:</label>'
-                +'<select name="purchased_by" required id="id_purchased_by">'
-                {% for x in customers %}
-                    +'<option value="" selected>---------</option>'
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
-                +'</select>'
-                    //<label htmlFor="id_date_sold">Date sold:</label>
-                +'<input type="text" name="date_sold" id="id_date_sold">'
-                    //<label htmlFor="id_info">Info:</label>
-                +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
-                    //<label htmlFor="id_other">Other:</label>
-                +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
-                +'<input onclick="soldDataSubmit()" type="submit" value="Submit">'
-            +'</form>'
-    }
 
-</script>
 <script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
 
 </html>
