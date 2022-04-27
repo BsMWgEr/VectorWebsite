@@ -145,20 +145,46 @@
                         <button>Change to IN STOCK</button>
                     {% endif %}
                     <button onclick="sold_Data_form({{ x.id }})">Add Sold Data</button></li>
+                    <div class="form-group">
                     <div id="sold_data_form-{{ x.id }}" class="none">
-                        <form method="POST" action="/api/sold-data-api/" onsubmit="soldDataSubmit(event)">
+                        <form method="POST" action="/api/sold-data-api/" onsubmit="DataSubmit(event)">
                             {% csrf_token %}
                             <select name="inventory_item" required id="id_inventory_item">
                                 <option value="{{ x.inventory_item.id }}">{{ x.inventory_item }}</option>
                             </select>
+
                             <select name="purchased_by" required id="id_purchased_by">
+                                {% for x in customers %}
+                                    <option value="" selected>Choose A Previous Customer</option>
                                     <option value="{{ x.id }}">{{ x }}</option>
+                                {% endfor %}
                             </select>
+                            <button type="button" onclick="customer_Data_form({{ x.id }})">Create A New Customer</button>
                             <input type="text" name="date_sold" id="id_date_sold">
                             <textarea name="info" cols="40" rows="10" id="id_info"></textarea>
                             <textarea name="other" cols="40" rows="10" id="id_other"></textarea>
                             <input  type="submit" value="Submit">
                         </form>
+                    </div>
+                    <div id="create-customer-form-{{ x.id }}" class="none">
+                        <form method="POST" action="/api/customer-data-api/" onsubmit="DataSubmit(event)">
+                            <input type="text" name="first_name" maxlength="100" required id="id_first_name">
+                            <input type="text" name="last_name" maxlength="100" required id="id_last_name">
+                            <input type="text" name="company_name" maxlength="200" id="id_company_name">
+                            <input type="email" name="email" maxlength="254" required id="id_email">
+                            <input type="number" name="phone_number" required id="id_phone_number">
+                            <select name="original_contact" id="id_original_contact">
+                                <option value="" selected>Did this Customer Reach Out Through Website Contact Form?</option>
+                                {% for x in messages %}
+                                    <option value="{{ x.id }}">{{ x }}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="purchased_item" id="id_purchased_item" multiple>
+                                <option value="{{ x.inventory_item.id }}">{{ x.inventory_item }}</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
                     </div>
                 {% endif %}
                 {% if x.shipping_data %}

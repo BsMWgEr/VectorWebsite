@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
-from backend.forms import BuildForm, SoldDataForm
+from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
 from backend.models import Item, InventoryObject, Media, SoldDetail
 from stockvectorrigs.aws.utils import AWS
 
@@ -256,7 +256,6 @@ def create_image_api(request):
 def sold_data_api(request):
     form = SoldDataForm(request.POST or None)
     x = 1
-    print(request.POST)
     print(request.POST.get('inventory_item'))
     if form.is_valid():
         x = request.POST.get('inventory_item')
@@ -271,10 +270,35 @@ def sold_data_api(request):
 
     context = {
         'form': form,
-        'object': objs
     }
 
     return render(request, 'sold_data_api.html', context=context)
+
+
+def customer_data_api(request):
+    form = NewCustomerForm(request.POST or None)
+    x = 1
+    print(request.POST.get('inventory_item'))
+    if form.is_valid():
+        #x = request.POST.get('inventory_item')
+        print(form.data)
+        print(form.Meta)
+        print(form.fields)
+        form.save()
+        form = NewCustomerForm()
+        # after creating new sold data --> link to object via id
+    #objs = InventoryObject.objects.all().filter(inventory_item_id=x)
+    #last_sold = SoldDetail.objects.last()
+    #objs.update(sold_data_id=last_sold.id)
+    #print(objs)
+    #print(last_sold)
+
+    context = {
+        'form': form,
+
+    }
+
+    return render(request, 'customer_data_api.html', context=context)
 
 """
 def endpointInventoryView(request):

@@ -1,10 +1,18 @@
 
-
+let sold_data_id;
 function sold_Data_form(x) {
-    document.getElementById('sold_data_form-' + x.toString()).className = "display-sold-form"
+    document.getElementById('sold_data_form-' + x.toString()).className = "sold-data-form"
+    sold_data_id = x
+    return sold_data_id
+}
+let customer_data_id;
+function customer_Data_form(x) {
+    document.getElementById('create-customer-form-' + x.toString()).className = "create-customer-form"
+    customer_data_id = x
+    return customer_data_id
 }
 
-function soldDataSubmit(event){
+    function DataSubmit(event){
         event.preventDefault()
         const my_Form = event.target
         const my_FormData = new FormData(my_Form)
@@ -15,8 +23,25 @@ function soldDataSubmit(event){
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(serverResponse)
-            document.getElementById('sold_data_form').innerHTML = ""
-            document.getElementById('')
+            document.getElementById('sold_data_form-' + sold_data_id.toString()).className = "none"
+
+        }
+        my_FormData.entries()
+        xhr.send(my_FormData)
+    }
+
+    function customerDataSubmit(event){
+        event.preventDefault()
+        const my_Form = event.target
+        const my_FormData = new FormData(my_Form)
+        const url = my_Form.getAttribute("action")
+        const method = my_Form.getAttribute("method")
+        const xhr = new XMLHttpRequest()
+        xhr.open(method, url, true)
+        xhr.onload = function() {
+            const serverResponse = xhr.response
+            console.log(serverResponse)
+            document.getElementById('create_customer_form-' + customer_data_id.toString()).className = "none"
 
         }
         my_FormData.entries()
