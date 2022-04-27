@@ -9,9 +9,10 @@ function soldDataSubmit(event){
         const url = my_Form.getAttribute("action")
         const method = my_Form.getAttribute("method")
         const xhr = new XMLHttpRequest()
-        xhr.open(method, url)
+        xhr.open(method, url, true)
         xhr.onload = function() {
             const serverResponse = xhr.response
+            alert("success")
             console.log('success')
 
         }

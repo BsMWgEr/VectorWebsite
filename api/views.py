@@ -269,6 +269,7 @@ def sold_data_api(request):
         objs.update(sold_data_id=last_sold.id)
         print(objs)
         print(last_sold)
+        form = SoldDataForm()
     context = {
         'form': form,
         'object': objs
