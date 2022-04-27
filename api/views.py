@@ -256,8 +256,12 @@ def create_image_api(request):
 def sold_data_api(request):
     form = SoldDataForm(request.POST or None)
     x = 1
+    print(request.POST)
+    print(request.POST.get('inventory_item'))
     if form.is_valid():
-        x = form.data.get(id)
+        x = request.POST.get('inventory_item')
+        print(x)
+        print(form)
         form.save()
         # after creating new sold data --> link to object via id
         objs = InventoryObject.objects.all().filter(inventory_item_id=x)
