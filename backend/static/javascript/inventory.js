@@ -46,6 +46,8 @@ function customer_Data_form(x) {
             let jsondata = JSON.stringify(data)
             const dxhr = new XMLHttpRequest()
             dxhr.open('GET', '/api/endpoint3', true)
+            dxhr.setRequestHeader('Content-Type', 'application/json')
+            dxhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
             dxhr.onload = function () {
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
