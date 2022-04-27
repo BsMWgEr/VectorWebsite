@@ -22,8 +22,8 @@ function customer_Data_form(x) {
         xhr.open(method, url, true)
         xhr.onload = function() {
             const serverResponse = xhr.response
-            console.log(serverResponse)
-            document.getElementById('sold_data_form-' + x.toString()).className = "none"
+            console.log(x)
+            document.getElementById('sold_data_form-' + x).className = "none"
 
         }
         my_FormData.entries()
@@ -40,7 +40,7 @@ function customer_Data_form(x) {
         xhr.open(method, url, true)
         xhr.onload = function() {
             const serverResponse = xhr.response
-            console.log(serverResponse)
+            console.log(x)
             document.getElementById('create_customer_form-' + x.toString()).className = "none"
 
         }
