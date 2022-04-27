@@ -64,7 +64,7 @@
                 final_str += current
             }
             main_display.innerHTML = final_str
-
+            document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
             alert("New Item successfully created!\nA new INVENTORY OBJECT(" + object.toString() + ") has been created with your new Item!\n" +
                 "New Item ID #: " + item.toString() + "\nNew Inventory Object ID #: " + object.toString())
 
@@ -129,6 +129,7 @@
 
              }
              main_display.innerHTML = final_str
+             document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
          }
          new_form.entries()
          xhr.send(new_form)
