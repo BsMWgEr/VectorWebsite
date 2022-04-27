@@ -147,7 +147,7 @@
                     <button onclick="sold_Data_form({{ x.id }})">Add Sold Data</button></li>
                     <div class="form-group">
                     <div id="sold_data_form-{{ x.id }}" class="none">
-                        <form method="POST" action="/api/sold-data-api/" onsubmit="customerDataSubmit(event)">
+                        <form method="POST" action="/api/sold-data-api/" onsubmit="DataSubmit(event)">
                             {% csrf_token %}
                             <select name="inventory_item" required id="id_inventory_item">
                                 <option value="{{ x.inventory_item.id }}">{{ x.inventory_item }}</option>
@@ -167,7 +167,7 @@
                         </form>
                     </div>
                     <div id="create-customer-form-{{ x.id }}" class="none">
-                        <form method="POST" action="/api/customer-data-api/" onsubmit="DataSubmit(event)">
+                        <form method="POST" action="/api/customer-data-api/" onsubmit="customerDataSubmit(event)">
                             <input type="text" name="first_name" maxlength="100" required id="id_first_name" placeholder="Enter First Name" }}">
                             <input type="text" name="last_name" maxlength="100" required id="id_last_name" placeholder="Enter Last Name">
                             <input type="text" name="company_name" maxlength="200" id="id_company_name" placeholder="Enter Company Name">
