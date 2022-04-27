@@ -67,7 +67,7 @@
     <script>
     function createForm() {
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
-            {% csrf_token %}
+            + '{% csrf_token %}'
                 + '<select name="type" id="id_type">'
                     +'<option value="" disabled selected hidden>Choose Display Page</option>'
                     +'<option value="sport_rigs">Sport Rigs</option>'
