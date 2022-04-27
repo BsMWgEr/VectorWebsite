@@ -314,6 +314,7 @@ def endpoint3(request):
         "response": container_list
     }
     print(data)
+
     return JsonResponse(data)
 
 """

@@ -12,6 +12,8 @@
     const change_display3 = document.getElementById('form-id-change2')
     const div_id_change = document.getElementById('div-id-change')
 
+
+
     function handleFormSubmit(event){
         event.preventDefault()
         const my_Form = event.target
@@ -405,5 +407,5 @@
 
 
 const ghf = document.getElementById('inner-container')
-element.addEventListener('submit', handleFormSubmit)
+
 
