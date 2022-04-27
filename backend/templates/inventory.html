@@ -167,7 +167,7 @@
                         </form>
                     </div>
                     <div id="create-customer-form-{{ x.id }}" class="none">
-                        <form method="POST" action="/api/customer-data-api/" onsubmit="customerDataSubmit(event, {{ x.id }})">
+                        <form id="customer-form" method="POST" action="/api/customer-data-api/" onsubmit="customerDataSubmit(event, {{ x.id }})">
                             {% csrf_token %}
                             <input type="text" name="first_name" maxlength="100" required id="id_first_name" placeholder="Enter First Name" }}">
                             <input type="text" name="last_name" maxlength="100" required id="id_last_name" placeholder="Enter Last Name">

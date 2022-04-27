@@ -29,7 +29,7 @@ function customer_Data_form(x) {
         my_FormData.entries()
         xhr.send(my_FormData)
     }
-
+let crsfToken = document.querySelector('#customer-form input[name=csrfmiddlewaretoken]').value
     function customerDataSubmit(event, x){
         event.preventDefault()
         const my_Form = event.target
