@@ -13,36 +13,7 @@
     {% block styles %}<link rel="stylesheet" href="{% static 'css/inventory.css' %}">{% endblock %}
     {% block title %}<title>Inventory</title>{% endblock %}
 </head>
-<script>
-    function sold_Data_form() {
-        document.getElementById('sold_data_form').innerHTML =
-           '<form method="POST" action="/api/sold-data-api/" onsubmit="soldDataSubmit(event)">'
-            +'{% csrf_token %}'
-                +'<select name="inventory_item" required id="id_inventory_item">'
-                {% for x in items %}
 
-                    +'<option value="" selected>---------</option>'
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
-                +'</select>'
-                    //'<label htmlFor="id_purchased_by">Purchased by:</label>'
-                +'<select name="purchased_by" required id="id_purchased_by">'
-                {% for x in customers %}
-                    +'<option value="" selected>---------</option>'
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
-                +'</select>'
-                    //<label htmlFor="id_date_sold">Date sold:</label>
-                +'<input type="text" name="date_sold" id="id_date_sold">'
-                    //<label htmlFor="id_info">Info:</label>
-                +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
-                    //<label htmlFor="id_other">Other:</label>
-                +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
-                +'<input  type="submit" value="Submit">'
-            +'</form>'
-    }
-
-</script>
 
 <!-- NAV BAR -->
   <div class="nav-container" {% block js %}{% endblock %}>
@@ -173,8 +144,22 @@
                     {% if not x.inventory_item.in_stock %}
                         <button>Change to IN STOCK</button>
                     {% endif %}
-                    <button onclick="sold_Data_form()">Add Sold Data</button></li>
-                    <div id="sold_data_form"></div>
+                    <button onclick="sold_Data_form({{ x.id }})">Add Sold Data</button></li>
+                    <div id="sold_data_form-{{ x.id }}" class="none">
+                        <form method="POST" action="/api/sold-data-api/" onsubmit="soldDataSubmit(event)">
+                            {% csrf_token %}
+                            <select name="inventory_item" required id="id_inventory_item">
+                                <option value="{{ x.inventory_item.id }}">{{ x.inventory_item }}</option>
+                            </select>
+                            <select name="purchased_by" required id="id_purchased_by">
+                                    <option value="{{ x.id }}">{{ x }}</option>
+                            </select>
+                            <input type="text" name="date_sold" id="id_date_sold">
+                            <textarea name="info" cols="40" rows="10" id="id_info"></textarea>
+                            <textarea name="other" cols="40" rows="10" id="id_other"></textarea>
+                            <input  type="submit" value="Submit">
+                        </form>
+                    </div>
                 {% endif %}
                 {% if x.shipping_data %}
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>

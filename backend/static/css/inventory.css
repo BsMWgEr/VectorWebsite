@@ -6,3 +6,11 @@
     background: orange;
     height: 100px;
 }
+
+.none {
+    display: none;
+}
+
+.sold-data-form {
+    display: block;
+}

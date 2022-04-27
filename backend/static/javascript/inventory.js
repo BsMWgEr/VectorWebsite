@@ -1,6 +1,8 @@
 
 
-
+function sold_Data_form(x) {
+    document.getElementById('sold_data_form-' + x.toString()).className = "display-sold-form"
+}
 
 function soldDataSubmit(event){
         event.preventDefault()
