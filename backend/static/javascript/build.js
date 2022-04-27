@@ -164,6 +164,7 @@
             + "<p>Name: " + element.name + "</p>"+ "<p>Size: " + element.size + "</p>" + "<p>Due Date:" + element.due_date + "</p>"
             + "<p>Confirmation Report: " + element.confirmation_r + "</p>" + "<p>Picture File: " + element.picture + "</p>"
             + "<p>Description: " + element.description + "</p>"
+             + "<p>PO Number: " + element.po_number + "</p>"
             + "</div>"
             + "<div class='container' onclick='closeFields()'>"
             + "<div class='inner-container'>"

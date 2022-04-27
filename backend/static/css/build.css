@@ -230,8 +230,10 @@ button {
 }
 
 .bottom-display {
+    max-width: 60%;
     display: grid;
-    grid-template-columns: .5fr .5fr;
+    grid-template-columns: auto;
+    transform: translate(0,-25%);
 }
 
 .sold-tag {
@@ -246,6 +248,7 @@ button {
 
 .stocking-tag {
     margin-left: 00px;
+    color: red;
 }
 
 #deletebtn {
@@ -302,8 +305,8 @@ button {
 }
 
 .display-right {
-    min-width: 50%;
-    max-width: 100%;
+    min-width: 80%;
+    max-width: 95%;
 }
 
 .inputs {
@@ -316,7 +319,7 @@ button {
 
 .bottom-display p {
     margin-left: 100px;
-    color: black;
+    color: red;
     font-weight: 1000;
     font-family: Monospace;
 }
@@ -339,9 +342,31 @@ button {
     color: #b5db1a;
 }
 
+.change-display {
+
+}
+
+.div-change {
+    display: grid;
+    transform: translate(100%, 150%);
+    border: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    background: rgba(0,0, 0,.7);
+}
+
+
+
 .item-update-btn-group {
+    float: right;
     display: flex;
     flex-wrap: wrap;
-    max-width: 90%;
+    max-width: 50%;
 
+}
+
+.main-btn-group button{
+    background:orange;
+    font-weight: 800;
 }
