@@ -20,6 +20,7 @@
             +'{% csrf_token %}'
                 +'<select name="inventory_item" required id="id_inventory_item">'
                 {% for x in items %}
+
                     +'<option value="" selected>---------</option>'
                     +'<option value="{{ x.id }}">{{ x }}</option>'
                 {% endfor %}

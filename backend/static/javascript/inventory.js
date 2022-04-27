@@ -12,8 +12,9 @@ function soldDataSubmit(event){
         xhr.open(method, url, true)
         xhr.onload = function() {
             const serverResponse = xhr.response
-            alert("success")
-            console.log('success')
+            console.log(serverResponse)
+            document.getElementById('sold_data_form').innerHTML = ""
+            document.getElementById('')
 
         }
         my_FormData.entries()

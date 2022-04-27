@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
-from .forms import IdForm, BuildForm
-from .models import InventoryObject, Item, PageVisitData, Media, Customer
+from backend.forms import IdForm, BuildForm
+from backend.models import InventoryObject, Item, PageVisitData, Media, Customer
 
 
 @login_required
@@ -33,7 +33,7 @@ def media_view(request):
 
 @login_required
 def inventory_view(request):
-    items = Item.objects.all()
+    items = InventoryObject.objects.all().filter(sold_data__isnull=True)
     customers = Customer.objects.all()
     summary_title = "ALL (Click to Expand)"
     x = InventoryObject.objects.all()
