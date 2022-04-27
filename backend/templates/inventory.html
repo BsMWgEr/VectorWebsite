@@ -223,11 +223,7 @@
         </li>
 {% endfor %}
 </ul>
-
-{% block nothing2 %}
-</details>
-
-    <script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
     <script>
     function soldDataForm() {
     document.getElementById('sold_data_form').innerHTML =
@@ -257,6 +253,10 @@
 }
 
     </script>
+{% block nothing2 %}
+</details>
+
+
 {% endblock %}
 </div>
 
