@@ -41,7 +41,7 @@ function customer_Data_form(x) {
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(x)
-            document.getElementById('create_customer_form-' + x.toString()).className = "none"
+            document.getElementById('create-customer-form-' + x.toString()).className = "none"
 
         }
         my_FormData.entries()
