@@ -12,7 +12,7 @@ function customer_Data_form(x) {
     return customer_data_id
 }
 
-    function DataSubmit(event){
+    function DataSubmit(event, x){
         event.preventDefault()
         const my_Form = event.target
         const my_FormData = new FormData(my_Form)
@@ -23,14 +23,14 @@ function customer_Data_form(x) {
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(serverResponse)
-            //document.getElementById('sold_data_form-' + sold_data_id.toString()).className = "none"
+            document.getElementById('sold_data_form-' + x.toString()).className = "none"
 
         }
         my_FormData.entries()
         xhr.send(my_FormData)
     }
 
-    function customerDataSubmit(event){
+    function customerDataSubmit(event, x){
         event.preventDefault()
         const my_Form = event.target
         const my_FormData = new FormData(my_Form)
@@ -41,7 +41,7 @@ function customer_Data_form(x) {
         xhr.onload = function() {
             const serverResponse = xhr.response
             console.log(serverResponse)
-           // document.getElementById('create_customer_form-' + customer_data_id.toString()).className = "none"
+            document.getElementById('create_customer_form-' + x.toString()).className = "none"
 
         }
         my_FormData.entries()

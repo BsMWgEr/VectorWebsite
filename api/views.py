@@ -282,8 +282,7 @@ def customer_data_api(request):
     if form.is_valid():
         #x = request.POST.get('inventory_item')
         print(form.data)
-        print(form.Meta)
-        print(form.fields)
+
         form.save()
         form = NewCustomerForm()
         # after creating new sold data --> link to object via id
