@@ -64,7 +64,7 @@ input {
     margin-top: 40px;
     box-shadow: 5px 5px 25px black;
     border-radius: 10px;
-    max-width: 900px;
+    max-width: 95%;
     margin-left: 2%;
 
 
@@ -341,4 +341,7 @@ button {
 
 .item-update-btn-group {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+
 }
