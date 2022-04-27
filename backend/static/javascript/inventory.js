@@ -45,7 +45,7 @@ function customer_Data_form(x) {
             let data = {'key': 1234}
             let jsondata = JSON.stringify(data)
             const dxhr = new XMLHttpRequest()
-            dxhr.open('POST', '/api/endpoint3', true)
+            dxhr.open('GET', '/api/endpoint3', true)
             dxhr.onload = function () {
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
