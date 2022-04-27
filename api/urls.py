@@ -1,5 +1,6 @@
 from django.urls import path
-from api.views import cookie_list_view, build_api_new_view, api_view, endpoint_view, build_api_view, UploadAPI, create_image_api
+from api.views import cookie_list_view, build_api_new_view, api_view, endpoint_view, build_api_view, UploadAPI, \
+    create_image_api, sold_data_api
 
 
 urlpatterns = [
@@ -10,4 +11,5 @@ urlpatterns = [
     path('createimageapi', create_image_api),
     path('endpoint', endpoint_view, name="endpoint"),
     path('upload-api/', UploadAPI),
+    path('sold-data-api/', sold_data_api),
 ]

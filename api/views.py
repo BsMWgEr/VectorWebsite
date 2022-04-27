@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
-from backend.forms import BuildForm
-from backend.models import Item, InventoryObject, Media
+from backend.forms import BuildForm, SoldDataForm
+from backend.models import Item, InventoryObject, Media, SoldDetail
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -251,3 +251,45 @@ def create_image_api(request):
         new.save()
 
     return JsonResponse('Success')
+
+
+def sold_data_api(request):
+    form = SoldDataForm(request.POST or None)
+    x = 1
+    if form.is_valid():
+        x = form.data.get(id)
+        form.save()
+        # after creating new sold data --> link to object via id
+        objs = InventoryObject.objects.all().filter(inventory_item_id=x)
+        last_sold = SoldDetail.objects.last()
+        objs.sold_data = last_sold.id
+        objs.save()
+    context = {
+        'form': form,
+        'object': objs
+    }
+
+    return render(request, 'sold_data_api.html', context=context)
+
+"""
+def endpointInventoryView(request):
+    qs_l = InventoryObject.objects.all().count()
+    q_dict = request.POST
+    dict_id = q_dict.get('id')
+    y = InventoryObject.objects.all()
+   
+    container_list = [{
+        "inventory_item": x.inventory_item,
+        "sold_data": x.sold_data,
+        "shipping_data": x.shipping_data,
+        "completed_order": x.completed_order,
+        "created_date": x.created_data,
+        "info": x.info,
+        "original_contact": x.original_contact,} for x in y]
+    data = {
+        "response": container_list
+    }
+    
+    return JsonResponse(data)
+    
+"""

@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from .forms import IdForm, BuildForm
-from .models import InventoryObject, Item, PageVisitData, Media
+from .models import InventoryObject, Item, PageVisitData, Media, Customer
 
 
 @login_required
@@ -33,12 +33,16 @@ def media_view(request):
 
 @login_required
 def inventory_view(request):
+    items = Item.objects.all()
+    customers = Customer.objects.all()
     summary_title = "ALL (Click to Expand)"
     x = InventoryObject.objects.all()
 
     context = {
         'summary_title': summary_title,
-        'all': x
+        'all': x,
+        'items': items,
+        'customers': customers,
     }
     return render(request, 'inventory.html', context=context)
 
@@ -64,6 +68,8 @@ def inventory_view_instock(request):
 
 @login_required
 def inventory_view_comingsoon(request):
+    items = Item.objects.all()
+    customers = Customer.objects.all()
     summary_title = "Coming Soon"
     x = InventoryObject.objects.all()
     instock_false = []
@@ -77,6 +83,8 @@ def inventory_view_comingsoon(request):
     context = {
         'all': instock_false,
         'summary_title': summary_title,
+        'items': items,
+        'customers': customers,
     }
     return render(request, 'inventory-comingsoon.html', context=context)
 

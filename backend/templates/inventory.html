@@ -144,7 +144,8 @@
                     {% if not x.inventory_item.in_stock %}
                         <button>Change to IN STOCK</button>
                     {% endif %}
-                    <button>Add Sold Data</button></li>
+                    <button onclick="soldDataForm()">Add Sold Data</button></li>
+                    <div id="sold_data_form"></div>
                 {% endif %}
                 {% if x.shipping_data %}
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
@@ -225,6 +226,37 @@
 
 {% block nothing2 %}
 </details>
+
+    <script type="text/javascript" src="{% static 'javascript/inventory.js' %}"></script>
+    <script>
+    function soldDataForm() {
+    document.getElementById('sold_data_form').innerHTML =
+       '<form method="POST" action="/api/sold-data-api/">'
+        {% csrf_token %}
+            +'<select name="inventory_item" required id="id_inventory_item">'
+            {% for x in items %}
+                +'<option value="" selected>---------</option>'
+                +'<option value="{{ x.id }}">{{ x }}</option>'
+            {% endfor %}
+            +'</select>'
+                //'<label htmlFor="id_purchased_by">Purchased by:</label>'
+            +'<select name="purchased_by" required id="id_purchased_by">'
+            {% for x in customers %}
+                +'<option value="" selected>---------</option>'
+                +'<option value="{{ x.id }}">{{ x }}</option>'
+            {% endfor %}
+            +'</select>'
+                //<label htmlFor="id_date_sold">Date sold:</label>
+            +'<input type="text" name="date_sold" id="id_date_sold">'
+                //<label htmlFor="id_info">Info:</label>
+            +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
+                //<label htmlFor="id_other">Other:</label>
+            +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
+            +'<input onclick="soldDataSubmit()" type="submit" value="Submit">'
+        +'</form>'
+}
+
+    </script>
 {% endblock %}
 </div>
 

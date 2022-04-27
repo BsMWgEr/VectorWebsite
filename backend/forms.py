@@ -1,5 +1,5 @@
 from django import forms
-from .models import Message, Item
+from .models import Message, Item, InventoryObject, SoldDetail
 from django.forms import TextInput, Textarea
 
 
@@ -53,3 +53,15 @@ class BuildForm(forms.ModelForm):
         widgets = {
 
         }
+
+
+class SoldDataForm(forms.ModelForm):
+    class Meta:
+        model = SoldDetail
+        fields = [
+            'inventory_item',
+            'purchased_by',
+            'date_sold',
+            'info',
+            'other',
+        ]
