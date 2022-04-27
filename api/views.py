@@ -302,14 +302,14 @@ def customer_data_api(request):
 def endpoint3(request):
     customers = Customer.objects.all()
     container_list = [{"id": x.id,
-                       "first_name": x.type,
-                       "last_name": x.name,
-                       "company_name": x.size,
-                       "email": x.due_date,
-                       "phone_number": x.po_number,
-                       "original_contact": x.description,
-                       "purchased_item": x.in_stock,
-                       "created date": x} for x in customers]
+                       "first_name": x.first_name,
+                       "last_name": x.last_name,
+                       "company_name": x.company_name,
+                       "email": x.email,
+                       "phone_number": x.phone_number,
+                       "original_contact": x.original_contact,
+                       "purchased_item": x.purchased_item,
+                       "created date": x.created_date} for x in customers]
     data = {
         "response": container_list
     }
