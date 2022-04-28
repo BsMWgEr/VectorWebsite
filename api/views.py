@@ -52,15 +52,13 @@ def build_api_new_view(request):
 
 def cookie_list_view(request):
     y = Item.objects.first()
-    y_plus = y.id
     inventory_object = InventoryObject()
-    inventory_object.inventory_item_id = y_plus
+    inventory_object.inventory_item_id = y.id
     inventory_object.save()
     # print(y.id)
     u = InventoryObject.objects.last()
     u = u.id
-    g = Item.objects.all().filter(id=y_plus)
-    g.update({'description': 'new_description'})
+    g = Item.objects.all().filter(id=y.id).update(description='description')
     all_ids = g
     picture = None
     confirm = None
@@ -93,6 +91,7 @@ def cookie_list_view(request):
     data = {
         "response": container_list
     }
+    print(data)
     return JsonResponse(data)
 
 
