@@ -1,10 +1,10 @@
 
 from django.contrib import admin
 from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, \
-    Media, Item, Name, Size
+    Media, Item, Name, Size, InventoryItem
 
 
-#admin.site.register(Item)
+admin.site.register(InventoryItem)
 
 admin.site.register(Media)
 admin.site.register(SoldDetail)
