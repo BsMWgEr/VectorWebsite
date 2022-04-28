@@ -157,6 +157,9 @@ class Item(models.Model):
         }
 
 
+
+
+
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -170,7 +173,10 @@ class Customer(models.Model):
     def __str__(self):
         return f"ID: {self.id} - Name: {self.last_name}, {self.first_name} - Phone #: {self.phone_number} - {self.email}"
 
-
+class CustomerHold(models.Model):
+    new_customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
+    on_hold = models.BooleanField(default=True)
+    created_time = models.DateTimeField(auto_now_add=True)
 
 class InventoryItem(models.Model):
     type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
@@ -180,7 +186,7 @@ class InventoryItem(models.Model):
     size = models.ForeignKey(Name, on_delete=models.SET_NULL, blank=True, null=True, related_name='item_size')
     description = models.TextField(blank=True, null=True)
     in_stock = models.BooleanField(default=False)
-    on_hold = models.OneToOneField(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    on_hold = models.OneToOneField(CustomerHold, on_delete=models.SET_NULL, null=True, blank=True)
     po_number = models.CharField(max_length=50, blank=True, null=True)
     confirmation_r = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='item_confirmation_r')
     price = models.IntegerField()
