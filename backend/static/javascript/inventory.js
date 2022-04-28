@@ -33,6 +33,7 @@ function customer_Data_form(x) {
     }
 let crsfToken = document.querySelector('#customer-form input[name=csrfmiddlewaretoken]').value
     function customerDataSubmit(event, x){
+        let old_x = x
         event.preventDefault()
         const my_Form = event.target
         const my_FormData = new FormData(my_Form)
@@ -58,7 +59,7 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                      final_string += '<option value="' + x.response[i].id + '">' + x.response[i].id + x.response[i].first_name
                         + x.response[i].last_name + x.response[i].email + '</option>'
                 }
-                document.getElementById('id_purchased_by-' + x.response.id).innerHTML = final_string
+                document.getElementById('id_purchased_by-' + old_x).innerHTML = final_string
 
 
 
