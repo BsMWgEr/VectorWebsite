@@ -1,6 +1,7 @@
 
 from django.contrib import admin
-from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, Media, Item
+from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, \
+    Media, Item, Name, Size
 
 
 #admin.site.register(Item)
@@ -10,6 +11,8 @@ admin.site.register(SoldDetail)
 admin.site.register(ShippingDetail)
 admin.site.register(CustomerShippingAddress)
 admin.site.register(Customer)
+admin.site.register(Name)
+admin.site.register(Size)
 
 
 
