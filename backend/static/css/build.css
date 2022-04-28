@@ -230,10 +230,11 @@ button {
 }
 
 .bottom-display {
+    margin-top: 50px;
     max-width: 60%;
     display: grid;
-    grid-template-columns: auto;
-    transform: translate(0,-25%);
+    grid-template-columns: auto auto;
+    transform: translate(0,0);
 }
 
 .sold-tag {
@@ -347,8 +348,7 @@ button {
 }
 
 .div-change {
-    display: grid;
-    transform: translate(100%, 150%);
+    margin-top: 20px;
     border: hidden;
     padding: 10px;
     border-radius: 10px;
