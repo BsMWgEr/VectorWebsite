@@ -113,7 +113,7 @@ class Name(models.Model):
     description_info = models.TextField(blank=True, null=True)
 
 class Size(models.Model):
-    name = models.ForeignKey(Name, on_delete=models.CASCADE)
+    name = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
     size = models.CharField(max_length=200)
     description_info = models.TextField(blank=True, null=True)
 
