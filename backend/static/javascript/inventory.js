@@ -41,8 +41,6 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
         const xhr = new XMLHttpRequest()
         xhr.open(method, url, true)
         xhr.onload = function() {
-            const serverResponse = xhr.response
-            console.log(x)
             document.getElementById('create-customer-form-' + x.toString()).className = "none"
             const dxhr = new XMLHttpRequest()
             dxhr.open('GET', '/api/endpoint3', true)
@@ -53,6 +51,11 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                 console.log(serverResponse2)
                 x = JSON.parse(serverResponse2)
                 console.log(x)
+                for (let i = 0; i < x.length; i++) {
+                    console.log(x.id)
+                    console.log(x.first_name)
+                }
+
 
             }
             dxhr.send()
