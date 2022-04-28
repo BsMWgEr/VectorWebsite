@@ -145,6 +145,8 @@ def build_api_view(request):
     next_url = request.POST.get('next') or None
 
     if form.is_valid():
+        print(form.data)
+        form.data.update('description', 'new description')
         form.save()
         # do other logic here
 
