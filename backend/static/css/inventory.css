@@ -7,19 +7,7 @@
     height: 100px;
 }
 
-.none {
-    display: none;
-}
 
-.sold-data-form {
-    display: block;
-    border: 5px solid black;
-}
-
-.create-customer-form {
-    display: block;
-    border: 5px solid black;
-}
 
 .form-group {
     display: grid;
