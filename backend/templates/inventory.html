@@ -154,8 +154,8 @@
                             </select>
 
                             <select name="purchased_by" required id="id_purchased_by">
+                                <option value="" selected>Choose A Customer</option>
                                 {% for x in customers %}
-                                    <option value="" selected>Choose A Previous Customer</option>
                                     <option value="{{ x.id }}">{{ x }}</option>
                                 {% endfor %}
                             </select>

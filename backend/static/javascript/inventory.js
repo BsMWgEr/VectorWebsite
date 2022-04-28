@@ -53,6 +53,12 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                 console.log(x)
                 console.log(x.response)
                 console.log(x.response[20])
+                let final_string = '<option value="" selected>Choose A Customer</option>'
+                for (let i = 0; i < x.response.length; i++) {
+                     final_string += '<option value="' + x.response[i].id + '">' + x.response[i].id + x.response[i].first_name
+                        + x.response[i].last_name + x.response[i].email + '</option>'
+                }
+                document.getElementById('id_purchased_by').innerHTML = final_string
 
 
 
