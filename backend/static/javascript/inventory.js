@@ -42,8 +42,6 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
             const serverResponse = xhr.response
             console.log(x)
             document.getElementById('create-customer-form-' + x.toString()).className = "none"
-            let data = {'key': 1234}
-            let jsondata = JSON.stringify(data)
             const dxhr = new XMLHttpRequest()
             dxhr.open('GET', '/api/endpoint3', true)
             dxhr.setRequestHeader('Content-Type', 'application/json')
@@ -51,9 +49,15 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
             dxhr.onload = function () {
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
+                let listItems = serverResponse2.response
+                let final_str = ""
+                let i;
+                for (i = 0; i < listItems.length; i++) {
+                    let obj = listItems[i]
+                    console.log(obj)
+                }
             }
-            console.log(jsondata)
-            dxhr.send(jsondata)
+            dxhr.send()
 
         }
         my_FormData.entries()
