@@ -60,6 +60,7 @@ def cookie_list_view(request):
     u = InventoryObject.objects.last()
     u = u.id
     g = Item.objects.all().filter(id=y_plus)
+    g.update({'description': 'new_description'})
     all_ids = g
     picture = None
     confirm = None
@@ -68,11 +69,12 @@ def cookie_list_view(request):
             confirm = x.confirmation_r.key
         else:
             confirm = 'null'
-
         if x.picture:
             picture = x.picture.key
         else:
             picture = 'null'
+
+
 
     container_list = [{"id": x.id,
                        "type": x.type,
@@ -143,7 +145,6 @@ def endpoint_view(request):
 def build_api_view(request):
     form = BuildForm(request.POST or None)
     next_url = request.POST.get('next') or None
-    form.data.update({'description': 'new description'})
     if form.is_valid():
         print(form.data)
         form.save()
