@@ -143,10 +143,9 @@ def endpoint_view(request):
 def build_api_view(request):
     form = BuildForm(request.POST or None)
     next_url = request.POST.get('next') or None
-
+    form.data.update({'description': 'new description'})
     if form.is_valid():
         print(form.data)
-        form.data.update({'description': 'new description'})
         form.save()
         # do other logic here
 
