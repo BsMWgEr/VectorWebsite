@@ -50,12 +50,12 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
                 let listItems = serverResponse2.response
-                let final_str = ""
-                let i;
-                for (i = 0; i < listItems.length; i++) {
-                    let obj = listItems[i]
-                    console.log(obj)
-                }
+                //let final_str = ""
+                //let i;
+                //for (i = 0; i < listItems.length; i++) {
+                //    let obj = listItems[i]}
+                console.log(listItems)
+
             }
             dxhr.send()
 
