@@ -51,8 +51,12 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
             dxhr.onload = function () {
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
-                console.log(serverResponse2.reponse)
-
+                let final_str = ""
+                let i;
+                let return_info;
+                for (i=0;i<serverResponse2.length; i++) {
+                    console.log(serverResponse2[i])
+                }
 
             }
             dxhr.send()
