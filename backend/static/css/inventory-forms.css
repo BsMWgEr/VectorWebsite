@@ -2,6 +2,12 @@
     display: none;
 }
 
+
+.form-group {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 .sold-data-form {
     display: block;
     border: 5px solid black;
