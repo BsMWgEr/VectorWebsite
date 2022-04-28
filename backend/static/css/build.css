@@ -197,7 +197,7 @@ button {
 #h1-info-tag {
     position: absolute;
     top: -40px;
-    left: 0;
+    left: 20px;
     color: white;
 }
 
@@ -248,7 +248,8 @@ button {
 }
 
 .stocking-tag {
-    margin-left: 00px;
+    font-size: 14pt;
+    margin-left: 20px;
     color: white;
 }
 
@@ -321,8 +322,13 @@ button {
 .bottom-display p {
     margin-left: 100px;
     color: black;
+    border: 2px solid black;
+    background: white;
     font-weight: 1000;
     font-family: Monospace;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 10px black;
 }
 
 .form button {
