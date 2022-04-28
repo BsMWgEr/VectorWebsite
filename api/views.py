@@ -58,7 +58,8 @@ def cookie_list_view(request):
     # print(y.id)
     u = InventoryObject.objects.last()
     u = u.id
-    g = Item.objects.all().filter(id=y.id).update(description='description')
+    g = Item.objects.all().filter(id=y.id)
+    g.update(description='description')
     all_ids = g
     picture = None
     confirm = None
