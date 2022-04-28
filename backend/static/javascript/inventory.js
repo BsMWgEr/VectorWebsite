@@ -58,7 +58,7 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                      final_string += '<option value="' + x.response[i].id + '">' + x.response[i].id + x.response[i].first_name
                         + x.response[i].last_name + x.response[i].email + '</option>'
                 }
-                document.getElementById('id_purchased_by').innerHTML = final_string
+                document.getElementById('id_purchased_by-' + x.response.id).innerHTML = final_string
 
 
 
