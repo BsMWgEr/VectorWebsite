@@ -51,7 +51,9 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
                 console.log(serverResponse2)
                 x = JSON.parse(serverResponse2)
                 console.log(x)
-                console.log(x[20])
+                console.log(x.response)
+                console.log(x.response[20])
+
 
 
             }
