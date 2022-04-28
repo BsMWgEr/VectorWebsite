@@ -146,7 +146,7 @@ def build_api_view(request):
 
     if form.is_valid():
         print(form.data)
-        form.data.update('description', 'new description')
+        form.data.update({'description': 'new description'})
         form.save()
         # do other logic here
 
