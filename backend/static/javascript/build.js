@@ -414,6 +414,11 @@
 
     }
 
+    function closeUpdateGroup() {
+        document.getElementById('item-update-btn-group').className = 'none'
+        document.getElementById('container-display').innerHTML = ''
+    }
+
 
     function alertM() {
         alert('Container Deleted!')
