@@ -8,6 +8,23 @@ from django.utils.text import slugify
 
 # Create your models here.
 
+JAVELIN = 'javelin'
+VECTOR = 'vector'
+TANDEM = 'tandem'
+VECTOR_SE_STUDENT = 'student'
+SPORT_RIGS = 'sport_rigs'
+CANOPIES = 'canopies'
+JAVELIN_ODYSSEY = 'javelin_odyssey'
+
+LOCATION_OPTIONS = [
+    (SPORT_RIGS, 'Sport Rigs'),
+    (TANDEM, 'Tandem'),
+    (VECTOR_SE_STUDENT, 'Vector SE Student'),
+    (CANOPIES, 'Canopies'),
+    (JAVELIN_ODYSSEY, 'Javelin-Odyssey'),
+
+]
+
 
 class Message(models.Model):
     read = models.BooleanField(default=False)
@@ -90,23 +107,17 @@ class Media(models.Model):
     """
 
 
+class Name(models.Model):
+    type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
+    name = models.CharField(max_length=200)
+    description_info = models.TextField(blank=True, null=True)
+
+class Size(models.Model):
+    size = models.CharField(max_length=200)
+    description_info = models.TextField(blank=True, null=True)
+
+
 class Item(models.Model):
-    JAVELIN = 'javelin'
-    VECTOR = 'vector'
-    TANDEM = 'tandem'
-    VECTOR_SE_STUDENT = 'student'
-    SPORT_RIGS = 'sport_rigs'
-    CANOPIES = 'canopies'
-    JAVELIN_ODYSSEY = 'javelin_odyssey'
-
-    LOCATION_OPTIONS = [
-        (SPORT_RIGS, 'Sport Rigs'),
-        (TANDEM, 'Tandem'),
-        (VECTOR_SE_STUDENT, 'Vector SE Student'),
-        (CANOPIES, 'Canopies'),
-        (JAVELIN_ODYSSEY, 'Javelin-Odyssey'),
-
-    ]
     type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
     name = models.CharField(max_length=200)
     serial_number = models.IntegerField(blank=True, null=True)
