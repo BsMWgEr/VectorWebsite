@@ -12,6 +12,8 @@ function customer_Data_form(x) {
     return customer_data_id
 }
 
+// XHR request for new customer form -> sends to
+
     function DataSubmit(event, x){
         event.preventDefault()
         const my_Form = event.target

@@ -307,12 +307,11 @@ def endpoint3(request):
                        "company_name": x.company_name,
                        "email": x.email,
                        "phone_number": x.phone_number,
-                       "original_contact": x.original_contact,
-                       "purchased_item": x.purchased_item,
-                       "created date": x.created_date} for x in customers]
+                       } for x in customers]
     data = {
         "response": container_list
     }
+
     print(data)
 
     return JsonResponse(data)
