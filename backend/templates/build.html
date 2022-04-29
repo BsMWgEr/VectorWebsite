@@ -100,6 +100,12 @@
                 +'<textarea name="description" cols="40" rows="10" id="id_description" placeholder="Description/Information goes here"></textarea>'
                 +'<hr>'
                   +'<input type="checkbox" name="in_stock" id="id_in_stock">'
+                +'<select name="on_hold" id="id_on_hold">'
+                    +'<option value="" selected>---------</option>'
+                {% for x in hold_options %}
+                    +'<option value="{{ x.id }}" selected>{{ x }}</option>'
+                {% endfor %}
+                +'</select>'
                 +'<hr>'
                 +'<input type="text" name="po_number" maxlength="50" id="id_po_number" placeholder="Enter PO Number/Date">'
                 +'<select name="confirmation_r" id="id_confirmation_r">'

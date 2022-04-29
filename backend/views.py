@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from backend.forms import IdForm, BuildForm
-from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size
+from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold
 
 
 @login_required
@@ -156,6 +156,7 @@ def build_it(request):
     all_items = InventoryItem.objects.all()
     names = Name.objects.all()
     sizes = Size.objects.all()
+    holds = CustomerHold.objects.all()
 
     context = {
         'total_visits': total_visits,
@@ -167,5 +168,6 @@ def build_it(request):
         'all_items': all_items,
         'name_options': names,
         'size_options': sizes,
+        'hold_options': holds,
     }
     return render(request, "build.html", context=context)
