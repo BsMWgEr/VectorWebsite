@@ -43,7 +43,6 @@
                     </form>
 
                     <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
-                        <input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>
                         {% csrf_token %}
                         <div id="change-display" class="change-display"></div>
                     </form>
@@ -176,7 +175,8 @@
         div_id_change.className = 'none'
         change_display2.innerHTML = ''
         div_change.className = 'div-change'
-        change_display.innerHTML = '<select name="size" id="id_size">'
+        change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + '<select name="size" id="id_size">'
                 +'<option id="" value="" selected>Choose a Size</option>'
                 {% for x in size_options %}
                     +'<option value="{{ x.id }}">{{ x }}</option>'
