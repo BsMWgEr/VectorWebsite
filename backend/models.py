@@ -112,10 +112,16 @@ class Name(models.Model):
     name = models.CharField(max_length=200)
     description_info = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return f'ID: {self.id} - {self.name} - {self.type}'
+
 class Size(models.Model):
-    name = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
+    type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
     size = models.CharField(max_length=200)
     description_info = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f'ID: {self.id} - {self.size} - {self.type}'
 
 
 class Item(models.Model):
@@ -177,6 +183,9 @@ class CustomerHold(models.Model):
     new_customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
     on_hold = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Customer on Hold for: {self.id} - {self.on_hold} - {self.new_customer} '
 
 class InventoryItem(models.Model):
     type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
