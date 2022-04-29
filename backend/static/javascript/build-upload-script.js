@@ -9,7 +9,7 @@ function getUploadListCR() {
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
     let responseType = 'json'
     fxhr.responseType = responseType
-    fxhr.open(method, url + 'q=confirmation_reports/')
+    fxhr.open(method, url + '?=confirmation_reports/')
     fxhr.onload = function () {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
@@ -44,7 +44,7 @@ function getUploadListPict() {
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
     let responseType = 'json'
     fxhr.responseType = responseType
-    fxhr.open(method, url + 'q=images/')
+    fxhr.open(method, url + '?=images/')
     fxhr.onload = function () {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
