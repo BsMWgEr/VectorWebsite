@@ -190,9 +190,8 @@ function usePolicyAndUpload(fileItem, policyData){
                 if (serverResponse4.response) {
                     console.log(serverResponse4.response)
                 }
-                let t = JSON.parse(serverResponse4)
+                let t = JSON.parse(serverResponse4.response)
                 console.log(t)
-                console.log(t.response)
 
             }
             qxhr.send()
