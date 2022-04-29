@@ -1,8 +1,7 @@
 const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
 
-let fileInput = document.getElementById('files')
-fileInput.addEventListener('change', fileInputChanged)
+
 
 function validateFileType(fileItem) {
     let fileType = fileItem.type // image/png image/jpeg

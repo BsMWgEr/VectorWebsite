@@ -128,6 +128,7 @@
 
     function PictureChange() {
 
+
             document.getElementById('deletebtn').className = 'btnchanger'
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
@@ -155,10 +156,13 @@
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
+            let fileInput = document.getElementById('files')
+            fileInput.addEventListener('change', fileInputChanged)
 
     }
 
     function ConfirmChange() {
+
 
             document.getElementById('deletebtn').className = 'btnchanger'
             div_id_change.className = 'none'
@@ -186,6 +190,8 @@
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
+            let fileInput = document.getElementById('files')
+            fileInput.addEventListener('change', fileInputChanged)
 
     }
 
