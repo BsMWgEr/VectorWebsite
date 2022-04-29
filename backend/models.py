@@ -245,7 +245,7 @@ class CustomerShippingAddress(models.Model):
 
 
 class SoldDetail(models.Model):
-    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    inventory_item = models.OneToOneField(InventoryItem, on_delete=models.CASCADE)
     purchased_by = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date_sold = models.DateField(null=True, blank=True)
     info = models.TextField(blank=True, null=True)
@@ -258,7 +258,7 @@ class SoldDetail(models.Model):
 
 
 class ShippingDetail(models.Model):
-    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    inventory_item = models.OneToOneField(InventoryItem, on_delete=models.CASCADE)
     sold_detail = models.OneToOneField(SoldDetail, on_delete=models.CASCADE)
     shipping_address = models.ForeignKey(CustomerShippingAddress, on_delete=models.CASCADE)
     date_shipped = models.DateField(null=True, blank=True)
@@ -273,7 +273,7 @@ class ShippingDetail(models.Model):
 
 
 class InventoryObject(models.Model):
-    inventory_item = models.OneToOneField(Item, on_delete=models.CASCADE)
+    inventory_item = models.OneToOneField(InventoryItem, on_delete=models.CASCADE)
     sold_data = models.OneToOneField(SoldDetail, on_delete=models.SET_NULL, blank=True, null=True)
     shipping_data = models.OneToOneField(ShippingDetail, on_delete=models.SET_NULL, blank=True, null=True)
     completed_order = models.BooleanField(default=False)

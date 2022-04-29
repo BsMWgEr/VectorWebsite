@@ -1,5 +1,5 @@
 from django import forms
-from .models import Message, Item, InventoryObject, SoldDetail, Customer
+from .models import Message, Item, InventoryObject, SoldDetail, Customer, InventoryItem
 from django.forms import TextInput, Textarea
 
 
@@ -24,7 +24,7 @@ class ContactForm(forms.ModelForm):
         return data
 
 
-y = Item.objects.all()
+y = InventoryItem.objects.all()
 NAME_CHOICES = [tuple([x.id, x]) for x in y]
 
 
@@ -35,7 +35,7 @@ class IdForm(forms.Form):
 
 class BuildForm(forms.ModelForm):
     class Meta:
-        model = Item
+        model = InventoryItem
         fields = ['id',
                   'type',
                   'name',

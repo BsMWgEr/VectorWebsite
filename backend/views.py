@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from backend.forms import IdForm, BuildForm
-from backend.models import InventoryObject, Item, PageVisitData, Media, Customer
+from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer
 
 
 @login_required
@@ -68,7 +68,7 @@ def inventory_view_instock(request):
 
 @login_required
 def inventory_view_comingsoon(request):
-    items = Item.objects.all()
+    items = InventoryItem.objects.all()
     customers = Customer.objects.all()
     summary_title = "Coming Soon"
     x = InventoryObject.objects.all()
@@ -146,14 +146,14 @@ def shipped_view(request):
 
 @login_required
 def build_it(request):
-    dropdown = Item.objects.all()
+    dropdown = InventoryItem.objects.all()
     total_visits = len(PageVisitData.objects.all())
     form = IdForm()
 
     pict = Media.objects.all().filter(key__contains="images/")
     confirm = Media.objects.all().filter(key__contains="confirmation_reports/")
     form2 = BuildForm()
-    all_items = Item.objects.all()
+    all_items = InventoryItem.objects.all()
 
     context = {
         'total_visits': total_visits,

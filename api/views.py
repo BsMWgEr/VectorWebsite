@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
-from backend.models import Item, InventoryObject, Media, SoldDetail, Customer
+from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -11,8 +11,8 @@ S3File = Media
 
 
 def build_api_new_view(request):
-    q = Item.objects.all()
-    y = Item()
+    q = InventoryItem.objects.all()
+    y = InventoryItem()
     y.id = 1
     for x in q:
         if x.id > y.id:
@@ -27,7 +27,7 @@ def build_api_new_view(request):
                 t = g
 
     obj_id = t.id
-    q = Item.objects.all().filter(id=y.id + 1)
+    q = InventoryItem.objects.all().filter(id=y.id + 1)
     all_ids = q
 
     container_list = [{"id": x.id,
@@ -51,14 +51,14 @@ def build_api_new_view(request):
 
 
 def cookie_list_view(request):
-    y = Item.objects.first()
+    y = InventoryItem.objects.first()
     inventory_object = InventoryObject()
     inventory_object.inventory_item_id = y.id
     inventory_object.save()
     # print(y.id)
     u = InventoryObject.objects.last()
     u = u.id
-    g = Item.objects.all().filter(id=y.id)
+    g = InventoryItem.objects.all().filter(id=y.id)
     g.update(description='description')
     all_ids = g
     picture = None
@@ -97,10 +97,10 @@ def cookie_list_view(request):
 
 
 def endpoint_view(request):
-    qs_l = Item.objects.all().count()
+    qs_l = InventoryItem.objects.all().count()
     q_dict = request.POST
     dict_id = q_dict.get('id')
-    y = Item.objects.all().filter(id=dict_id)
+    y = InventoryItem.objects.all().filter(id=dict_id)
     s = InventoryObject.objects.all().filter(inventory_item_id=dict_id)
     g = InventoryObject()
     for ii in s:
@@ -181,28 +181,28 @@ def api_view(request):
         dict_confirm = q_dict.get('confirmation_r')
         dict_delete = q_dict.get('delete')
         if dict_name:
-            Item.objects.filter(id=dict_id).update(name=dict_name)
+            InventoryItem.objects.filter(id=dict_id).update(name=dict_name)
         if dict_price:
-            Item.objects.filter(id=dict_id).update(price=int(dict_price))
+            InventoryItem.objects.filter(id=dict_id).update(price=int(dict_price))
         if dict_size:
-            Item.objects.filter(id=dict_id).update(size=dict_size)
+            InventoryItem.objects.filter(id=dict_id).update(size=dict_size)
         if dict_duedate:
-            Item.objects.filter(id=dict_id).update(due_date=dict_duedate)
+            InventoryItem.objects.filter(id=dict_id).update(due_date=dict_duedate)
         if dict_description:
-            Item.objects.filter(id=dict_id).update(description=dict_description)
+            InventoryItem.objects.filter(id=dict_id).update(description=dict_description)
 
         if dict_instock:
-            Item.objects.filter(id=dict_id).update(in_stock=dict_instock)
+            InventoryItem.objects.filter(id=dict_id).update(in_stock=dict_instock)
         if dict_serial_number:
-            Item.objects.filter(id=dict_id).update(serial_number=dict_serial_number)
+            InventoryItem.objects.filter(id=dict_id).update(serial_number=dict_serial_number)
         if dict_po_number:
-            Item.objects.filter(id=dict_id).update(po_number=dict_po_number)
+            InventoryItem.objects.filter(id=dict_id).update(po_number=dict_po_number)
         if dict_picture:
-            Item.objects.filter(id=dict_id).update(picture=dict_picture)
+            InventoryItem.objects.filter(id=dict_id).update(picture=dict_picture)
         if dict_confirm:
-            Item.objects.filter(id=dict_id).update(confirmation_r=dict_confirm)
+            InventoryItem.objects.filter(id=dict_id).update(confirmation_r=dict_confirm)
         if dict_delete:
-            Item.objects.filter(id=dict_id).delete()
+            InventoryItem.objects.filter(id=dict_id).delete()
         if next_url is not None:
             return redirect(next_url)
     return render(request, "api.html")
