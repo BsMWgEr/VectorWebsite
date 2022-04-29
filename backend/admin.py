@@ -1,11 +1,11 @@
 
 from django.contrib import admin
 from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, \
-    Media, Item, Name, Size, InventoryItem
+    Media, Item, Name, Size, InventoryItem, CustomerHold
 
 
 admin.site.register(InventoryItem)
-
+admin.site.register(CustomerHold)
 admin.site.register(Media)
 admin.site.register(SoldDetail)
 admin.site.register(ShippingDetail)
