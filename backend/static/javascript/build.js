@@ -203,20 +203,6 @@
 
     }
 
-    function NameChange() {
-            document.getElementById('deletebtn').className = 'btnchanger'
-            div_id_change.className = 'none'
-            change_display2.innerHTML = ''
-            div_change.className = 'div-change'
-            change_display.innerHTML =
-                "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<input type='text' name='name' id='name' placeholder='Enter Name'>"
-                + "<button id='btn' onmouseout='closeFields()' type='submit'>Update Name</button>"
-            if (document.getElementById('e-id')) {
-                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-            }
-            document.getElementById('name').defaultValue = document.getElementById('name-display').innerHTML
-    }
 
     function PriceChange() {
             document.getElementById('deletebtn').className = 'btnchanger'
@@ -233,20 +219,7 @@
             document.getElementById('price').defaultValue = document.getElementById('price-info').innerHTML
     }
 
-    function sizeChange() {
-            document.getElementById('deletebtn').className = 'btnchanger'
-            div_id_change.className = 'none'
-            change_display2.innerHTML = ''
-            div_change.className = 'div-change'
-            change_display.innerHTML =
-                "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<input type='text' name='size' id='size' placeholder='Enter Size'>"
-                + "<button id='btn' onmouseout='closeFields()' type='submit'>Update Size</button>"
-            if (document.getElementById('e-id')) {
-                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-            }
-            document.getElementById('size').defaultValue = document.getElementById('size-info').innerHTML
-    }
+
 
     function dueDateChange() {
 
