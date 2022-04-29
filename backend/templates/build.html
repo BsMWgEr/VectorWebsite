@@ -138,26 +138,10 @@
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
-            change_display.innerHTML =
-                "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<form method='POST' id='uploadForm'>"
-                     + '{% csrf_token %}'
-                    + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
-                + "</form>"
-                + "<div id='displayList'>"
-                   +  "<p>Upload List</p>"
-                    + "<div id='file-url'></div>"
-                + "</div>"
-                + "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<select name='picture' id='id_picture'>"
-                + "<option  value='selected-picture' selected>Choose a New Picture</option>"
-                 {% for x in pict %}
+            getUploadListPict()
+            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
 
-                + "<option value='{{ x.id }}'>{{ x.key }}</option>"
-                 {% endfor %}
-                +"</select>"
 
-                + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Picture</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
