@@ -12,6 +12,7 @@ urlpatterns = [
     path('media/', views.media_view, name="media"),
     path('inventory/', views.inventory_view, name="inventory"),
 
+
     path('shipped/', views.shipped_view, name="shipped"),
 
 ]

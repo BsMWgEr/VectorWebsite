@@ -134,6 +134,15 @@
             div_change.className = 'div-change'
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
+                + "<form method='POST' id='uploadForm'>"
+                    + "{% csrf_token %}"
+                    + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+                + "</form>"
+                + "<div id='displayList'>"
+                   +  "<p>Upload List</p>"
+                    + "<div id='file-url'></div>"
+                + "</div>"
+                + "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<select name='picture' id='id_picture'>"
                 + "<option  value='selected-picture' selected>Choose a New Picture</option>"
                  {% for x in pict %}
@@ -157,6 +166,14 @@
             div_change.className = 'div-change'
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
+                + "<form method='POST' id='uploadForm'>"
+                    + "{% csrf_token %}"
+                    + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+                + "</form>"
+                + "<div id='displayList'>"
+                   +  "<p>Upload List</p>"
+                    + "<div id='file-url'></div>"
+                + "</div>"
                 + "<select name='confirmation_r' id='id_confirmation_r'>"
                 + "<option  value='selected-picture' selected>Choose a New Picture</option>"
                  {% for x in confirm %}
@@ -211,4 +228,5 @@
 }
     </script>
     <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/build-upload-script.js' %}"></script>
 {% endblock %}

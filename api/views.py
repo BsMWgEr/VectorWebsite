@@ -329,6 +329,25 @@ def endpoint3(request):
 
     return JsonResponse(data)
 
+
+
+def upload_helper_view(request):
+    reports = Media.objects.all().filter(key__contains='/confirmation_reports/')
+    container_list = [{"id": x.id,
+                       "media_type": x.media_type,
+                       "name": x.name,
+                       "key": x.key,
+                       "filetype": x.filetype,
+                       } for x in reports]
+    data = {
+        "response": container_list
+    }
+
+    print(data)
+
+    return JsonResponse(data)
+
+
 """
 def endpointInventoryView(request):
     qs_l = InventoryObject.objects.all().count()

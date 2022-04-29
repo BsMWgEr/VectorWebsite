@@ -1,6 +1,6 @@
 from django.urls import path
 from api.views import cookie_list_view, build_api_new_view, api_view, endpoint_view, build_api_view, UploadAPI, \
-    create_image_api, sold_data_api, customer_data_api, endpoint3
+    create_image_api, sold_data_api, customer_data_api, endpoint3, upload_helper_view
 
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('upload-api/', UploadAPI),
     path('sold-data-api/', sold_data_api),
     path('customer-data-api/', customer_data_api),
+    path('upload-helper', upload_helper_view, name="up-helper"),
 ]
