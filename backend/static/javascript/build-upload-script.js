@@ -41,7 +41,7 @@ function fileInputChanged(){
             // get policy and upload file
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
-            const crsfToken = document.getElementById('#uploadForm').value
+
             getPolicyAndUpload(fileItem, crsfToken)
 
         }
@@ -50,7 +50,7 @@ function fileInputChanged(){
 
 
 
-function getPolicyAndUpload(fileItem, crsfToken){
+function getPolicyAndUpload(fileItem) {
 
     // data
     let data = {
@@ -72,7 +72,7 @@ function getPolicyAndUpload(fileItem, crsfToken){
             let policyResponseData = JSON.parse(xhr.responseText)
 
             // actual perfom upload for this single file
-            usePolicyAndUpload(fileItem, policyResponseData, crsfToken)
+            usePolicyAndUpload(fileItem, policyResponseData)
 
 
 
@@ -112,7 +112,7 @@ function CreateImage(file_item){
     xhr.send(file_name)
 }
 
-function usePolicyAndUpload(fileItem, policyData, crsfToken){
+function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
