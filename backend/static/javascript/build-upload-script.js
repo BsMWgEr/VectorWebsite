@@ -6,8 +6,9 @@ let csrfToken = ''
 
 function getToken(event) {
     console.log(event)
+    crsfToken = document.getElementsByName('csrfmiddlewaretoken').value
+    console.log(csrfToken)
 
-    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     return csrfToken
 }
 
