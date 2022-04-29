@@ -148,7 +148,7 @@ def endpoint_view(request):
 @login_required
 def build_api_view(request):
     form = BuildForm(request.POST or None)
-    next_url = request.POST.get('next') or None
+
     if form.is_valid():
         print(form.data)
         form.save()
