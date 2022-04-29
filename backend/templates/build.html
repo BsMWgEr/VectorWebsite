@@ -196,16 +196,17 @@
         div_change.className = 'div-change'
         change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + '<select name="name" required id="name_change">'
-            + '<option id="" selected>Choose a Name</option>'
+            + '<option id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
             {% for x in name_options %}
-                + '<option value="{{ x.id }}">{{ x }}</option>'
+
+                + '<option value="{{ x.id }}">{{ x.name }}</option>'
             {% endfor %}
             + '</select>'
             + "<button id='btn' onmouseout='closeFields()' type='submit'>Update Name</button>"
         if (document.getElementById('e-id')) {
             document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
         }
-        document.getElementById('name').defaultValue = document.getElementById('name-display').innerHTML
+
 }
     </script>
     <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
