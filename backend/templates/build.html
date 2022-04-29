@@ -176,8 +176,7 @@
         div_id_change.className = 'none'
         change_display2.innerHTML = ''
         div_change.className = 'div-change'
-        change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-            + '<select name="size" id="id_size">'
+        change_display.innerHTML = '<select name="size" id="id_size">'
                 +'<option id="" value="" selected>Choose a Size</option>'
                 {% for x in size_options %}
                     +'<option value="{{ x.id }}">{{ x }}</option>'
