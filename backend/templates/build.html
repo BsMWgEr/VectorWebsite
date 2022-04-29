@@ -172,7 +172,7 @@
             div_change.className = 'div-change'
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<form method='POST' id='uploadForm'>"
+                + "<form method='POST' id='uploadForm' onsubmit='getToken(event)'>"
                     + '{% csrf_token %}'
                     + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
                 + "</form>"
@@ -194,7 +194,7 @@
             }
             let fileInput = document.getElementById('files')
             fileInput.addEventListener('change', fileInputChanged)
-            getToken(csrfToken)
+
 
     }
 

@@ -4,7 +4,9 @@ let policyURL = baseURL + '/api/upload-api/'
 let csrfToken = ''
 
 
-function getToken(csrfToken) {
+function getToken(event) {
+    console.log(event)
+
     crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     return csrfToken
 }
@@ -58,7 +60,7 @@ function fileInputChanged(){
 
 
 function getPolicyAndUpload(fileItem) {
-    console.log(fileItem)
+
     // data
     let data = {
         name: fileItem.name,
