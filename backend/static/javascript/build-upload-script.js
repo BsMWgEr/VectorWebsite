@@ -1,6 +1,6 @@
 const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
-let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
 let fileInput = document.getElementById('files')
 fileInput.addEventListener('change', fileInputChanged)
 
@@ -49,7 +49,7 @@ function fileInputChanged(){
 
 
 function getPolicyAndUpload(fileItem){
-
+    let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     // data
     let data = {
         name: fileItem.name,
@@ -111,6 +111,7 @@ function CreateImage(file_item){
 }
 
 function usePolicyAndUpload(fileItem, policyData){
+    let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
