@@ -341,7 +341,7 @@
             div_change.className = 'div-change'
             change_display.innerHTML =
                 "<input type='number' name='id' id='id' value='" + x + "' placeholder='Enter ID'>"
-                + "<input type='number' name='serial_number' id='serial_number' placeholder='Enter Serial Number'>"
+                + "<input type='text' name='serial_number' id='serial_number' placeholder='Enter Serial Number'>"
                 + "<button id='btn' onmouseout='closeFields()' type='submit'>Submit New Serial Number</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
