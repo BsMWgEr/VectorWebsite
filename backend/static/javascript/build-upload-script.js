@@ -3,7 +3,7 @@ let policyURL = baseURL + '/api/upload-api/'
 
 let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
 
-function getUploadList() {
+function getUploadListCR() {
     let fxhr = new XMLHttpRequest()
     let method = "GET"
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
@@ -20,7 +20,7 @@ function getUploadList() {
                 + "<div id='file-url'></div>"
             + "</div>"
             + "<select name='confirmation_r' id='id_confirmation_r'>"
-                + "<option  value='selected-picture' selected>Choose a New Picture</option>"
+                + "<option  value='' selected>Choose a New Confirmation Report</option>"
         let str_end = "</select>"
             + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
         for (let i = 0; i < response_size; i++) {
@@ -30,7 +30,37 @@ function getUploadList() {
 
 
     }
-    fxhr.send()
+    fxhr.send('confirmation_reports/')
+}
+
+function getUploadListPict() {
+    let fxhr = new XMLHttpRequest()
+    let method = "GET"
+    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
+    let responseType = 'json'
+    fxhr.responseType = responseType
+    fxhr.open(method, url)
+    fxhr.onload = function () {
+        let serverResponse4 = fxhr.response
+        console.log(serverResponse4.response)
+        let response_size = serverResponse4.response.length
+        let final_str = ''
+        let str_start = "<div id='displayList'>"
+                + "<p>Upload List</p>"
+                + "<div id='file-url'></div>"
+            + "</div>"
+            + "<select name='picture' id='id_picture'>"
+                + "<option  value='' selected>Choose a New Picture</option>"
+        let str_end = "</select>"
+            + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Picture</button>"
+        for (let i = 0; i < response_size; i++) {
+            final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+        }
+        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+
+
+    }
+    fxhr.send('images/')
 }
 
 

@@ -163,7 +163,7 @@
             }
             let fileInput = document.getElementById('files')
             fileInput.addEventListener('change', fileInputChanged)
-            getToken(csrfToken)
+
 
 
     }
@@ -175,7 +175,7 @@
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
-            getUploadList()
+            getUploadListCR()
             document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
 
             if (document.getElementById('e-id')) {
