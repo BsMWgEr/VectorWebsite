@@ -202,8 +202,7 @@ function usePolicyAndUpload(fileItem, policyData){
 
                     + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
                 for (let i = 0; i < response_size; i++) {
-                    final_str +=
-                        "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+                    final_str += "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
                 }
                 document.getElementById('new-upload-list').innerHTML = final_str
 
