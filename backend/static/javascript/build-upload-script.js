@@ -186,13 +186,26 @@ function usePolicyAndUpload(fileItem, policyData){
             qxhr.open(method, url)
             qxhr.onload = function () {
                 let serverResponse4 = qxhr.response
-                console.log(serverResponse4)
-                if (serverResponse4.response) {
-                    console.log(serverResponse4.response)
-                }
-
+                console.log(serverResponse4.response)
                 console.log(serverResponse4.response[5])
                 console.log(serverResponse4.response[5].id)
+                let response_size = serverResponse4.length
+                let final_str = ''
+                document.getElementById('change-display').innerHTML = "<div id='displayList'>"
+                        + "<p>Upload List</p>"
+                        + "<div id='file-url'></div>"
+                    + "</div>"
+                    + "<select name='confirmation_r' id='id_confirmation_r'>"
+                        + "<option  value='selected-picture' selected>Choose a New Picture</option>"
+                        + "<div id='new-upload-list'></div>"
+                    +"</select>"
+
+                    + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
+                for (let i = 0; i < response_size; i++) {
+                    final_str +=
+                        "<option value='" +  response_size[i].id + "'>" + response_size[i].name + "</option>"
+                }
+                document.getElementById('new-upload-list').innerHTML = final_str
 
 
             }
