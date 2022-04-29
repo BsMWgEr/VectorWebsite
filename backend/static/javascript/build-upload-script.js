@@ -41,7 +41,7 @@ function fileInputChanged(){
             // get policy and upload file
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
-            const crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+            const crsfToken = document.getElementById('#uploadForm').value
             getPolicyAndUpload(fileItem, crsfToken)
 
         }
