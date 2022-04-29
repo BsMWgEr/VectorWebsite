@@ -333,7 +333,7 @@ def endpoint3(request):
 
 def upload_helper_view(request):
     print(request.GET)
-    print(requests)
+    print(requests.get('https://vectorrigs.herokuapp.com/manager/builder/'))
     reports = Media.objects.all().filter(key__contains='confirmation_reports/')
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
