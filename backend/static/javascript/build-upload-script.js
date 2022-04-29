@@ -187,8 +187,9 @@ function usePolicyAndUpload(fileItem, policyData){
             qxhr.onload = function () {
                 let serverResponse4 = qxhr.response
                 console.log(serverResponse4)
-
-                console.log(serverResponse4.response)
+                let t = JSON.parse(serverResponse4)
+                console.log(t)
+                console.log(t.response)
 
             }
             qxhr.send()
