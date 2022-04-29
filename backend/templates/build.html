@@ -37,11 +37,16 @@
             <div id="main-edit-div">
 
                 <div id='div-change' class='none' >
-                     <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
-                        <!-- <input type='hidden' value='/builder' name='next'> -->
+                    <input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>
+                    <form method='POST' id='uploadForm' onsubmit='getToken(event)'>
                         {% csrf_token %}
-                         <div id="change-display" class="change-display"></div>
-                     </form>
+                        <div id="upload-file-div"></div>
+                    </form>
+
+                    <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
+                        {% csrf_token %}
+                        <div id="change-display" class="change-display"></div>
+                    </form>
                 </div>
                 <div id="div-id-change" class="none">
                     <form id="form-id-change" action="/api/api" method="POST" onsubmit="updateFields(event)">
@@ -170,13 +175,8 @@
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
-            change_display.innerHTML =
-                "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<form method='POST' id='uploadForm' onsubmit='getToken(event)'>"
-                    + '{% csrf_token %}'
-                    + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
-                + "</form>"
-                + "<div id='displayList'>"
+            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+            change_display.innerHTML = "<div id='displayList'>"
                    +  "<p>Upload List</p>"
                     + "<div id='file-url'></div>"
                 + "</div>"

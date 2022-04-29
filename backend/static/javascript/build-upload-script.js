@@ -1,16 +1,8 @@
 const baseURL = 'https://vectorrigs.herokuapp.com/'
 let policyURL = baseURL + '/api/upload-api/'
 
-let csrfToken = ''
+let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
 
-
-function getToken(event) {
-    console.log(event)
-    crsfToken = document.getElementsByName('csrfmiddlewaretoken').value
-    console.log(csrfToken)
-
-    return csrfToken
-}
 
 
 function validateFileType(fileItem) {
