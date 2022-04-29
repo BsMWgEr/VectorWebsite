@@ -176,19 +176,7 @@
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
             document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
-            change_display.innerHTML = "<div id='displayList'>"
-                   +  "<p>Upload List</p>"
-                    + "<div id='file-url'></div>"
-                + "</div>"
-                + "<select name='confirmation_r' id='id_confirmation_r'>"
-                + "<option  value='selected-picture' selected>Choose a New Picture</option>"
-                 {% for x in confirm %}
-
-                + "<option value='{{ x.id }}'>{{ x.key }}</option>"
-                 {% endfor %}
-                +"</select>"
-
-                + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
+            getUploadList()
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
