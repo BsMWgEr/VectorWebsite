@@ -313,6 +313,8 @@ def customer_data_api(request):
     return render(request, 'customer_data_api.html', context=context)
 
 def endpoint3(request):
+
+
     customers = Customer.objects.all()
     container_list = [{"id": x.id,
                        "first_name": x.first_name,
@@ -332,9 +334,9 @@ def endpoint3(request):
 
 
 def upload_helper_view(request):
-    print(request.GET)
-    print(requests.get('https://vectorrigs.herokuapp.com/manager/builder/'))
-    reports = Media.objects.all().filter(key__contains='confirmation_reports/')
+    print(request.GET.get(''))
+    q = request.GET.get('')
+    reports = Media.objects.all().filter(key__contains=q)
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
                        "name": x.name,
