@@ -1,10 +1,10 @@
 const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
 
-
+let csrfToken = ''
 
 function validateFileType(fileItem) {
-
+    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     let fileType = fileItem.type // image/png image/jpeg
     let rootType = fileType.split("/")[0]
     switch (rootType) {
@@ -63,7 +63,7 @@ function getPolicyAndUpload(fileItem) {
     let xhr = new XMLHttpRequest() // async request
     // how are send it?
     let k = fileItem.name
-    let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
     xhr.open("POST", policyURL + "?=" + k, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
@@ -73,7 +73,7 @@ function getPolicyAndUpload(fileItem) {
             let policyResponseData = JSON.parse(xhr.responseText)
 
             // actual perfom upload for this single file
-            usePolicyAndUpload(fileItem, policyResponseData, crsfToken)
+            usePolicyAndUpload(fileItem, policyResponseData)
 
 
 
@@ -112,7 +112,7 @@ function CreateImage(file_item){
     xhr.send(file_name)
 }
 
-function usePolicyAndUpload(fileItem, policyData, crsfToken){
+function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
