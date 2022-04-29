@@ -1,10 +1,10 @@
-const baseURL = 'https://vectorrigs.herokuapp.com'
+const baseURL = 'https://vectorrigs.herokuapp.com/'
 let policyURL = baseURL + '/api/upload-api/'
 
 let csrfToken = ''
 
 function validateFileType(fileItem) {
-    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
     let fileType = fileItem.type // image/png image/jpeg
     let rootType = fileType.split("/")[0]
     switch (rootType) {
@@ -63,7 +63,7 @@ function getPolicyAndUpload(fileItem) {
     let xhr = new XMLHttpRequest() // async request
     // how are send it?
     let k = fileItem.name
-
+    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     xhr.open("POST", policyURL + "?=" + k, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
