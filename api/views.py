@@ -114,6 +114,7 @@ def endpoint_view(request):
 
     picture = None
     confirm = None
+    size = None
     for x in y:
         if x.confirmation_r:
             confirm = x.confirmation_r.key
@@ -124,12 +125,15 @@ def endpoint_view(request):
             picture = x.picture.key
         else:
             picture = 'null'
+        if x.size:
+            size = x.size
+
 
 
     container_list = [{"id": x.id,
                        "type": x.type,
-                       "name": x.name,
-                       "size": x.size,
+                       "name": x.name.name,
+                       "size": size,
                        "serial_number": x.serial_number,
                        "due_date": x.due_date,
                        "po_number": x.po_number,
