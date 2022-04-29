@@ -191,20 +191,18 @@ function usePolicyAndUpload(fileItem, policyData){
                 console.log(serverResponse4.response[5].id)
                 let response_size = serverResponse4.response.length
                 let final_str = ''
-                document.getElementById('change-display').innerHTML = "<div id='displayList'>"
+                let str_start = "<div id='displayList'>"
                         + "<p>Upload List</p>"
                         + "<div id='file-url'></div>"
                     + "</div>"
                     + "<select name='confirmation_r' id='id_confirmation_r'>"
                         + "<option  value='selected-picture' selected>Choose a New Picture</option>"
-                        + "<div id='new-upload-list'></div>"
-                    +"</select>"
-
+                let str_end = "</select>"
                     + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
                 for (let i = 0; i < response_size; i++) {
-                    final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i] + "</option>"
+                    final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
                 }
-                document.getElementById('new-upload-list').innerHTML = final_str
+                document.getElementById('change-display').innerHTML = str_start + final_str + str_end
 
 
             }
