@@ -192,7 +192,7 @@ class InventoryItem(models.Model):
     name = models.ForeignKey(Name, on_delete=models.CASCADE, related_name='item_name')
     serial_number = models.CharField(max_length=200, default='TBD')
     due_date = models.CharField(max_length=100, blank=True, null=True)
-    size = models.ForeignKey(Name, on_delete=models.SET_NULL, blank=True, null=True, related_name='item_size')
+    size = models.ForeignKey(Size, on_delete=models.SET_NULL, blank=True, null=True, related_name='item_size')
     description = models.TextField(blank=True, null=True)
     in_stock = models.BooleanField(default=False)
     on_hold = models.OneToOneField(CustomerHold, on_delete=models.SET_NULL, null=True, blank=True)
