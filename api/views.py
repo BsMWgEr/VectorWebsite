@@ -149,7 +149,7 @@ def endpoint_view(request):
 def build_api_view(request):
     form = BuildForm(request.POST or None)
     print(request.POST)
-
+    print(form.data)
     if form.is_valid():
         print(form.data)
         form.save()
