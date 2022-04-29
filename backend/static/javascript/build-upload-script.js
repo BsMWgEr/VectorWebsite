@@ -48,7 +48,7 @@ function fileInputChanged(){
 
 
 function getPolicyAndUpload(fileItem){
-    let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
     // data
     let data = {
         name: fileItem.name,
