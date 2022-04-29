@@ -20,6 +20,7 @@ function validateFileType(fileItem) {
 
 function fileInputChanged(){
     // console.log('changed')
+    const crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
     let fileInput = document.getElementById('files')
     let filesList = fileInput.files
     let displayListDiv = document.getElementById('displayList')
@@ -39,7 +40,7 @@ function fileInputChanged(){
             // get policy and upload file
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
-            getPolicyAndUpload(fileItem)
+            getPolicyAndUpload(fileItem, crsfToken)
 
         }
     }
@@ -47,7 +48,7 @@ function fileInputChanged(){
 
 
 
-function getPolicyAndUpload(fileItem){
+function getPolicyAndUpload(fileItem, crsfToken){
 
     // data
     let data = {
@@ -69,7 +70,7 @@ function getPolicyAndUpload(fileItem){
             let policyResponseData = JSON.parse(xhr.responseText)
 
             // actual perfom upload for this single file
-            usePolicyAndUpload(fileItem, policyResponseData)
+            usePolicyAndUpload(fileItem, policyResponseData, crsfToken)
 
 
 
@@ -109,8 +110,7 @@ function CreateImage(file_item){
     xhr.send(file_name)
 }
 
-function usePolicyAndUpload(fileItem, policyData){
-    let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+function usePolicyAndUpload(fileItem, policyData, crsfToken){
     let fd = constructFormData(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
