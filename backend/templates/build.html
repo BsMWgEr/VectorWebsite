@@ -91,7 +91,7 @@
                 + '</select>'
                   +'<input type="number" name="serial_number" id="id_serial_number" placeholder="Enter Serial #">'
                   +'<input type="text" name="due_date" maxlength="100" id="id_due_date" placeholder="Enter Due Date">'
-                +'<select name="size" required id="id_size">'
+                +'<select name="size" id="id_size">'
                 +'<option id="" value="" selected>Choose a Size (not required)</option>'
                 {% for x in size_options %}
                     +'<option value="{{ x.id }}">{{ x }}</option>'
