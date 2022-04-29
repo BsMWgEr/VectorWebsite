@@ -75,7 +75,7 @@ def cookie_list_view(request):
         if x.size:
             x.size = x.size.size
         else:
-            x.size = 'null'
+            x.size = ''
 
 
 
