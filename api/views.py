@@ -191,11 +191,11 @@ def api_view(request):
         dict_confirm = q_dict.get('confirmation_r')
         dict_delete = q_dict.get('delete')
         if dict_name:
-            InventoryItem.objects.filter(id=dict_id).update(name=dict_name)
+            InventoryItem.objects.filter(id=dict_id).update(name_id=dict_name)
         if dict_price:
             InventoryItem.objects.filter(id=dict_id).update(price=int(dict_price))
         if dict_size:
-            InventoryItem.objects.filter(id=dict_id).update(size=dict_size)
+            InventoryItem.objects.filter(id=dict_id).update(size_id=dict_size)
         if dict_duedate:
             InventoryItem.objects.filter(id=dict_id).update(due_date=dict_duedate)
         if dict_description:
@@ -208,9 +208,9 @@ def api_view(request):
         if dict_po_number:
             InventoryItem.objects.filter(id=dict_id).update(po_number=dict_po_number)
         if dict_picture:
-            InventoryItem.objects.filter(id=dict_id).update(picture=dict_picture)
+            InventoryItem.objects.filter(id=dict_id).update(picture_id=dict_picture)
         if dict_confirm:
-            InventoryItem.objects.filter(id=dict_id).update(confirmation_r=dict_confirm)
+            InventoryItem.objects.filter(id=dict_id).update(confirmation_r_id=dict_confirm)
         if dict_delete:
             InventoryItem.objects.filter(id=dict_id).delete()
         if next_url is not None:

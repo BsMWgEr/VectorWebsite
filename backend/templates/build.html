@@ -38,7 +38,7 @@
 
                 <div id='div-change' class='none' >
                     <input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>
-                    <form method='POST' id='uploadForm' onsubmit='getToken(event)'>
+                    <form method='POST' id='uploadForm'>
                         {% csrf_token %}
                         <div id="upload-file-div"></div>
                     </form>
