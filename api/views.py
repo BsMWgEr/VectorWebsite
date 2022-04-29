@@ -72,6 +72,10 @@ def cookie_list_view(request):
             picture = x.picture.key
         else:
             picture = 'null'
+        if x.size:
+            x.size = x.size.size
+        else:
+            x.size = ''
 
 
 
@@ -79,7 +83,7 @@ def cookie_list_view(request):
     container_list = [{"id": x.id,
                        "type": x.type,
                        "name": x.name.name,
-                       "size": x.size.size,
+                       "size": x.size,
                        "due_date": x.due_date,
                        "po_number": x.po_number,
                        "description": x.description,
