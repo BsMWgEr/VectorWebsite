@@ -185,7 +185,7 @@ function usePolicyAndUpload(fileItem, policyData){
             qxhr.responseType = responseType
             qxhr.open(method, url)
             qxhr.onload = function () {
-                let serverResponse4 = xhr.response
+                let serverResponse4 = qxhr.response
                 console.log(serverResponse4)
 
                 console.log(serverResponse4.response)
