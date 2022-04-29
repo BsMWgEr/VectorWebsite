@@ -212,13 +212,13 @@ class InventoryItem(models.Model):
     def serialize(self):
         return {
             'id': self.id,
-            'name': self.name,
+            'name': self.name.name,
             'serial_number': self.serial_number,
             'due_date': self.due_date,
-            'size': self.size,
+            'size': self.size.size,
             'description': self.description,
             'in_stock': self.in_stock,
-
+            'on_hold': self.on_hold.new_customer,
             'po_number': self.po_number,
             'confirmation_r': self.confirmation_r,
             'price': self.price,
