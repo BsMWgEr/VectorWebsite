@@ -238,7 +238,7 @@ function usePolicyAndUpload(fileItem, policyData){
             } else {
                 alert("Django update failed")
             }
-            getUploadList()
+            getUploadListPict()
         }
         console.log(djJsonUpdateData)
         djHR.send(djJsonUpdateData)
