@@ -4,6 +4,7 @@ let policyURL = baseURL + '/api/upload-api/'
 
 
 function validateFileType(fileItem) {
+
     let fileType = fileItem.type // image/png image/jpeg
     let rootType = fileType.split("/")[0]
     switch (rootType) {
@@ -20,7 +21,7 @@ function validateFileType(fileItem) {
 
 function fileInputChanged(){
     // console.log('changed')
-    const crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
     let fileInput = document.getElementById('files')
     let filesList = fileInput.files
     let displayListDiv = document.getElementById('displayList')
@@ -40,6 +41,7 @@ function fileInputChanged(){
             // get policy and upload file
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
+            const crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
             getPolicyAndUpload(fileItem, crsfToken)
 
         }
