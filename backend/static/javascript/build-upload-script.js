@@ -21,7 +21,8 @@ function getUploadListCR() {
             + "</div>"
             + "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<select name='confirmation_r' id='id_confirmation_r'>"
-                + "<option  value='' selected>Choose a New Confirmation Report</option>"
+                + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
+
         let str_end = "</select>"
             + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
         for (let i = 0; i < response_size; i++) {
@@ -55,7 +56,8 @@ function getUploadListPict() {
             + "</div>"
             + "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<select name='picture' id='id_picture'>"
-                + "<option  value='' selected>Choose a New Picture</option>"
+                + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
+
         let str_end = "</select>"
             + "<button class='inputs' onmouseout='closeFields()' id='btn' type='submit'>Update Picture</button>"
         for (let i = 0; i < response_size; i++) {
