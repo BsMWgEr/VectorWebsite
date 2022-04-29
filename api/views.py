@@ -151,7 +151,6 @@ def build_api_view(request):
     print(request.POST)
     print(form.data)
     if form.is_valid():
-        print(form.data)
         form.save()
         # do other logic here
 
