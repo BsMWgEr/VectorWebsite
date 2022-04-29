@@ -72,6 +72,10 @@ def cookie_list_view(request):
             picture = x.picture.key
         else:
             picture = 'null'
+        if x.size:
+            x.size = x.size.size
+        else:
+            x.size = 'null'
 
 
 
