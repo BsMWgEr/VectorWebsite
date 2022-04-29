@@ -135,7 +135,7 @@
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<form method='POST' id='uploadForm'>"
-                     {% csrf_token %}
+                     + '{% csrf_token %}'
                     + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
                 + "</form>"
                 + "<div id='displayList'>"
@@ -167,7 +167,7 @@
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<form method='POST' id='uploadForm'>"
-                    {% csrf_token %}
+                    + '{% csrf_token %}'
                     + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
                 + "</form>"
                 + "<div id='displayList'>"
