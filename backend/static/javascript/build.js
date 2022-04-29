@@ -65,7 +65,7 @@
             }
             main_display.innerHTML = final_str
             document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
-            alert("New Item successfully created!\nA new INVENTORY OBJECT(" + object.toString() + ") has been created with your new Item!\n" +
+            alert("New Item successfully created!\nA new INVENTORY OBJECT has been created with your new ITEM!\n" +
                 "New Item ID #: " + item.toString() + "\nNew Inventory Object ID #: " + object.toString())
 
     }

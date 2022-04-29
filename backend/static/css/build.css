@@ -382,3 +382,7 @@ button {
     background:orange;
     font-weight: 800;
 }
+
+.container-display {
+    margin-bottom: 200px;
+}
