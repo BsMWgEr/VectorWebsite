@@ -37,13 +37,13 @@
             <div id="main-edit-div">
 
                 <div id='div-change' class='none' >
-                    <input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>
                     <form method='POST' id='uploadForm'>
                         {% csrf_token %}
                         <div id="upload-file-div"></div>
                     </form>
 
                     <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
+                        <input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>
                         {% csrf_token %}
                         <div id="change-display" class="change-display"></div>
                     </form>
@@ -175,8 +175,9 @@
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
-            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
             getUploadList()
+            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
