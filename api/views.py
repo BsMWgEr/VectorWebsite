@@ -51,7 +51,7 @@ def build_api_new_view(request):
 
 
 def cookie_list_view(request):
-    y = InventoryItem.objects.first()
+    y = InventoryItem.objects.last()
     inventory_object = InventoryObject()
     inventory_object.inventory_item_id = y.id
     inventory_object.save()
@@ -77,8 +77,8 @@ def cookie_list_view(request):
 
     container_list = [{"id": x.id,
                        "type": x.type,
-                       "name": x.name,
-                       "size": x.size,
+                       "name": x.name.name,
+                       "size": x.size.size,
                        "due_date": x.due_date,
                        "po_number": x.po_number,
                        "description": x.description,
