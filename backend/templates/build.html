@@ -41,6 +41,7 @@
                     <form method='POST' id='uploadForm' onsubmit='getToken(event)'>
                         {% csrf_token %}
                         <div id="upload-file-div"></div>
+                        <div id="new-upload-list"></div>
                     </form>
 
                     <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
