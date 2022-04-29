@@ -58,7 +58,7 @@ function fileInputChanged(){
 
 
 function getPolicyAndUpload(fileItem) {
-
+    console.log(fileItem)
     // data
     let data = {
         name: fileItem.name,
