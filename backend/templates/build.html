@@ -103,7 +103,7 @@
                 +'<select name="on_hold" id="id_on_hold">'
                     +'<option value="" selected>---------</option>'
                 {% for x in hold_options %}
-                    +'<option value="{{ x.id }}" selected>{{ x }}</option>'
+                    +'<option value="{{ x.id }}">{{ x }}</option>'
                 {% endfor %}
                 +'</select>'
                 +'<hr>'
