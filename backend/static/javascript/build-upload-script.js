@@ -3,6 +3,13 @@ let policyURL = baseURL + '/api/upload-api/'
 
 let csrfToken = ''
 
+
+function getToken(csrfToken) {
+    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+    return csrfToken
+}
+
+
 function validateFileType(fileItem) {
 
     let fileType = fileItem.type // image/png image/jpeg
@@ -63,7 +70,7 @@ function getPolicyAndUpload(fileItem) {
     let xhr = new XMLHttpRequest() // async request
     // how are send it?
     let k = fileItem.name
-    crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
+
     xhr.open("POST", policyURL + "?=" + k, true)
     xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.setRequestHeader('X-CSRFTOKEN', crsfToken)
