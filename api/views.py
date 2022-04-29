@@ -51,7 +51,7 @@ def build_api_new_view(request):
 
 
 def cookie_list_view(request):
-    y = InventoryItem.objects.last()
+    y = InventoryItem.objects.first()
     inventory_object = InventoryObject()
     inventory_object.inventory_item_id = y.id
     inventory_object.save()
