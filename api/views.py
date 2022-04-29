@@ -89,7 +89,7 @@ def cookie_list_view(request):
                        "po_number": x.po_number,
                        "description": x.description,
                        "in_stock": x.in_stock,
-
+                       "serial_number": x.serial_number,
                        "confirmation_r": confirm,
                        'price': x.price,
                        "picture": picture,
