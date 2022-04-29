@@ -63,6 +63,7 @@ def cookie_list_view(request):
     all_ids = g
     picture = None
     confirm = None
+    size = None
     for x in all_ids:
         if x.confirmation_r:
             confirm = x.confirmation_r.key
@@ -73,6 +74,9 @@ def cookie_list_view(request):
         else:
             picture = 'null'
 
+        if x.size:
+            size = x.size.size
+
 
 
 
@@ -80,7 +84,7 @@ def cookie_list_view(request):
     container_list = [{"id": x.id,
                        "type": x.type,
                        "name": x.name.name,
-                       "size": x.size,
+                       "size": size,
                        "due_date": x.due_date,
                        "po_number": x.po_number,
                        "description": x.description,
