@@ -191,7 +191,9 @@ function usePolicyAndUpload(fileItem, policyData){
                     console.log(serverResponse4.response)
                 }
 
-                console.log(serverResponse4.response.id[5])
+                console.log(serverResponse4.response[5])
+                console.log(serverResponse4.response[5].id)
+
 
             }
             qxhr.send()
