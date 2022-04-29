@@ -28,6 +28,9 @@ function getUploadListCR() {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+        if (document.getElementById('e-id')) {
+            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+        }
 
 
     }
@@ -59,7 +62,9 @@ function getUploadListPict() {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-
+        if (document.getElementById('e-id')) {
+            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+        }
 
     }
     fxhr.send('images/')
