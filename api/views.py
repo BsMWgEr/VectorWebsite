@@ -103,7 +103,7 @@ def cookie_list_view(request):
 
 
 def endpoint_view(request):
-    qs_l = InventoryItem.objects.all().count()
+
     q_dict = request.POST
     dict_id = q_dict.get('id')
     y = InventoryItem.objects.all().filter(id=dict_id)

@@ -72,8 +72,7 @@
     function createForm() {
         document.getElementById('create-form').className = 'div-form'
         document.getElementById('display-form-btn').className = 'none'
-        document.getElementById('create-form').innerHTML = '<p>* RED Border/Black Background = Required Fields *</p>'
-            +'<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
+        document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
                 + '<select name="type" id="id_type">'
                     +'<option value="" disabled selected hidden>Choose Display Page</option>'
@@ -124,6 +123,7 @@
                 +'</select>'
                 +'<button class="submit-new" type="submit">Create New Item</button>'
             +'</form>'
+        +'<p>* RED Border/Black Background = Required Fields *</p>'
     }
 
     function PictureChange() {
