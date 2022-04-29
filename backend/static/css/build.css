@@ -24,6 +24,12 @@ input {
 
 }
 
+#id_type {
+    border: 2px solid red;
+    background: black;
+    color: white
+}
+
 .form * {
     width: 270px;
 }
