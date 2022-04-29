@@ -332,7 +332,7 @@ def endpoint3(request):
 
 
 def upload_helper_view(request):
-    reports = Media.objects.all().filter(key__icontains='/confirmation_reports/')
+    reports = Media.objects.all()
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
                        "name": x.name,
