@@ -386,3 +386,7 @@ button {
 .container-display {
     margin-bottom: 200px;
 }
+
+.uploadForm {
+    display: flex;
+}

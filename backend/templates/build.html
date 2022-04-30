@@ -21,23 +21,23 @@
                     <button class="btnchanger" onclick="closeUpdateGroup()">Add/Update Shipping</button>
                 </div>
                 <div id="item-update-btn-group" class="none">
-                    <button id="name_on_btn" class="btnchanger" onclick=NameChange()>Change Name</button>
-                    <button id="price_btn" class="btnchanger" onclick=PriceChange()>Change Price</button>
-                    <button id="size_btn" class="btnchanger" onclick=sizeChange()>Change Size</button>
-                    <button id="serial_number_btn" class="btnchanger" onclick=serialNumberChange()>Change Serial Number</button>
-                    <button id="due_date_btn" class="btnchanger" onclick=dueDateChange()>Change Due Date</button>
-                    <button id="po_number_btn" class="btnchanger" onclick=poNumberChange()>Change PO Number</button>
-                    <button id="description_btn" class="btnchanger" onclick=descriptionChange()>Change Description</button>
-                    <button id="instockclicker" class="btnchanger" onclick=inStockChange()>Change In Stock</button>
+                    <button id="name_on_btn" class="btnchanger" onclick=NameChange();uploadFormOff()>Change Name</button>
+                    <button id="price_btn" class="btnchanger" onclick=PriceChange();uploadFormOff()>Change Price</button>
+                    <button id="size_btn" class="btnchanger" onclick=sizeChange();uploadFormOff()>Change Size</button>
+                    <button id="serial_number_btn" class="btnchanger" onclick=serialNumberChange();uploadFormOff()>Change Serial Number</button>
+                    <button id="due_date_btn" class="btnchanger" onclick=dueDateChange();uploadFormOff()>Change Due Date</button>
+                    <button id="po_number_btn" class="btnchanger" onclick=poNumberChange();uploadFormOff()>Change PO Number</button>
+                    <button id="description_btn" class="btnchanger" onclick=descriptionChange();uploadFormOff()>Change Description</button>
+                    <button id="instockclicker" class="btnchanger" onclick=inStockChange();uploadFormOff()>Change In Stock</button>
                     <button id="confirm_btn" class="btnchanger" onclick=ConfirmChange()>Change Confirmation Report</button>
                     <button id="picture_btn" class="btnchanger" onclick=PictureChange()>Change Picture</button>
-                    <button id="deletebtn" class="btnchanger" onclick=deleteContainer()>Delete Item</button>
+                    <button id="deletebtn" class="btnchanger" onclick=deleteContainer();uploadFormOff()>Delete Item</button>
                 </div>
             </div>
             <div id="main-edit-div">
 
                 <div id='div-change' class='none' >
-                    <form method='POST' id='uploadForm'>
+                    <form method='POST' id='uploadForm' class="none">
                         {% csrf_token %}
                         <div id="upload-file-div"></div>
                     </form>
@@ -132,7 +132,7 @@
 
     function PictureChange() {
 
-
+            uploadFormDisplay()
             document.getElementById('deletebtn').className = 'btnchanger'
             div_id_change.className = 'none'
             change_display2.innerHTML = ''
@@ -151,7 +151,7 @@
 
     function ConfirmChange() {
 
-
+            uploadFormDisplay()
             document.getElementById('deletebtn').className = 'btnchanger'
             div_id_change.className = 'none'
             change_display2.innerHTML = ''

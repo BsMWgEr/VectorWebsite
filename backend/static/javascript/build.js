@@ -400,4 +400,10 @@
 
 const ghf = document.getElementById('inner-container')
 
+    function uploadFormDisplay() {
+        document.getElementById('uploadForm').className = 'uploadForm'
+    }
 
+    function uploadFormOff() {
+        document.getElementById('uploadForm').className = 'none'
+    }
