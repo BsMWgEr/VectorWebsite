@@ -155,7 +155,7 @@
              sold_display = "<img class='sold-img' src='{% static 'images/sold.gif' %}'>"
          } else sold_display = " "
          return "<div class='container' onclick='closeFields()'>"
-            + "<div class='inner-container' onmouseenter='closeFields()'>"
+            + "<div class='inner-container'>"
             + "<div class='container-left'><img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'>" + sold_display + "</div>"
             + "<div id='selector' class='container-right'>"
             + "<p>Brand New Vector</p><p id='name-display' class='color-vector'>" + element.name + "</p>"
@@ -171,7 +171,7 @@
             + "</div>"
             + "</div>"
             + "</div>"
-            + "<div class='bottom-display' id='div-box'>"
+            + "<div class='bottom-display' id='div-box' onmouseenter='closeFields()'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
 
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
