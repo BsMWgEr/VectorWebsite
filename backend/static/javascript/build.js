@@ -171,7 +171,7 @@
             + "</div>"
             + "</div>"
             + "</div>"
-            + "<div class='bottom-display' id='div-box' onmouseenter='closeFields()'>"
+            + "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
 
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
