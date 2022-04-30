@@ -141,9 +141,7 @@
             document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
 
 
-            if (document.getElementById('e-id')) {
-                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-            }
+
             let fileInput = document.getElementById('files')
             fileInput.addEventListener('change', fileInputChanged)
 
@@ -159,11 +157,9 @@
             change_display2.innerHTML = ''
             div_change.className = 'div-change'
             getUploadListCR()
-            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+            document.getElementById('upload-file-div').innerHTML = "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
 
-            if (document.getElementById('e-id')) {
-                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-            }
+
             let fileInput = document.getElementById('files')
             fileInput.addEventListener('change', fileInputChanged)
 
