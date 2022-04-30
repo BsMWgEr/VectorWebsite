@@ -429,7 +429,7 @@ const ghf = document.getElementById('inner-container')
             let main_str = ''
 
             for (let i = 0; i < size_of_names; i++) {
-                    main_str += '<option onclick="setNameDescription()" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
+                    main_str += '<option value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
             }
             console.log(main_str)
             document.getElementById('id_name').innerHTML = begining_str + main_str
