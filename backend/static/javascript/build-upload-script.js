@@ -165,62 +165,6 @@ function constructFormData(policy, fileItem) {
     return fd
 }
 
-function getNames(){
-    let x = document.getElementById('id_type').value
-    const xhr = new XMLHttpRequest()
-    const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type="+ x
-    console.log(url)
-    const responseType = 'json'
-    xhr.responseType = responseType
-    xhr.open(method, url)
-    xhr.onload = function () {
-        const serverResponse = xhr.response
-        let names_data = serverResponse.response
-        console.log(names_data)
-        let size_of_names = names_data.length
-        console.log(size_of_names)
-        let begining_str = '<option id="" value="" selected>Choose a Name</option>'
-        let main_str = ''
-
-        for (let i = 0; i < size_of_names; i++) {
-                main_str += '<option onclick="setNameDescription()" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
-        }
-        console.log(main_str)
-        document.getElementById('id_name').innerHTML = begining_str + main_str
-
-
-    }
-    xhr.send()
-    console.log(json_type)
-
-}
-
-
-function setNameDescription() {
-    const xhr = new XMLHttpRequest()
-    const method = 'GET'
-    x = document.getElementById('id_name').value
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x
-    const responseType = 'json'
-    xhr.responseType = responseType
-    xhr.open(method, url)
-    xhr.onload = function () {
-        const serverResponse = xhr.response
-        console.log(serverResponse)
-        let description_info = serverResponse.response
-
-        let main_str = ''
-        for (let i = 0; i < description_info.length; i++) {
-            main_str += description_info.description_info
-        }
-        document.getElementById('id_description').innerText = main_str
-    }
-    xhr.send()
-
-
-}
-
 
 function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
