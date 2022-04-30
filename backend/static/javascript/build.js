@@ -453,7 +453,7 @@ function setNameDescription() {
 
         let main_str = ''
         for (let i = 0; i < description_info.length; i++) {
-            main_str += description_info.description_info
+            main_str += description_info[i].description_info
         }
         document.getElementById('id_description').innerText = main_str
     }
