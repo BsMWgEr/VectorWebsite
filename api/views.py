@@ -273,6 +273,7 @@ def create_image_api(request):
         return JsonResponse(data)
     if request.GET.get('description_id'):
         description_id = request.GET.get('description_id')
+        print(description_id)
         description_info = Name.objects.all().filter(type=description_id)
         container_list = [{
             'id': x.id,
@@ -284,6 +285,7 @@ def create_image_api(request):
         data = {
             'response': container_list
         }
+        print(data)
         return JsonResponse(data)
     return JsonResponse('fail')
 
