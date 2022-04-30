@@ -199,7 +199,7 @@ function getNames(x){
 function setNameDescription(x) {
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x.toString()
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
