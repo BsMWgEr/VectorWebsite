@@ -182,9 +182,7 @@ function getNames(x){
         let main_str = ''
 
         for (let i = 0; i < size_of_names; i++) {
-
-                main_str += '<option onclick="setNameDescription('+ names_data[i].id +')" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
-
+                main_str += '<option onclick="setNameDescription()" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
         }
         document.getElementById('id_name').innerHTML = begining_str + main_str
 
@@ -196,16 +194,19 @@ function getNames(x){
 }
 
 
-function setNameDescription(x) {
+function setNameDescription() {
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x.toString()
+    x = document.getElementById('id_name').value
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
     xhr.onload = function () {
         const serverResponse = xhr.response
+        console.log(serverResponse)
         let description_info = serverResponse.response
+
         let main_str = ''
         for (let i = 0; i < description_info.length; i++) {
             main_str += '<textarea name="description" cols="40" rows="10" id="id_description">' + description_info.description_info + '</textarea>'
