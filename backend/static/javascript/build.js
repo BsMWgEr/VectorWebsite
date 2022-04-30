@@ -487,4 +487,26 @@ function setNameDescription() {
         xhr.send()
 }
 
+function setSizeDescription() {
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        let x = document.getElementById('id_size').value
+        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?size_description_id=" + x
+        const responseType = 'json'
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function () {
+            const serverResponse = xhr.response
+            console.log(serverResponse)
+            let description_info = serverResponse.response
+
+            let main_str = ''
+            for (let i = 0; i < description_info.length; i++) {
+                main_str += description_info[i].description_info
+            }
+            document.getElementById('id_description').innerText += main_str
+        }
+        xhr.send()
+}
+
 
