@@ -213,6 +213,7 @@ function setNameDescription() {
         }
         document.getElementById('id_description').innerHTML = main_str
     }
+    xhr.send()
 
 
 }
