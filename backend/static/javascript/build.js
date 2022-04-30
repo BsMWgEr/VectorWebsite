@@ -504,7 +504,8 @@ function setSizeDescription() {
             for (let i = 0; i < description_info.length; i++) {
                 main_str += description_info[i].description_info
             }
-            document.getElementById('id_description').innerText += main_str
+            let final_str = document.getElementById('id_description').innerText + main_str
+            document.getElementById('id_description').innerText = final_str
         }
         xhr.send()
 }
