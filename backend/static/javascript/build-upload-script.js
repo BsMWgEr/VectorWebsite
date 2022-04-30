@@ -183,7 +183,7 @@ function getNames(x){
 
         for (let i = 0; i < size_of_names; i++) {
                 let dict = names_data[i].description_info
-                main_str += '<option onclick="setNameDescription(' + dict + ')" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
+                main_str += '<option onclick="setNameDescription('+"+ dict +"+')" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
 
         }
         document.getElementById('id_name').innerHTML = begining_str + main_str
