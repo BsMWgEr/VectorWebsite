@@ -254,8 +254,7 @@ def UploadAPI(request):
 
 
 def create_image_api(request):
-
-    print(request.GET.get('type'))
+    data = {}
     if request.GET.get('type'):
         name_type = request.GET.get('type')
         names = Name.objects.all().filter(type=name_type)
@@ -270,7 +269,7 @@ def create_image_api(request):
             'response': container_list
         }
         print(data)
-        return JsonResponse(data)
+
     if request.GET.get('description_id'):
         description_id = request.GET.get('description_id')
         print(description_id)
@@ -286,8 +285,8 @@ def create_image_api(request):
             'response': container_list
         }
         print(data)
-        return JsonResponse(data)
-    return JsonResponse('fail')
+
+    return JsonResponse(data)
 
 
 def sold_data_api(request):
