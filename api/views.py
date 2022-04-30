@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
-from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer
+from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, Name, Size
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -254,15 +254,22 @@ def UploadAPI(request):
 
 
 def create_image_api(request):
-    if request.GET:
-        print(request.GET)
-        new = Media()
-        new.name = request.GET.get('key')
-        print(new.name)
-        new.key = request.GET.get('key')
-        new.save()
+    print(request)
+    print(request.GET)
+    names = Name.objects.all()
 
-    return JsonResponse('Success')
+    container_list = [{
+        'id': x.id,
+        'type': x.type,
+        'name': x.name,
+        'decription_info': x.description_info
+    } for x in names]
+
+    data = {
+        'response': container_list
+    }
+    print(data)
+    return JsonResponse(data)
 
 
 def sold_data_api(request):
