@@ -6,7 +6,7 @@
 {% block title %}
     <title>Build a block</title>
 {% endblock %}
-{% block js %}onmouseenter="closeFields()"{% endblock %}
+
 
 {% block content %}
     <div class="total-pages-visits"><p>Total Page Visits: {{ total_visits }}</p></div>
@@ -73,25 +73,24 @@
     </div>
 
     <script>
+    const TYPE = {sport_rigs: "sport_rigs", tandem: "tandem"}
     function createForm() {
         document.getElementById('create-form').className = 'div-form'
         document.getElementById('display-form-btn').className = 'none'
+
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
                 + '<select name="type" id="id_type">'
                     +'<option value="" disabled selected hidden>Choose Display Page</option>'
-                    +'<option value="sport_rigs">Sport Rigs</option>'
-                    +'<option value="tandem">Tandem</option>'
-                    +'<option value="student">Vector SE Student</option>'
-                    +'<option value="canopies">Canopies</option>'
-                    +'<option value="javelin_odyssey">Javelin-Odyssey</option>'
-                    +'<option value="do_not_display">Do Not Display</option>'
+                    +'<option onclick="updateName(TYPE.sport_rigs)" value="sport_rigs">Sport Rigs</option>'
+                    +'<option onclick="updateName(TYPE.tandem)" value="tandem">Tandem</option>'
+                    +'<option onclick="updateName()" value="student">Vector SE Student</option>'
+                    +'<option onclick="updateName()" value="canopies">Canopies</option>'
+                    +'<option onclick="updateName()" value="javelin_odyssey">Javelin-Odyssey</option>'
+                    +'<option onclick="updateName()" value="do_not_display">Do Not Display</option>'
                 +'</select>'
                 +'<select name="name" required id="id_name">'
-                    +'<option id="" selected>Choose a Name</option>'
-                {% for x in name_options %}
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
+                    +'<option value="" selected>Choose a Display Page First **Type-Required**</option>'
                 + '</select>'
                   +'<input type="text" name="serial_number" id="id_serial_number" value="TBD">'
                   +'<input type="text" name="due_date" maxlength="100" id="id_due_date" placeholder="Enter Due Date">'
@@ -128,6 +127,24 @@
                 +'<button class="submit-new" type="submit">Create New Item</button>'
             +'</form>'
         +'<p>* RED Border/Black Background = Required Fields *</p>'
+    }
+
+
+    function updateName(type) {
+        let name_options = {type: type}
+        let new_names = getNames(name_options)
+        let size_of_names = new_names.length
+        let begining_str = '<option id="" selected>Choose a Name</option>'
+        let main_str = ''
+        for (let i = 0; i < size_of_names; i++) {
+            if (new_names[i].type === name_options.type) {
+                main_str += '<option value="'+ new_names[i].id +'">'+ new_names[i].name +'</option>'
+            }
+        }
+        document.getElementById('id_name').innerHTML = begining_str + main_str
+        console.log(name_options)
+
+
     }
 
     function PictureChange() {

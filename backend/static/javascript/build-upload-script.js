@@ -165,8 +165,9 @@ function constructFormData(policy, fileItem) {
     return fd
 }
 
-function CreateImage(file_item){
-    file_name = {key: file_item.name}
+function getNames(x){
+    let type = x
+    let json_type = JSON.stringify(x)
     const xhr = new XMLHttpRequest()
     const method = 'GET'
     const url = 'https://vectorrigs.herokuapp.com/api/createimageapi'
@@ -175,8 +176,11 @@ function CreateImage(file_item){
     xhr.open(method, url)
     xhr.onload = function () {
         const serverResponse = xhr.response
+        console.log(serverResponse)
+        return ''
     }
-    xhr.send(file_name)
+    xhr.send(json_type)
+    console.log(json_type)
 }
 
 function usePolicyAndUpload(fileItem, policyData){
