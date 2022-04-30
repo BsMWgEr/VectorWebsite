@@ -182,7 +182,7 @@ function getNames(x){
         let main_str = ''
 
         for (let i = 0; i < size_of_names; i++) {
-                let dict = {id: names_data[i].id, description_info: names_data[i].description_info}
+                let dict = names_data[i].description_info
                 main_str += '<option onclick="setNameDescription(' + dict + ')" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
 
         }
@@ -197,7 +197,7 @@ function getNames(x){
 
 
 function setNameDescription(x) {
-    document.getElementById('id_description').innerHTML += '<textarea name="description" cols="40" rows="10" id="id_description">' + x.description_info + '</textarea>'
+    document.getElementById('id_description').innerHTML += '<textarea name="description" cols="40" rows="10" id="id_description">' + x + '</textarea>'
 }
 
 
