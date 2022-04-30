@@ -178,7 +178,7 @@ function getNames(x){
         const serverResponse = xhr.response
         let names_data = serverResponse.response
         let size_of_names = names_data.length
-        let begining_str = '<option id="" value="" selected disabled hidden>Choose a Name</option>'
+        let begining_str = '<option id="" value="" selected>Choose a Name</option>'
         let main_str = ''
 
         for (let i = 0; i < size_of_names; i++) {
