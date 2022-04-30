@@ -459,3 +459,32 @@ function setNameDescription() {
     }
     xhr.send()
 }
+
+ function getSizes(){
+        let x = document.getElementById('id_type').value
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?size_type="+ x
+        console.log(url)
+        const responseType = 'json'
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function () {
+            const serverResponse = xhr.response
+            let size_data = serverResponse.response
+            console.log(size_data)
+            let size_of_data = size_data.length
+            console.log(size_of_data)
+            let begining_str = '<option id="" value="" selected>Select a Size</option>'
+            let main_str = ''
+
+            for (let i = 0; i < size_of_data; i++) {
+                    main_str += '<option value="'+ size_data[i].id +'">'+ size_data[i].size +'</option>'
+            }
+            console.log(main_str)
+            document.getElementById('id_size').innerHTML = begining_str + main_str
+        }
+        xhr.send()
+}
+
+

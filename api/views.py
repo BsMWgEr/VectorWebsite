@@ -270,6 +270,21 @@ def create_image_api(request):
         }
         print(data)
 
+    if request.GET.get('size_type'):
+        size_type = request.GET.get('size_type')
+        names = Name.objects.all().filter(type=size_type)
+        container_list = [{
+            'id': x.id,
+            'type': x.type,
+            'size': x.size,
+            'description_info': x.description_info
+        } for x in names]
+
+        data = {
+            'response': container_list
+        }
+        print(data)
+
     if request.GET.get('description_id'):
         description_id = request.GET.get('description_id')
         print(description_id)
