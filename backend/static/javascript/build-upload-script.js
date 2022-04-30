@@ -209,7 +209,7 @@ function setNameDescription() {
 
         let main_str = ''
         for (let i = 0; i < description_info.length; i++) {
-            main_str += '<textarea name="description" cols="40" rows="10" id="id_description">' + description_info.description_info + '</textarea>'
+            main_str += description_info.description_info
         }
         document.getElementById('id_description').innerHTML = main_str
     }
