@@ -178,7 +178,7 @@
                     +'<option value="{{ x.id }}">{{ x }}</option>'
                 {% endfor %}
                 + '</select>'
-            + "<button id='btn' onmouseout='closeFields()' type='submit'>Update Size</button>"
+            + "<button id='btn' onclick='closeFields()' type='submit'>Update Size</button>"
         if (document.getElementById('e-id')) {
             document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
         }
@@ -198,7 +198,7 @@
                 + '<option value="{{ x.id }}">{{ x.name }}</option>'
             {% endfor %}
             + '</select>'
-            + "<button id='btn' onmouseout='closeFields()' type='submit'>Update Name</button>"
+            + "<button id='btn' onclick='closeFields()' type='submit'>Update Name</button>"
         if (document.getElementById('e-id')) {
             document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
         }
