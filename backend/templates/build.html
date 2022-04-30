@@ -81,7 +81,7 @@
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
                 + '<select name="type" id="id_type">'
-                    +'<option value="" selected hidden>Choose Display Page</option>'
+                    +'<option value="0" selected >Choose Display Page</option>'
                     +'<option onclick="getNames()" value="sport_rigs">Sport Rigs</option>'
                     +'<option onclick="getNames()" value="tandem">Tandem</option>'
                     +'<option onclick="getNames()" value="student">Vector SE Student</option>'
