@@ -19,7 +19,7 @@ function getUploadListCR() {
                 + "<p>Upload List</p>"
                 + "<div id='file-url'></div>"
             + "</div>"
-            + "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
             + "<select name='confirmation_r' id='id_confirmation_r'>"
                 + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
 
@@ -29,9 +29,7 @@ function getUploadListCR() {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-        if (document.getElementById('e-id')) {
-            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-        }
+
 
 
     }
@@ -54,7 +52,7 @@ function getUploadListPict() {
                 + "<p>Upload List</p>"
                 + "<div id='file-url'></div>"
             + "</div>"
-            + "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
             + "<select name='picture' id='id_picture'>"
                 + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
 
@@ -64,12 +62,10 @@ function getUploadListPict() {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-        if (document.getElementById('e-id')) {
-            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-        }
+
 
     }
-    fxhr.send('images/')
+    fxhr.send()
 }
 
 
