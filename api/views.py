@@ -254,10 +254,10 @@ def UploadAPI(request):
 
 
 def create_image_api(request):
-    print(request)
-    print(request.GET.get(''))
-    names = Name.objects.all()
 
+    print(request.GET.get('type'))
+    name_type = request.GET.get('type')
+    names = Name.objects.all().filter(type=name_type)
     container_list = [{
         'id': x.id,
         'type': x.type,

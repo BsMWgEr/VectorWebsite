@@ -132,19 +132,7 @@
 
     function updateName(type) {
         let name_options = {type: type}
-        console.log(getNames(name_options))
-        let size_of_names = 0
-        let begining_str = '<option id="" selected>Choose a Name</option>'
-        let main_str = ''
-        for (let i = 0; i < size_of_names; i++) {
-            if (new_names[i].type === name_options.type) {
-                main_str += '<option value="'+ new_names[i].id +'">'+ new_names[i].name +'</option>'
-            }
-        }
-        document.getElementById('id_name').innerHTML = begining_str + main_str
-        console.log(name_options)
-
-
+        getNames(name_options)
     }
 
     function PictureChange() {

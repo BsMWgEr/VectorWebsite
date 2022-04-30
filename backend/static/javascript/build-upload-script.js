@@ -170,18 +170,26 @@ function getNames(x){
     let json_type = JSON.stringify(x)
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi'
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type="+ type.type
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
     xhr.onload = function () {
         const serverResponse = xhr.response
-        console.log(serverResponse)
-        console.log(serverResponse.response)
-        return serverResponse.response
+        let names_data = serverResponse.response
+        let size_of_names = names_data.length
+        let begining_str = '<option id="" selected>Choose a Name</option>'
+        let main_str = ''
+        for (let i = 0; i < size_of_names; i++) {
+                main_str += '<option value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
+        }
+        document.getElementById('id_name').innerHTML = begining_str + main_str
+
+
     }
-    xhr.send(json_type)
+    xhr.send()
     console.log(json_type)
+
 }
 
 function usePolicyAndUpload(fileItem, policyData){
