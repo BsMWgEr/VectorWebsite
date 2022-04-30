@@ -230,7 +230,13 @@ function usePolicyAndUpload(fileItem, policyData){
             } else {
                 alert("Django update failed")
             }
-            getUploadListPict()
+            console.log(fileItem)
+            console.log(fileItem.type)
+            if (fileItem.type === 'image/') {
+                getUploadListPict()
+            } else {
+                getUploadListCR()
+            }
         }
         console.log(djJsonUpdateData)
         djHR.send(djJsonUpdateData)
