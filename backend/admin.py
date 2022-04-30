@@ -1,10 +1,10 @@
 
 from django.contrib import admin
 from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, \
-    Media, Item, Name, Size, InventoryItem, CustomerHold
+    Media, Name, Size, InventoryItem, CustomerHold
 
 
-admin.site.register(InventoryItem)
+
 admin.site.register(CustomerHold)
 admin.site.register(Media)
 admin.site.register(SoldDetail)
@@ -38,7 +38,7 @@ class InventoryObjectAdmin(admin.ModelAdmin):
     ordering = ('-id',)
 
 
-@admin.register(Item)
+@admin.register(InventoryItem)
 class InventoryItemAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'size', 'serial_number', 'in_stock')
     ordering = ('-id',)

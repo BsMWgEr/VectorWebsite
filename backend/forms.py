@@ -1,5 +1,5 @@
 from django import forms
-from .models import Message, Item, InventoryObject, SoldDetail, Customer, InventoryItem
+from .models import Message, InventoryObject, SoldDetail, Customer, InventoryItem
 from django.forms import TextInput, Textarea
 
 
@@ -77,5 +77,5 @@ class NewCustomerForm(forms.ModelForm):
             'email',
             'phone_number',
             'original_contact',
-            'purchased_item'
+
         ]

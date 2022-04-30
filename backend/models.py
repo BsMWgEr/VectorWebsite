@@ -124,43 +124,7 @@ class Size(models.Model):
         return f'ID: {self.id} - {self.size} - {self.type}'
 
 
-class Item(models.Model):
-    type = models.CharField(max_length=25, choices=LOCATION_OPTIONS, default=SPORT_RIGS)
-    name = models.CharField(max_length=200)
-    serial_number = models.IntegerField(blank=True, null=True)
-    due_date = models.CharField(max_length=100, blank=True, null=True)
-    size = models.CharField(max_length=50, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    in_stock = models.BooleanField(default=False)
 
-    po_number = models.CharField(max_length=50, blank=True, null=True)
-    confirmation_r = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='confirmation_r')
-    price = models.IntegerField()
-    picture = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, related_name='picture')
-    created_date = models.DateField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['-id']  # orders by descending remove the dash to make ascending
-
-    def __str__(self):
-        return f"ID: {self.id} Type: {self.type} Name: {self.name} - Serial #: {self.serial_number} -----  " \
-               f"In Stock: {self.in_stock}"
-
-    def serialize(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'serial_number': self.serial_number,
-            'due_date': self.due_date,
-            'size': self.size,
-            'description': self.description,
-            'in_stock': self.in_stock,
-
-            'po_number': self.po_number,
-            'confirmation_r': self.confirmation_r,
-            'price': self.price,
-            'picture': self.picture,
-        }
 
 
 
@@ -173,7 +137,7 @@ class Customer(models.Model):
     email = models.EmailField()
     phone_number = models.IntegerField()
     original_contact = models.OneToOneField(Message, on_delete=models.SET_NULL, blank=True, null=True)
-    purchased_item = models.ManyToManyField(Item, blank=True, null=True)
+
     created_date = models.DateField(auto_now_add=True)
 
     def __str__(self):

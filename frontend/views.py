@@ -4,7 +4,7 @@ from datetime import datetime
 from django.shortcuts import render
 from pytz import timezone
 from backend.forms import ContactForm
-from backend.models import Item, PageVisitData, SearchQuery, Message
+from backend.models import PageVisitData, SearchQuery, Message
 
 
 def search_view(request):
