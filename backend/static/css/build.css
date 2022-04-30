@@ -156,9 +156,6 @@ button {
     display: inline-flex;
 }
 
-.div-change {
-    display: flex;
-}
 
 #id_name {
     border: 2px solid red;
@@ -360,6 +357,7 @@ button {
 }
 
 .div-change {
+    display: grid;
     margin-top: 20px;
     border: hidden;
     padding: 10px;
