@@ -392,6 +392,8 @@ def upload_helper_view(request):
     print(request.GET.get(''))
     q = request.GET.get('')
     reports = Media.objects.all().filter(key__contains=q)
+    reports.last()
+
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
                        "name": x.name,
