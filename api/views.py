@@ -256,20 +256,36 @@ def UploadAPI(request):
 def create_image_api(request):
 
     print(request.GET.get('type'))
-    name_type = request.GET.get('type')
-    names = Name.objects.all().filter(type=name_type)
-    container_list = [{
-        'id': x.id,
-        'type': x.type,
-        'name': x.name,
-        'description_info': x.description_info
-    } for x in names]
+    if request.GET.get('type'):
+        name_type = request.GET.get('type')
+        names = Name.objects.all().filter(type=name_type)
+        container_list = [{
+            'id': x.id,
+            'type': x.type,
+            'name': x.name,
+            'description_info': x.description_info
+        } for x in names]
 
-    data = {
-        'response': container_list
-    }
-    print(data)
-    return JsonResponse(data)
+        data = {
+            'response': container_list
+        }
+        print(data)
+        return JsonResponse(data)
+    if request.GET.get('description_id'):
+        description_id = request.GET.get('description_id')
+        description_info = Name.objects.all().filter(type=description_id)
+        container_list = [{
+            'id': x.id,
+            'type': x.type,
+            'name': x.name,
+            'description_info': x.description_info
+        } for x in description_info]
+
+        data = {
+            'response': container_list
+        }
+        return JsonResponse(data)
+    return JsonResponse('fail')
 
 
 def sold_data_api(request):
