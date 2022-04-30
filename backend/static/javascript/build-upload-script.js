@@ -177,7 +177,8 @@ function getNames(x){
     xhr.onload = function () {
         const serverResponse = xhr.response
         console.log(serverResponse)
-        return ''
+        console.log(serverResponse.response)
+        return serverResponse.response
     }
     xhr.send(json_type)
     console.log(json_type)
