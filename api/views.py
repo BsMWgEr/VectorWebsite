@@ -255,7 +255,7 @@ def UploadAPI(request):
 
 def create_image_api(request):
     print(request)
-    print(request.GET)
+    print(request.GET.get(''))
     names = Name.objects.all()
 
     container_list = [{
