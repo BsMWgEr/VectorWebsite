@@ -262,7 +262,7 @@ def create_image_api(request):
         'id': x.id,
         'type': x.type,
         'name': x.name,
-        'decription_info': x.description_info
+        'description_info': x.description_info
     } for x in names]
 
     data = {

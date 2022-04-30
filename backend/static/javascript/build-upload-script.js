@@ -180,8 +180,10 @@ function getNames(x){
         let size_of_names = names_data.length
         let begining_str = '<option id="" selected>Choose a Name</option>'
         let main_str = ''
+
         for (let i = 0; i < size_of_names; i++) {
-                main_str += '<option value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
+                main_str += '<option onclick="setNameDescription(' + names_data[i] + ')" value="'+ names_data[i].id +'">'+ names_data[i].name +'</option>'
+
         }
         document.getElementById('id_name').innerHTML = begining_str + main_str
 
@@ -191,6 +193,12 @@ function getNames(x){
     console.log(json_type)
 
 }
+
+
+function setNameDescription(x) {
+    document.getElementById('id_description').innerHTML += '<textarea name="description" cols="40" rows="10" id="id_description">x.description_info</textarea>'
+}
+
 
 function usePolicyAndUpload(fileItem, policyData){
     let fd = constructFormData(policyData, fileItem)
