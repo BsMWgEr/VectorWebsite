@@ -165,14 +165,11 @@ function constructFormData(policy, fileItem) {
     return fd
 }
 
-function getNames(x){
-    let type = x
-    console.log(x)
-    let json_type = JSON.stringify(x)
-    console.log(json_type)
+function getNames(){
+    let x = document.getElementById('id_type').value
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type="+ type.type
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type="+ x
     console.log(url)
     const responseType = 'json'
     xhr.responseType = responseType
