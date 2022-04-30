@@ -24,7 +24,7 @@ function getUploadListCR() {
                 + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
 
         let str_end = "</select>"
-            + "<button class='inputs' onclick='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
+            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
         for (let i = 0; i < response_size; i++) {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
@@ -57,7 +57,7 @@ function getUploadListPict() {
                 + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
 
         let str_end = "</select>"
-            + "<button class='inputs' onclick='closeFields()' id='btn' type='submit'>Update Picture</button>"
+            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
         for (let i = 0; i < response_size; i++) {
             final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }

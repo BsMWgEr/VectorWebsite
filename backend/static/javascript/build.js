@@ -212,7 +212,7 @@
             change_display.innerHTML =
                 "<input type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<input type='text' name='price' id='price' placeholder='Enter Price'>"
-                + "<button id='btn' onclick='closeFields()' type='submit'>Update Price</button>"
+                + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Price</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -230,7 +230,7 @@
             change_display.innerHTML =
                 "<input type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<input type='text' name='due_date' id='due_date' placeholder='Change Due Date'>"
-                + "<button id='btn' onclick='closeFields()' type='submit'>Update Due Date</button>"
+                + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Due Date</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -245,7 +245,7 @@
             change_display.innerHTML =
                 "<input type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<input type='text' name='po_number' id='po_number' placeholder='Change PO Number'>"
-                + "<button id='btn' onclick='closeFields()' type='submit'>Update PO Number</button>"
+                + "<button id='btn' onsubmit='closeFields()' type='submit'>Update PO Number</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -261,7 +261,7 @@
             change_display.innerHTML =
                 "<input class='inputs' style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
                 + "<textarea class='inputs' rows='4' cols='40' name='description' id='description'>" + desc_value + "</textarea>"
-                + "<button class='inputs' onclick='closeFields()' id='btn' type='submit'>Update Description</button>"
+                + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Description</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -287,7 +287,7 @@
                 + "<input type='radio' name='in_stock' id='in_stock' value='False' placeholder='Change In Stock' " + x + ">"
                 + "<label for='in_stock'>True</label> "
                 + "<input type='radio' name='in_stock' id='in_stock' value='True' placeholder='Change In Stock' " + y + ">"
-                + "<button id='btn' onclick='closeFields()' type='submit'>Update In Stock</button>"
+                + "<button id='btn' onsubmit='closeFields()' type='submit'>Update In Stock</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -328,7 +328,7 @@
                 "<input class='d1' type='number' name='id' id='id' placeholder='Enter ID to Delete'>"
                 + "<label class='d4' for='delete'>Check Box to DELETE Item #" + document.getElementById('e-id').innerHTML + " PERMANENTLY</label>"
                 + "<input class='d2' type='checkbox' name='delete' id='delete' value='True'> "
-                + "<button class='d3' id='d3' onclick='alertM();closeFields()' type='submit'>PERMANENT DELETE</button>"
+                + "<button class='d3' id='d3' onsubmit='alertM();closeFields()' type='submit'>PERMANENT DELETE</button>"
         if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
@@ -342,7 +342,7 @@
             change_display.innerHTML =
                 "<input type='number' name='id' id='id' value='" + x + "' placeholder='Enter ID'>"
                 + "<input type='text' name='serial_number' id='serial_number' placeholder='Enter Serial Number'>"
-                + "<button id='btn' onclick='closeFields()' type='submit'>Submit New Serial Number</button>"
+                + "<button id='btn' onsubmit='closeFields()' type='submit'>Submit New Serial Number</button>"
             if (document.getElementById('e-id')) {
                 document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
             }
