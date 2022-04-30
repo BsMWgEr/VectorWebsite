@@ -130,6 +130,7 @@
              }
              main_display.innerHTML = final_str
              document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
+             closeFields()
          }
          new_form.entries()
          xhr.send(new_form)
