@@ -132,8 +132,8 @@
 
     function updateName(type) {
         let name_options = {type: type}
-        let new_names = getNames(name_options)
-        let size_of_names = new_names.length
+        console.log(getNames(name_options))
+        let size_of_names = 0
         let begining_str = '<option id="" selected>Choose a Name</option>'
         let main_str = ''
         for (let i = 0; i < size_of_names; i++) {
