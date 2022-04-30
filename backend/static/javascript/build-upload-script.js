@@ -211,7 +211,7 @@ function setNameDescription() {
         for (let i = 0; i < description_info.length; i++) {
             main_str += description_info.description_info
         }
-        document.getElementById('id_description').innerHTML = main_str
+        document.getElementById('id_description').innerText = main_str
     }
     xhr.send()
 
