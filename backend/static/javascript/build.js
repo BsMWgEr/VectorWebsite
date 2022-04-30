@@ -488,6 +488,7 @@ function setNameDescription() {
 }
 
 function setSizeDescription() {
+        let final_str = document.getElementById('id_description').innerText
         const xhr = new XMLHttpRequest()
         const method = 'GET'
         let x = document.getElementById('id_size').value
@@ -504,7 +505,7 @@ function setSizeDescription() {
             for (let i = 0; i < description_info.length; i++) {
                 main_str += description_info[i].description_info
             }
-            let final_str = document.getElementById('id_description').innerText + main_str
+             final_str += main_str
             document.getElementById('id_description').innerText = final_str
         }
         xhr.send()
