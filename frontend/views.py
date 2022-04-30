@@ -4,7 +4,7 @@ from datetime import datetime
 from django.shortcuts import render
 from pytz import timezone
 from backend.forms import ContactForm
-from backend.models import PageVisitData, SearchQuery, Message
+from backend.models import PageVisitData, SearchQuery, Message, InventoryItem
 
 
 def search_view(request):
@@ -13,10 +13,10 @@ def search_view(request):
     date = datetime.now(tz)  # .strftime('%Y-%m-%d %H:%M:%S')
     search_query.moment = date
 
-    containers_all = Item.objects.all()
-    containers_search = Item.objects.all()
-    containers_search2 = Item.objects.all()
-    containers_search3 = Item.objects.all()
+    containers_all = InventoryItem.objects.all()
+    containers_search = InventoryItem.objects.all()
+    containers_search2 = InventoryItem.objects.all()
+    containers_search3 = InventoryItem.objects.all()
     containers = []
     w = []
     query_dict = request.GET
@@ -46,11 +46,11 @@ def search_view(request):
                 if x.sold:
                     w.append(x)
         if not w:
-            containers_search2 = Item.objects.filter(name__icontains=query)
+            containers_search2 = InventoryItem.objects.filter(name__icontains=query)
             if containers_search2:
                 w = containers_search2
             else:
-                containers_search = Item.objects.filter(description__icontains=query)
+                containers_search = InventoryItem.objects.filter(description__icontains=query)
                 if containers_search:
                     w = containers_search
         if not w:
@@ -142,7 +142,7 @@ def index(request):
 
 
 def sportrigs_view(request):
-    containers_all = Item.objects.filter(type='sport_rigs', in_stock=False)
+    containers_all = InventoryItem.objects.filter(type='sport_rigs', in_stock=False)
     context = {
         'containers': containers_all,
     }
@@ -151,7 +151,7 @@ def sportrigs_view(request):
 
 
 def sportrigs_instock_view(request):
-    containers_all = Item.objects.filter(type='sport_rigs', in_stock=True)
+    containers_all = InventoryItem.objects.filter(type='sport_rigs', in_stock=True)
     context = {
         'containers': containers_all,
     }
@@ -160,7 +160,7 @@ def sportrigs_instock_view(request):
 
 
 def tandem(request):
-    containers_all = Item.objects.filter(type='tandem', in_stock=False)
+    containers_all = InventoryItem.objects.filter(type='tandem', in_stock=False)
     context = {
         'containers': containers_all
     }
@@ -168,7 +168,7 @@ def tandem(request):
 
 
 def tandem_instock_view(request):
-    containers_all = Item.objects.filter(type='tandem', in_stock=True)
+    containers_all = InventoryItem.objects.filter(type='tandem', in_stock=True)
     context = {
         'containers': containers_all
     }
@@ -176,7 +176,7 @@ def tandem_instock_view(request):
 
 
 def student(request):
-    containers_all = Item.objects.filter(type='student', in_stock=False)
+    containers_all = InventoryItem.objects.filter(type='student', in_stock=False)
     context = {
         'containers': containers_all
     }
@@ -184,7 +184,7 @@ def student(request):
 
 
 def student_instock_view(request):
-    containers_all = Item.objects.filter(type='student', in_stock=True)
+    containers_all = InventoryItem.objects.filter(type='student', in_stock=True)
     context = {
         'containers': containers_all
     }
@@ -195,14 +195,14 @@ def canopies(request):
     stuff = False
     if request.user.is_authenticated:
         stuff = True
-    containers_all = Item.objects.all()
-    containers_120 = Item.objects.all().filter(name__icontains='120').order_by('po_number')
-    containers_135 = Item.objects.all().filter(name__icontains='135').order_by('po_number')
-    containers_150 = Item.objects.all().filter(name__icontains='150').order_by('po_number')
-    containers_170 = Item.objects.all().filter(name__icontains='170').order_by('po_number')
-    containers_190 = Item.objects.all().filter(name__icontains='190').order_by('po_number')
-    containers_210 = Item.objects.all().filter(name__icontains='210').order_by('po_number')
-    containers_230 = Item.objects.all().filter(name__icontains='230').order_by('po_number')
+    containers_all = InventoryItem.objects.all()
+    containers_120 = InventoryItem.objects.all().filter(name__icontains='120').order_by('po_number')
+    containers_135 = InventoryItem.objects.all().filter(name__icontains='135').order_by('po_number')
+    containers_150 = InventoryItem.objects.all().filter(name__icontains='150').order_by('po_number')
+    containers_170 = InventoryItem.objects.all().filter(name__icontains='170').order_by('po_number')
+    containers_190 = InventoryItem.objects.all().filter(name__icontains='190').order_by('po_number')
+    containers_210 = InventoryItem.objects.all().filter(name__icontains='210').order_by('po_number')
+    containers_230 = InventoryItem.objects.all().filter(name__icontains='230').order_by('po_number')
 
     context = {
         'containers': containers_all,
@@ -219,7 +219,7 @@ def canopies(request):
 
 
 def javelin(request):
-    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=False)
+    containers_all = InventoryItem.objects.filter(type='javelin_odyssey', in_stock=False)
     context = {
         'containers': containers_all,
     }
@@ -227,7 +227,7 @@ def javelin(request):
 
 
 def javelin_instock_view(request):
-    containers_all = Item.objects.filter(type='javelin_odyssey', in_stock=True)
+    containers_all = InventoryItem.objects.filter(type='javelin_odyssey', in_stock=True)
     context = {
         'containers': containers_all,
     }
