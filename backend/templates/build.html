@@ -105,6 +105,7 @@
 
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
+                +'<label>Select a Display Page - Then Select Name</label>'
                 + '<select name="type" id="id_type" onchange="getNames(); getSizes()">'
                     +'<option value="0" selected >Choose Display Page</option>'
                     +'<option value="sport_rigs">Sport Rigs</option>'
@@ -117,6 +118,7 @@
                 +'<select name="name" required id="id_name" onchange="setNameDescription()">'
                     +'<option value="" selected>**Display Page Required**</option>'
                 + '</select>'
+                  +'<label for="due_date">Due Date: </label>'
                   +'<input type="text" name="serial_number" id="id_serial_number" value="TBD">'
                   +'<input type="text" name="due_date" maxlength="100" id="id_due_date" placeholder="Enter Due Date">'
                 +'<select name="size" id="id_size" onchange="setSizeDescription()">'
