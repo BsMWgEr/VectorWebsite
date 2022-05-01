@@ -397,9 +397,12 @@ def upload_helper_view(request):
     all_items = InventoryItem.objects.all()
 
     if q == 'confirmation_reports/':
-        for x in reports:
-            if x in all_items:
-                reports.remove(x)
+        for x in all_items:
+            if x.confirmation_r_id:
+                report.append(x.confirmation_r_id)
+        for y in reports:
+            if y.id in report:
+                reports.remove(y)
 
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
