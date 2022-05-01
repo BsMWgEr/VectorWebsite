@@ -317,6 +317,15 @@ def create_image_api(request):
         }
         print(data)
 
+    if request.GET.get('obj_id'):
+        obj = request.GET.get('obj_id')
+        name = request.GET.get('name_update_id')
+        size = request.GET.get('size_update_id')
+        name_info = Name.objects.filter(id=name)
+        size_info = Size.objects.filter(id=size)
+        description_info = name_info.desciption_info + size_info.description_info
+        InventoryObject.objects.filter(id=obj).update(description_info=description_info)
+
     return JsonResponse(data)
 
 
