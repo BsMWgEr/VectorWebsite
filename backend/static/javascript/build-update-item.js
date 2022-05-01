@@ -171,14 +171,10 @@ function idChange() {
     div_id_change.className = 'div-change'
     document.getElementById('form-id-change2').className = 'id-dropdown-form'
     change_display2.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID to Display'>"
-        + "<button onclick='openUpdateBtn()' type='submit'>Show Container</button>"
+        + "<button type='submit'>Show Container</button>"
 }
 
-function openUpdateBtn() {
-    document.getElementsByClassName('display_update-btn').className = 'btnchanger'
-    document.getElementsByClassName('display_sold-btn').className = 'btnchanger'
-    document.getElementsByClassName('display_shipping-btn').className = 'btnchanger'
-}
+
 
 function PictureChange() {
     uploadFormDisplay()

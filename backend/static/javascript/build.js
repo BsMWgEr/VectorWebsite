@@ -16,6 +16,12 @@
     let serial_number_display;
     let sold_display;
 
+    function openUpdateBtn() {
+        document.getElementById('display_update-btn').className = 'btnchanger'
+        document.getElementById('display_sold-btn').className = 'btnchanger'
+        document.getElementById('display_shipping-btn').className = 'btnchanger'
+    }
+
 
     function formatElement(element) {
 
@@ -32,7 +38,7 @@
              confirmation_report = "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
              confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: " + element.confirmation_r + "</p>"
          }
-
+         openUpdateBtn()
 
          return "<div class='container' onclick='closeFields()'>"
             + "<div class='inner-container'>"
