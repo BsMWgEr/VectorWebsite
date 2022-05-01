@@ -333,11 +333,11 @@ def create_image_api(request):
             name_description = x.description_info
             print(x.description_info)
         size_info = Size.objects.all().filter(size__exact=size)
-        for x in size_info:
-            size_description = x.description_info
+        for y in size_info:
+            size_description = y.description_info
             print('size info:')
-            print(x.size)
-            print(x.description_info)
+            print(y.size)
+            print(y.description_info)
         description_info = name_description + size_description
         print(description_info)
         x = InventoryObject.objects.filter(id=obj)
