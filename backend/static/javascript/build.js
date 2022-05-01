@@ -162,7 +162,7 @@
 
          return "<div class='container' onclick='closeFields()'>"
             + "<div class='inner-container'>"
-            + "<div class='container-left'><img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'>" + sold_display + "</div>"
+            + "<div class='container-left'><img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'></div>"
             + "<div id='selector' class='container-right'>"
             + "<p id='name-display' class='color-vector'>" + element.name + "</p>"
             + "<p class='color-vector'>" + serial_number_display + "</p>"
