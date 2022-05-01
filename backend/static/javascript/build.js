@@ -59,7 +59,7 @@
             + "<p id='size-info' class='color-vector'>" + element.size + "</p>"
             + "<div id='desc-info' class='description'>" + element.description + "</div>"
             + "<p>$</p><p id='price-info' class='price-vector'>" + element.price + "</p>"
-            + "<p>Due On : " + element.due_date + "</p>"
+            + "<div><p>Due On : </p><p>" + element.due_date + "</p></div>"
             + "<p>PO #: </p><p id='po-number-info'>" + element.po_number + "</p>"
             + confirmation_report
             + "</div>"
