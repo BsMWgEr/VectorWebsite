@@ -90,6 +90,8 @@
     function closeUpdateGroup() {
         document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('container-display').innerHTML = ''
+        document.getElementsByClassName('display_update-btn').className = 'btnchanger'
+
     }
 
     function openUpdateGroup() {
@@ -97,6 +99,7 @@
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
         document.getElementById('sold-update-btn-group').className = 'none'
         document.getElementById('shipping-update-btn-group').className = 'none'
+        document.getElementsByClassName('display_update-btn').className = 'none'
 
     }
 
