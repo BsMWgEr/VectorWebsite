@@ -111,6 +111,12 @@
 
     }
 
+    function closeUpdateGroups() {
+        document.getElementById('item-update-btn-group').className = 'none'
+        document.getElementById('sold-update-btn-group').className = 'none'
+        document.getElementById('shipping-update-btn-group').className = 'none'
+    }
+
     function openShippingGroup() {
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'none'
