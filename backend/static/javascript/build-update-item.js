@@ -1,4 +1,10 @@
 
+function openUpdateBtn() {
+    document.getElementsByClassName('display_update-btn').className = 'btnchanger'
+    document.getElementsByClassName('display_sold-btn').className = 'btnchanger'
+    document.getElementsByClassName('display_shipping-btn').className = 'btnchanger'
+}
+
 function loadNewElement(x) {
     const my_Form = x
     const new_form = new FormData(my_Form)
@@ -17,10 +23,11 @@ function loadNewElement(x) {
         let obj = listItems[i]
         let current = formatElement(obj)
         final_str += current
-    }
+        }
+    openUpdateBtn()
     main_display.innerHTML = final_str
     closeFields()
-    openUpdateBtn()
+
     }
     new_form.entries()
     xhr.send(new_form)
