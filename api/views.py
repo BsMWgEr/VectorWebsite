@@ -402,7 +402,7 @@ def upload_helper_view(request):
                 report.append(x.confirmation_r_id)
         for y in reports:
             if y.id in report:
-                reports.remove(y)
+                reports.pop(y)
 
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
