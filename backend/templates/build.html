@@ -173,12 +173,11 @@
 
     function setNewDescription() {
         let obj_id = document.getElementById('element-object-id').innerHTML
-        //let description_info = document.getElementById('desc_info').innerHTML
+        let description_info = document.getElementById('desc-info').innerHTML
         let name_id = document.getElementById('name_change').innerHTML
         let size_id = document.getElementById('size-info').innerHTML
         const xhr = new XMLHttpRequest()
         const method = 'GET'
-        let x = document.getElementById('id_size').value
         const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id + "&name_update_id=" + name_id + "&size_update_id=" + size_id
         const responseType = 'json'
         xhr.responseType = responseType
