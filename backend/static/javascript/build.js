@@ -181,7 +181,6 @@
             + "</div>"
             + "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
-            +
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
             + "<p>Item ID #: " + element.id + "</p>"
             + "<p>Inventory Object ID #: " + element.object_id + "</p>"
