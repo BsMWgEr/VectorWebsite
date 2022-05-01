@@ -23,6 +23,14 @@
     }
 
 
+    function closeUpdateBtn() {
+        document.getElementById('display_update-btn').className = 'none'
+        document.getElementById('display_sold-btn').className = 'none'
+        document.getElementById('display_shipping-btn').className = 'none'
+    }
+
+
+
     function formatElement(element) {
 
          if (element.serial_number === 0) {
