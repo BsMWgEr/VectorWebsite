@@ -32,6 +32,7 @@ function getUploadListCR() {
 
 
 
+
     }
     fxhr.send()
 }
