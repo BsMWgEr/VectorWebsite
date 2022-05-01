@@ -395,4 +395,5 @@ button {
     background: rgba(0,0,0, .6);
     box-shadow: 0 0 15px black;
     margin-top: 5px;
+    color: white;
 }
