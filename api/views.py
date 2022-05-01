@@ -329,7 +329,7 @@ def create_image_api(request):
         new_description = ""
         for x in name_info:
             new_description += x.description_info
-        size_info = Size.objects.all().filter(id=size)
+        size_info = Size.objects.all().filter(size=size)
         for x in size_info:
             new_description += x.description_info
         description_info = new_description
