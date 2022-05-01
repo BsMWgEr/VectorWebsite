@@ -344,7 +344,7 @@ button {
     font-size: 12pt;
     color: #b5db1a;
     text-align: center;
-    width: 50%;
+
 
 }
 
@@ -388,4 +388,11 @@ button {
 
 .uploadForm {
     display: flex;
+}
+
+#id_description {
+    border-radius: 5px;
+    background: rgba(0,0,0, .6);
+    box-shadow: 0 0 15px black;
+    margin-top: 5px;
 }
