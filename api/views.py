@@ -319,20 +319,27 @@ def create_image_api(request):
 
     if request.GET.get('obj_id'):
         obj = request.GET.get('obj_id')
+        print(obj)
         name = request.GET.get('name_update_id')
+        print(name)
         size = request.GET.get('size_update_id')
+        print(size)
         name_info = Name.objects.filter(id=name)
+        new_description = ""
         for x in name_info:
-            name_info = x.description_info
+            new_description = x.description_info
         size_info = Size.objects.filter(id=size)
         for x in size_info:
-            size_info = x.description_info
+            new_description = x.description_info
         description_info = name_info + size_info
+        print(description_info)
         x = InventoryObject.objects.filter(id=obj)
+        print(x.id)
         q = 0
         for y in x:
             q = y.inventory_item_id
         InventoryItem.objects.filter(id=q).update(decription=description_info)
+
 
 
     return JsonResponse(data)
