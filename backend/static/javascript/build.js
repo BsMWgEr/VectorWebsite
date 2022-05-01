@@ -155,8 +155,10 @@
              sold_display = "<img class='sold-img' src='{% static 'images/sold.gif' %}'>"
          } else sold_display = " "
          let confirmation_report = ""
-         if (element.confirmation_r) {
+         let confirmation_report2 = "null"
+         if (element.confirmation_r !== null) {
              confirmation_report = "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
+             confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: " + element.confirmation_r + "</p>"
          }
 
 
@@ -179,14 +181,14 @@
             + "</div>"
             + "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
-            + confirmation_report
+            +
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
             + "<p>Item ID #: " + element.id + "</p>"
             + "<p>Inventory Object ID #: " + element.object_id + "</p>"
             + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
             + "<p>Type: " + element.type + "</p>"
             + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "<p>Due Date:" + element.due_date + "</p>"
-            + "<p id='p-tag-confirmation_r'>Confirmation Report: " + element.confirmation_r + "</p>" + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
+            + confirmation_report2 + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
             + "<p>Description: " + element.description + "</p>"
              + "<p>PO Number: " + element.po_number + "</p>"
             + "</div>"
