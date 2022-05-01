@@ -39,7 +39,7 @@ class InventoryItemAdmin(admin.ModelAdmin):
 
 @admin.register(Name)
 class InventoryItemAdmin(admin.ModelAdmin):
-    list_display = ('type', 'name')
+    list_display = ('name', 'type')
     search_fields = ('name', 'type', 'description_info')
     actions = []
     list_filter = ('type',)
@@ -47,7 +47,7 @@ class InventoryItemAdmin(admin.ModelAdmin):
 
 @admin.register(Size)
 class InventoryItemAdmin(admin.ModelAdmin):
-    list_display = ('type', 'size')
+    list_display = ('size', 'type')
     search_fields = ('size', 'type')
     actions = []
     list_filter = ('type',)
