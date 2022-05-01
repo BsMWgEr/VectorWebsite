@@ -51,7 +51,12 @@
                 </div>
             </div>
             <div id="main-edit-div">
-
+                <div id='sold-div-change-display' class='none' >
+                    <form id='form-sold-change' action='/api/api'  method='POST' onsubmit="">
+                        {% csrf_token %}
+                        <div id="change-display-sold" class="change-display"></div>
+                    </form>
+                </div>
                 <div id='div-change' class='none' >
                     <form method='POST' id='uploadForm' class="none">
                         {% csrf_token %}
@@ -183,5 +188,9 @@
 }
     </script>
     <script type="text/javascript" src="{% static 'javascript/build.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/build-create-new-item.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/build-update-item.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/build-update-sold.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/build-update-shipping.js' %}"></script>
     <script type="text/javascript" src="{% static 'javascript/build-upload-script.js' %}"></script>
 {% endblock %}

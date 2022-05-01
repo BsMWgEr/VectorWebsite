@@ -3,79 +3,11 @@ let policyURL = baseURL + '/api/upload-api/'
 
 let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
 
-function getUploadListCR() {
-    let fxhr = new XMLHttpRequest()
-    let method = "GET"
-    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
-    let responseType = 'json'
-    fxhr.responseType = responseType
-    fxhr.open(method, url + '?=confirmation_reports/')
-    fxhr.onload = function () {
-        let serverResponse4 = fxhr.response
-        console.log(serverResponse4.response)
-        let response_size = serverResponse4.response.length
-        let final_str = ''
-        let str_start = "<div id='displayList'>"
-                + "<p>Upload List</p>"
-                + "<div id='file-url'></div>"
-            + "</div>"
-            + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
-            + "<select name='confirmation_r' id='id_confirmation_r'>"
-                + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
-
-        let str_end = "</select>"
-            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
-        if (serverResponse4.response[0]) {
-            for (let i = 0; i < response_size; i++) {
-                final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
-            }
-        } else {final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"}
-        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-
-
-
-
-    }
-    fxhr.send()
-}
-
-function getUploadListPict() {
-    let fxhr = new XMLHttpRequest()
-    let method = "GET"
-    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
-    let responseType = 'json'
-    fxhr.responseType = responseType
-    fxhr.open(method, url + '?=images/')
-    fxhr.onload = function () {
-        let serverResponse4 = fxhr.response
-        console.log(serverResponse4.response)
-        let response_size = serverResponse4.response.length
-        let final_str = ''
-        let str_start = "<div id='displayList'>"
-                + "<p>Upload List</p>"
-                + "<div id='file-url'></div>"
-            + "</div>"
-            + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
-            + "<select name='picture' id='id_picture'>"
-                + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
-
-        let str_end = "</select>"
-            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
-        for (let i = 0; i < response_size; i++) {
-            final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
-        }
-        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-
-
-    }
-    fxhr.send()
-}
-
 
 
 function validateFileType(fileItem) {
 
-    let fileType = fileItem.type // image/png image/jpeg
+    let fileType = fileItem.type // image/png image/jpeg application/pdf
     let rootType = fileType.split("/")[0]
     switch (rootType) {
         case 'image':  // rootType === "image"
@@ -122,7 +54,6 @@ function fileInputChanged(){
 
 function getPolicyAndUpload(fileItem) {
 
-    // data
     let data = {
         name: fileItem.name,
         raw_filename: fileItem.name,
@@ -130,8 +61,7 @@ function getPolicyAndUpload(fileItem) {
     }
     let jsonData = JSON.stringify(data)
 
-    let xhr = new XMLHttpRequest() // async request
-    // how are send it?
+    let xhr = new XMLHttpRequest()
     let k = fileItem.name
 
     xhr.open("POST", policyURL + "?=" + k, true)
@@ -144,9 +74,6 @@ function getPolicyAndUpload(fileItem) {
 
             // actual perfom upload for this single file
             usePolicyAndUpload(fileItem, policyResponseData)
-
-
-
         } else {
             console.log(xhr.responseText)
             alert("File upload failed")
@@ -177,15 +104,9 @@ function usePolicyAndUpload(fileItem, policyData){
     if (fileItem.type === "image/jpeg") {
         awsUploadKey = "static/images/" + fileItem.name
     } else {awsUploadKey = "static/confirmation_reports/" + fileItem.name}
-    console.log(fileItem)
-    console.log(policyData)
-
-
-
     let xhr = new XMLHttpRequest()
     fileItem.xhr = xhr
     //fileItem.xhr.abort()
-
 
     xhr.open('POST', awsEndpoint, true)
     xhr.onload = function() {
@@ -205,7 +126,6 @@ function usePolicyAndUpload(fileItem, policyData){
         liItem.innerText = awsUploadKey + " " + fileItem.size + " " + progress + "%"
         liItem.setAttribute('class', 'w-' + progress)
 
-
     }
 
     xhr.upload.onload = function() {
@@ -222,8 +142,6 @@ function usePolicyAndUpload(fileItem, policyData){
         djHR.setRequestHeader('X-CSRFTOKEN', crsfToken)
         djHR.onload = function() {
             if (djHR.status === 200) {
-                // do something
-
                 let listElementId = fileItem.uploadListElID
                 let liItem = document.getElementById(listElementId)
                 liItem.innerText = awsUploadKey + " " + fileItem.size + " done. 100%"
