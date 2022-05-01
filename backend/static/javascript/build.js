@@ -151,9 +151,7 @@
              serial_number_display = "Serial #: " + element.serial_number
              serial_number_ = element.serial_number
          }
-         if (element.sold) {
-             sold_display = "<img class='sold-img' src='{% static 'images/sold.gif' %}'>"
-         } else sold_display = " "
+
          let confirmation_report = ""
          let confirmation_report2 = "Confirmation Report: No"
          if (element.confirmation_r !== "null") {
@@ -168,13 +166,13 @@
             + "<div id='selector' class='container-right'>"
             + "<p id='name-display' class='color-vector'>" + element.name + "</p>"
             + "<p class='color-vector'>" + serial_number_display + "</p>"
-            + "<p id='p-instock'>" + element.in_stock + "</p>"
-            + "<p id='due-date-info'>" + element.due_date + "</p>"
+            + "<p id='p-instock'>In Stock: " + element.in_stock + "</p>"
+            + "<p id='due-date-info'>Due: " + element.due_date + "</p>"
             + "<p id='size-info' class='color-vector'>" + element.size + "</p>"
             + "<div id='desc-info' class='description'>" + element.description + "</div>"
             + "<p>$</p><p id='price-info' class='price-vector'>" + element.price + "</p>"
             + "<p>Due On : " + element.due_date + "</p>"
-            + "<p id='po-number-info'>" + element.po_number + "</p>"
+            + "<p id='po-number-info'>PO #: " + element.po_number + "</p>"
             + confirmation_report
             + "</div>"
             + "</div>"
