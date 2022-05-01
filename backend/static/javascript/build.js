@@ -154,11 +154,17 @@
          if (element.sold) {
              sold_display = "<img class='sold-img' src='{% static 'images/sold.gif' %}'>"
          } else sold_display = " "
+         let confirmation_report = ""
+         if (element.confirmation_r) {
+             confirmation_report = "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
+         }
+
+
          return "<div class='container' onclick='closeFields()'>"
             + "<div class='inner-container'>"
             + "<div class='container-left'><img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'>" + sold_display + "</div>"
             + "<div id='selector' class='container-right'>"
-            + "<p>Brand New Vector</p><p id='name-display' class='color-vector'>" + element.name + "</p>"
+            + "<p id='name-display' class='color-vector'>" + element.name + "</p>"
             + "<p class='color-vector'>" + serial_number_display + "</p>"
             + "<p id='p-instock'>" + element.in_stock + "</p>"
             + "<p id='due-date-info'>" + element.due_date + "</p>"
@@ -167,13 +173,13 @@
             + "<p>$</p><p id='price-info' class='price-vector'>" + element.price + "</p>"
             + "<p>Due On : " + element.due_date + "</p>"
             + "<p id='po-number-info'>" + element.po_number + "</p>"
-            + "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
+            + confirmation_report
             + "</div>"
             + "</div>"
             + "</div>"
             + "<div class='bottom-display' id='div-box'>"
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
-
+            + confirmation_report
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
             + "<p>Item ID #: " + element.id + "</p>"
             + "<p>Inventory Object ID #: " + element.object_id + "</p>"
