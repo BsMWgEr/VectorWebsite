@@ -1,6 +1,31 @@
 
+/*
+
+JAVASCRIPT FOR UPDATE ITEMS SCREEN ON THE BUILD PAGE
+
+ */
 
 
+// NameChange() from build.html activates this function and hits -> api endpoint -> create_image_api (backend.views) -> hits DB
+function setNewDescription() {
+        let obj_id = document.getElementById('element-object-id').innerHTML
+        let description_info = document.getElementById('desc-info').innerHTML
+        let name_id = document.getElementById('name_change').value
+        let size_id = document.getElementById('size-info').innerHTML
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+        const responseType = 'json'
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function () {
+            const serverResponse = xhr.response
+
+        }
+        xhr.send()
+    }
+// Creates the container display activated from update forms through updateFields()
+// Dynamically display updates to inventory_item as you make changes
 function loadNewElement(x) {
     const my_Form = x
     const new_form = new FormData(my_Form)
@@ -29,6 +54,8 @@ function loadNewElement(x) {
 
 }
 
+// THis is performing the actual changes to Iventory Items from the build update page
+// Updates inventory item fields from invdividual dynamically created forms --> backend.api_view --> performs DB functions -->  hits loadNewElement()
 function updateFields(event){
         event.preventDefault()
         let my_form = event.target
@@ -46,6 +73,8 @@ function updateFields(event){
 
     }
 
+    // Dynamic Price update form --> displays to build page on the update screen
+    // activated from main update-button-group on build.html
 function PriceChange() {
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -61,6 +90,8 @@ function PriceChange() {
     document.getElementById('price').defaultValue = document.getElementById('price-info').innerHTML
 }
 
+    // Dynamic DueDate update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function dueDateChange() {
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -76,6 +107,8 @@ function dueDateChange() {
     document.getElementById('due_date').defaultValue = document.getElementById('due-date-info').innerHTML
 }
 
+    // Dynamic PO# update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function poNumberChange() {
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -91,6 +124,8 @@ function poNumberChange() {
     document.getElementById('po_number').defaultValue = document.getElementById('po-number-info').innerHTML
 }
 
+    // Dynamic Description update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function descriptionChange() {
     let desc_value = document.getElementById('desc-info').innerHTML
     document.getElementById('deletebtn').className = 'btnchanger'
@@ -106,6 +141,8 @@ function descriptionChange() {
     }
 }
 
+    // Dynamic InStock update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function inStockChange() {
     let x;
     let y;
@@ -133,6 +170,8 @@ function inStockChange() {
 }
 
 
+// Dynamic Delete Item update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function deleteContainer() {
     div_change.className = 'none'
     change_display.innerHTML = ''
@@ -148,6 +187,8 @@ function deleteContainer() {
     }
 }
 
+    // Dynamic serialNumber update form --> displays to build page on the update screen
+   // activated from main update-button-group on build.html
 function serialNumberChange(x) {
     document.getElementById('serial_number_btn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -164,6 +205,8 @@ function serialNumberChange(x) {
     console.log(serial_number_)
 }
 
+
+   // activated from main update-button-group on build.html
 function idChange() {
     document.getElementById('deletebtn').className = 'btnchanger'
     div_change.className = 'none'
@@ -175,7 +218,12 @@ function idChange() {
 }
 
 
-
+    // Dynamic Picture Change update form --> displays to build page on the update screen
+    // Allows for instant uploads straight to item
+    // This links with the build-upload-script.js to upload through aws
+    // event listener onchange for the uploadForm (instant upload once file is selected)
+    // Also hits DB --> creates new Media Object (upon upload)
+   // activated from main update-button-group on build.html
 function PictureChange() {
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
@@ -189,6 +237,9 @@ function PictureChange() {
     fileInput.addEventListener('change', fileInputChanged)
 }
 
+
+// Activated from  PictureChange()
+// Image list retrieval from the DB
 function getUploadListPict() {
     let fxhr = new XMLHttpRequest()
     let method = "GET"
@@ -221,6 +272,11 @@ function getUploadListPict() {
     fxhr.send()
 }
 
+
+    // links to build-upload-script.js to upload to aws
+    // THis also hit the DB --> and creates a new Media Object
+
+   // activated from main update-button-group on build.html
 function ConfirmChange() {
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
@@ -234,6 +290,8 @@ function ConfirmChange() {
     fileInput.addEventListener('change', fileInputChanged)
 }
 
+
+// Confirmation report retrieval from DB -  activated from ConfirmChange()
 function getUploadListCR() {
     let fxhr = new XMLHttpRequest()
     let method = "GET"
