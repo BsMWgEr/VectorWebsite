@@ -398,7 +398,7 @@ def upload_helper_view(request):
 
     for y in all_items:
         for x in reports:
-            if not y.confirmation_r.id == x.id:
+            if not y.confirmation_r_id == x.id:
                 report.append(x)
 
     container_list = [{"id": x.id,
