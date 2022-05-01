@@ -172,9 +172,7 @@ function idChange() {
         + "<button type='submit'>Show Container</button>"
 }
 
-function openUpdateBtn() {
-    document.getElementsByClassName('display_update-btn').className = 'btnchanger'
-}
+
 
 function PictureChange() {
     uploadFormDisplay()

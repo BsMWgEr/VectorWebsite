@@ -137,6 +137,10 @@
         document.getElementById('uploadForm').className = 'none'
     }
 
+    function openUpdateBtn() {
+        document.getElementsByClassName('display_update-btn').className = 'btnchanger'
+    }
+
 
 
 
