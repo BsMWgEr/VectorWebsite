@@ -396,7 +396,7 @@ def upload_helper_view(request):
     reports = Media.objects.all().filter(key__contains=q)
     all_items = InventoryItem.objects.all()
 
-    if q is 'confirmation_reports/':
+    if q == 'confirmation_reports/':
         for x in reports:
             for y in all_items:
                 if not y.confirmation_r_id == x.id:
