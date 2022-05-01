@@ -3,22 +3,12 @@ from django.contrib import admin
 from .models import SoldDetail, ShippingDetail, InventoryObject, Message, Customer, CustomerShippingAddress, \
     Media, Name, Size, InventoryItem, CustomerHold
 
-
-
 admin.site.register(CustomerHold)
-admin.site.register(Media)
+
 admin.site.register(SoldDetail)
 admin.site.register(ShippingDetail)
 admin.site.register(CustomerShippingAddress)
 admin.site.register(Customer)
-admin.site.register(Name)
-admin.site.register(Size)
-
-
-
-
-
-
 
 
 
@@ -45,6 +35,30 @@ class InventoryItemAdmin(admin.ModelAdmin):
     search_fields = ('id', 'name', 'serial_number', 'in_stock')
     actions = [change_to_out_of_stock, change_to_in_stock]
     list_filter = ('type', 'in_stock','size')
+
+
+@admin.register(Name)
+class InventoryItemAdmin(admin.ModelAdmin):
+    list_display = ('type', 'name')
+    search_fields = ('name', 'type', 'description_info')
+    actions = []
+    list_filter = ('type',)
+
+
+@admin.register(Size)
+class InventoryItemAdmin(admin.ModelAdmin):
+    list_display = ('type', 'size')
+    search_fields = ('size', 'type')
+    actions = []
+    list_filter = ('type',)
+
+
+@admin.register(Media)
+class InventoryItemAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'mediatype')
+    search_fields = ('id', 'name', 'mediatype', 'filetype')
+    actions = []
+    list_filter = ('mediatype', 'filetype')
 
 
 @admin.register(Message)
