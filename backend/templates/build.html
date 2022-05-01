@@ -178,10 +178,10 @@
         div_change.className = 'div-change'
         change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + '<select name="name" required id="name_change">'
-            + '<option onclick="setNewDescription()" id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
+            + '<option  id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
             {% for x in name_options %}
 
-                + '<option value="{{ x.id }}">{{ x.name }}</option>'
+                + '<option onclick="setNewDescription()" value="{{ x.id }}">{{ x.name }}</option>'
             {% endfor %}
             + '</select>'
             + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Name</button>"
