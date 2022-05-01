@@ -25,12 +25,11 @@ function getUploadListCR() {
 
         let str_end = "</select>"
             + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
-        if (serverResponse4.response[i].id) {
+        if (serverResponse4.response[0].id) {
             for (let i = 0; i < response_size; i++) {
                 final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
             }
-        }
-        else {final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"}
+        } else {final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"}
         document.getElementById('change-display').innerHTML = str_start + final_str + str_end
 
 
