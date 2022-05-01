@@ -326,13 +326,15 @@ def create_image_api(request):
         size = request.GET.get('size_update_id')
         print(size)
         name_info = Name.objects.all().filter(id=name)
+        size_info = Size.objects.all().filter(size__exact=size)
         name_description = ""
         size_description = ""
         final_description = ""
         for x in name_info:
             name_description = x.description_info
+            print("name Info:")
             print(x.description_info)
-        size_info = Size.objects.all().filter(size__exact=size)
+
         for y in size_info:
             size_description = y.description_info
             print('size info:')
