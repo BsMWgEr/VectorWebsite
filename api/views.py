@@ -399,8 +399,9 @@ def upload_helper_view(request):
     if q is 'confirmation_reports/':
         for x in reports:
             for y in all_items:
-                if y.confirmation_r_id == x.id:
-                    reports.delete(x)
+                if not y.confirmation_r_id == x.id:
+                    report.append(x)
+        reports = report
 
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
