@@ -101,6 +101,7 @@
     function createForm() {
         document.getElementById('create-form').className = 'div-form'
         document.getElementById('display-form-btn').className = 'none'
+        document.getElementById('container-display').innerHTML = ''
 
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
