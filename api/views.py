@@ -396,17 +396,18 @@ def upload_helper_view(request):
     reports = Media.objects.all().filter(key__contains=q)
     all_items = InventoryItem.objects.all()
 
-    for y in all_items:
-        for x in reports:
-            if not y.confirmation_r_id == x.id:
-                report.append(x)
-
+    if 'confirmation_reports/' in q:
+        for y in all_items:
+            for x in reports:
+                if not y.confirmation_r_id == x.id:
+                    report.append(x)
+        reports = report
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
                        "name": x.name,
                        "key": x.key,
                        "filetype": x.filetype,
-                       } for x in report]
+                       } for x in reports]
     data = {
         "response": container_list
     }
