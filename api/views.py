@@ -391,7 +391,7 @@ def endpoint3(request):
 def upload_helper_view(request):
     print(request.GET.get(''))
     q = request.GET.get('')
-    reports = Media.objects.all().filter(key__contains=q).last()
+    reports = Media.objects.all().filter(key__contains=q)
 
 
     container_list = [{"id": x.id,
