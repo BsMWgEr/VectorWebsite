@@ -401,14 +401,6 @@ def upload_helper_view(request):
             if x.confirmation_r_id:
                 reports.delete(id=x.confirmation_r_id)
 
-
-
-
-
-
-
-                reports.pop(y)
-
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
                        "name": x.name,
