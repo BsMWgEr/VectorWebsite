@@ -172,7 +172,7 @@
             + "<div id='desc-info' class='description'>" + element.description + "</div>"
             + "<p>$</p><p id='price-info' class='price-vector'>" + element.price + "</p>"
             + "<p>Due On : " + element.due_date + "</p>"
-            + "<p id='po-number-info'>PO #: " + element.po_number + "</p>"
+            + "<p>PO #: </p><p id='po-number-info'>" + element.po_number + "</p>"
             + confirmation_report
             + "</div>"
             + "</div>"
