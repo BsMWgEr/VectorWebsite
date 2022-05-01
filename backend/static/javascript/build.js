@@ -153,7 +153,7 @@
          }
 
          let confirmation_report = ""
-         let confirmation_report2 = "Confirmation Report: No"
+         let confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: None</p>"
          if (element.confirmation_r !== "null") {
              confirmation_report = "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
              confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: " + element.confirmation_r + "</p>"
