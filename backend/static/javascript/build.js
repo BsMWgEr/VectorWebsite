@@ -72,7 +72,7 @@
             + "<p id='element-object-id'>" + element.object_id + "</p>"
             + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
             + "<p>Type: " + element.type + "</p>"
-            + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "<div><p>Due Date: </p><p>" + element.due_date + "</p></div>"
+            + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "<p>Due Date: " + element.due_date + "</p>"
             + confirmation_report2 + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
             + "<p>Description: " + element.description + "</p>"
              + "<p>PO Number: " + element.po_number + "</p>"
