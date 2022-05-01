@@ -365,7 +365,7 @@
         div_id_change.className = 'div-change'
         document.getElementById('form-id-change2').className = 'id-dropdown-form'
         change_display2.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID to Display'>"
-            + "<button onsubmit='closeFields()' type='submit'>Show Container</button>"
+            + "<button type='submit'>Show Container</button>"
 
 
     }
@@ -398,13 +398,33 @@
         document.getElementById('container-display').innerHTML = ''
     }
 
+    function openUpdateGroup() {
+        closeCreateForm()
+        document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
+        document.getElementById('sold-update-btn-group').className = 'none'
+        document.getElementById('shipping-update-btn-group').className = 'none'
+
+    }
+
+    function openSoldGroup() {
+        closeCreateForm()
+        document.getElementById('item-update-btn-group').className = 'none'
+        document.getElementById('sold-update-btn-group').className = 'item-update-btn-group'
+        document.getElementById('shipping-update-btn-group').className = 'none'
+
+    }
+
+    function openShippingGroup() {
+        closeCreateForm()
+        document.getElementById('item-update-btn-group').className = 'none'
+        document.getElementById('sold-update-btn-group').className = 'none'
+        document.getElementById('shipping-update-btn-group').className = 'item-update-btn-group'
+
+    }
 
     function alertM() {
         alert('Container Deleted!')
     }
-
-
-const ghf = document.getElementById('inner-container')
 
     function uploadFormDisplay() {
         document.getElementById('uploadForm').className = 'uploadForm'
@@ -412,6 +432,32 @@ const ghf = document.getElementById('inner-container')
 
     function uploadFormOff() {
         document.getElementById('uploadForm').className = 'none'
+    }
+
+    function PictureChange() {
+            uploadFormDisplay()
+            document.getElementById('deletebtn').className = 'btnchanger'
+            div_id_change.className = 'none'
+            change_display2.innerHTML = ''
+            div_change.className = 'div-change'
+            getUploadListPict()
+            document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
+                + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
+            let fileInput = document.getElementById('files')
+            fileInput.addEventListener('change', fileInputChanged)
+    }
+
+    function ConfirmChange() {
+            uploadFormDisplay()
+            document.getElementById('deletebtn').className = 'btnchanger'
+            div_id_change.className = 'none'
+            change_display2.innerHTML = ''
+            div_change.className = 'div-change'
+            getUploadListCR()
+            document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
+                + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+            let fileInput = document.getElementById('files')
+            fileInput.addEventListener('change', fileInputChanged)
     }
 
 
@@ -443,29 +489,30 @@ const ghf = document.getElementById('inner-container')
 }
 
 
-function setNameDescription() {
-    const xhr = new XMLHttpRequest()
-    const method = 'GET'
-    let x = document.getElementById('id_name').value
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x
-    const responseType = 'json'
-    xhr.responseType = responseType
-    xhr.open(method, url)
-    xhr.onload = function () {
-        const serverResponse = xhr.response
-        console.log(serverResponse)
-        let description_info = serverResponse.response
+    function setNameDescription() {
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        let x = document.getElementById('id_name').value
+        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?description_id=" + x
+        const responseType = 'json'
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function () {
+            const serverResponse = xhr.response
+            console.log(serverResponse)
+            let description_info = serverResponse.response
 
-        let main_str = ''
-        for (let i = 0; i < description_info.length; i++) {
-            main_str += description_info[i].description_info
+            let main_str = ''
+            for (let i = 0; i < description_info.length; i++) {
+                main_str += description_info[i].description_info
+            }
+            document.getElementById('id_description').innerText = main_str
         }
-        document.getElementById('id_description').innerText = main_str
-    }
-    xhr.send()
+        xhr.send()
 }
 
- function getSizes(){
+
+    function getSizes(){
         let x = document.getElementById('id_type').value
         const xhr = new XMLHttpRequest()
         const method = 'GET'
@@ -490,7 +537,7 @@ function setNameDescription() {
             document.getElementById('id_size').innerHTML = begining_str + main_str
         }
         xhr.send()
-}
+    }
 
 function setSizeDescription() {
         let final_str = document.getElementById('id_description').value

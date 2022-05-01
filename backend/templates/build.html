@@ -17,8 +17,9 @@
                 <div id="main-btn-group" class="main-btn-group">
                     <button id="display-form-btn" class="btnchanger" onclick="createForm();closeUpdateGroup()">Create A New Item</button>
                     <button id="display_id_btn" class="btnchanger" onclick="idChange();closeCreateForm()">Select Item To Display</button>
-                    <button class="btnchanger" onclick="closeUpdateGroup()">Add/Update Sold</button>
-                    <button class="btnchanger" onclick="closeUpdateGroup()">Add/Update Shipping</button>
+                    <button class="btnchanger" onclick="openUpdateGroup(); closeFields()">Update Item</button>
+                    <button class="btnchanger" onclick="openSoldGroup(); closeFields()">Add/Update Sold</button>
+                    <button class="btnchanger" onclick="openShippingGroup(); closeFields()">Add/Update Shipping</button>
                 </div>
                 <div id="item-update-btn-group" class="none">
                     <button id="name_on_btn" class="btnchanger" onclick=NameChange();uploadFormOff()>Change Name</button>
@@ -32,6 +33,21 @@
                     <button id="confirm_btn" class="btnchanger" onclick=ConfirmChange()>Change Confirmation Report</button>
                     <button id="picture_btn" class="btnchanger" onclick=PictureChange()>Change Picture</button>
                     <button id="deletebtn" class="btnchanger" onclick=deleteContainer();uploadFormOff()>Delete Item</button>
+                </div>
+                <div id="sold-update-btn-group" class="none">
+                    <button id="" class="btnchanger" onclick="">Item select</button>
+                    <button id="" class="btnchanger" onclick="">Customer select</button>
+                    <button id="" class="btnchanger" onclick="">Date sold select</button>
+                    <button id="" class="btnchanger" onclick="">Sold infor 1 select</button>
+                    <button id="" class="btnchanger" onclick="">Sold info 2 select</button>
+                </div>
+                <div id="shipping-update-btn-group" class="none">
+                    <button id="" class="btnchanger" onclick="">Item select</button>
+                    <button id="" class="btnchanger" onclick="">Sold Info Select</button>
+                    <button id="" class="btnchanger" onclick="">Customer select</button>
+                    <button id="" class="btnchanger" onclick="">Date sold select</button>
+                    <button id="" class="btnchanger" onclick="">Sold infor 1 select</button>
+                    <button id="" class="btnchanger" onclick="">Sold info 2 select</button>
                 </div>
             </div>
             <div id="main-edit-div">
@@ -125,48 +141,6 @@
                 +'<button class="submit-new" type="submit">Create New Item</button>'
             +'</form>'
         +'<p>* RED Border/Black Background = Required Fields *</p>'
-    }
-
-
-    function updateName(type) {
-        let name_options = {type: type}
-        getNames(name_options)
-    }
-
-    function PictureChange() {
-
-            uploadFormDisplay()
-            document.getElementById('deletebtn').className = 'btnchanger'
-            div_id_change.className = 'none'
-            change_display2.innerHTML = ''
-            div_change.className = 'div-change'
-            getUploadListPict()
-            document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3><input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
-
-
-
-            let fileInput = document.getElementById('files')
-            fileInput.addEventListener('change', fileInputChanged)
-
-
-
-    }
-
-    function ConfirmChange() {
-
-            uploadFormDisplay()
-            document.getElementById('deletebtn').className = 'btnchanger'
-            div_id_change.className = 'none'
-            change_display2.innerHTML = ''
-            div_change.className = 'div-change'
-            getUploadListCR()
-            document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3><input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
-
-
-            let fileInput = document.getElementById('files')
-            fileInput.addEventListener('change', fileInputChanged)
-
-
     }
 
     function sizeChange() {
