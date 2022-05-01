@@ -342,7 +342,7 @@ def create_image_api(request):
         for y in x:
             q = y.inventory_item_id
             print(q)
-        InventoryItem.objects.filter(id=q).update(decription=description_info)
+        InventoryItem.objects.filter(id=q).update(description=description_info)
 
 
 
