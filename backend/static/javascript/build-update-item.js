@@ -1,9 +1,5 @@
 
-function openUpdateBtn() {
-    document.getElementsByClassName('display_update-btn').className = 'btnchanger'
-    document.getElementsByClassName('display_sold-btn').className = 'btnchanger'
-    document.getElementsByClassName('display_shipping-btn').className = 'btnchanger'
-}
+
 
 function loadNewElement(x) {
     const my_Form = x
@@ -24,7 +20,6 @@ function loadNewElement(x) {
         let current = formatElement(obj)
         final_str += current
         }
-    openUpdateBtn()
     main_display.innerHTML = final_str
     closeFields()
 
