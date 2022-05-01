@@ -285,7 +285,7 @@ def create_image_api(request):
         }
         print(data)
 
-    if request.GET.get('description_id'):
+    elif request.GET.get('description_id'):
         description_id = request.GET.get('description_id')
         print(description_id)
         description_info = Name.objects.all().filter(id=description_id)
@@ -301,7 +301,7 @@ def create_image_api(request):
         }
         print(data)
 
-    if request.GET.get('size_description_id'):
+    elif request.GET.get('size_description_id'):
         description_id = request.GET.get('size_description_id')
         print(description_id)
         description_info = Size.objects.all().filter(id=description_id)
@@ -317,7 +317,7 @@ def create_image_api(request):
         }
         print(data)
 
-    if request.GET.get('obj_id'):
+    else:
         print(request.GET)
         obj = request.GET.get('obj_id')
         print(obj)
@@ -325,14 +325,14 @@ def create_image_api(request):
         print(name)
         size = request.GET.get('size_update_id')
         print(size)
-        name_info = Name.objects.filter(id=name)
+        name_info = Name.objects.all().filter(id=name)
         new_description = ""
         for x in name_info:
-            new_description = x.description_info
-        size_info = Size.objects.filter(id=size)
+            new_description += x.description_info
+        size_info = Size.objects.all().filter(id=size)
         for x in size_info:
-            new_description = x.description_info
-        description_info = name_info + size_info
+            new_description += x.description_info
+        description_info = new_description
         print(description_info)
         x = InventoryObject.objects.filter(id=obj)
         print(x.id)
