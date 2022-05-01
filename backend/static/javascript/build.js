@@ -15,11 +15,7 @@
     let serial_number_;
     let serial_number_display;
     let sold_display;
-    function openUpdateBtn() {
-        document.getElementsByClassName('display_update-btn').className = 'btnchanger'
-        document.getElementsByClassName('display_sold-btn').className = 'btnchanger'
-        document.getElementsByClassName('display_shipping-btn').className = 'btnchanger'
-    }
+
 
     function formatElement(element) {
 
