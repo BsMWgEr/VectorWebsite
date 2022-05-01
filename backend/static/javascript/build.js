@@ -22,7 +22,7 @@
     }
 
     function formatElement(element) {
-         openUpdateBtn()
+
          if (element.serial_number === 0) {
             serial_number_display = 'Serial # TBD'
          } else {
