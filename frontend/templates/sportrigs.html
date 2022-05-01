@@ -17,12 +17,8 @@
                             <img src="{% static '' %}{{ x.picture.key }}" height="140" width="212">
                         </div>
                         <div class="container-right">
-                            <p class="color-vector">Brand New Vector {{ x.name }}</p>
-                            {% if x.serial_number %}
-                                <p class="color-vector">Serial #{{ x.serial_number }}</p>
-                            {% else %}
-                                <p class="color-vector">Serial #: TBD</p>
-                            {% endif %}
+                            <p class="color-vector">{{ x.name }}</p>
+                            <p class="color-vector">Serial #{{ x.serial_number }}</p>
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
