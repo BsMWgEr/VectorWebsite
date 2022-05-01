@@ -66,7 +66,7 @@
                         <div id="upload-file-div"></div>
                     </form>
 
-                    <form id='form-price-change' action='/api/api'  method='POST' onchange="setNewDescription()" onsubmit="updateFields(event)">
+                    <form id='form-price-change' action='/api/api'  method='POST' onsubmit="updateFields(event)">
                         {% csrf_token %}
                         <div id="change-display" class="change-display"></div>
                     </form>
@@ -178,7 +178,7 @@
         let size_id = document.getElementById('size-info').innerHTML
         const xhr = new XMLHttpRequest()
         const method = 'GET'
-        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id + "&name_update_id=" + name_id + "&size_update_id=" + size_id
+        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
         const responseType = 'json'
         xhr.responseType = responseType
         xhr.open(method, url)
@@ -199,10 +199,10 @@
             + '<option  id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
             {% for x in name_options %}
 
-                + '<option onclick="setNewDescription()" value="{{ x.id }}">{{ x.name }}</option>'
+                + '<option value="{{ x.id }}">{{ x.name }}</option>'
             {% endfor %}
             + '</select>'
-            + "<button id='btn' onclick='setNewDescription()' onsubmit='closeFields()' type='submit'>Update Name</button>"
+            + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Name</button>"
         if (document.getElementById('e-id')) {
             document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
         }
