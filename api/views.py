@@ -400,7 +400,7 @@ def upload_helper_view(request):
         for x in reports:
             for y in all_items:
                 if y.confirmation_r_id == x.id:
-                    reports.remove(x)
+                    reports.remove(x.id)
 
 
     container_list = [{"id": x.id,
