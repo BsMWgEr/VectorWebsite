@@ -168,7 +168,7 @@ function setNewDescription() {
     const xhr = new XMLHttpRequest()
     const method = 'GET'
     let x = document.getElementById('id_size').value
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id + "&name_update_id=" + name_id + "&size_update_id=" + size_id
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
