@@ -55,10 +55,10 @@ class InventoryItemAdmin(admin.ModelAdmin):
 
 @admin.register(Media)
 class InventoryItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'mediatype')
-    search_fields = ('id', 'name', 'mediatype', 'filetype')
+    list_display = ('id', 'name', 'media_type')
+    search_fields = ('id', 'name', 'media_type', 'filetype')
     actions = []
-    list_filter = ('mediatype', 'filetype')
+    list_filter = ('media_type', 'filetype')
 
 
 @admin.register(Message)
