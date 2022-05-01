@@ -318,6 +318,7 @@ def create_image_api(request):
         print(data)
 
     if request.GET.get('obj_id'):
+        print(request.GET)
         obj = request.GET.get('obj_id')
         print(obj)
         name = request.GET.get('name_update_id')
