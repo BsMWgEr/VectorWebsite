@@ -1,3 +1,9 @@
+/*
+
+    Main Functions for BUILD PAGE which are not specific to a Section
+
+ */
+
     const price_change = document.getElementById("form-price-change")
     const name_change = document.getElementById('form-name-change')
     const id_change = document.getElementById('form-id-change')
@@ -30,7 +36,9 @@
     }
 
 
-
+// This Function is the end process of the Build and Update forms
+// This takes in updated and processed server response data which orginates from the DB
+// THis organizes the data into the graphical container on page dynamically
     function formatElement(element) {
 
          if (element.serial_number === 0) {
@@ -96,6 +104,7 @@
     function closeCreateForm(){
         //document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('create-form').className = 'none'
+        document.getElementById('create-form-upload-btns').className = 'none'
         document.getElementById('display-form-btn').className = 'btnchanger'
     }
 
@@ -153,6 +162,10 @@
 
     function uploadFormOff() {
         document.getElementById('uploadForm').className = 'none'
+    }
+
+    function createFormUploadBtns() {
+        document.getElementById('create-form-upload-btns').className = 'create-form-upload-btns'
     }
 
 

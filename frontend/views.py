@@ -93,8 +93,7 @@ def index(request):
     context = {'form': form}
     if request.POST:
         new_contact = Message()
-        random_number = (((random.randint(2, 20) + random.randint(2, 20)) * random.randint(10, 20)) * random.randint(2,
-                                                                                                                     20) + random.randint(
+        random_number = (((random.randint(2, 20) + random.randint(2, 20)) * random.randint(10, 20)) * random.randint(2, 20) + random.randint(
             100000, 999999) + random.randint(100000, 999999))
         if random_number < 1000000:
             random_number = random_number + 1000000

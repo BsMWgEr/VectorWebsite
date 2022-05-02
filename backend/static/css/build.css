@@ -405,3 +405,7 @@ button {
 #build-create-address-btn {
     background: fuchsia;
 }
+
+.create-form-upload-btns {
+    display: flex;
+}

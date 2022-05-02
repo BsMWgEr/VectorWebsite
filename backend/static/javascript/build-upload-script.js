@@ -1,3 +1,11 @@
+/*
+
+    AWS UPLOAD PROCESS
+    ALL UPLOAD FORMS HIT THIS SCRIPT
+    THIS CONNECTS WITH ~/stockvectorrigs.aws (utils.py, connect.py, storages.py and conf.py)
+
+ */
+
 const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
 

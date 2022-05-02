@@ -43,17 +43,22 @@
                     <button id="" class="btnchanger" onclick="">Sold info 2 select</button>
                 </div>
                 <div id="shipping-update-btn-group" class="none">
+                    <button id="build-create-address-btn" class="btnchanger" onclick="">Create New Shipping Address</button>
                     <button id="" class="btnchanger" onclick="">Item select</button>
                     <button id="" class="btnchanger" onclick="">Sold Info Select</button>
                     <button id="" class="btnchanger" onclick="">Customer select</button>
                     <button id="" class="btnchanger" onclick="">Update Shipping Address</button>
-                    <button id="build-create-address-btn" class="btnchanger" onclick="">Create New Shipping Address</button>
                     <button id="" class="btnchanger" onclick="">Date sold select</button>
                     <button id="" class="btnchanger" onclick="">Sold infor 1 select</button>
                     <button id="" class="btnchanger" onclick="">Sold info 2 select</button>
+                    <button id="" class="btnchanger">Tracking Number</button>
                 </div>
             </div>
             <div id="main-edit-div">
+                <div id="create-form-upload-btns" class="none">
+                    <button id="create-form-confirm_btn" class="btnchanger" onclick=ConfirmChange()>Upload A New Confirmation Report</button>
+                    <button id="create-form-picture_btn" class="btnchanger" onclick=PictureChange()>Upload A New Picture</button>
+                </div>
                 <div id='sold-div-change-display' class='none' >
                     <form id='form-sold-change' action='/api/api'  method='POST' onsubmit="">
                         {% csrf_token %}
@@ -102,7 +107,7 @@
         document.getElementById('create-form').className = 'div-form'
         document.getElementById('display-form-btn').className = 'none'
         document.getElementById('container-display').innerHTML = ''
-
+        createFormUploadBtns()
         document.getElementById('create-form').innerHTML = '<form onsubmit="handleFormSubmit(event);createForm()" id="form" class="form" method="POST" action="https://vectorrigs.herokuapp.com/api/builder/" >'
             + '{% csrf_token %}'
                 +'<label>Required Fields: Display Page, Name, Price</label>'

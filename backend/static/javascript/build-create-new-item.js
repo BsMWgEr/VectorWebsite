@@ -1,3 +1,13 @@
+/*
+
+BUILD PAGE CREATE NEW ITEM FUNCTIONS
+
+ */
+
+
+// Takes in form data on submit --> hits build_api_view and creates new InventoryItem
+// on response --> hits cookie_list_view --> hits DB --> returns filtered DB data
+// passes data to formatElement() This extrapolates data into the graphical container on page
 function handleFormSubmit(event){
     event.preventDefault()
     const my_Form = event.target
@@ -15,6 +25,9 @@ function handleFormSubmit(event){
     xhr.send(my_FormData)
 
 }
+
+// second function after handleFormSubmit()
+// This function is getting DB data and passing it to formatElement()
 
 function loadElement(event) {
     let item
@@ -57,6 +70,8 @@ new_form.entries()
 xhr.send(new_form)
 }
 
+// Pulls user input and sends to --> create_image_api
+// returns Name form with updated data dynamically
 function getNames(){
     let x = document.getElementById('id_type').value
     const xhr = new XMLHttpRequest()

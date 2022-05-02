@@ -1,3 +1,9 @@
+/*
+
+    INVENTORY PAGE MAIN FUNCTIONS
+
+*/
+
 
 let sold_data_id;
 function sold_Data_form(x) {

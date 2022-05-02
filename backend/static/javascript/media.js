@@ -1,3 +1,11 @@
+/*
+
+    UPLOAD PROCESS FOR THE MEDIA MANAGER PAGE
+    UPLOADS DIRECT TO AWS
+    CONNECTS FROM ~/stockvectorrigs.aws (utils.py, conf.py, storages.py, and connect.py)
+
+ */
+
 const baseURL = 'https://vectorrigs.herokuapp.com'
 let policyURL = baseURL + '/api/upload-api/'
 let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
