@@ -251,22 +251,34 @@ function getUploadListPict() {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
-        let final_str = ''
-        let str_start = "<div id='displayList'>"
+        if (document.getElementById('container')) {
+            let final_str = ''
+            let str_start = "<div id='displayList'>"
                 + "<p>Upload List</p>"
                 + "<div id='file-url'></div>"
-            + "</div>"
-            + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
-            + "<select name='picture' id='id_picture'>"
+                + "</div>"
+                + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
+                + "<select name='picture' id='id_picture'>"
                 + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
 
-        let str_end = "</select>"
-            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
-        for (let i = 0; i < response_size; i++) {
-            final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+            let str_end = "</select>"
+                + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
+            for (let i = 0; i < response_size; i++) {
+                final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+            }
+            document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+        } else if (document.getElementById('create-upload-form-btns').className === 'create-form-upload-btns') {
+            let final_str = ''
+            let str_start = ''
+            let main_str = ''
+            let last_value = serverResponse4.response[response_size].id
+            str_start = '<option value="'+ last_value +'" selected>'+ serverResponse4[response_size].name +'</option>'
+            for (let i = 0; i < response_size; i++) {
+                main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+            }
+            final_str = str_start + main_str
+            document.getElementById('id_picture').innerHTML = final_str
         }
-        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-
 
     }
     fxhr.send()
