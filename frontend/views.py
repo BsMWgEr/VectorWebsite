@@ -196,13 +196,13 @@ def canopies(request):
     if request.user.is_authenticated:
         stuff = True
     containers_all = InventoryItem.objects.all()
-    containers_120 = InventoryItem.objects.all().filter(name__icontains='120').order_by('po_number')
-    containers_135 = InventoryItem.objects.all().filter(name__icontains='135').order_by('po_number')
-    containers_150 = InventoryItem.objects.all().filter(name__icontains='150').order_by('po_number')
-    containers_170 = InventoryItem.objects.all().filter(name__icontains='170').order_by('po_number')
-    containers_190 = InventoryItem.objects.all().filter(name__icontains='190').order_by('po_number')
-    containers_210 = InventoryItem.objects.all().filter(name__icontains='210').order_by('po_number')
-    containers_230 = InventoryItem.objects.all().filter(name__icontains='230').order_by('po_number')
+    containers_120 = InventoryItem.objects.all().filter(name__name__icontains='120').order_by('po_number')
+    containers_135 = InventoryItem.objects.all().filter(name__name__icontains='135').order_by('po_number')
+    containers_150 = InventoryItem.objects.all().filter(name__name__icontains='150').order_by('po_number')
+    containers_170 = InventoryItem.objects.all().filter(name__name__icontains='170').order_by('po_number')
+    containers_190 = InventoryItem.objects.all().filter(name__name__icontains='190').order_by('po_number')
+    containers_210 = InventoryItem.objects.all().filter(name__name__icontains='210').order_by('po_number')
+    containers_230 = InventoryItem.objects.all().filter(name__name__icontains='230').order_by('po_number')
 
     context = {
         'containers': containers_all,
