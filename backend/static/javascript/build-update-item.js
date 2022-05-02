@@ -277,6 +277,7 @@ function getUploadListPict() {
                 main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
             }
             final_str = str_start + main_str
+            console.log(final_str)
             document.getElementById('id_picture').innerHTML = final_str
         }
 
