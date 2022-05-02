@@ -407,5 +407,6 @@ button {
 }
 
 .create-form-upload-btns {
-    display: flex;
+    display: grid;
+    margin-top: 58%;
 }

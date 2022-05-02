@@ -267,7 +267,7 @@ function getUploadListPict() {
                 final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
             }
             document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-        } else if (document.getElementById('create-upload-form-btns').className === 'create-form-upload-btns') {
+        } else if (document.getElementById('create-upload-form-btns')) {
             let final_str = ''
             let str_start = ''
             let main_str = ''
