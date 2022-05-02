@@ -46,7 +46,7 @@ def search_view(request):
                 if x.sold:
                     w.append(x)
         if not w:
-            containers_search2 = InventoryItem.objects.filter(name__icontains=query)
+            containers_search2 = InventoryItem.objects.filter(name__name__icontains=query)
             if containers_search2:
                 w = containers_search2
             else:
