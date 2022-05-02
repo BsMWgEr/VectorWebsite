@@ -276,10 +276,6 @@ function getUploadListPict() {
             for (let i = 0; i < response_size; i++) {
                 main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
             }
-            document.getElementById('create-upload-div').innerHTML = "<div id='displayList'>"
-                + "<p>Upload List</p>"
-                + "<div id='file-url'></div>"
-                + "</div>"
             final_str = str_start + main_str
             document.getElementById('id_picture').innerHTML = final_str
         }
