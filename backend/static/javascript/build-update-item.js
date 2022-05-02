@@ -251,6 +251,7 @@ function getUploadListPict() {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
+        console.log(response_size)
         if (document.getElementById('container')) {
             let final_str = ''
             let str_start = "<div id='displayList'>"
@@ -271,7 +272,7 @@ function getUploadListPict() {
             let final_str = ''
             let str_start = ''
             let main_str = ''
-            let last_value = serverResponse4.response[response_size].id
+            let last_value = serverResponse4.response[response_size - 1].id
 
             str_start = '<select name="picture" id="id_picture">'
                 +'<option value="'+ last_value +'" selected>'+ serverResponse4[last_value].key +'</option>'
