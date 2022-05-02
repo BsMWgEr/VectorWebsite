@@ -271,10 +271,10 @@ function getUploadListPict() {
             let final_str = ''
             let str_start = ''
             let main_str = ''
-            let last_value = 2  //serverResponse4.response[response_size].id
+            let last_value = serverResponse4.response[response_size].id
 
             str_start = '<select name="picture" id="id_picture">'
-                +'<option value="'+ response_size +'" selected>'+ serverResponse4[response_size].key +'</option>'
+                +'<option value="'+ last_value +'" selected>'+ serverResponse4[last_value].key +'</option>'
             for (let i = 0; i < response_size; i++) {
                 main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
             }
