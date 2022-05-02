@@ -275,7 +275,7 @@ function getUploadListPict() {
             let val = 0;
             let val_id = 0;
             for (let i = 0; i < response_size;i++) {
-                if (response_size[i].id > val) {
+                if (serverResponse4[i].id > val) {
                     val_id = serverResponse4[i].id
                     val = i
                 }
