@@ -109,6 +109,7 @@
         document.getElementById('create-form-upload-btns').className = 'none'
         document.getElementById('create-upload-div').innerHTML = ''
         document.getElementById('container-main').style.marginLeft = '2%'
+        document.getElementById('container-main').style.marginRight = '0%'
     }
 
     function openCreateForm() {
