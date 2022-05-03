@@ -109,7 +109,7 @@
         document.getElementById('create-form-upload-btns').className = 'none'
         document.getElementById('create-upload-div').innerHTML = ''
         document.getElementById('container-main').style.marginLeft = '2%'
-        document.getElementById('container-main').style.maxWidth = '98%'
+        document.getElementById('container-main').style.maxWidth = '100%'
     }
 
     function openCreateForm() {
