@@ -325,23 +325,42 @@ function getUploadListCR() {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
-        let final_str = ''
-        let str_start = "<div id='displayList'>"
+        if (document.getElementById('container')) {
+            let final_str = ''
+            let str_start = "<div id='displayList'>"
                 + "<p>Upload List</p>"
                 + "<div id='file-url'></div>"
-            + "</div>"
-            + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
-            + "<select name='confirmation_r' id='id_confirmation_r'>"
+                + "</div>"
+                + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
+                + "<select name='confirmation_r' id='id_confirmation_r'>"
                 + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
 
-        let str_end = "</select>"
-            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
-        if (serverResponse4.response[0]) {
-            for (let i = 0; i < response_size; i++) {
-                final_str = final_str + "<option value='" +  serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+            let str_end = "</select>"
+                + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
+            if (serverResponse4.response[0]) {
+                for (let i = 0; i < response_size; i++) {
+                    final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
+                }
+            } else {
+                final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"
             }
-        } else {final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"}
-        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+            document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+        } else {
+            let final_str = ''
+            let str_start = ''
+            let main_str = ''
+            let last_array_item = response_size - 1
+            let last_array_item_id = serverResponse4.response[last_array_item].id
+
+            str_start = '<select name="confirmation_r" id="id_confirmation_r">'
+                +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].key +'</option>'
+            for (let i = 0; i < response_size; i++) {
+                main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+            }
+            final_str = str_start + main_str + '</select>'
+            console.log(final_str)
+            document.getElementById('p2').innerHTML = final_str
+        }
     }
     fxhr.send()
 }

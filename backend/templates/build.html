@@ -158,12 +158,14 @@
                 {% endfor %}
                 +'</select>'
                 +'<hr>'
+                +'<div id="p2">'
                 +'<select name="confirmation_r" id="id_confirmation_r">'
                     +'<option value="" selected>Select a Confirmation Report</option>'
                     {% for x in confirm %}
                         +'<option value="{{ x.id }}">{{ x.key }}</option>'
                     {% endfor %}
                 +'</select>'
+                +'</div>'
                 +'<hr>'
                 +'<div id="p1">'
                 +'<select name="picture" id="id_picture">'
