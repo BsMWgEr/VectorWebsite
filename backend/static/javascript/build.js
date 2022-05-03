@@ -106,6 +106,8 @@
         document.getElementById('create-form').className = 'none'
         document.getElementById('create-form-upload-btns').className = 'none'
         document.getElementById('display-form-btn').className = 'btnchanger'
+        document.getElementById('create-form-upload-btns').className = 'none'
+        document.getElementById('create-upload-div').className = 'none'
     }
 
     function openCreateForm() {

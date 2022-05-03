@@ -60,6 +60,7 @@ function loadElement(event) {
             }
             final_str += current
         }
+        closeCreateForm()
         main_display.innerHTML = final_str
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
         alert("New Item successfully created!\nA new INVENTORY OBJECT has been created with your new ITEM!\n" +
