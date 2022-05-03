@@ -230,7 +230,10 @@ function PictureChange() {
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-    getUploadListPict()
+    if (document.getElementById('container')) {
+        getUploadListPict()
+    }
+
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
@@ -300,7 +303,9 @@ function ConfirmChange() {
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-    getUploadListCR()
+    if (document.getElementById('container')) {
+        getUploadListCR()
+    }
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
