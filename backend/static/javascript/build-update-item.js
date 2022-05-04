@@ -297,15 +297,27 @@ function getUploadListPict() {
     // THis also hit the DB --> and creates a new Media Object
 
    // activated from main update-button-group on build.html
-function ConfirmChange() {
+function ConfirmChange(x) {
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-    if (document.getElementById('container')) {
-        getUploadListCR()
-    }
+    x = true
+    getUploadListCR(x)
+
+    document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
+        + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+    let fileInput = document.getElementById('files')
+    fileInput.addEventListener('change', fileInputChanged)
+}
+
+function createConfirmChange() {
+    uploadFormDisplay()
+    document.getElementById('deletebtn').className = 'btnchanger'
+    div_id_change.className = 'none'
+    change_display2.innerHTML = ''
+    div_change.className = 'div-change'
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
@@ -314,7 +326,7 @@ function ConfirmChange() {
 
 
 // Confirmation report retrieval from DB -  activated from ConfirmChange()
-function getUploadListCR() {
+function getUploadListCR(x) {
     let fxhr = new XMLHttpRequest()
     let method = "GET"
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
@@ -325,7 +337,7 @@ function getUploadListCR() {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
-        if (document.getElementById('id-update-btn-group').className === 'item-update-btn-group') {
+        if (x) {
             let final_str = ''
             let str_start = "<div id='displayList'>"
                 + "<p>Upload List</p>"
