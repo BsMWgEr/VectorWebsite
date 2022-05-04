@@ -6,12 +6,6 @@
 
  */
 
-const baseURL = 'https://vectorrigs.herokuapp.com'
-let policyURL = baseURL + '/api/upload-api/'
-
-let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretoken]').value
-
-
 
 function validateFileType(fileItem) {
     let fileType = fileItem.type // image/png image/jpeg application/pdf
