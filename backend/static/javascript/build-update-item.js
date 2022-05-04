@@ -232,9 +232,9 @@ function PictureChange() {
     div_change.className = 'div-change'
     getUploadListPict()
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
-        + "<input onchange='fileInputChangedUpdate()' type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
+        + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 
 }
 
@@ -246,9 +246,9 @@ function createPictureChange() {
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
-        + "<input onchange='fileInputChangedCreate()' type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
+        + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
