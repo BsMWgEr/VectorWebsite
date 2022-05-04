@@ -273,7 +273,7 @@ function getUploadListPict() {
         let final_str = ''
         let str_start = "<div id='displayList'>"
             + "<p>Upload List</p>"
-            + "<div onchange='getUploadListPict()' id='file-url'></div>"
+            + "<div id='file-url'></div>"
             + "</div>"
             + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
             + "<select name='picture' id='id_picture'>"
