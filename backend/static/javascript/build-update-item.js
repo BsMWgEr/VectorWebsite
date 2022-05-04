@@ -325,7 +325,7 @@ function getUploadListCR() {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
-        if (document.getElementById('display_update-btn').className === 'btnchanger') {
+        if (document.getElementById('id-update-btn-group').className === 'item-update-btn-group') {
             let final_str = ''
             let str_start = "<div id='displayList'>"
                 + "<p>Upload List</p>"
