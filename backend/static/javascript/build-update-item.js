@@ -247,8 +247,8 @@ function createPictureChange() {
     div_change.className = 'div-change'
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input onchange='fileInputChangedCreate()' type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
-    //let fileInput = document.getElementById('files')
-    //fileInput.addEventListener('change', fileInputChangedCreate)
+    let fileInput = document.getElementById('files')
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
