@@ -115,7 +115,8 @@ function usePolicyAndUpload(fileItem, policyData){
     let awsUploadKey = ""
     if (fileItem.type === "image/jpeg" || fileItem.type === "image/JPG" || fileItem.type === "image/png") {
         awsUploadKey = "static/images/" + fileItem.name
-    } else {awsUploadKey = "static/confirmation_reports/" + fileItem.name}
+    }
+    else {awsUploadKey = "static/confirmation_reports/" + fileItem.name}
     let xhr = new XMLHttpRequest()
     fileItem.xhr = xhr
     //fileItem.xhr.abort()

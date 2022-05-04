@@ -227,20 +227,21 @@ def DownloadView(request, id, *args, **kwargs):
 def UploadAPI(request):
     if request.GET:
         print(request.GET.get(''))
-        y = request.GET.get('')
-        if ".jpg" or ".JPG" or ".png" in y:
+        y1 = request.GET.get('').split('.')[1]
+        y2 = request.GET.get('').split('.')[0]
+        if '.jpg' == y1 or '.JPG' == y1 or '.png' == y1 :
             new = Media()
-            new.key = "images/" + y
-            new.name = y
+            new.key = "images/" + y2 + '.' + y1
+            new.name = y2
             new.media_type = 'image'
             new.filetype = 'image/jpeg'
-            if ".png" in y:
+            if ".png" in y1:
                 new.filetype = 'image/png'
             new.save()
         else:
             new = Media()
-            new.key = "confirmation_reports/" + y
-            new.name = y
+            new.key = "confirmation_reports/" + y2 + '.' + y1
+            new.name = y2
             new.media_type = 'confirmation_r'
             new.filetype = 'application/pdf'
             new.save()
