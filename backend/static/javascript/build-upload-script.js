@@ -60,7 +60,6 @@ function fileInputChangedUpdate(){
 
 
 function getPolicyAndUpload(fileItem) {
-
     let data = {
         name: fileItem.name,
         raw_filename: fileItem.name,

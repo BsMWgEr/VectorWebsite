@@ -234,13 +234,12 @@ function PictureChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChangedUpdate)
+    fileInput.addEventListener('onchange', fileInputChangedUpdate)
 
 }
 
 
 function createPictureChange() {
-    value_upload_helper = false
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -249,7 +248,7 @@ function createPictureChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChangedCreate)
+    fileInput.addEventListener('onchange', fileInputChangedCreate)
 }
 
 
@@ -325,7 +324,7 @@ function getCreateUploadListPict() {
 
    // activated from main update-button-group on build.html
 function ConfirmChange() {
-    value_upload_helper = true
+
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -336,7 +335,7 @@ function ConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChangedUpdate)
+    fileInput.addEventListener('onchange', fileInputChangedUpdate)
 }
 
 function createConfirmChange() {
@@ -349,7 +348,7 @@ function createConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChangedCreate)
+    fileInput.addEventListener('onchange', fileInputChangedCreate)
 }
 
 

@@ -168,13 +168,6 @@
         document.getElementById('uploadForm').className = 'none'
     }
 
-    function uploadHelpDecider1() {
-        document.getElementById('file-url').addEventListener('onchange', getCreateUploadListCR)
-    }
-
-     function uploadHelpDecider2() {
-        document.getElementById('file-url').addEventListener('onchange', getCreateUploadListPict)
-    }
 
     function createFormUploadBtns() {
         document.getElementById('create-form-upload-btns').className = 'create-form-upload-btns'
