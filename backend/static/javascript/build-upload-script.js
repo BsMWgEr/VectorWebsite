@@ -160,19 +160,7 @@ function usePolicyAndUpload(fileItem, policyData){
             }
             console.log(fileItem)
             console.log(fileItem.type)
-            if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
-                if (document.getElementById('container-display').innerHTML === '') {
-                    getCreateUploadListPict()
-                } else {
-                    getUploadListPict()
-                }
-            } else {
-                if (document.getElementById('container-display').innerHTML === '') {
-                    getCreateUploadListCR()
-                }else {
-                    getUploadListCR()
-                }
-            }
+
         }
         console.log(djJsonUpdateData)
         djHR.send(djJsonUpdateData)
