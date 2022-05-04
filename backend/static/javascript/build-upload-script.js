@@ -162,8 +162,10 @@ function usePolicyAndUpload(fileItem, policyData){
             console.log(fileItem.type)
             if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
                 getCreateUploadListPict()
+                getUploadListPict()
             } else {
                 getCreateUploadListCR()
+                getUploadListCR()
             }
         }
         console.log(djJsonUpdateData)
