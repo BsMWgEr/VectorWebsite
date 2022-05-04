@@ -161,11 +161,17 @@ function usePolicyAndUpload(fileItem, policyData){
             console.log(fileItem)
             console.log(fileItem.type)
             if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
-                getCreateUploadListPict()
-                getUploadListPict()
-            } else {
-                getCreateUploadListCR()
-                getUploadListCR()
+                if (document.getElementById('items-update-btn-group').className === 'none') {
+                    getCreateUploadListPict()
+                } else {
+                    getUploadListPict()
+                }
+            }else {
+                if (document.getElementById('items-update-btn-group').className === 'none') {
+                    getCreateUploadListCR()
+                }else {
+                    getUploadListCR()
+                }
             }
         }
         console.log(djJsonUpdateData)
