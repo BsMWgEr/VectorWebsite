@@ -140,6 +140,7 @@ function usePolicyAndUpload2(fileItem, policyData){
             console.log(fileItem)
             console.log(fileItem.type)
             if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
+                console.log('success')
                 getCreateUploadListPict()
             } else {
                 getCreateUploadListCR()

@@ -291,6 +291,7 @@ function getUploadListPict() {
 }
 
 function getCreateUploadListPict() {
+    console.log('initiated')
     let fxhr = new XMLHttpRequest()
     let method = "GET"
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
@@ -298,6 +299,7 @@ function getCreateUploadListPict() {
     fxhr.responseType = responseType
     fxhr.open(method, url + '?=images/')
     fxhr.onload = function () {
+        console.log('RESPONSE')
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
