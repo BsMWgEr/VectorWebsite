@@ -335,7 +335,7 @@ function ConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input onchange='fileInputChangedUpdate()' type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 }
 
 function createConfirmChange() {
@@ -346,9 +346,9 @@ function createConfirmChange() {
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
-        + "<input onchange='fileInputChangedCreate()' type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
+        + "<input  type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
