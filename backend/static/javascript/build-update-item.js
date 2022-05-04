@@ -230,15 +230,31 @@ function PictureChange() {
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-    if (document.getElementById('container')) {
-        getUploadListPict()
-    }
+    getUploadListPict()
+
 
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
     fileInput.addEventListener('change', fileInputChanged)
 }
+
+
+function createPictureChange() {
+    uploadFormDisplay()
+    document.getElementById('deletebtn').className = 'btnchanger'
+    div_id_change.className = 'none'
+    change_display2.innerHTML = ''
+    div_change.className = 'div-change'
+
+
+    document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
+        + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
+    let fileInput = document.getElementById('files')
+    fileInput.addEventListener('change', fileInputChanged)
+}
+
+
 
 
 // Activated from  PictureChange()
@@ -255,56 +271,68 @@ function getUploadListPict() {
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
         console.log(response_size)
-        if (document.getElementById('container')) {
-            let final_str = ''
-            let str_start = "<div id='displayList'>"
-                + "<p>Upload List</p>"
-                + "<div id='file-url'></div>"
-                + "</div>"
-                + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
-                + "<select name='picture' id='id_picture'>"
-                + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
 
-            let str_end = "</select>"
-                + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
-            for (let i = 0; i < response_size; i++) {
-                final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
-            }
-            document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-        } else {
-            let final_str = ''
-            let str_start = ''
-            let main_str = ''
-            let last_array_item = response_size - 1
-            let last_array_item_id = serverResponse4.response[last_array_item].id
+        let final_str = ''
+        let str_start = "<div id='displayList'>"
+            + "<p>Upload List</p>"
+            + "<div id='file-url'></div>"
+            + "</div>"
+            + "<input type='number' name='id' id='id' value='" + document.getElementById('e-id').innerHTML + "'>"
+            + "<select name='picture' id='id_picture'>"
+            + '<option selected>Choose A New Picture - Current ' + document.getElementById('p-tag-picture').innerHTML + ' </option>'
 
-            str_start = '<select name="picture" id="id_picture">'
-                +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].key +'</option>'
-            for (let i = 0; i < response_size; i++) {
-                main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
-            }
-            final_str = str_start + main_str + '</select>'
-            console.log(final_str)
-            document.getElementById('p1').innerHTML = final_str
+        let str_end = "</select>"
+            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Picture</button>"
+        for (let i = 0; i < response_size; i++) {
+            final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
+        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+
 
     }
     fxhr.send()
 }
 
+function getCreateUploadListPict() {
+    let fxhr = new XMLHttpRequest()
+    let method = "GET"
+    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
+    let responseType = 'json'
+    fxhr.responseType = responseType
+    fxhr.open(method, url + '?=images/')
+    fxhr.onload = function () {
+        let serverResponse4 = fxhr.response
+        console.log(serverResponse4.response)
+        let response_size = serverResponse4.response.length
+        console.log(response_size)
+        let final_str = ''
+        let str_start = ''
+        let main_str = ''
+        let last_array_item = response_size - 1
+        let last_array_item_id = serverResponse4.response[last_array_item].id
+
+        str_start = '<select name="picture" id="id_picture">'
+            + '<option value="' + last_array_item_id + '" selected>' + serverResponse4.response[last_array_item].key + '</option>'
+        for (let i = 0; i < response_size; i++) {
+            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+        }
+        final_str = str_start + main_str + '</select>'
+        console.log(final_str)
+        document.getElementById('p1').innerHTML = final_str
+    }
+}
 
     // links to build-upload-script.js to upload to aws
     // THis also hit the DB --> and creates a new Media Object
 
    // activated from main update-button-group on build.html
-function ConfirmChange(x) {
+function ConfirmChange() {
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-    x = true
-    getUploadListCR(x)
+    getUploadListCR()
 
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
@@ -326,7 +354,7 @@ function createConfirmChange() {
 
 
 // Confirmation report retrieval from DB -  activated from ConfirmChange()
-function getUploadListCR(x) {
+function getUploadListCR() {
     let fxhr = new XMLHttpRequest()
     let method = "GET"
     let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
@@ -337,44 +365,56 @@ function getUploadListCR(x) {
         let serverResponse4 = fxhr.response
         console.log(serverResponse4.response)
         let response_size = serverResponse4.response.length
-        if (x) {
-            let final_str = ''
-            let str_start = "<div id='displayList'>"
-                + "<p>Upload List</p>"
-                + "<div id='file-url'></div>"
-                + "</div>"
-                + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
-                + "<select name='confirmation_r' id='id_confirmation_r'>"
-                + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
+        let final_str = ''
+        let str_start = "<div id='displayList'>"
+            + "<p>Upload List</p>"
+            + "<div id='file-url'></div>"
+            + "</div>"
+            + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
+            + "<select name='confirmation_r' id='id_confirmation_r'>"
+            + '<option value="" selected>Choose A New Confirmation Report - Current ' + document.getElementById('p-tag-confirmation_r').innerHTML + ' </option>'
 
-            let str_end = "</select>"
-                + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
-            if (serverResponse4.response[0]) {
-                for (let i = 0; i < response_size; i++) {
-                    final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
-                }
-            } else {
-                final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"
-            }
-            document.getElementById('change-display').innerHTML = str_start + final_str + str_end
-        } else {
-            let final_str = ''
-            let str_start = ''
-            let main_str = ''
-            let last_array_item = response_size - 1
-            let last_array_item_id = serverResponse4.response[last_array_item].id
-
-            str_start = '<select name="confirmation_r" id="id_confirmation_r">'
-                +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].key +'</option>'
+        let str_end = "</select>"
+            + "<button class='inputs' onsubmit='closeFields()' id='btn' type='submit'>Update Confirmation Report</button>"
+        if (serverResponse4.response[0]) {
             for (let i = 0; i < response_size; i++) {
-                main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+                final_str = final_str + "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
             }
-            final_str = str_start + main_str + '</select>'
-            console.log(final_str)
-            document.getElementById('p2').innerHTML = final_str
+        } else {
+            final_str = "<option id='' >No Reports.. You need to Upload a new report.</option>"
         }
+        document.getElementById('change-display').innerHTML = str_start + final_str + str_end
+
     }
     fxhr.send()
 }
 
+function getCreateUploadListCR() {
+    let fxhr = new XMLHttpRequest()
+    let method = "GET"
+    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
+    let responseType = 'json'
+    fxhr.responseType = responseType
+    fxhr.open(method, url + '?=confirmation_reports/')
+    fxhr.onload = function () {
+        let serverResponse4 = fxhr.response
+        console.log(serverResponse4.response)
+        let response_size = serverResponse4.response.length
+        let final_str = ''
+        let str_start = ''
+        let main_str = ''
+        let last_array_item = response_size - 1
+        let last_array_item_id = serverResponse4.response[last_array_item].id
+
+        str_start = '<select name="confirmation_r" id="id_confirmation_r">'
+            +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].key +'</option>'
+        for (let i = 0; i < response_size; i++) {
+            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+        }
+        final_str = str_start + main_str + '</select>'
+        console.log(final_str)
+        document.getElementById('p2').innerHTML = final_str
+    }
+    fxhr.send()
+}
 

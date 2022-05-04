@@ -30,7 +30,7 @@
                     <button id="po_number_btn" class="btnchanger" onclick=poNumberChange();uploadFormOff()>Change PO Number</button>
                     <button id="description_btn" class="btnchanger" onclick=descriptionChange();uploadFormOff()>Change Description</button>
                     <button id="instockclicker" class="btnchanger" onclick=inStockChange();uploadFormOff()>Change In Stock</button>
-                    <button id="confirm_btn" class="btnchanger" onclick=ConfirmChange(value_upload_helper)>Change Confirmation Report</button>
+                    <button id="confirm_btn" class="btnchanger" onclick=ConfirmChange()>Change Confirmation Report</button>
                     <button id="picture_btn" class="btnchanger" onclick=PictureChange()>Change Picture</button>
                     <button id="deletebtn" class="btnchanger" onclick=deleteContainer();uploadFormOff()>Delete Item</button>
                 </div>
@@ -57,7 +57,7 @@
             <div id="main-edit-div">
                 <div id="create-form-upload-btns" class="none">
                     <button id="create-form-confirm_btn" class="btnchanger" onclick=createConfirmChange()>Upload A New Confirmation Report</button>
-                    <button id="create-form-picture_btn" class="btnchanger" onclick=PictureChange()>Upload A New Picture</button>
+                    <button id="create-form-picture_btn" class="btnchanger" onclick=createPictureChange()>Upload A New Picture</button>
                 </div>
                 <div id="create-upload-div"></div>
                 <div id='sold-div-change-display' class='none'>
