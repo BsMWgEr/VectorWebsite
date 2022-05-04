@@ -225,19 +225,16 @@ function idChange() {
     // Also hits DB --> creates new Media Object (upon upload)
    // activated from main update-button-group on build.html
 function PictureChange() {
-
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
     getUploadListPict()
-
-
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChanged)
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 
 }
 
@@ -249,12 +246,10 @@ function createPictureChange() {
     div_id_change.className = 'none'
     change_display2.innerHTML = ''
     div_change.className = 'div-change'
-
-
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChanged)
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
@@ -341,7 +336,7 @@ function ConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChanged)
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 }
 
 function createConfirmChange() {
@@ -354,7 +349,7 @@ function createConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('change', fileInputChanged)
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
@@ -373,7 +368,7 @@ function getUploadListCR() {
         let final_str = ''
         let str_start = "<div id='displayList'>"
             + "<p>Upload List</p>"
-            + "<div onchange='getUploadListCR()' id='file-url'></div>"
+            + "<div id='file-url'></div>"
             + "</div>"
             + "<input type='number' name='id' id='id'  value='" + document.getElementById('e-id').innerHTML + "''>"
             + "<select name='confirmation_r' id='id_confirmation_r'>"

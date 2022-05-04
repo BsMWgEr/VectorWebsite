@@ -28,7 +28,7 @@ function validateFileType(fileItem) {
     }
 }
 
-function fileInputChangedUpdate(){
+function fileInputChangedCreate(){
     // console.log('changed')
 
     let fileInput = document.getElementById('files')
@@ -161,10 +161,11 @@ function usePolicyAndUpload(fileItem, policyData){
             console.log(fileItem)
             console.log(fileItem.type)
             if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
-                getUploadListPict()
+                getCreateUploadListPict()
             } else {
-                getUploadListCR()
+                getCreateUploadListCR()
             }
+
         }
         console.log(djJsonUpdateData)
         djHR.send(djJsonUpdateData)
