@@ -15,6 +15,7 @@ let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretok
 
 function validateFileType(fileItem) {
     let fileType = fileItem.type // image/png image/jpeg application/pdf
+    console.log(fileItem.type)
     let rootType = fileType.split("/")[0]
     switch (rootType) {
         case 'image':  // rootType === "image"
@@ -34,7 +35,9 @@ function fileInputChangedUpdate(){
     // console.log('changed')
 
     let fileInput = document.getElementById('files')
+    console.log(fileInput)
     let filesList = fileInput.files
+    console.log(filesList)
     let displayListDiv = document.getElementById('displayList')
 
     for (let i = 0; i < filesList.length; i++) {
@@ -52,7 +55,7 @@ function fileInputChangedUpdate(){
             // get policy and upload file
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
-
+            console.log(fileItem)
             getPolicyAndUpload(fileItem)
 
         }
@@ -67,6 +70,7 @@ function getPolicyAndUpload(fileItem) {
         raw_filename: fileItem.name,
         filetype: fileItem.type
     }
+    console.log(data)
     let jsonData = JSON.stringify(data)
 
     let xhr = new XMLHttpRequest()
