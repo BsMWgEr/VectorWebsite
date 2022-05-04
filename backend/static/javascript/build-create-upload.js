@@ -7,21 +7,6 @@
  */
 
 
-function validateFileType(fileItem) {
-    let fileType = fileItem.type // image/png image/jpeg application/pdf
-    let rootType = fileType.split("/")[0]
-    switch (rootType) {
-        case 'image':  // rootType === "image"
-            return true
-        case 'video':
-            return true
-        case 'audio':
-            return true
-        default:
-            return true
-    }
-}
-
 function fileInputChangedCreate(){
     // console.log('changed')
 
@@ -45,7 +30,7 @@ function fileInputChangedCreate(){
             fileItem.uploadID = uploadID
             fileItem.uploadListElID = "file-upload-id-" + uploadID
 
-            getPolicyAndUpload(fileItem)
+            getPolicyAndUpload2(fileItem)
 
         }
     }
@@ -53,7 +38,7 @@ function fileInputChangedCreate(){
 
 
 
-function getPolicyAndUpload(fileItem) {
+function getPolicyAndUpload2(fileItem) {
 
     let data = {
         name: fileItem.name,
@@ -74,7 +59,7 @@ function getPolicyAndUpload(fileItem) {
             let policyResponseData = JSON.parse(xhr.responseText)
 
             // actual perfom upload for this single file
-            usePolicyAndUpload(fileItem, policyResponseData)
+            usePolicyAndUpload2(fileItem, policyResponseData)
         } else {
             console.log(xhr.responseText)
             alert("File upload failed")
@@ -85,7 +70,7 @@ function getPolicyAndUpload(fileItem) {
 
 }
 
-function constructFormData(policy, fileItem) {
+function constructFormData2(policy, fileItem) {
     let fd = new FormData() // multipart form
     let policyFields = policy.fields
     let objectEntries = Object.entries(policyFields)
@@ -97,8 +82,8 @@ function constructFormData(policy, fileItem) {
 }
 
 
-function usePolicyAndUpload(fileItem, policyData){
-    let fd = constructFormData(policyData, fileItem)
+function usePolicyAndUpload2(fileItem, policyData){
+    let fd = constructFormData2(policyData, fileItem)
     fd.append('file', fileItem)
     let awsEndpoint = policyData.url
     let awsUploadKey = ""
