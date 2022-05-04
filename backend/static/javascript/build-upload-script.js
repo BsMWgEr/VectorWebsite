@@ -14,7 +14,6 @@ let crsfToken = document.querySelector('#uploadForm input[name=csrfmiddlewaretok
 
 
 function validateFileType(fileItem) {
-
     let fileType = fileItem.type // image/png image/jpeg application/pdf
     let rootType = fileType.split("/")[0]
     switch (rootType) {
