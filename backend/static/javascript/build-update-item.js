@@ -225,6 +225,7 @@ function idChange() {
     // Also hits DB --> creates new Media Object (upon upload)
    // activated from main update-button-group on build.html
 function PictureChange() {
+    value_upload_helper = true
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -241,6 +242,7 @@ function PictureChange() {
 
 
 function createPictureChange() {
+    value_upload_helper = false
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -327,6 +329,7 @@ function getCreateUploadListPict() {
 
    // activated from main update-button-group on build.html
 function ConfirmChange() {
+    value_upload_helper = true
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -341,6 +344,7 @@ function ConfirmChange() {
 }
 
 function createConfirmChange() {
+    value_upload_helper = false
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
