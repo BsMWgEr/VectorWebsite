@@ -23,8 +23,10 @@ function validateFileType(fileItem) {
             return true
         case 'audio':
             return true
-        default:
+        case 'application':
             return true
+        default:
+            return false
     }
 }
 
