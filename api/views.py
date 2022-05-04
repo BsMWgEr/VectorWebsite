@@ -229,7 +229,7 @@ def UploadAPI(request):
         print(request.GET.get(''))
         y1 = request.GET.get('').split('.')[1]
         y2 = request.GET.get('').split('.')[0]
-        if '.jpg' == y1 or '.JPG' == y1 or '.png' == y1 :
+        if 'jpg' == y1 or 'JPG' == y1 or 'png' == y1:
             new = Media()
             new.key = "images/" + y2 + '.' + y1
             new.name = y2
