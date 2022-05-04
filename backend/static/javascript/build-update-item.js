@@ -234,7 +234,7 @@ function PictureChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('onchange', fileInputChangedUpdate)
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 
 }
 
@@ -248,7 +248,7 @@ function createPictureChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Picture</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('onchange', fileInputChangedCreate)
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
@@ -335,11 +335,11 @@ function ConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('onchange', fileInputChangedUpdate)
+    fileInput.addEventListener('change', fileInputChangedUpdate)
 }
 
 function createConfirmChange() {
-    value_upload_helper = false
+
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -348,7 +348,7 @@ function createConfirmChange() {
     document.getElementById('upload-file-div').innerHTML = "<h3 style='color: white;'>Upload A New Report</h3>"
         + "<input type='file' name='file' id='files' multiple='multiple' accept='application/pdf' />"
     let fileInput = document.getElementById('files')
-    fileInput.addEventListener('onchange', fileInputChangedCreate)
+    fileInput.addEventListener('change', fileInputChangedCreate)
 }
 
 
