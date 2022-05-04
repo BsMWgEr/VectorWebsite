@@ -161,13 +161,13 @@ function usePolicyAndUpload(fileItem, policyData){
             console.log(fileItem)
             console.log(fileItem.type)
             if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
-                if (value_upload_helper === false) {
+                if (document.getElementById('container-display').innerHTML === '') {
                     getCreateUploadListPict()
                 } else {
                     getUploadListPict()
                 }
             } else {
-                if (value_upload_helper === false) {
+                if (document.getElementById('container-display').innerHTML === '') {
                     getCreateUploadListCR()
                 }else {
                     getUploadListCR()

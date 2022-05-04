@@ -225,7 +225,7 @@ function idChange() {
     // Also hits DB --> creates new Media Object (upon upload)
    // activated from main update-button-group on build.html
 function PictureChange() {
-    value_upload_helper = true
+
     uploadFormDisplay()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_id_change.className = 'none'
@@ -238,6 +238,7 @@ function PictureChange() {
         + "<input type='file' name='file' id='files' multiple='multiple' accept='image/*' />"
     let fileInput = document.getElementById('files')
     fileInput.addEventListener('change', fileInputChanged)
+
 }
 
 
