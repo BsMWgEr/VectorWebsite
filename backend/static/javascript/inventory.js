@@ -30,8 +30,7 @@ function customer_Data_form(x) {
         xhr.open(method, url, true)
         xhr.onload = function() {
             const serverResponse = xhr.response
-            console.log(x)
-            document.getElementById('sold_data_form-' + x).className = "none"
+            window.location.assign('https://vectorrigs.herokuapp.com/manager/inventory-sold/')
 
         }
         my_FormData.entries()
