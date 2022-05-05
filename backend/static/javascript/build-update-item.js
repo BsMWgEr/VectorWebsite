@@ -7,23 +7,41 @@ JAVASCRIPT FOR UPDATE ITEMS SCREEN ON THE BUILD PAGE
 
 
 // NameChange() from build.html activates this function and hits -> api endpoint -> create_image_api (backend.views) -> hits DB
-function setNewDescription() {
-        let obj_id = document.getElementById('element-object-id').innerHTML
-        let description_info = document.getElementById('desc-info').innerHTML
-        let name_id = document.getElementById('name_change').value
-        let size_id = document.getElementById('size-info').innerHTML
-        const xhr = new XMLHttpRequest()
-        const method = 'GET'
-        const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
-        const responseType = 'json'
-        xhr.responseType = responseType
-        xhr.open(method, url)
-        xhr.onload = function () {
-            const serverResponse = xhr.response
+function setNewNameDescription() {
+    let obj_id = document.getElementById('element-object-id').innerHTML
+    let description_info = document.getElementById('desc-info').innerHTML
+    let name_id = document.getElementById('name_change').value
+    let size_id = document.getElementById('size-info').innerHTML
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+    const responseType = 'json'
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
 
-        }
-        xhr.send()
     }
+    xhr.send()
+}
+
+function setNewSizeDescription() {
+    let obj_id = document.getElementById('element-object-id').innerHTML
+    let description_info = document.getElementById('desc-info').innerHTML
+    let name_id = document.getElementById('name-display').innerHTML
+    let size_id = document.getElementById('id_size').value
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+    const responseType = 'json'
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+
+    }
+    xhr.send()
+}
 // Creates the container display activated from update forms through updateFields()
 // Dynamically display updates to inventory_item as you make changes
 function loadNewElement(x) {

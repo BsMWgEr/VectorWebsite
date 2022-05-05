@@ -328,23 +328,27 @@ def create_image_api(request):
         print(name)
         size = request.GET.get('size_update_id')
         print(size)
-        name_info = Name.objects.all().filter(id=name)
-        size_info = Size.objects.all()
         name_description = ""
         size_description = ""
-        final_description = ""
         q = 0
-        all_obs = InventoryObject.objects.filter(id=obj)
-        for i in all_obs:
-            size_description = i.inventory_item.size.description_info
-            q = i.inventory_item_id
-            print("size description:")
-            print(size_description)
+        if name is int:
+            name_info = Name.objects.all().filter(id=name)
 
-        for x in name_info:
-            name_description = x.description_info
-            print("name Info:")
-            print(name_description)
+            for x in name_info:
+                name_description = x.description_info
+            all_obs = InventoryObject.objects.filter(id=obj)
+            for i in all_obs:
+                size_description = i.inventory_item.size.description_info
+                q = i.inventory_item_id
+        elif size is int:
+            size_info = Size.objects.all().filter(id=size)
+
+            for t in size_info:
+                size_description = t.description_info
+            all_obs = InventoryObject.objects.filter(id=obj)
+            for i in all_obs:
+                name_description = i.inventory_item.size.description_info
+                q = i.inventory_item_id
 
         description_info = name_description + size_description
 
