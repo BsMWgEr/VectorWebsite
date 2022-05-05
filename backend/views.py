@@ -51,6 +51,7 @@ def inventory_view(request):
 def inventory_view_instock(request):
     summary_title = "In Stock"
     x = InventoryObject.objects.all()
+    customers = Customer.objects.all()
     instock_true = []
     for z in x:
         if z.inventory_item.in_stock:
@@ -62,6 +63,7 @@ def inventory_view_instock(request):
     context = {
         'all': instock_true,
         'summary_title': summary_title,
+        'customers': customers,
     }
     return render(request, 'inventory-instock.html', context=context)
 
