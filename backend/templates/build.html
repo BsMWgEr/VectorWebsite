@@ -78,7 +78,7 @@
                     </form>
                 </div>
                 <div id="div-build-sold_customer" class="none">
-                    <form method="POST" id="sold-customer-form" action="/api/sold-data-api/" onsubmit="DataSubmit(event, {{ x.id }})" >
+                    <form method="POST" id="sold-customer-form" action="/api/build-sold-data-api/" onsubmit="sendNewSoldData(event)" >
                         {% csrf_token %}
                         <div id="sold-change-display" class="sold-change-display"></div>
                     </form>

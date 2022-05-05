@@ -481,24 +481,19 @@ def upload_helper_view(request):
 
 
 """
-def endpointInventoryView(request):
-    qs_l = InventoryObject.objects.all().count()
-    q_dict = request.POST
-    dict_id = q_dict.get('id')
-    y = InventoryObject.objects.all()
-   
-    container_list = [{
-        "inventory_item": x.inventory_item,
-        "sold_data": x.sold_data,
-        "shipping_data": x.shipping_data,
-        "completed_order": x.completed_order,
-        "created_date": x.created_data,
-        "info": x.info,
-        "original_contact": x.original_contact,} for x in y]
-    data = {
-        "response": container_list
-    }
-    
-    return JsonResponse(data)
-    
+    API For Build Sold Data
 """
+
+
+def build_sold_data(request):
+    print(request.POST)
+    form = SoldDataForm(request.POST or None)
+    if form.is_valid():
+        print(form.data)
+        form.save()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'build-data-sold.html', context=context)
