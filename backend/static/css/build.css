@@ -235,10 +235,15 @@ button {
 
 .bottom-display {
     margin-top: 50px;
-    max-width: 60%;
+    max-width: 95%;
+    min-width:300px;
     display: grid;
     grid-template-columns: auto auto;
+    grid-column-gap: 50px;
     transform: translate(0,0);
+    background: orange;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
 }
 
 .sold-tag {
