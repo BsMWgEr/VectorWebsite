@@ -39,8 +39,9 @@ def inventory_view(request):
     x = InventoryObject.objects.all()
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by.id:
-                customers.filter(id=j.id).delete()
+            if y.sold_data:
+                if j.id == y.sold_data.purchased_by_id:
+                    customers.filter(id=j.id).delete()
 
     context = {
         'summary_title': summary_title,
@@ -58,8 +59,9 @@ def inventory_view_instock(request):
     customers = Customer.objects.all()
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by.id:
-                customers.filter(id=j.id).delete()
+            if y.sold_data:
+                if j.id == y.sold_data.purchased_by.id:
+                    customers.filter(id=j.id).delete()
 
     instock_true = []
     for z in x:
@@ -93,8 +95,9 @@ def inventory_view_comingsoon(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by.id:
-                customers.filter(id=j.id).delete()
+            if y.sold_data:
+                if j.id == y.sold_data.purchased_by.id:
+                    customers.filter(id=j.id).delete()
 
     context = {
         'all': instock_false,
@@ -118,8 +121,9 @@ def inventory_view_sold(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by.id:
-                customers.filter(id=j.id).delete()
+            if y.sold_data:
+                if j.id == y.sold_data.purchased_by.id:
+                    customers.filter(id=j.id).delete()
 
     context = {
         'all': sold_true,
@@ -142,8 +146,9 @@ def inventory_view_shipping(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by.id:
-                customers.filter(id=j.id).delete()
+            if y.sold_data:
+                if j.id == y.sold_data.purchased_by.id:
+                    customers.filter(id=j.id).delete()
 
     context = {
         'all': shipping,
