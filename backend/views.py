@@ -39,7 +39,7 @@ def inventory_view(request):
     x = InventoryObject.objects.all()
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by_id:
+            if j.id == y.sold_data.purchased_by.id:
                 customers.filter(id=j.id).delete()
 
     context = {
@@ -58,7 +58,7 @@ def inventory_view_instock(request):
     customers = Customer.objects.all()
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by_id:
+            if j.id == y.sold_data.purchased_by.id:
                 customers.filter(id=j.id).delete()
 
     instock_true = []
@@ -93,7 +93,7 @@ def inventory_view_comingsoon(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by_id:
+            if j.id == y.sold_data.purchased_by.id:
                 customers.filter(id=j.id).delete()
 
     context = {
@@ -118,7 +118,7 @@ def inventory_view_sold(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by_id:
+            if j.id == y.sold_data.purchased_by.id:
                 customers.filter(id=j.id).delete()
 
     context = {
@@ -142,7 +142,7 @@ def inventory_view_shipping(request):
 
     for j in customers:
         for y in x:
-            if j.id == y.sold_data.purchased_by_id:
+            if j.id == y.sold_data.purchased_by.id:
                 customers.filter(id=j.id).delete()
 
     context = {
