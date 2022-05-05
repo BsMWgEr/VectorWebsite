@@ -41,7 +41,7 @@ def inventory_view(request):
         for y in x:
             if y.sold_data:
                 if j.id == y.sold_data.purchased_by_id:
-                    customers.objects.pop(j)
+                    customers.exclude(id=j.id)
 
     context = {
         'summary_title': summary_title,
