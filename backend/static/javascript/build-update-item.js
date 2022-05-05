@@ -294,7 +294,7 @@ function getCreateUploadListPict() {
     console.log('initiated')
     let fxhr = new XMLHttpRequest()
     let method = "GET"
-    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper/'
+    let url = 'https://vectorrigs.herokuapp.com/api/upload-helper'
     let responseType = 'json'
     fxhr.responseType = responseType
     fxhr.open(method, url + '?=images')
