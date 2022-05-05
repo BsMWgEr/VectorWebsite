@@ -491,7 +491,7 @@ def build_sold_data(request):
         print(form.data)
         form.save()
         item_obj = InventoryObject.objects.filter(inventory_item_id=item_id)
-        last_sold = SoldDetail().objects.last()
+        last_sold = SoldDetail.objects.last()
         item_obj.update(sold_data_id=last_sold.id)
 
     context = {
