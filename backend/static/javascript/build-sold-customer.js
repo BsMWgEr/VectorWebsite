@@ -65,7 +65,7 @@ function openSoldCustomerSelect() {
         }
         let final_str = main_str + middle_str + last_str
         document.getElementById('sold-change-display').innerHTML = final_str
-
+        closeDivChange()
     }
     xhr.send()
 

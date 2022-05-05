@@ -141,7 +141,6 @@
     }
 
     function openSoldGroup() {
-        document.getElementById('div-change').className = 'none'
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('sold-update-btn-group').className = 'item-update-btn-group'
@@ -193,6 +192,10 @@
 
     function closeSoldDiv() {
         document.getElementById('div-build-sold_customer').className = 'none'
+    }
+
+    function closeDivChange() {
+        document.getElementById('div-change').className = 'none'
     }
 
 
