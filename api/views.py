@@ -296,7 +296,7 @@ def create_image_api(request):
         for x in all_customers:
             for y in all_objs:
                 if y.purchased_by_id == x.id:
-                    available_customers.filter(id=x.id).delete()
+                    available_customers.exclude(id=x.id)
 
         container_list = [{
             'id': x.id,
@@ -465,7 +465,7 @@ def upload_helper_view(request):
     if q == 'confirmation_reports/':
         for x in all_items:
             if x.confirmation_r_id:
-                reports.filter(id=x.confirmation_r_id).delete()
+                reports.exclude(id=x.confirmation_r_id)
 
     container_list = [{"id": x.id,
                        "media_type": x.media_type,
