@@ -292,11 +292,11 @@ def create_image_api(request):
 
         all_objs = SoldDetail.objects.all()
         all_customers = Customer.objects.all()
-        available_customers = []
+        available_customers = Customer.objects.all()
         for x in all_customers:
             for y in all_objs:
-                if not y.purchased_by.id == x.id:
-                    available_customers.append(x)
+                if y.purchased_by.id == x.id:
+                    available_customers.delete(x)
 
         container_list = [{
             'id': x.id,
