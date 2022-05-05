@@ -487,8 +487,12 @@ def build_sold_data(request):
     print(request.POST)
     form = SoldDataForm(request.POST or None)
     if form.is_valid():
+        item_id = form.data.get('inventory_item')
         print(form.data)
         form.save()
+        item_obj = InventoryObject.objects.filter(inventory_item_id=item_id)
+        last_sold = SoldDetail().objects.last()
+        item_obj.update(sold_data_id=last_sold.id)
 
     context = {
         'form': form

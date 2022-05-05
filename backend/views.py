@@ -100,7 +100,7 @@ def inventory_view_comingsoon(request):
 @login_required
 def inventory_view_sold(request):
     summary_title = "Sold"
-    x = InventoryObject.objects.all()
+    x = InventoryObject.objects.all().filter()
     customers = Customer.objects.all().order_by('-id')
     sold_true = []
     for z in x:
