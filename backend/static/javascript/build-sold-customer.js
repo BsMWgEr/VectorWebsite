@@ -7,9 +7,6 @@
 function openSoldCustomerSelect() {
 
     let obj_id = document.getElementById('element-object-id').innerHTML
-    let description_info = document.getElementById('desc-info').innerHTML
-    let name_id = document.getElementById('name-display').innerHTML
-    let size_id = document.getElementById('id_size').value
 
     const xhr = new XMLHttpRequest()
     const method = 'GET'
