@@ -86,10 +86,11 @@ function createSoldDetail() {
     xhr.open(method, url)
     xhr.onload = function () {
         let serverResponse = xhr.response
+        let answer = serverResponse.response
         console.log(serverResponse.response)
         let str_detail = ''
-        for (let i = 0; i < serverResponse.response.length; i++) {
-            str_detail += '<h1>'+ serverResponse.response[i] +'</h1>'
+        for (let i = 0; i < answer.length; i++) {
+            str_detail += '<h1>'+'id: '+ answer[i].id +'date sold: '+ answer[i].date_sold +'info: '+ answer[i].info +'other: ' + answer[i].other + 'created_date' + answer[i].created_date +'</h1>'
         }
 
         right_div.innerHTML = str_detail
