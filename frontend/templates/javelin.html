@@ -28,7 +28,7 @@
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
-                            <p class="color-javelin">{{ x.name }}</p>
+                            <p class="color-javelin">{{ x.name.name }}</p>
                             {% if x.serial_number %}
                                 <p class="color-javelin">Serial #{{ x.serial_number }}</p>
                             {% else %}
@@ -42,7 +42,7 @@
                                 {% endif %}
                             {% endif %}
                             {% if size %}
-                                <p class="color-javelin">{{ x.size }}</p>
+                                <p class="color-javelin">{{ x.size.size }}</p>
                             {% endif %}
                             {% if x.description %}
                                 <div class="description">{{ x.description }}</div>

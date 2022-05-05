@@ -25,7 +25,7 @@
                             <img src="{% static '' %}{{ x.picture.key }}" height="140" width="212">
                         </div>
                         <div class="container-right">
-                            <p class="color-tandem">{{ x.name }} - </p>
+                            <p class="color-tandem">{{ x.name.name }} - </p>
                             {% if serial_number %}
                                 <p class="color-tandem">Serial #{{ x.serial_number }}</p>
                             {% endif %}
@@ -37,7 +37,7 @@
                                 {% endif %}
                             {% endif %}
                             {% if x.size %}
-                                <p class="color-tandem">{{ x.size }}</p>
+                                <p class="color-tandem">{{ x.size.size }}</p>
                             {% endif %}
                             {% if x.description %}
                                 <div class="description">{{ x.description }}</div>

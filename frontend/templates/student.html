@@ -29,14 +29,16 @@
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
-                            <p class="color-student">{{ x.name }} - </p>
+                            <p class="color-student">{{ x.name.name }} - </p>
                             <p class="color-student">Serial #{{ x.serial_number }} - </p>
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
                                 <p>{{ x.due_date }} - </p>
                             {% endif %}
-                            <p class="color-student">{{ x.size }}</p>
+                            {% if x.size %}
+                                <p class="color-student">{{ x.size.size }}</p>
+                            {% endif %}
                             <div class="description">{{ x.description }}</div>
                             <p class="price-student">${{ x.price }}</p>
                             {% if x.in_stock %}
