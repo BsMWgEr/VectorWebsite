@@ -74,6 +74,7 @@
             + "</div>"
             + "</div>"
             + "<div class='bottom-display' id='div-box'>"
+             +'<div>'
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
             + "<h1 class='stocking-tag' id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</h1>"
             + "<p>Item ID #: " + element.id + "</p>"
@@ -84,6 +85,7 @@
             + confirmation_report2 + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
             + "<p>Description: " + element.description + "</p>"
              + "<p>PO Number: " + element.po_number + "</p>"
+             +'</div>'
             + "</div>"
 
     }
