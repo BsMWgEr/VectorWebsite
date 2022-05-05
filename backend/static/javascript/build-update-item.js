@@ -311,9 +311,9 @@ function getCreateUploadListPict() {
         let last_array_item_id = serverResponse4.response[last_array_item].id
 
         str_start = '<select name="picture" id="id_picture">'
-            + '<option value="' + last_array_item_id + '" selected>' + serverResponse4.response[last_array_item].key + '</option>'
+            + '<option value="' + last_array_item_id + '" selected>' + serverResponse4.response[last_array_item].name + '</option>'
         for (let i = 0; i < response_size; i++) {
-            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         final_str = str_start + main_str + '</select>'
         console.log(final_str)
@@ -409,9 +409,9 @@ function getCreateUploadListCR() {
         let last_array_item_id = serverResponse4.response[last_array_item].id
 
         str_start = '<select name="confirmation_r" id="id_confirmation_r">'
-            +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].key +'</option>'
+            +'<option value="'+ last_array_item_id +'" selected>'+ serverResponse4.response[last_array_item].name +'</option>'
         for (let i = 0; i < response_size; i++) {
-            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].key + "</option>"
+            main_str += "<option value='" + serverResponse4.response[i].id + "'>" + serverResponse4.response[i].name + "</option>"
         }
         final_str = str_start + main_str + '</select>'
         console.log(final_str)
