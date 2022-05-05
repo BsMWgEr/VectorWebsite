@@ -133,12 +133,17 @@ function usePolicyAndUpload2(fileItem, policyData){
                 liItem.innerText = awsUploadKey + " " + fileItem.size + " done. 100%"
                 liItem.setAttribute('class', 'w-done')
                 document.getElementById('file-url').innerHTML = '<a target="_blank" href=https://stockvectorrigs.s3.amazonaws.com/' + awsUploadKey + '>New Image File!!!</a>'
-
+                console.log(fileItem)
+                console.log(fileItem.type)
+                if (fileItem.type === 'image/jpeg' || fileItem.type === 'image/png') {
+                console.log('success')
+                getCreateUploadListPict()
+                } else {
+                    getCreateUploadListCR()
+                }
             } else {
                 alert("Django update failed")
             }
-            getCreateUploadListPict()
-            getCreateUploadListCR()
 
 
         }
