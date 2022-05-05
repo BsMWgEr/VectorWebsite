@@ -296,7 +296,7 @@ def create_image_api(request):
         for x in all_customers:
             for y in all_objs:
                 if y.purchased_by_id == x.id:
-                    available_customers.delete(x)
+                    available_customers.filter(id=x.id).delete()
 
         container_list = [{
             'id': x.id,
