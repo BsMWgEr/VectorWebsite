@@ -291,12 +291,8 @@ def create_image_api(request):
     if request.GET.get('sold_data'):
 
         all_objs = SoldDetail.objects.all()
-        all_customers = Customer.objects.all()
-        available_customers = Customer.objects.all()
-        for x in all_customers:
-            for y in all_objs:
-                if y.purchased_by_id == x.id:
-                    available_customers.exclude(id=x.id)
+        all_customers = Customer.objects.all().order_by('-id')
+        available_customers = []
 
         container_list = [{
             'id': x.id,
@@ -308,7 +304,7 @@ def create_image_api(request):
             'created_date': x.created_date
 
 
-        } for x in available_customers]
+        } for x in all_customers]
 
         data = {
             'response': container_list

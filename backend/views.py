@@ -34,14 +34,10 @@ def media_view(request):
 @login_required
 def inventory_view(request):
     items = InventoryObject.objects.all().filter(sold_data__isnull=True)
-    customers = Customer.objects.all()
+    customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
     x = InventoryObject.objects.all()
-    for j in customers:
-        for y in x:
-            if y.sold_data:
-                if j.id == y.sold_data.purchased_by_id:
-                    customers.exclude(id=j.id)
+
 
     context = {
         'summary_title': summary_title,
@@ -56,12 +52,8 @@ def inventory_view(request):
 def inventory_view_instock(request):
     summary_title = "In Stock"
     x = InventoryObject.objects.all()
-    customers = Customer.objects.all()
-    for j in customers:
-        for y in x:
-            if y.sold_data:
-                if j.id == y.sold_data.purchased_by.id:
-                    customers.exclude(id=j.id)
+    customers = Customer.objects.all().order_by('-id')
+
 
     instock_true = []
     for z in x:
@@ -82,7 +74,7 @@ def inventory_view_instock(request):
 @login_required
 def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
-    customers = Customer.objects.all()
+    customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
     x = InventoryObject.objects.all()
     instock_false = []
@@ -93,11 +85,7 @@ def inventory_view_comingsoon(request):
                     if not z.completed_order:
                         instock_false.append(z)
 
-    for j in customers:
-        for y in x:
-            if y.sold_data:
-                if j.id == y.sold_data.purchased_by.id:
-                    customers.exclude(id=j.id)
+
 
 
     context = {
@@ -113,18 +101,15 @@ def inventory_view_comingsoon(request):
 def inventory_view_sold(request):
     summary_title = "Sold"
     x = InventoryObject.objects.all()
-    customers = Customer.objects.all()
+    customers = Customer.objects.all().order_by('-id')
     sold_true = []
     for z in x:
         if z.sold_data:
             if not z.shipping_data and not z.completed_order:
                 sold_true.append(z)
 
-    for j in customers:
-        for y in x:
-            if y.sold_data:
-                if j.id == y.sold_data.purchased_by.id:
-                    customers.exclude(id=j.id)
+
+
 
     context = {
         'all': sold_true,
@@ -138,18 +123,14 @@ def inventory_view_sold(request):
 def inventory_view_shipping(request):
     summary_title = "Shipping"
     x = InventoryObject.objects.all()
-    customers = Customer.objects.all()
+    customers = Customer.objects.all().order_by('-id')
     shipping = []
     for z in x:
         if z.shipping_data:
             if not z.completed_order:
                 shipping.append(z)
 
-    for j in customers:
-        for y in x:
-            if y.sold_data:
-                if j.id == y.sold_data.purchased_by.id:
-                    customers.exclude(id=j.id)
+
 
     context = {
         'all': shipping,
