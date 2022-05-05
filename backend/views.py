@@ -37,6 +37,10 @@ def inventory_view(request):
     customers = Customer.objects.all()
     summary_title = "ALL (Click to Expand)"
     x = InventoryObject.objects.all()
+    for j in customers:
+        for y in x:
+            if j.id == y.sold_data.purchased_by_id:
+                customers.filter(id=j.id).delete()
 
     context = {
         'summary_title': summary_title,
@@ -52,6 +56,11 @@ def inventory_view_instock(request):
     summary_title = "In Stock"
     x = InventoryObject.objects.all()
     customers = Customer.objects.all()
+    for j in customers:
+        for y in x:
+            if j.id == y.sold_data.purchased_by_id:
+                customers.filter(id=j.id).delete()
+
     instock_true = []
     for z in x:
         if z.inventory_item.in_stock:
@@ -82,6 +91,11 @@ def inventory_view_comingsoon(request):
                     if not z.completed_order:
                         instock_false.append(z)
 
+    for j in customers:
+        for y in x:
+            if j.id == y.sold_data.purchased_by_id:
+                customers.filter(id=j.id).delete()
+
     context = {
         'all': instock_false,
         'summary_title': summary_title,
@@ -102,6 +116,11 @@ def inventory_view_sold(request):
             if not z.shipping_data and not z.completed_order:
                 sold_true.append(z)
 
+    for j in customers:
+        for y in x:
+            if j.id == y.sold_data.purchased_by_id:
+                customers.filter(id=j.id).delete()
+
     context = {
         'all': sold_true,
         'summary_title': summary_title,
@@ -120,6 +139,11 @@ def inventory_view_shipping(request):
         if z.shipping_data:
             if not z.completed_order:
                 shipping.append(z)
+
+    for j in customers:
+        for y in x:
+            if j.id == y.sold_data.purchased_by_id:
+                customers.filter(id=j.id).delete()
 
     context = {
         'all': shipping,
