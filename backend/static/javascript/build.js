@@ -141,6 +141,7 @@
     }
 
     function openSoldGroup() {
+        document.getElementById('div-change').className = 'none'
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('sold-update-btn-group').className = 'item-update-btn-group'
