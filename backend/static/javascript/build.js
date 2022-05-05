@@ -129,12 +129,14 @@
     }
 
     function openUpdateGroup() {
+        document.getElementById('div-change').className = 'div-change'
         closeSoldDiv()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
         document.getElementById('sold-update-btn-group').className = 'none'
         document.getElementById('shipping-update-btn-group').className = 'none'
         document.getElementsByClassName('display_update-btn').className = 'none'
+
 
     }
 
@@ -184,6 +186,7 @@
 
     function openSoldDiv() {
         document.getElementById('div-build-sold_customer').className = 'div-build-sold_customer'
+        document.getElementById('div-change').className = 'none'
         closeFields()
     }
 
