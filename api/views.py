@@ -430,15 +430,34 @@ def customer_data_api(request):
 
 def endpoint3(request):
 
+    if request.GET.get('all_sold_data'):
+        data_id = request.GET.get('all_sold_data')
+        item = InventoryObject.objects.filter(inventory_item_id=data_id)
+        sold_data_id = ''
+        for x in item:
+            sold_data_id = x.sold_data_id
 
-    customers = Customer.objects.all()
-    container_list = [{"id": x.id,
-                       "first_name": x.first_name,
-                       "last_name": x.last_name,
-                       "company_name": x.company_name,
-                       "email": x.email,
-                       "phone_number": x.phone_number,
-                       } for x in customers]
+        sold_obj = SoldDetail.objects.filter(id=sold_data_id)
+
+        container_list = [{
+            'id': x.id,
+            'purchased_by_id': x.purchased_by_id,
+            'date_sold': x.date_sold,
+            'info': x.info,
+            'other': x.other,
+            'created_date': x.created_date
+        } for x in sold_obj]
+
+    else:
+        customers = Customer.objects.all()
+        container_list = [{"id": x.id,
+                           "first_name": x.first_name,
+                           "last_name": x.last_name,
+                           "company_name": x.company_name,
+                           "email": x.email,
+                           "phone_number": x.phone_number,
+                           } for x in customers]
+
     data = {
         "response": container_list
     }
