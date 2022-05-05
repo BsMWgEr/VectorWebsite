@@ -232,16 +232,16 @@ def UploadAPI(request):
         if 'jpg' == y1 or 'JPG' == y1 or 'png' == y1:
             new = Media()
             new.key = "images/" + y2 + '.' + y1
-            new.name = y2
+            new.name = y2 + '.' + y1
             new.media_type = 'image'
             new.filetype = 'image/jpeg'
-            if ".png" in y1:
+            if "png" in y1:
                 new.filetype = 'image/png'
             new.save()
         else:
             new = Media()
             new.key = "confirmation_reports/" + y2 + '.' + y1
-            new.name = y2
+            new.name = y2 + '.' + y1
             new.media_type = 'confirmation_r'
             new.filetype = 'application/pdf'
             new.save()
