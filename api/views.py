@@ -425,6 +425,7 @@ def endpoint3(request):
 
 
 def upload_helper_view(request):
+    print('success')
     print(request.GET.get(''))
     q = request.GET.get('')
 
@@ -432,10 +433,7 @@ def upload_helper_view(request):
     reports = Media.objects.all().filter(key__contains=q)
     all_items = InventoryItem.objects.all()
 
-    if q == 'confirmation_reports/':
-        for x in all_items:
-            if x.confirmation_r_id:
-                reports.filter(id=x.confirmation_r_id).delete()
+
 
     container_list = [{"id": x.id,
                        "media_type": x.media_type,

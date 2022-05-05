@@ -14,5 +14,5 @@ urlpatterns = [
     path('upload-api/', UploadAPI),
     path('sold-data-api/', sold_data_api),
     path('customer-data-api/', customer_data_api),
-    path('upload-helper', upload_helper_view, name="up-helper"),
+    path('upload-helper/', upload_helper_view, name="up-helper"),
 ]
