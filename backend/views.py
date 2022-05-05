@@ -93,6 +93,7 @@ def inventory_view_comingsoon(request):
 def inventory_view_sold(request):
     summary_title = "Sold"
     x = InventoryObject.objects.all()
+    customers = Customer.objects.all()
     sold_true = []
     for z in x:
         if z.sold_data:
@@ -102,6 +103,7 @@ def inventory_view_sold(request):
     context = {
         'all': sold_true,
         'summary_title': summary_title,
+        'customers': customers,
     }
     return render(request, 'inventory-sold.html', context=context)
 
@@ -110,6 +112,7 @@ def inventory_view_sold(request):
 def inventory_view_shipping(request):
     summary_title = "Shipping"
     x = InventoryObject.objects.all()
+    customers = Customer.objects.all()
     shipping = []
     for z in x:
         if z.shipping_data:
@@ -119,6 +122,7 @@ def inventory_view_shipping(request):
     context = {
         'all': shipping,
         'summary_title': summary_title,
+        'customers': customers,
     }
     return render(request, 'inventory-shipping.html', context=context)
 
@@ -127,6 +131,7 @@ def inventory_view_shipping(request):
 def inventory_view_completed(request):
     summary_title = "Completed Orders"
     x = InventoryObject.objects.all()
+    customers = Customer.objects.all()
     completed = []
     for z in x:
         if z.completed_order:
@@ -135,6 +140,7 @@ def inventory_view_completed(request):
     context = {
         'all': completed,
         'summary_title': summary_title,
+        'customers': customers,
     }
     return render(request, 'inventory-completed.html', context=context)
 
