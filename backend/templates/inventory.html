@@ -143,7 +143,13 @@
                 {% else %}
                     <li>Sold Data:
                     {% if not x.inventory_item.in_stock %}
-                        <button>Change to IN STOCK</button>
+                        <form onsubmit="updateInstockField(event)">
+                        {% csrf_token %}
+                            <input value="{{ x.inventory_item_id }}" type="number" name="id" hidden>
+                            <input type='checkbox' name='in_stock' id='in_stock' value='True' checked hidden>
+                            <button type="submit">Change to IN STOCK</button>
+                        </form>
+
                     {% endif %}
                     <button onclick="sold_Data_form({{ x.id }})">Add Sold Data</button></li>
                     <div class="form-group">

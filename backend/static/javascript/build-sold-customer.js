@@ -70,3 +70,4 @@ function openSoldCustomerSelect() {
     xhr.send()
 
 }
+

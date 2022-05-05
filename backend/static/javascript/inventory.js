@@ -117,3 +117,20 @@ let crsfToken = document.querySelector('#customer-form input[name=csrfmiddleware
     xhr.send(new_form)
     }
 
+
+    function updateInstockField(event){
+        event.preventDefault()
+        let my_form = event.target
+        const new_form = new FormData(my_form)
+        const url = '/api/api'
+        const method = 'POST'
+        const xhr = new XMLHttpRequest()
+        xhr.open(method, url)
+        xhr.onload = function() {
+            const serverResponse = xhr.response
+            window.location.reload()
+        }
+        new_form.entries()
+        xhr.send(new_form)
+
+    }
