@@ -61,7 +61,7 @@ def inventory_view_instock(request):
         for y in x:
             if y.sold_data:
                 if j.id == y.sold_data.purchased_by.id:
-                    customers.objects.pop(j)
+                    customers.exclude(id=j.id)
 
     instock_true = []
     for z in x:
@@ -97,7 +97,8 @@ def inventory_view_comingsoon(request):
         for y in x:
             if y.sold_data:
                 if j.id == y.sold_data.purchased_by.id:
-                    customers.objects.pop(j)
+                    customers.exclude(id=j.id)
+
 
     context = {
         'all': instock_false,
@@ -123,7 +124,7 @@ def inventory_view_sold(request):
         for y in x:
             if y.sold_data:
                 if j.id == y.sold_data.purchased_by.id:
-                    customers.objects.pop(j)
+                    customers.exclude(id=j.id)
 
     context = {
         'all': sold_true,
@@ -148,7 +149,7 @@ def inventory_view_shipping(request):
         for y in x:
             if y.sold_data:
                 if j.id == y.sold_data.purchased_by.id:
-                    customers.objects.pop(j)
+                    customers.exclude(id=j.id)
 
     context = {
         'all': shipping,
