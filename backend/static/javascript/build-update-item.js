@@ -11,10 +11,10 @@ function setNewNameDescription() {
     let obj_id = document.getElementById('element-object-id').innerHTML
     let description_info = document.getElementById('desc-info').innerHTML
     let name_id = document.getElementById('name_change').value
-    let size_id = document.getElementById('size-info').innerHTML
+    //let size_id = document.getElementById('size-info').innerHTML
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString()
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)
@@ -28,11 +28,10 @@ function setNewNameDescription() {
 function setNewSizeDescription() {
     let obj_id = document.getElementById('element-object-id').innerHTML
     let description_info = document.getElementById('desc-info').innerHTML
-    let name_id = document.getElementById('name-display').innerHTML
     let size_id = document.getElementById('id_size').value
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&name_update_id=" + name_id.toString() + "&size_update_id=" + size_id.toString()
+    const url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?obj_id=" + obj_id.toString() + "&size_update_id=" + size_id.toString()
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)

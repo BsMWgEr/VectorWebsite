@@ -289,10 +289,14 @@ def create_image_api(request):
         print(data)
 
     if request.GET.get('sold_data'):
-        obj_id = request.GET.get('sold_data')
-        all_objs = InventoryObject.objects.filter(id=obj_id)
-        print(all_objs)
+
+        all_objs = SoldDetail.objects.all()
         all_customers = Customer.objects.all()
+        available_customers = []
+        for x in all_customers:
+            for y in all_objs:
+                if not y.purchased_by.id == x.id:
+                    available_customers.append(x)
 
         container_list = [{
             'id': x.id,
@@ -304,7 +308,7 @@ def create_image_api(request):
             'created_date': x.created_date
 
 
-        } for x in all_customers]
+        } for x in available_customers]
 
         data = {
             'response': container_list
@@ -354,7 +358,7 @@ def create_image_api(request):
         name_description = ""
         size_description = ""
         q = 0
-        if name is int:
+        if name:
             name_info = Name.objects.all().filter(id=name)
 
             for x in name_info:
@@ -363,7 +367,7 @@ def create_image_api(request):
             for i in all_obs:
                 size_description = i.inventory_item.size.description_info
                 q = i.inventory_item_id
-        elif size is int:
+        elif size:
             size_info = Size.objects.all().filter(id=size)
 
             for t in size_info:
@@ -377,8 +381,6 @@ def create_image_api(request):
 
         print(description_info)
         InventoryItem.objects.filter(id=q).update(description=description_info)
-
-
 
     return JsonResponse(data)
 

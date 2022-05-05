@@ -127,6 +127,7 @@
     }
 
     function openUpdateGroup() {
+        closeSoldDiv()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
         document.getElementById('sold-update-btn-group').className = 'none'
@@ -150,6 +151,7 @@
     }
 
     function openShippingGroup() {
+        closeSoldDiv()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('sold-update-btn-group').className = 'none'

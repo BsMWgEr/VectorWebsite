@@ -61,7 +61,7 @@ function openSoldCustomerSelect() {
                     +'<input type="submit" value="Submit">'
 
         for (let i = 0; i < response_size; i++) {
-            middle_str = '<option value="'+ serverResponse.response[i].id +'">'+ serverResponse.response[i].last_name +'</option>'
+            middle_str += '<option value="'+ serverResponse.response[i].id +'">'+ serverResponse.response[i].last_name + '   Email: ' + serverResponse.response[i].email + '</option>'
         }
         let final_str = main_str + middle_str + last_str
         document.getElementById('sold-change-display').innerHTML = final_str
