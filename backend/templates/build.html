@@ -192,7 +192,7 @@
         change_display2.innerHTML = ''
         div_change.className = 'div-change'
         change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-            + '<select name="size" id="id_size">'
+            + '<select name="size" id="id_size" onchange="setNewSizeDescription()">'
                 + '<option id="" selected>Choose A New Size - Current ' + document.getElementById('p-tag-size').innerHTML + ' </option>'
                 {% for x in size_options %}
                     +'<option value="{{ x.id }}">{{ x }}</option>'
