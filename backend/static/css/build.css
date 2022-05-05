@@ -21,6 +21,7 @@ input {
     padding: 10px 0px 10px 10px;
     border-radius: 5px;
     box-shadow: 5px 5px 25px #b5db1a;
+    justify-content: center;
 
 }
 
@@ -31,7 +32,7 @@ input {
 }
 
 .form * {
-    width: 400px;
+    width: 350px;
 }
 
 .div-form {
