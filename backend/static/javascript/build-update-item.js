@@ -319,6 +319,7 @@ function getCreateUploadListPict() {
         console.log(final_str)
         document.getElementById('p1').innerHTML = final_str
     }
+    fxhr.send()
 }
 
     // links to build-upload-script.js to upload to aws

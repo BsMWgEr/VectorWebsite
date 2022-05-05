@@ -127,7 +127,7 @@ function usePolicyAndUpload2(fileItem, policyData){
         djHR.setRequestHeader('Content-Type', 'application/json')
         djHR.setRequestHeader('X-CSRFTOKEN', crsfToken)
         djHR.onload = function() {
-            if (djHR.response) {
+            if (djHR.status === 200) {
                 let listElementId = fileItem.uploadListElID
                 let liItem = document.getElementById(listElementId)
                 liItem.innerText = awsUploadKey + " " + fileItem.size + " done. 100%"
