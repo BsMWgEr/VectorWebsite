@@ -110,6 +110,7 @@
         document.getElementById('create-upload-div').innerHTML = ''
         document.getElementById('container-main').style.marginLeft = '2%'
         document.getElementById('container-main').style.maxWidth = '100%'
+        document.getElementById('display-right').style.marginLeft = '0px'
     }
 
     function openCreateForm() {

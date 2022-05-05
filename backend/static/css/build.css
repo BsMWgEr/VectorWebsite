@@ -16,7 +16,7 @@ input {
 
 .form {
     display: grid;
-    width: 290px;
+    width: 450px;
     background: rgba(0,0,0, .5);
     padding: 10px 0px 10px 10px;
     border-radius: 5px;
@@ -31,7 +31,7 @@ input {
 }
 
 .form * {
-    width: 270px;
+    width: 400px;
 }
 
 .div-form {
