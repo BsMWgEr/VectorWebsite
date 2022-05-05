@@ -35,7 +35,7 @@ function openSoldCustomerSelect() {
 
         let last_str = '</select>'
                 +'<button type="button" >Create A New Customer</button>'
-                +'<input type="text" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">'
+                +'<input type="date" min="2022-01-01" max="2030-01-01" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">'
                     +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
                     +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
                     +'<input type="submit" value="Submit">'
@@ -49,12 +49,4 @@ function openSoldCustomerSelect() {
     }
     xhr.send()
 
-
-
-
-
-    if (document.getElementById('e-id')) {
-        document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
-    }
-    document.getElementById('price').defaultValue = document.getElementById('price-info').innerHTML
 }

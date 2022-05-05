@@ -161,7 +161,7 @@
                                 {% endfor %}
                             </select>
                             <button type="button" onclick="customer_Data_form({{ x.id }})">Create A New Customer</button>
-                            <input type="text" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
+                            <input type="date" min="2022-01-01" max="2030-01-01" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
                             <textarea name="info" cols="40" rows="10" id="id_info"></textarea>
                             <textarea name="other" cols="40" rows="10" id="id_other"></textarea>
                             <input  type="submit" value="Submit">
