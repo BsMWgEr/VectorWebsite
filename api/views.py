@@ -288,6 +288,29 @@ def create_image_api(request):
         }
         print(data)
 
+    if request.GET.get('sold_data'):
+        obj_id = request.GET.get('sold_data')
+        all_objs = InventoryObject.objects.filter(id=obj_id)
+        print(all_objs)
+        all_customers = Customer.objects.all()
+
+        container_list = [{
+            'id': x.id,
+            'first_name': x.first_name,
+            'last_name': x.last_name,
+            'company_name': x.company_name,
+            'email': x.email,
+            'phone_number': x.phone_number,
+            'created_date': x.created_date
+
+
+        } for x in all_customers]
+
+        data = {
+            'response': container_list
+        }
+        print(data)
+
     elif request.GET.get('description_id'):
         description_id = request.GET.get('description_id')
         print(description_id)

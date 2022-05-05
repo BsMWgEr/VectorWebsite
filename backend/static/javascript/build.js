@@ -178,6 +178,10 @@
                 + "</div>"
     }
 
+    function openSoldDiv() {
+        document.getElementById('div-build-sold_customer').className = 'div-build-sold_customer'
+    }
+
 
 
 

@@ -412,3 +412,7 @@ button {
     margin-top: 500px;
 
 }
+
+.div-build-sold_customer {
+    display: flex;
+}
