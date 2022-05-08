@@ -327,24 +327,31 @@ a {
 .open-mobile-nav-btn {
     display: flex;
     width: 100px;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 10px;
-    left: 10px;
     }
 
 .close-mobile-nav-btn {
     display: flex;
-    position: absolute;
     width: 100px;
-    top: 120px;
-    left: 38%;
 }
 
 @media screen and (max-width: 900px) {
 
-    .close-mobile-nav-btn {
+    body {
+        width: min-content;
+    }
 
+    .dropdown-content {
+        margin-left: -150px;
+        min-width: 350px;
+        max-width: 600px;
+    }
+
+
+
+    .close-mobile-nav-btn {
+        position: absolute;
+        top: 120px;
+        left: 38%;
     }
 
     .logo {
