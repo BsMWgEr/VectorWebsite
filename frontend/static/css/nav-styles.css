@@ -324,13 +324,11 @@ a {
 
 }
 
-.open-mobile-nav-btn {
-    display: none;
-}
+
 
 @media screen and (max-width: 900px) {
 
-    .open-mobile-nav-btn {
+    #open-mobile-nav-btn {
         display: flex;
     }
 
