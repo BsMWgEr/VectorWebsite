@@ -72,11 +72,10 @@ function openNavButton() {
 
  function pageSizer() {
     if (window.screen.width < 900) {
-        document.getElementById('open-mobile-nav-button').setAttribute('display', 'flex')
-        document.getElementById('open-mobile-nav-button').setAttribute('width', '100px')
-        document.getElementById('open-mobile-nav-button').setAttribute('height', '50px')
+        document.getElementById('open-mobile-nav-button').className = 'open-mobile-nav-btn'
+
 
     } else {
-        document.getElementById('open-mobile-nav-button').setAttribute('display', 'none')
+        document.getElementById('open-mobile-nav-button').className = 'none'
     }
 }

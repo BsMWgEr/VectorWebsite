@@ -325,7 +325,8 @@ a {
 }
 
 .open-mobile-nav-btn {
-    display: none;
+    display: flex;
+    width: 100px;
     }
 
 .close-mobile-nav-btn {
