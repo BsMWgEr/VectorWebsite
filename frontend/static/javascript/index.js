@@ -66,3 +66,13 @@ function closeNavButton() {
 function openNavButton() {
     document.getElementById('nav-container').className = 'nav-container'
 }
+
+document.body.addEventListener('resize', pageSizer)
+
+ function pageSizer() {
+    if (window.screen.width < 900) {
+        document.getElementById('open-mobile-nav-btn').className = 'open-mobile-nav-btn'
+    } else {
+        document.getElementById('open-mobile-nav-btn').className = 'none'
+    }
+}
