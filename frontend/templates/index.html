@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="{% static 'css/nav-styles.css' %}">
     {% block title %}{% endblock %}
 </head>
-<body onresize="pageSizer()" onscroll="{% block scroll %}{% endblock %}" >
 <button class="none" id="open-mobile-nav-button" onclick="openNavButton()">Open</button>
+<body onresize="pageSizer()" onscroll="{% block scroll %}{% endblock %}" >
+
   <div id="nav-home" class="nav-container"  {% block js %}{% endblock %} >
       <button class="none" id="nav-button" onclick="NavButton()"><p>NAVIGATION</p></button>
       <button class="none" id="close-mobile-nav-button" onclick="closeNavButton()">Close</button>
