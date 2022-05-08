@@ -325,9 +325,7 @@ a {
 }
 
 .open-mobile-nav-btn {
-    display: flex;
-    width: 100px;
-    height: 50px;
+    display: none;
     }
 
 @media screen and (max-width: 900px) {

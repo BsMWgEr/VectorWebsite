@@ -71,8 +71,11 @@ document.body.addEventListener('resize', pageSizer)
 
  function pageSizer() {
     if (window.screen.width < 900) {
-        document.getElementById('open-mobile-nav-btn').className = 'open-mobile-nav-btn'
+        document.getElementById('open-mobile-nav-btn').setAttribute('display', 'flex')
+        document.getElementById('open-mobile-nav-btn').setAttribute('width', '100px')
+        document.getElementById('open-mobile-nav-btn').setAttribute('height', '50px')
+
     } else {
-        document.getElementById('open-mobile-nav-btn').className = 'none'
+        document.getElementById('open-mobile-nav-btn').setAttribute('display', 'none')
     }
 }
