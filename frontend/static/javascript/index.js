@@ -60,14 +60,15 @@ function CloseSidebarScroll() {
 }
 
 function closeNavButton() {
-    document.getElementById('nav-container').className = 'none'
+    document.getElementById('nav-home').style.display = 'none'
+    document.getElementById('close-mobile-nav-button').className = 'none'
+
 }
 
 function openNavButton() {
-    document.getElementById('nav-container').className = 'nav-container'
+    document.getElementById('nav-home').style.display = 'block'
+    document.getElementById('close-mobile-nav-button').className = 'close-mobile-nav-btn'
 }
-
-document.body.addEventListener('resize', pageSizer)
 
  function pageSizer() {
     if (window.screen.width < 900) {
