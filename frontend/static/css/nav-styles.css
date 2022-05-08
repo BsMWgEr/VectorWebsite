@@ -338,6 +338,7 @@ a {
 
     .close-mobile-nav-btn {
         position: sticky;
+        position: -webkit-sticky;
         top: 120px;
         left: 38%;
     }
