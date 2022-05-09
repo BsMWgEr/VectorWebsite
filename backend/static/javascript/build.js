@@ -80,7 +80,7 @@
             + "<p>Item ID #: " + element.id + "</p>"
             + "<p id='element-object-id'>" + element.object_id + "</p>"
             + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
-            + "<p>Type: " + element.type + "</p>"
+            + "<p id='type_display'>Type: " + element.type + "</p>"
             + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "Due Date:<p id='due-date-info-raw'>" + element.due_date + "</p>"
             + confirmation_report2 + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
             + "<p>Description: " + element.description + "</p>"
