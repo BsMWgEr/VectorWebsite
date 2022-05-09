@@ -6,6 +6,77 @@ JAVASCRIPT FOR UPDATE ITEMS SCREEN ON THE BUILD PAGE
  */
 
 
+function sizeChange() {
+    document.getElementById('deletebtn').className = 'btnchanger'
+    div_id_change.className = 'none'
+    change_display2.innerHTML = ''
+    div_change.className = 'div-change'
+    let type_display = document.getElementById('type_display').innerHTML
+    let type_array = type_display.split(' ')
+    let size_type = type_array[1]
+    let xhr = new XMLHttpRequest()
+    let method = 'GET'
+    let url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?size_type=" + size_type
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+        let sizes = serverResponse.response
+        let main_str = ''
+        let str_start = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + '<select name="size" id="id_size" onchange="setNewSizeDescription()">'
+            + '<option id="" selected>Choose A New Size - Current ' + document.getElementById('p-tag-size').innerHTML + ' </option>'
+        for (let i = 0; i < sizes.length; i++) {
+            main_str += '<option value="'+ sizes[i].id +'">'+ sizes[i].size +'</option>'
+        }
+        let final = str_start + main_str + '</select>'
+        + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Size</button>"
+        change_display.innerHTML = final
+        if (document.getElementById('e-id')) {
+            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+        }
+
+    }
+    xhr.send()
+}
+
+
+
+function NameChange() {
+    document.getElementById('deletebtn').className = 'btnchanger'
+    div_id_change.className = 'none'
+    change_display2.innerHTML = ''
+    div_change.className = 'div-change'
+    let type_display = document.getElementById('type_display').innerHTML
+    let type_array = type_display.split(' ')
+    let name_type = type_array[1]
+    let xhr = new XMLHttpRequest()
+    let method = 'GET'
+    let url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type=" + name_type
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+        let names = serverResponse.response
+        let main_str = ''
+        let str_start = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + '<select name="name" id="name" onchange="setNewNameDescription()">'
+            + '<option id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
+        for (let i = 0; i < names.length; i++) {
+            main_str += '<option value="'+ names[i].id +'">'+ names[i].name +'</option>'
+        }
+        let final = str_start + main_str + '</select>'
+        + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Name</button>"
+        change_display.innerHTML = final
+        if (document.getElementById('e-id')) {
+            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+        }
+
+    }
+    xhr.send()
+}
+
+
 // NameChange() from build.html activates this function and hits -> api endpoint -> create_image_api (backend.views) -> hits DB
 function setNewNameDescription() {
     let obj_id = document.getElementById('element-object-id').innerHTML
