@@ -325,9 +325,6 @@ a {
 }
 
 .open-mobile-nav-btn {
-    position: sticky;
-    top: 10px;
-    left: 10px;
     display: flex;
     width: 100px;
     }
@@ -345,9 +342,9 @@ a {
 
     .dropdown-content {
         position: absolute;
-       left: 100%;
-        width: 50px;
-        margin-left: 30px;
+       right: 90%;
+        width: 100%;
+        margin-right: 30px;
         transform: translate(0, 0);
     min-width: 100px;
 
@@ -408,22 +405,21 @@ a {
     /* Position the content inside the overlay */
     .links {
           display: grid;
-        transform: translate(100%, 50%);
-          margin: 0;
+        transform: translate(80%, 50%);
+          margin: 0px;
         justify-items: center;
 
     }
 
 
     .links a {
-
+        width: 130px;
       padding: 8px;
       text-decoration: none;
       font-size: 12px;
       color: #818181;
       display: block; /* Display block instead of inline */
-        border: 2px solid red;
-        border-radius: 5px;
+
         text-align: center;
 
 
