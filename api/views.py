@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
-from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, Name, Size
+from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, Name, Size, ShippingDetail
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -212,7 +212,26 @@ def api_view(request):
         if dict_confirm:
             InventoryItem.objects.filter(id=dict_id).update(confirmation_r_id=dict_confirm)
         if dict_delete:
+            object_delete = InventoryObject.objects.filter(inventory_item_id=dict_id)
+            sold_id_number = ''
+            shipping_id_number = ''
+
+            for x in object_delete:
+                if x.sold_data_id:
+                    sold_id_number = x.sold_data_id
+                if x.shipping_data_id:
+                    shipping_id_number = x.shipping_data_id
+
+            object_delete.delete()
+            print('object delete')
             InventoryItem.objects.filter(id=dict_id).delete()
+            print('item delete')
+            if sold_id_number is not '':
+                SoldDetail.objects.filter(id=sold_id_number).delete()
+            print('sold delete')
+            if shipping_id_number is not '':
+                ShippingDetail.objects.filter(id=shipping_id_number).delete()
+            print('shipping delete')
         if next_url is not None:
             return redirect(next_url)
     return render(request, "api.html")
