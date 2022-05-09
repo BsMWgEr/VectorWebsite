@@ -370,11 +370,13 @@ body {
 @media screen and (max-width: 900px) {
 
     body {
-        min-width: 350px;
-        max-width: 800px;
+
+    min-width: 100%;
     }
 
     .main-container {
+
+
         display: flex;
         flex-wrap: wrap;
     }
@@ -393,9 +395,15 @@ body {
     }
     .front-page-pic {
         margin: 0;
-        overflow: visible;
+        display: none;
+        overflow: hidden;
     }
     .middle-home {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .middle-logos {
         display: flex;
         flex-wrap: wrap;
     }
