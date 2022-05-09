@@ -18,7 +18,7 @@ body {
     height: 100%;
     background: #242323;
     margin-top: 5px;
-    overflow: hidden;
+
 }
 
 .main-left {
@@ -74,7 +74,7 @@ body {
 
 
 .front-page-pic {
-    overflow: hidden;
+
     margin-left: 5%;
 
 }
