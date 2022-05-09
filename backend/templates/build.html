@@ -198,18 +198,33 @@
         div_id_change.className = 'none'
         change_display2.innerHTML = ''
         div_change.className = 'div-change'
-        change_display.innerHTML = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-            + '<select name="size" id="id_size" onchange="setNewSizeDescription()">'
+        let type_display = document.getElementById('type_display').innerHTML
+        let type_array = type_display.split(' ')
+        let size_type = type_array[1]
+        let xhr = new XMLHttpRequest()
+        let method = 'GET'
+        let url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?size_type=" + size_type
+        xhr.responseType = 'json'
+        xhr.open(method, url)
+        xhr.onload = function () {
+            const serverResponse = xhr.response
+            let sizes = serverResponse.response
+            let main_str = ''
+            let str_start = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+                + '<select name="size" id="id_size" onchange="setNewSizeDescription()">'
                 + '<option id="" selected>Choose A New Size - Current ' + document.getElementById('p-tag-size').innerHTML + ' </option>'
-                {% for x in size_options %}
-                    +'<option value="{{ x.id }}">{{ x }}</option>'
-                {% endfor %}
-                + '</select>'
+            for (let i = 0; i < sizes.length; i++) {
+                main_str += '<option value="'+ sizes[i].id +'">'+ sizes[i].size +'</option>'
+            }
+            let final = str_start + main_str + '</select>'
             + "<button id='btn' onsubmit='closeFields()' type='submit'>Update Size</button>"
-        if (document.getElementById('e-id')) {
-            document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+            change_display.innerHTML = final
+            if (document.getElementById('e-id')) {
+                document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
+            }
+            document.getElementById('size').defaultValue = document.getElementById('size-info').innerHTML
         }
-        document.getElementById('size').defaultValue = document.getElementById('size-info').innerHTML
+        xhr.send()
     }
 
 
