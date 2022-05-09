@@ -193,7 +193,7 @@ function dueDateChange() {
         document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
     }
     let current_due_information = document.getElementById('due-date-info-raw').innerHTML.split(' ')
-    document.getElementById('due_date').defaultValue = current_due_information[1]
+    document.getElementById('due_date').defaultValue = current_due_information[2]
 }
 
     // Dynamic PO# update form --> displays to build page on the update screen
