@@ -228,10 +228,10 @@ def api_view(request):
             print('item delete')
             if sold_id_number is not '':
                 SoldDetail.objects.filter(id=sold_id_number).delete()
-            print('sold delete')
+                print('sold delete')
             if shipping_id_number is not '':
                 ShippingDetail.objects.filter(id=shipping_id_number).delete()
-            print('shipping delete')
+                print('shipping delete')
         if next_url is not None:
             return redirect(next_url)
     return render(request, "api.html")
