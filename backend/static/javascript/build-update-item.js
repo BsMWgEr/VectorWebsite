@@ -79,7 +79,8 @@ function NameChange() {
 
 // NameChange() from build.html activates this function and hits -> api endpoint -> create_image_api (backend.views) -> hits DB
 function setNewNameDescription() {
-    let obj_id = document.getElementById('element-object-id').innerHTML
+    let obj_ = document.getElementById('element-object-id').innerHTML.split(' ')
+    let obj_id = obj_[2]
     let description_info = document.getElementById('desc-info').innerHTML
     let name_id = document.getElementById('name_change').value
     //let size_id = document.getElementById('size-info').innerHTML
@@ -97,7 +98,8 @@ function setNewNameDescription() {
 }
 
 function setNewSizeDescription() {
-    let obj_id = document.getElementById('element-object-id').innerHTML
+    let obj_ = document.getElementById('element-object-id').innerHTML.split(' ')
+    let obj_id = obj_[2]
     let description_info = document.getElementById('desc-info').innerHTML
     let size_id = document.getElementById('id_size').value
     const xhr = new XMLHttpRequest()

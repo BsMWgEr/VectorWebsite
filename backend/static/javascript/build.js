@@ -78,7 +78,7 @@
             + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
             + "<p id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</p>"
             + "<p>Item ID #: " + element.id + "</p>"
-            + "<p id='element-object-id'>" + element.object_id + "</p>"
+            + "<p id='element-object-id'>InventoryObject ID#: " + element.object_id + "</p>"
             + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
             + "<p id='type_display'>Type: " + element.type + "</p>"
             + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "<p id='due-date-info-raw'>Due Date: " + element.due_date + "</p>"
