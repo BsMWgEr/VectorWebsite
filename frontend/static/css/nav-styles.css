@@ -341,12 +341,16 @@ a {
     }
 
     .dropdown-content {
+        position: absolute;
+       left: 100%;
+        width: 50px;
+        margin-left: 30px;
+        transform: translate(0, 0);
+    min-width: 100px;
 
 
-        margin-left: -150px;
-        min-width: 350px;
-        max-width: 600px;
     }
+
 
 
 
