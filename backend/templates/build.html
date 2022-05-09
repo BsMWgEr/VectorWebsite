@@ -249,7 +249,7 @@
             let str_start = "<input type='number' name='id' id='id' placeholder='Enter ID'>"
                 + '<select name="name" id="id_name" onchange="setNewNameDescription()">'
                 + '<option id="" selected>Choose A New Name - Current ' + document.getElementById('p-tag-name').innerHTML + ' </option>'
-            for (let i = 0; i < sizes.length; i++) {
+            for (let i = 0; i < names.length; i++) {
                 main_str += '<option value="'+ names[i].id +'">'+ names[i].name +'</option>'
             }
             let final = str_start + main_str + '</select>'
