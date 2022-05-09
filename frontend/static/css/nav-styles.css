@@ -325,6 +325,9 @@ a {
 }
 
 .open-mobile-nav-btn {
+    position: sticky;
+    top: 10px;
+    left: 10px;
     display: flex;
     width: 100px;
     }
