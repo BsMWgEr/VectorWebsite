@@ -370,7 +370,7 @@ def create_image_api(request):
                 size_description = t.description_info
             all_obs = InventoryObject.objects.filter(id=obj)
             for i in all_obs:
-                name_description = i.inventory_item.size.description_info
+                name_description = i.inventory_item.name.description_info
                 q = i.inventory_item_id
 
         description_info = name_description + size_description
