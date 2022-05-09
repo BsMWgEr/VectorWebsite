@@ -8,10 +8,11 @@
 {% endblock %}
 
 {% block content %}
-    <button class="none" id="open-mobile-nav-button" onclick="openNavButton()">Open</button>
-    <div id="mobile_nav"></div>
+
     <main id="main_main">
     <div class="main-container">
+        <button class="none" id="open-mobile-nav-button" onclick="openNavButton()">Open</button>
+        <div id="mobile_nav"></div>
         <div class="main-left">
             <h1>FULL FLIGHT PARACHUTE SALES, INC</h1>
             <h3>WE ONLY STOCK THE BEST HARNESS/ CONTAINERS IN THE INDUSTRY.
@@ -32,7 +33,7 @@
 
 
 
-    </main>
+
     <div class="middle-home">
         <div class="middle-logos">
             <div class="middlelogos"><img src="{% static 'images/m-series.jpg' %}"></div>
@@ -99,4 +100,5 @@
     </div>
     <div class="v3logo"><img class="v3logo-img" src="{% static 'images/v3logo.png' %}"></div>
     </div>
+    </main>
 {% endblock %}
