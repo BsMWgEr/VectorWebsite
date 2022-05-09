@@ -76,7 +76,7 @@ function openNavButton() {
         let new_element = document.createElement('div')
         document.getElementById('mobile_nav').append(new_element)
         let button_element = document.getElementById('open-mobile-nav-button')
-        new_element.className = 'mobile-nav'
+        document.getElementById('mobile_nav').className = 'mobile-nav'
         new_element.appendChild(button_element)
 
 
