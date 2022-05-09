@@ -73,6 +73,17 @@ function openNavButton() {
  function pageSizer() {
     if (window.screen.width < 900) {
         document.getElementById('open-mobile-nav-button').className = 'open-mobile-nav-btn'
+        let new_element = document.createElement('div')
+        document.getElementById('nav-home').append(new_element)
+        let button_element = document.getElementById('open-mobile-nav-button')
+        new_element.setAttribute('display', 'flex')
+        new_element.setAttribute('position', 'sticky')
+        new_element.setAttribute('top', '0')
+        new_element.setAttribute('height', '100px')
+        new_element.setAttribute('background-color', 'green')
+        new_element.setAttribute('min-width', '100%')
+        new_element.appendChild(button_element)
+
 
 
     } else {
