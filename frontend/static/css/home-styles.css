@@ -372,13 +372,14 @@ body {
     body {
 
     min-width: 100%;
+        max-width: 100%;
     }
 
     .main-container {
 
 
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
     }
 
     .main-left h1, h3, div {
@@ -395,8 +396,10 @@ body {
     }
     .front-page-pic {
         margin: 0;
-        display: none;
+        display: flex;
         overflow: hidden;
+        height: 400px;
+        width: auto;
     }
     .middle-home {
         display: flex;
