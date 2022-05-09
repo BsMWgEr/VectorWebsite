@@ -408,8 +408,8 @@ a {
     /* Position the content inside the overlay */
     .links {
           display: grid;
-        transform: translate(110%, 50%);
-          margin: 0px;
+        transform: translate(100%, 50%);
+          margin: 0;
         justify-items: center;
 
     }
