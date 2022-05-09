@@ -450,4 +450,14 @@ body {
         width: auto;
         margin: 0;
     }
+
+    .mobile-nav {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0px;
+        display: flex;
+        height: 100px;
+        background-color: green;
+        min-width: 100%;
+    }
 }
