@@ -239,7 +239,7 @@
         let name_type = type_array[1]
         let xhr = new XMLHttpRequest()
         let method = 'GET'
-        let url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?name_type=" + name_type
+        let url = 'https://vectorrigs.herokuapp.com/api/createimageapi' + "?type=" + name_type
         xhr.responseType = 'json'
         xhr.open(method, url)
         xhr.onload = function () {
