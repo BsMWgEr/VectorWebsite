@@ -397,7 +397,7 @@ body {
     .front-page-pic {
         margin: 0;
         display: flex;
-        overflow: hidden;
+
         height: 400px;
         width: auto;
     }
