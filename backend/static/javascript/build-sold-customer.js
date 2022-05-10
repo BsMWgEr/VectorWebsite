@@ -72,13 +72,14 @@ function openSoldCustomerSelect() {
 }
 
 function createSoldDetail() {
-    if (!document.getElementById('right-sold-bottom-div')) {
-        let div_box = document.getElementById('div-box')
+    let div_box = document.getElementById('div-box')
+    if (document.getElementById('right-sold-bottom-div').innerHTML === null) {
         let right_div = document.createElement('div')
         right_div.attributes.id = 'right-sold-bottom-div'
         let right_node = document.createTextNode("new text goes here")
         right_div.appendChild(right_node)
         div_box.appendChild(right_div)
+    }
         let obj_id = document.getElementById('e-id').innerHTML
         let xhr = new XMLHttpRequest()
         let method = 'GET'
@@ -91,11 +92,11 @@ function createSoldDetail() {
             console.log(serverResponse.response)
             let str_detail = ''
             for (let i = 0; i < answer.length; i++) {
-                str_detail += '<div class="build-page-sold-detail"><p>' + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other + '</p><p>created_date' + answer[i].created_date + '</p></div>'
+                str_detail += '<div id="" class="build-page-sold-detail"><p>' + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other + '</p><p>created_date' + answer[i].created_date + '</p></div>'
             }
 
-            right_div.innerHTML = str_detail
+            document.getElementById('right-sold-bottom-div').innerHTML = str_detail
         }
         xhr.send()
-    }
+
 }
