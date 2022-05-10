@@ -527,6 +527,6 @@ def build_update_sold_data(request):
         dict_info = q_dict.get('info')
 
         if dict_info:
-            SoldDetail.objects.filter(id=dict_info).update(info=dict_info)
+            SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
 
     return render(request, 'build-update-sold.html')
