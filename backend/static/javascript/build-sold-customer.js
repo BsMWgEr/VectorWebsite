@@ -147,6 +147,8 @@ function updateSoldData(event) {
     xhr.onload = function () {
         let serverResponse = xhr.response
         console.log('new sold data success')
+        document.getElementById('update-sold-change-display').innerHTML = ''
+        createSoldDetail()
     }
 
     my_FormData.entries()
