@@ -90,7 +90,7 @@ function createSoldDetail() {
         console.log(serverResponse.response)
         let str_detail = ''
         for (let i = 0; i < answer.length; i++) {
-            str_detail += '<h1>'+'id: '+ answer[i].id +'date sold: '+ answer[i].date_sold +'info: '+ answer[i].info +'other: ' + answer[i].other + 'created_date' + answer[i].created_date +'</h1>'
+            str_detail += '<div class="build-page-sold-detail"><p>'+'id: '+ answer[i].id + '</p><p>date sold: ' + answer[i].date_sold +'</p><p>info: '+ answer[i].info +'</p><p>other: ' + answer[i].other + '</p><p>created_date' + answer[i].created_date +'</p></div>'
         }
 
         right_div.innerHTML = str_detail
