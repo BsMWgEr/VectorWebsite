@@ -84,7 +84,7 @@
                     </form>
                 </div>
                 <div id="div-build-update-sold_customer" class="none">
-                    <form method="POST" id="sold-update-form" action="/api/build-update-sold-data-api/" onsubmit="createSoldInfoChange(event)" >
+                    <form method="POST" id="sold-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateSoldData(event)" >
                         {% csrf_token %}
                         <div id="update-sold-change-display" class="update-sold-change-display"></div>
                     </form>

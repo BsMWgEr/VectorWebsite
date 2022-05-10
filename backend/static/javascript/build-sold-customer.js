@@ -95,7 +95,7 @@ function createSoldDetail() {
                 if (answer[i].purchased_by_id) {
                     displayPurchasedBy(answer[i].purchased_by_id)
                 }
-                str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p>'
+                str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p id="sold-id-number">'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
                     + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other
                     + '</p><p>created_date' + answer[i].created_date + '</p><p id="build-sold-purchased_by">Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
@@ -134,11 +134,31 @@ function displayPurchasedBy(x) {
     xhr.send()
 }
 
+
+function updateSoldData(event) {
+    event.preventDefault()
+    let my_Form = event.target
+    let my_FormData = new FormData(my_Form)
+    let xhr = new XMLHttpRequest()
+    let method = my_Form.getAttribute('method')
+    let url = my_Form.getAttribute('action')
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        let serverResponse = xhr.response
+        console.log('new sold data success')
+    }
+
+    my_FormData.entries()
+    console.log(my_FormData)
+    xhr.send(my_FormData)
+}
+
 function createSoldInfoChange() {
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
-    let new_id = document.getElementById('build-sold-purchased_by').innerHTML.split(' ')
-    document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[2] +'" hidden>'
+    let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
+    document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[1] +'" hidden>'
         +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
         +'<button type="submit">Submit</button>'
 }
