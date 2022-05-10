@@ -73,7 +73,7 @@ function openSoldCustomerSelect() {
 
 function createSoldDetail() {
     let div_box = document.getElementById('div-box')
-    if (document.getElementById('right-sold-bottom-div').innerHTML === null) {
+    if (document.getElementById('right-sold-bottom-div') === null) {
         let right_div = document.createElement('div')
         right_div.attributes.id = 'right-sold-bottom-div'
         let right_node = document.createTextNode("new text goes here")
