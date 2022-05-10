@@ -160,8 +160,12 @@ function createSoldInfoChange() {
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
     let current_sold_info = document.getElementById('build-sold-info').innerHTML.split(' ')
-    let new_id = document.getElementById('sold-id-number').innerHTML.split('~')
+    let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
+    let sold_info = ''
+    for (let i = 1; i < new_id.length - 1; i++) {
+        sold_info += new_id[i]
+    }
     document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[1] +'" hidden>'
-        +'<textarea name="info" cols="40" rows="10" id="id_info">'+ current_sold_info[1] +'</textarea>'
+        +'<textarea name="info" cols="40" rows="10" id="id_info">'+ sold_info +'</textarea>'
         +'<button type="submit">Submit</button>'
 }
