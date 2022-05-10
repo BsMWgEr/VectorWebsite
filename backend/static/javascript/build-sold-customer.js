@@ -95,7 +95,7 @@ function createSoldDetail() {
                 if (answer[i].purchased_by_id) {
                     displayPurchasedBy()
                 }
-                str_detail += '<div id="" class="build-page-sold-detail"><p>'
+                str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p>'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
                     + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other
                     + '</p><p>created_date' + answer[i].created_date + '</p><p>Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
@@ -124,7 +124,7 @@ function displayPurchasedBy(x) {
         let answer = serverResponse.response
         let main_str = ''
         for (let i = 0; i < answer.length; i++) {
-            main_str += '<div id="" class="build-page-customer-detail"><p>'
+            main_str += '<div id="" class="build-page-customer-detail"><h1>Customer</h1><p>'
                     + 'id: ' + answer[i].id + '</p><p>First Name: ' + answer[i].first_name
                     + '</p><p>Last Name: ' + answer[i].last_name + '</p><p>Company: ' + answer[i].company
                     + '</p><p>Email: ' + answer[i].email + '</p><p>Phone Number: '+ answer[i].phone_number +'</p></div>'

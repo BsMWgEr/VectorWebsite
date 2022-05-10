@@ -467,6 +467,18 @@ def endpoint3(request):
             'created_date': x.created_date
         } for x in sold_obj]
 
+    elif request.GET.get('all_customer_data'):
+        customer_id = request.GET.get('all_customer_data')
+        customers = Customer.objects.filter(id=customer_id)
+        container_list = [{
+            "id": x.id,
+            "first_name": x.first_name,
+            "last_name": x.last_name,
+            "company_name": x.company_name,
+            "email": x.email,
+            "phone_number": x.phone_number,
+        } for x in customers]
+
     else:
         customers = Customer.objects.all()
         container_list = [{"id": x.id,
