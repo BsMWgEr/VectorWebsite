@@ -129,6 +129,7 @@ function displayPurchasedBy(x) {
                     + '</p><p>Last Name: ' + answer[i].last_name + '</p><p>Company: ' + answer[i].company
                     + '</p><p>Email: ' + answer[i].email + '</p><p>Phone Number: '+ answer[i].phone_number +'</p></div>'
         }
+        document.getElementById('right-sold-customer-div').innerHTML = main_str
     }
     xhr.send()
 }
