@@ -97,7 +97,7 @@ function createSoldDetail() {
                 }
                 str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p id="sold-id-number">'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
-                    + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other
+                    + '</p><p id="build-sold-info">info: ~' + answer[i].info + '</p><p>other: ' + answer[i].other
                     + '</p><p>created_date' + answer[i].created_date + '</p><p id="build-sold-purchased_by">Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
             }
 
@@ -159,8 +159,9 @@ function updateSoldData(event) {
 function createSoldInfoChange() {
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
-    let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
+    let current_sold_info = document.getElementById('build-sold-info').innerHTML.split(' ')
+    let new_id = document.getElementById('sold-id-number').innerHTML.split('~')
     document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[1] +'" hidden>'
-        +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
+        +'<textarea name="info" cols="40" rows="10" id="id_info">'+ current_sold_info[1] +'</textarea>'
         +'<button type="submit">Submit</button>'
 }
