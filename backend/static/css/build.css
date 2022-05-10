@@ -248,7 +248,7 @@ button {
     max-width: 95%;
     min-width:300px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     grid-column-gap: 50px;
     transform: translate(0,0);
     background: orange;

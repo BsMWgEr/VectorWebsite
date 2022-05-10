@@ -93,7 +93,7 @@ function createSoldDetail() {
             let str_detail = ''
             for (let i = 0; i < answer.length; i++) {
                 if (answer[i].purchased_by_id) {
-                    displayPurchasedBy()
+                    displayPurchasedBy(answer[i].purchased_by_id)
                 }
                 str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p>'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
