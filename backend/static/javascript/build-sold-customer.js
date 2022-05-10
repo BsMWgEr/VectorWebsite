@@ -75,7 +75,7 @@ function createSoldDetail() {
     let div_box = document.getElementById('div-box')
     if (document.getElementById('right-sold-bottom-div') === null) {
         let right_div = document.createElement('div')
-        right_div.attributes.id = 'right-sold-bottom-div'
+        right_div.setAttribute('id', 'right-sold-bottom-div')
         let right_node = document.createTextNode("new text goes here")
         right_div.appendChild(right_node)
         div_box.appendChild(right_div)
