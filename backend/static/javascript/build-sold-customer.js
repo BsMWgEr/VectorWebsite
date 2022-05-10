@@ -54,7 +54,7 @@ function openSoldCustomerSelect() {
 
 
         let last_str = '</select>'
-                +'<button type="button" >Create A New Customer</button>'
+
                 +'<input type="date" min="2022-01-01" max="2030-01-01" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">'
                     +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
                     +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
