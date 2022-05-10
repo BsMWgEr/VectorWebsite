@@ -92,14 +92,43 @@ function createSoldDetail() {
             console.log(serverResponse.response)
             let str_detail = ''
             for (let i = 0; i < answer.length; i++) {
+                if (answer[i].purchased_by_id) {
+                    displayPurchasedBy()
+                }
                 str_detail += '<div id="" class="build-page-sold-detail"><p>'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
                     + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other
-                    + '</p><p>created_date' + answer[i].created_date + '</p></div>'
+                    + '</p><p>created_date' + answer[i].created_date + '</p><p>Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
             }
 
             document.getElementById('right-sold-bottom-div').innerHTML = str_detail
         }
         xhr.send()
-
+}
+function displayPurchasedBy(x) {
+    let div_box = document.getElementById('div-box')
+    if (document.getElementById('right-sold-customer-div') === null) {
+        let right_div = document.createElement('div')
+        right_div.setAttribute('id', 'right-sold-customer-div')
+        let right_node = document.createTextNode("new text goes here")
+        right_div.appendChild(right_node)
+        div_box.appendChild(right_div)
+    }
+    let xhr = new XMLHttpRequest()
+    let method = 'GET'
+    let url = '/api/endpoint3' + '?all_customer_data=' + x
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        let serverResponse = xhr.response
+        let answer = serverResponse.response
+        let main_str = ''
+        for (let i = 0; i < answer.length; i++) {
+            main_str += '<div id="" class="build-page-customer-detail"><p>'
+                    + 'id: ' + answer[i].id + '</p><p>First Name: ' + answer[i].first_name
+                    + '</p><p>Last Name: ' + answer[i].last_name + '</p><p>Company: ' + answer[i].company
+                    + '</p><p>Email: ' + answer[i].email + '</p><p>Phone Number: '+ answer[i].phone_number +'</p></div>'
+        }
+    }
+    xhr.send()
 }
