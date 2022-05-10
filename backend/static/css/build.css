@@ -229,8 +229,18 @@ button {
     height: 30px;
     background: #b5db1a;
     border-radius: 5px;
-    font-family: cursive;
+    font-family: monospace;
     font-size: 12pt;
+    border: hidden;
+}
+
+.form input {
+    height: auto;
+    font-size: 14pt;
+    border: hidden;
+    border-radius: 5px;
+      background: #b5db1a;
+    color: black;
 }
 
 .bottom-display {
@@ -421,3 +431,4 @@ button {
 .div-build-sold_customer {
     display: flex;
 }
+
