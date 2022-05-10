@@ -78,9 +78,15 @@
                     </form>
                 </div>
                 <div id="div-build-sold_customer" class="none">
-                    <form method="POST" id="sold-customer-form" action="/api/build-sold-data-api/" onsubmit="sendNewSoldData(event)" >
+                    <form method="POST" id="sold-customer-form" action="/api/sold-data-api/" onsubmit="sendNewSoldData(event)" >
                         {% csrf_token %}
                         <div id="sold-change-display" class="sold-change-display"></div>
+                    </form>
+                </div>
+                <div id="div-build-update-sold_customer" class="none">
+                    <form method="POST" id="sold-update-form" action="/api/build-update-sold-data-api/" onsubmit="createSoldInfoChange(event)" >
+                        {% csrf_token %}
+                        <div id="update-sold-change-display" class="update-sold-change-display"></div>
                     </form>
                 </div>
                 <div id="div-id-change" class="none">

@@ -98,7 +98,7 @@ function createSoldDetail() {
                 str_detail += '<div id="" class="build-page-sold-detail"><h1>Sold Data</h1><p>'
                     + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold
                     + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other
-                    + '</p><p>created_date' + answer[i].created_date + '</p><p>Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
+                    + '</p><p>created_date' + answer[i].created_date + '</p><p id="build-sold-purchased_by">Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
             }
 
             document.getElementById('right-sold-bottom-div').innerHTML = str_detail
@@ -132,4 +132,13 @@ function displayPurchasedBy(x) {
         document.getElementById('right-sold-customer-div').innerHTML = main_str
     }
     xhr.send()
+}
+
+function createSoldInfoChange() {
+    document.getElementById('div-build-sold_customer').className = 'none'
+    document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
+    let new_id = document.getElementById('build-sold-purchased_by').innerHTML.split(' ')
+    document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[2] +'" hidden>'
+        +'<textarea name="info" cols="40" rows="10" id="id_info"></textarea>'
+        +'<button type="submit">Submit</button>'
 }

@@ -77,10 +77,6 @@ def cookie_list_view(request):
         if x.size:
             size = x.size.size
 
-
-
-
-
     container_list = [{"id": x.id,
                        "type": x.type,
                        "name": x.name.name,
@@ -128,8 +124,6 @@ def endpoint_view(request):
         if x.size:
             l_size = x.size.size
 
-
-
     container_list = [{"id": x.id,
                        "type": x.type,
                        "name": x.name.name,
@@ -140,7 +134,6 @@ def endpoint_view(request):
                        "description": x.description,
                        "in_stock": x.in_stock,
                        "object_id": g.id,
-
                        "confirmation_r": confirm,
                        'price': x.price,
                        "picture": picture
@@ -200,7 +193,6 @@ def api_view(request):
             InventoryItem.objects.filter(id=dict_id).update(due_date=dict_duedate)
         if dict_description:
             InventoryItem.objects.filter(id=dict_id).update(description=dict_description)
-
         if dict_instock:
             InventoryItem.objects.filter(id=dict_id).update(in_stock=dict_instock)
         if dict_serial_number:
@@ -275,6 +267,7 @@ def UploadAPI(request):
     return JsonResponse(presigned_data)
 
 
+# RETRIEVES NAME/SIZE/DESCRIPTION INFO FOR BUILD PAGE FORMS
 def create_image_api(request):
     data = {}
     if request.GET.get('type'):
@@ -400,10 +393,9 @@ def create_image_api(request):
     return JsonResponse(data)
 
 
+# CREATE NEW SOLD DATA
 def sold_data_api(request):
     form = SoldDataForm(request.POST or None)
-    print(form.data)
-    print(request.POST.get('inventory_item'))
     x = request.POST.get('inventory_item')
     objs = InventoryObject.objects.all().filter(inventory_item_id=x)
 
@@ -411,10 +403,8 @@ def sold_data_api(request):
     if form.is_valid():
         form.save()
         form = SoldDataForm()
-        print(objs)
         last_sold = SoldDetail.objects.last()
         objs.update(sold_data_id=last_sold.id)
-        print(last_sold)
 
     context = {
         'form': form,
@@ -423,6 +413,7 @@ def sold_data_api(request):
     return render(request, 'sold_data_api.html', context=context)
 
 
+# CREATE NEW CUSTOMER
 def customer_data_api(request):
     form = NewCustomerForm(request.POST or None)
     x = 1
@@ -433,22 +424,16 @@ def customer_data_api(request):
 
         form.save()
         form = NewCustomerForm()
-        # after creating new sold data --> link to object via id
-    #objs = InventoryObject.objects.all().filter(inventory_item_id=x)
-    #last_sold = SoldDetail.objects.last()
-    #objs.update(sold_data_id=last_sold.id)
-    #print(objs)
-    #print(last_sold)
 
     context = {
         'form': form,
-
     }
 
     return render(request, 'customer_data_api.html', context=context)
 
-def endpoint3(request):
 
+# SOLD AND CUSTOMER DATA RETRIEVAL
+def endpoint3(request):
     if request.GET.get('all_sold_data'):
         data_id = request.GET.get('all_sold_data')
         item = InventoryObject.objects.filter(inventory_item_id=data_id)
@@ -498,7 +483,7 @@ def endpoint3(request):
     return JsonResponse(data)
 
 
-
+# CONFIRMATION REPORTS RETRIEVAL FOR BUILD PAGE FORMS
 def upload_helper_view(request):
     print('success')
     print(request.GET.get(''))
@@ -533,19 +518,15 @@ def upload_helper_view(request):
 """
 
 
-def build_sold_data(request):
-    print(request.POST)
-    form = SoldDataForm(request.POST or None)
-    if form.is_valid():
-        item_id = form.data.get('inventory_item')
-        print(form.data)
-        form.save()
-        item_obj = InventoryObject.objects.filter(inventory_item_id=item_id)
-        last_sold = SoldDetail.objects.last()
-        item_obj.update(sold_data_id=last_sold.id)
+# CREATES NEW SOLD DATA
+def build_update_sold_data(request):
+    q_dict = request.POST
+    print(q_dict)
+    if request.POST:
+        dict_id = q_dict.get('id')
+        dict_info = q_dict.get('info')
 
-    context = {
-        'form': form
-    }
+        if dict_info:
+            SoldDetail.objects.filter(id=dict_info).update(info=dict_info)
 
-    return render(request, 'build-data-sold.html', context=context)
+    return render(request, 'build-update-sold.html')
