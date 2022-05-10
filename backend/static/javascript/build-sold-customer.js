@@ -79,24 +79,23 @@ function createSoldDetail() {
         let right_node = document.createTextNode("new text goes here")
         right_div.appendChild(right_node)
         div_box.appendChild(right_div)
-    }
-    let obj_id = document.getElementById('e-id').innerHTML
-    let xhr = new XMLHttpRequest()
-    let method = 'GET'
-    let url = '/api/endpoint3' + '?all_sold_data=' + obj_id
-    xhr.responseType = 'json'
-    xhr.open(method, url)
-    xhr.onload = function () {
-        let serverResponse = xhr.response
-        let answer = serverResponse.response
-        console.log(serverResponse.response)
-        let str_detail = ''
-        for (let i = 0; i < answer.length; i++) {
-            str_detail += '<div id="" class="build-page-sold-detail"><p>' + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other + '</p><p>created_date' + answer[i].created_date + '</p></div>'
+        let obj_id = document.getElementById('e-id').innerHTML
+        let xhr = new XMLHttpRequest()
+        let method = 'GET'
+        let url = '/api/endpoint3' + '?all_sold_data=' + obj_id
+        xhr.responseType = 'json'
+        xhr.open(method, url)
+        xhr.onload = function () {
+            let serverResponse = xhr.response
+            let answer = serverResponse.response
+            console.log(serverResponse.response)
+            let str_detail = ''
+            for (let i = 0; i < answer.length; i++) {
+                str_detail += '<div id="" class="build-page-sold-detail"><p>' + 'id: ' + answer[i].id + '</p><p>date sold: ' + answer[i].date_sold + '</p><p>info: ' + answer[i].info + '</p><p>other: ' + answer[i].other + '</p><p>created_date' + answer[i].created_date + '</p></div>'
+            }
+
+            right_div.innerHTML = str_detail
         }
-
-        document.getElementById('right-sold-bottom-div').innerHTML = str_detail
+        xhr.send()
     }
-    xhr.send()
-
 }
