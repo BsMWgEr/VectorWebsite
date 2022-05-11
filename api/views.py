@@ -530,6 +530,6 @@ def build_update_sold_data(request):
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
         if dict_other:
-            SoldDetail.objects.filter(id=dict_id).update(info=dict_other)
+            SoldDetail.objects.filter(id=dict_id).update(other=dict_other)
 
     return render(request, 'build-update-sold.html')
