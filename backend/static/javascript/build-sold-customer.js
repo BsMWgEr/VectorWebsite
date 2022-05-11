@@ -163,7 +163,7 @@ function createSoldInfoChange() {
     let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
     let sold_info = ''
     for (let i = 1; i < current_sold_info.length; i++) {
-        sold_info += current_sold_info[i]
+        sold_info += current_sold_info[i] + ' '
     }
     document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[1] +'" hidden>'
         +'<textarea name="info" cols="40" rows="10" id="id_info">'+ sold_info +'</textarea>'
