@@ -525,8 +525,11 @@ def build_update_sold_data(request):
     if request.POST:
         dict_id = q_dict.get('id')
         dict_info = q_dict.get('info')
+        dict_other = q_dict.get('other')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
+        if dict_other:
+            SoldDetail.objects.filter(id=dict_id).update(info=dict_other)
 
     return render(request, 'build-update-sold.html')
