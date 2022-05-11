@@ -25,7 +25,7 @@ function sendNewSoldData(event) {
 }
 
 function openSoldCustomerSelect() {
-
+    closeSoldChangeDiv()
     let obj_id = document.getElementById('element-object-id').innerHTML
 
     const xhr = new XMLHttpRequest()
@@ -169,3 +169,4 @@ function createSoldInfoChange() {
         +'<textarea name="info" cols="40" rows="10" id="id_info">'+ sold_info +'</textarea>'
         +'<button type="submit">Submit</button>'
 }
+

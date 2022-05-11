@@ -130,7 +130,7 @@
 
     function openUpdateGroup() {
         document.getElementById('div-change').className = 'div-change'
-        closeSoldDiv()
+        closeAllSold()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
         document.getElementById('sold-update-btn-group').className = 'none'
@@ -196,6 +196,16 @@
 
     function closeDivChange() {
         document.getElementById('div-change').className = 'none'
+    }
+
+    function closeSoldChangeDiv() {
+        document.getElementById('update-sold-change-display').innerHTML = ''
+    }
+
+    function closeAllSold() {
+        document.getElementById('sold-change-display').innerHTML = ''
+        closeSoldChangeDiv()
+        closeSoldDiv()
     }
 
 
