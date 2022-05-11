@@ -162,7 +162,7 @@ function createSoldInfoChange() {
     let current_sold_info = document.getElementById('build-sold-info').innerHTML.split(' ')
     let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
     let sold_info = ''
-    for (let i = 1; i < new_id.length - 1; i++) {
+    for (let i = 1; i < new_id.length; i++) {
         sold_info += new_id[i]
     }
     document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ new_id[1] +'" hidden>'
