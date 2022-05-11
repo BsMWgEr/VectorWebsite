@@ -82,7 +82,7 @@ function setNewNameDescription() {
     let obj_ = document.getElementById('element-object-id').innerHTML.split(' ')
     let obj_id = obj_[2]
     let description_info = document.getElementById('desc-info').innerHTML
-    let name_id = document.getElementById('name_change').value
+    let name_id = document.getElementById('name').value
     //let size_id = document.getElementById('size-info').innerHTML
     const xhr = new XMLHttpRequest()
     const method = 'GET'
