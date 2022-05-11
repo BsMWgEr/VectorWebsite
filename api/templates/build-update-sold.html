@@ -1,7 +1,10 @@
 <form method="POST">
     {% csrf_token %}
     <input type="number" name="id">
-    <textarea name="info" cols="40" rows="10" id="id_info"></textarea>
-    <textarea name="other" cols="40" rows="10" id="id_other"></textarea>
+
+    <textarea name="info"></textarea>
+
+    <textarea name="other"></textarea>
+
     <button class="" type="submit">Submit</button>
 </form>
