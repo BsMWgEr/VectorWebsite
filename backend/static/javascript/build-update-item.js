@@ -299,6 +299,7 @@ function serialNumberChange(x) {
 
    // activated from main update-button-group on build.html
 function idChange() {
+    closeAllSold()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_change.className = 'none'
     change_display.innerHTML = ''
