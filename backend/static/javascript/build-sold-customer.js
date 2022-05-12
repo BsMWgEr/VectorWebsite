@@ -216,3 +216,16 @@ function openNewSoldCustomerDisplay() {
             //+'</select>'
             +'<button type="submit">Submit</button>'
 }
+
+function createSoldDateChange() {
+    document.getElementById('div-build-sold_customer').className = 'none'
+    document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
+    let sold_id = document.getElementById('sold-id-number').innerHTML.split(' ')
+    document.getElementById('update-sold-change-display').innerHTML = '<input name="id" value="'+ sold_id[1] +'" hidden>' + '<input ' +
+        'type="date" ' +
+        'min="2022-01-01" ' +
+        'max="2030-01-01" ' +
+        'name="date_sold" ' +
+        'id="id_date_sold" ' +
+        'placeholder="Enter Date Sold">'
+}

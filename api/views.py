@@ -526,10 +526,13 @@ def build_update_sold_data(request):
         dict_id = q_dict.get('id')
         dict_info = q_dict.get('info')
         dict_other = q_dict.get('other')
+        dict_date = q_dict.get('date')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
         if dict_other:
             SoldDetail.objects.filter(id=dict_id).update(other=dict_other)
+        if dict_date:
+            SoldDetail.objects.filter(id=dict_id).update(date=dict_date)
 
     return render(request, 'build-update-sold.html')

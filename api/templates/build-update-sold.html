@@ -1,10 +1,8 @@
 <form method="POST">
     {% csrf_token %}
     <input type="number" name="id">
-
     <textarea name="info"></textarea>
-
     <textarea name="other"></textarea>
-
+    <input type="date" min="2022-01-01" max="2030-01-01" name="date_sold">
     <button class="" type="submit">Submit</button>
 </form>
