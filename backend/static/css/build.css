@@ -244,8 +244,9 @@ button {
 }
 
 .bottom-display {
+
     margin-top: 50px;
-    max-width: 95%;
+    max-width: 98%;
     min-width:300px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -339,7 +340,8 @@ button {
 }
 
 .bottom-display p {
-    margin-left: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
     color: black;
     border: 2px solid black;
     background: white;
