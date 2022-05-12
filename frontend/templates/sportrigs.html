@@ -13,6 +13,41 @@
 
     </div>
 </div>
+
+    {% for x in containers %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left">
+                            <img src="{% static '' %}{{ x.picture.key }}" height="140" width="212">
+                        </div>
+                        <div class="container-right">
+                            <p class="color-vector">{{ x.name.name }}</p>
+                            <p class="color-vector">Serial #{{ x.serial_number }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>{{ x.due_date }} - </p>
+                            {% endif %}
+                            {% if x.size %}
+                                <p class="color-vector">{{ x.size.size }}</p>
+                            {% endif %}
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-vector">${{ x.price }}</p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW</p>
+                            {% else %}
+                                <p>Due On : {{ x.due_date }}</p>
+                            {% endif %}
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-vector" id="color-vector-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
     <!--
     <script>
     const element = document.getElementById('tweets')
