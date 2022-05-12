@@ -158,42 +158,82 @@ def sportrigs_view(request):
 
 
 def sportrigs_instock_view(request):
-    containers_all = InventoryItem.objects.filter(type='sport_rigs', in_stock=True)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=True)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all,
+        'containers': container_list,
     }
 
     return render(request, 'instock-sportrigs.html', context=context)
 
 
 def tandem(request):
-    containers_all = InventoryItem.objects.filter(type='tandem', in_stock=False)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='tandem', in_stock=False)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all
+        'containers': container_list,
     }
     return render(request, "tandem.html", context=context)
 
 
 def tandem_instock_view(request):
-    containers_all = InventoryItem.objects.filter(type='tandem', in_stock=True)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='tandem', in_stock=True)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all
+        'containers': container_list,
     }
     return render(request, "instock-tandem.html", context=context)
 
 
 def student(request):
-    containers_all = InventoryItem.objects.filter(type='student', in_stock=False)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='student', in_stock=False)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all
+        'containers': container_list,
     }
     return render(request, "student.html", context=context)
 
 
 def student_instock_view(request):
-    containers_all = InventoryItem.objects.filter(type='student', in_stock=True)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='student', in_stock=True)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all
+        'containers': container_list,
     }
     return render(request, "instock-student.html", context=context)
 
@@ -226,17 +266,33 @@ def canopies(request):
 
 
 def javelin(request):
-    containers_all = InventoryItem.objects.filter(type='javelin_odyssey', in_stock=False)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='javelin_odyssey', in_stock=False)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all,
+        'containers': container_list,
     }
     return render(request, "javelin.html", context=context)
 
 
 def javelin_instock_view(request):
-    containers_all = InventoryItem.objects.filter(type='javelin_odyssey', in_stock=True)
+    containers_all = InventoryObject.objects.all()
+    container_list = []
+    for x in containers_all:
+        if not x.sold_data_id:
+            container = InventoryItem.objects.filter(id=x.inventory_item_id, type='javelin_odyssey', in_stock=True)
+            if container:
+                for y in container:
+                    container_list.append(y)
+
     context = {
-        'containers': containers_all,
+        'containers': container_list,
     }
     return render(request, "instock-javelin.html", context=context)
 
