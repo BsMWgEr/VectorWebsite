@@ -37,10 +37,10 @@
                 <div id="sold-update-btn-group" class="none">
                     <button id="" class="btnchanger" onclick="">Item select</button>
                     <button id="build-create-customer-btn" class="btnchanger" onclick="openNewSoldCustomerDisplay()">Create a New Customer</button>
-                    <button id="" class="btnchanger" onclick="openSoldCustomerSelect()">Change to Sold</button>
-                    <button id="" class="btnchanger" onclick="">Update Date Sold</button>
-                    <button id="" class="btnchanger" onclick="createSoldInfoChange()">Update Info</button>
-                    <button id="" class="btnchanger" onclick="createSoldOtherChange()">Update Other</button>
+                    <button id="" class="btnchanger" onclick="openSoldCustomerSelect(); closeSoldNewCustomerDiv()">Change to Sold</button>
+                    <button id="" class="btnchanger" onclick="closeSoldNewCustomerDiv()">Update Date Sold</button>
+                    <button id="" class="btnchanger" onclick="createSoldInfoChange(); closeSoldNewCustomerDiv()">Update Info</button>
+                    <button id="" class="btnchanger" onclick="createSoldOtherChange(); closeSoldNewCustomerDiv()">Update Other</button>
                 </div>
                 <div id="shipping-update-btn-group" class="none">
                     <button id="build-create-address-btn" class="btnchanger" onclick="">Create New Shipping Address</button>
