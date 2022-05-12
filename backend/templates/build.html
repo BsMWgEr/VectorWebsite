@@ -36,7 +36,7 @@
                 </div>
                 <div id="sold-update-btn-group" class="none">
                     <button id="" class="btnchanger" onclick="">Item select</button>
-                    <button id="build-create-customer-btn" class="btnchanger" onclick="">Create a New Customer</button>
+                    <button id="build-create-customer-btn" class="btnchanger" onclick="openNewSoldCustomerDisplay()">Create a New Customer</button>
                     <button id="" class="btnchanger" onclick="openSoldCustomerSelect()">Change to Sold</button>
                     <button id="" class="btnchanger" onclick="">Update Date Sold</button>
                     <button id="" class="btnchanger" onclick="createSoldInfoChange()">Update Info</button>
@@ -87,6 +87,12 @@
                     <form method="POST" id="sold-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateSoldData(event)" >
                         {% csrf_token %}
                         <div id="update-sold-change-display" class="update-sold-change-display"></div>
+                    </form>
+                </div>
+                <div id="div-build-new-sold_customer" class="none">
+                    <form method="POST" id="sold-new-customer-form" action="/api/customer-data-api/" onsubmit="createSoldNewCustomer(event)" >
+                        {% csrf_token %}
+                        <div id="update-sold-new-customer-display" class="update-sold-new-customer-display"></div>
                     </form>
                 </div>
                 <div id="div-id-change" class="none">

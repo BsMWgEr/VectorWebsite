@@ -204,11 +204,19 @@
         document.getElementById('update-sold-change-display').innerHTML = ''
     }
 
+    function closeSoldNewCustomerDiv() {
+        document.getElementById('div-build-new-sold_customer').className = 'none'
+        document.getElementById('update-sold-new-customer-display').innerHTML = ''
+    }
+
     function closeAllSold() {
         document.getElementById('sold-change-display').innerHTML = ''
         closeSoldChangeDiv()
         closeSoldDiv()
+        closeSoldNewCustomerDiv()
     }
+
+
 
 
 

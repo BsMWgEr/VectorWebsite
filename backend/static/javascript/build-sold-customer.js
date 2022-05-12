@@ -184,3 +184,35 @@ function createSoldOtherChange() {
         +'<button type="submit">Submit</button>'
 }
 
+function createSoldNewCustomer(event) {
+    event.preventDefault()
+    let my_Form = event.target
+    let my_FormData = new FormData(my_Form)
+    let xhr = new XMLHttpRequest()
+    let method = my_Form.getAttribute('method')
+    let url = my_Form.getAttribute('action')
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        let serverResponse = xhr.response
+        console.log('new sold data success')
+        closeSoldNewCustomerDiv()
+
+    }
+    my_FormData.entries()
+    xhr.send(my_FormData)
+}
+
+function openNewSoldCustomerDisplay() {
+    document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
+    document.getElementById('update-sold-new-customer-display').innerHTML =
+            '<input type="text" name="first_name" maxLength="100" required id="id_first_name" placeholder="Enter First Name">'
+            +'<input type="text" name="last_name" maxLength="100" required id="id_last_name" placeholder="Enter Last Name">'
+            +'<input type="text" name="company_name" maxLength="200" id="id_company_name" placeholder="Enter Company Name">'
+            +'<input type="email" name="email" maxLength="254" required id="id_email" placeholder="Enter E-Mail">'
+            +'<input type="number" name="phone_number" required id="id_phone_number" placeholder="Enter Phone Number">'
+            //+'<select name="purchased_item" id="id_purchased_item" multiple>'
+            //    +'<option value="74">ID: 74 Type: canopies Name: ID: 38 - New Sabre-3 210 - canopies - Serial #: TBD ----- In Stock: False</option>'
+            //+'</select>'
+            +'<button type="submit">Submit</button>'
+}
