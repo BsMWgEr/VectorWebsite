@@ -227,6 +227,6 @@ function createSoldDateChange() {
         'max="2030-01-01" ' +
         'name="date_sold" ' +
         'id="id_date_sold" ' +
-        'placeholder="Enter Date Sold">' +
+        'placeholder="Enter Date Sold">'
         +'<button type="submit">Submit</button>'
 }
