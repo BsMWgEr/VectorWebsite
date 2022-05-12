@@ -209,8 +209,12 @@
         document.getElementById('update-sold-new-customer-display').innerHTML = ''
     }
 
-    function closeAllSold() {
+    function closeSoldChangeDisplay() {
         document.getElementById('sold-change-display').innerHTML = ''
+    }
+
+    function closeAllSold() {
+        closeSoldChangeDisplay()
         closeSoldChangeDiv()
         closeSoldDiv()
         closeSoldNewCustomerDiv()
