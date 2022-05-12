@@ -4,7 +4,7 @@ from datetime import datetime
 from django.shortcuts import render
 from pytz import timezone
 from backend.forms import ContactForm
-from backend.models import PageVisitData, SearchQuery, Message, InventoryItem
+from backend.models import PageVisitData, SearchQuery, Message, InventoryItem, InventoryObject
 
 
 def search_view(request):
@@ -141,9 +141,14 @@ def index(request):
 
 
 def sportrigs_view(request):
-    containers_all = InventoryItem.objects.filter(type='sport_rigs', in_stock=False)
+    containers_all = InventoryObject.objects.filter(sold_data__isnull=True)
+    container_list = []
+    for x in containers_all:
+        container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=False)
+        container_list.append(container)
+
     context = {
-        'containers': containers_all,
+        'containers': container_list,
     }
 
     return render(request, "sportrigs.html", context=context)
