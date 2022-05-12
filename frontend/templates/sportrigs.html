@@ -27,20 +27,15 @@
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>{{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             {% if x.size %}
                                 <p class="color-vector">{{ x.size.size }}</p>
                             {% endif %}
                             <div class="description">{{ x.description }}</div>
                             <p class="price-vector">${{ x.price }}</p>
-                            {% if x.in_stock %}
-                                <p>IN STOCK NOW</p>
-                            {% else %}
-                                <p>Due On : {{ x.due_date }}</p>
-                            {% endif %}
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                                <p>{{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-vector" id="color-vector-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
