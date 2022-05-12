@@ -147,7 +147,8 @@ def sportrigs_view(request):
         if x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=False)
             if container:
-                container_list.append(container)
+                for y in container:
+                    container_list.append(y)
 
     context = {
         'containers': container_list,
