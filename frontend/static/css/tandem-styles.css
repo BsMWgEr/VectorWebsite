@@ -11,6 +11,12 @@ body {
     color: white;
 }
 
+.main-container {
+    margin-left: 10%;
+    width: 70%;
+    margin-bottom: 200px;
+}
+
 .top-box {
     margin-left: 10%;
     width: 70%;
