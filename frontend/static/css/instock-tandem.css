@@ -29,7 +29,8 @@ body {
 
 .columns {
     display: grid;
-    grid-template-columns: .8fr 1fr;
+    grid-template-columns: .4fr .4fr;
+    grid-column-gap: 0;
 }
 
 
@@ -42,9 +43,9 @@ body {
 .container {
     background: black;
     display: grid;
-    margin-top: 40px;
-    margin-left: 15%;
-    width: 600px;
+    margin-top: 15%;
+    margin-left: 18%;
+    width: 510px;
     height: 300px;
     box-shadow: 5px 5px 25px black;
     border-radius: 10px;
