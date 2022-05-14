@@ -153,6 +153,7 @@ function usePolicyAndUpload(fileItem, policyData){
         djHR.open(method, policyURL, true)
         djHR.setRequestHeader('Content-Type', 'application/json')
         djHR.setRequestHeader('X-CSRFTOKEN', crsfToken)
+        djHR.setRequestHeader('Content-Disposition', 'inline')
         djHR.onload = function() {
             if (djHR.status === 200) {
                 let listElementId = fileItem.uploadListElID
