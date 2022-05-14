@@ -81,6 +81,7 @@ class AWS:
             Params={
                 'Bucket': self.bucket,
                 'Key': key,
+                'ContentType': 'image/jpeg',
                 'ContentDisposition': 'inline',
 
             },
