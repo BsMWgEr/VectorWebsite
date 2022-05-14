@@ -81,7 +81,7 @@ class AWS:
             Params={
                 'Bucket': self.bucket,
                 'Key': key,
-                'ContentType': force_download
+                'ContentType': 'image/jpeg',
 
             },
             ExpiresIn=datetime.timedelta(hours=expires_in).total_seconds()
