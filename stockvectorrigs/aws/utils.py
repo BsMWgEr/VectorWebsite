@@ -81,7 +81,6 @@ class AWS:
             Params={
                 'Bucket': self.bucket,
                 'Key': key,
-                'ContentType': 'image/jpeg',
                 'ContentDisposition': 'inline',
 
             },
@@ -95,7 +94,7 @@ class AWS:
             acl = 'public-read'
         fields = {"acl": acl}
         conditions = [
-            {"acl": acl}
+            {"acl": acl, 'ContentDisposition': 'inline'}
         ]
         if key is None:
             return ""
@@ -106,6 +105,6 @@ class AWS:
             Bucket=self.bucket,
             Key=key,
             Fields=fields,
-            Conditions=conditions
+            Conditions=conditions,
         )
         return data
