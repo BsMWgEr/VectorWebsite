@@ -95,7 +95,7 @@ class AWS:
             acl = 'public-read'
         fields = {"acl": acl}
         conditions = [
-            {"acl": acl, 'ContentDisposition': 'inline'}
+            {"acl": acl}
         ]
         if key is None:
             return ""
