@@ -66,7 +66,7 @@ class AWS:
             self.s3_session = s3_session
         return self.s3_session
 
-    def get_download_url(self, force_download=False, key=None, expires_in=AWS_OBJECT_DOWNLOAD_HOURS):
+    def get_download_url(self, key=None, expires_in=AWS_OBJECT_DOWNLOAD_HOURS):
         """
         For any key, grab a signed url, that expires
         """
@@ -81,9 +81,6 @@ class AWS:
             Params={
                 'Bucket': self.bucket,
                 'Key': key,
-                'ContentType': 'image/jpeg',
-                'ContentDisposition': 'inline',
-
             },
             ExpiresIn=datetime.timedelta(hours=expires_in).total_seconds()
         )
