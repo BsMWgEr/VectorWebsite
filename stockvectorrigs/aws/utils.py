@@ -82,6 +82,7 @@ class AWS:
                 'Bucket': self.bucket,
                 'Key': key,
                 'ContentType': 'image/jpeg',
+                'ContentDisposition': 'inline; filename=filename.jpg',
 
             },
             ExpiresIn=datetime.timedelta(hours=expires_in).total_seconds()
