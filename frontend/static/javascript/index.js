@@ -4,18 +4,17 @@ function ScrollingNavBar() {
         window.scroll(0,110)
     }
     if (!navigation) {
-        if (document.documentElement.scrollTop >= 100 || document.body.scrollTop >= 100) {
-            document.getElementById('nav-button').className = 'nav-button'
-            document.getElementById('left-nav').className = 'none'
-            document.getElementById('nav-home').className = 'nav-container2'
-            document.getElementById('links').className = 'links3'
-            document.getElementById('logo-div').className = 'logo3'
-            document.getElementById('phone-number').className = 'phone-number3'
-            document.getElementById('f-book').className = 'f-book3'
-            document.getElementById('login').className = 'none'
-            document.getElementById('sidebar-search').className = 'sidebar-search2'
-
-        } else {
+        if ((document.documentElement.scrollTop >= 110 || document.body.scrollTop >= 110) && (document.body.scrollHeight > 1000)) {
+                document.getElementById('nav-button').className = 'nav-button'
+                document.getElementById('left-nav').className = 'none'
+                document.getElementById('nav-home').className = 'nav-container2'
+                document.getElementById('links').className = 'links3'
+                document.getElementById('logo-div').className = 'logo3'
+                document.getElementById('phone-number').className = 'phone-number3'
+                document.getElementById('f-book').className = 'f-book3'
+                document.getElementById('login').className = 'none'
+                document.getElementById('sidebar-search').className = 'sidebar-search2'
+            } else {
             document.getElementById('left-nav').className = 'left-nav'
             document.getElementById('nav-button').className = 'none'
             document.getElementById('nav-home').className = 'nav-container'
