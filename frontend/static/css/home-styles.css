@@ -18,7 +18,6 @@ body {
     height: 100%;
     background: #242323;
     margin-top: 5px;
-
 }
 
 .main-left {
@@ -74,9 +73,12 @@ body {
 
 
 .front-page-pic {
+    height: 100%;
+}
 
-
-
+.front-page-pic img {
+    max-width: 100%;
+    height: 650px;
 }
 
 .stillbrave {
