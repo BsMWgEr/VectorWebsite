@@ -16,6 +16,7 @@
   <div class="nav-container" {% block js %}{% endblock %}>
         <div class="left-nav">
             <div class="logo" id="logo-div"><img src="{% static 'images/logo.png' %}"></div>
+            {% block page_title %}{% endblock %}
             <div class="title-banner"><a href="/admin/backend/"><h2>Full Flight Sports Admin</h2></a></div>
         </div>
   <div class="admin-nav-links" >
