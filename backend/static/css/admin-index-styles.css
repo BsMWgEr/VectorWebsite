@@ -25,6 +25,11 @@ a {
 
 }
 
+.manager-page-title {
+    color: white;
+    margin-left: 40%;
+}
+
 
 .nav-container {
     display: grid;
