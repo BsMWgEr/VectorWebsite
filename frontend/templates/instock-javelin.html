@@ -28,6 +28,9 @@
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
+                        {% if staff_user %}
+                            {{ x.id }}
+                        {% endif %}
                             <p class="color-javelin">{{ x.name.name }}</p>
                             {% if x.serial_number %}
                                 <p class="color-javelin">Serial #{{ x.serial_number }}</p>
@@ -38,7 +41,7 @@
                                 <p>IN STOCK NOW - </p>
                             {% else %}
                                 {% if x.due_date %}
-                                    <p>{{ x.due_date }}</p>
+                                    <p>Due: {{ x.due_date }}</p>
                                 {% endif %}
                             {% endif %}
                             {% if x.size %}
@@ -48,17 +51,11 @@
                                 <div class="description">{{ x.description }}</div>
                             {% endif %}
                             <p class="price-javelin">${{ x.price }}</p>
-                            {% if x.in_stock %}
-                                <p>IN STOCK NOW</p>
-                            {% else %}
-                                {% if x.due_date %}
-                                    <p>Due On : {{ x.due_date }}</p>
-                                {% endif %}
-                            {% endif %}
+                            <button type="button">BUY NOW</button>
                             {% if x.po_number %}
                                 <p>{{ x.po_number }}</p>
                             {% endif %}
-                            <button type="button">BUY NOW</button>
+
                             {% if x.confirmation_r %}
                                 <a class="color-javelin" id="color-javelin-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
                             {% endif %}

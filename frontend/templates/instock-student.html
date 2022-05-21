@@ -29,6 +29,9 @@
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
+                        {% if staff_user %}
+                            {{ x.id }}
+                        {% endif %}
                             <p class="color-student">{{ x.name.name }} - </p>
                             <p class="color-student">Serial #{{ x.serial_number }} - </p>
                             {% if x.in_stock %}
