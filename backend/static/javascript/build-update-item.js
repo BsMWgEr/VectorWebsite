@@ -238,7 +238,8 @@ function descriptionChange() {
 function inStockChange() {
     let x;
     let y;
-    if (document.getElementById('p-instock').innerHTML === 'true') {
+    let gh3 = document.getElementById('gh3').innerHTML.split(' ')
+    if (gh3[2] === 'true') {
         y = "checked";
         x = ""
     } else {
