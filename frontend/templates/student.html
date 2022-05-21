@@ -34,18 +34,13 @@
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>{{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }} - </p>
                             {% endif %}
                             {% if x.size %}
                                 <p class="color-student">{{ x.size.size }}</p>
                             {% endif %}
                             <div class="description">{{ x.description }}</div>
                             <p class="price-student">${{ x.price }}</p>
-                            {% if x.in_stock %}
-                                <p>IN STOCK NOW</p>
-                            {% else %}
-                                <p>Due On : {{ x.due_date }}</p>
-                            {% endif %}
                             {% if x.po_number %}
                             {{ x.po_number }}
                             {% endif %}
