@@ -177,7 +177,8 @@ function PriceChange() {
     if (document.getElementById('e-id')) {
         document.getElementById('id').defaultValue = document.getElementById('e-id').innerHTML
     }
-    document.getElementById('price').defaultValue = document.getElementById('price-info').innerHTML
+    let qw = document.getElementById('price-info').innerHTML.split(' ')
+    document.getElementById('price').defaultValue = qw[1]
 }
 
     // Dynamic DueDate update form --> displays to build page on the update screen
