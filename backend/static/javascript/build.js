@@ -143,7 +143,6 @@
     }
 
     function openUpdateGroup() {
-        document.getElementById('div-change').className = 'div-change'
         closeAllSold()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'item-update-btn-group'
