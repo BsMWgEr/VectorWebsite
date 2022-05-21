@@ -143,6 +143,9 @@ def index(request):
 def sportrigs_view(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
+    staff_user = False
+    if request.user.is_staff:
+        staff_user = True
     for x in containers_all:
         if not x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=False)
@@ -152,6 +155,7 @@ def sportrigs_view(request):
 
     context = {
         'containers': container_list,
+        'staff_user': staff_user,
     }
 
     return render(request, "sportrigs.html", context=context)
@@ -160,6 +164,9 @@ def sportrigs_view(request):
 def sportrigs_instock_view(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
+    staff_user = False
+    if request.user.is_staff:
+        staff_user = True
     for x in containers_all:
         if not x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=True)
@@ -169,6 +176,7 @@ def sportrigs_instock_view(request):
 
     context = {
         'containers': container_list,
+        'staff_user': staff_user,
     }
 
     return render(request, 'instock-sportrigs.html', context=context)
@@ -240,7 +248,7 @@ def student_instock_view(request):
 
 def canopies(request):
     stuff = False
-    if request.user.is_authenticated:
+    if request.user.is_staff:
         stuff = True
     containers_all = InventoryItem.objects.all()
     containers_120 = InventoryItem.objects.all().filter(name__name__icontains='120').order_by('po_number')
@@ -284,6 +292,7 @@ def javelin(request):
 def javelin_instock_view(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
+
     for x in containers_all:
         if not x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='javelin_odyssey', in_stock=True)
