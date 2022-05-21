@@ -238,7 +238,7 @@ function descriptionChange() {
 function inStockChange() {
     let x;
     let y;
-    let gh3 = document.getElementById('gh3').innerHTML.split(' ')
+    let gh3 = document.getElementById('gh2').innerHTML.split(' ')
     if (gh3[2] === 'true') {
         y = "checked";
         x = ""
