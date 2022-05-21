@@ -34,14 +34,12 @@
                             <p class="color-javelin">{{ x.name.name }}</p>
                             {% if x.serial_number %}
                                 <p class="color-javelin">Serial #{{ x.serial_number }}</p>
-                            {% else %}
-                                <P class="color-javelin">Serial #: TBD</P>
                             {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
                                 {% if x.due_date %}
-                                    <p>{{ x.due_date }}</p>
+                                    <p>Due: {{ x.due_date }}</p>
                                 {% endif %}
                             {% endif %}
                             {% if x.size %}
