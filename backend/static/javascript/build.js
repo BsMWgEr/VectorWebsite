@@ -48,44 +48,58 @@
              serial_number_ = element.serial_number
          }
 
+         let in_stock = ''
+         if (element.in_stock === true) {
+             in_stock = "<p id='p-instock'>In Stock: " + element.in_stock + "</p>"
+         }  else {
+             in_stock = "<p id='due-date-info'>Due: " + element.due_date + "</p>"
+         }
+
          let confirmation_report = ""
          let confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: None</p>"
          if (element.confirmation_r !== "null") {
-             confirmation_report = "<a class='color-vector' id='color-vector-a' href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'>SEE CONFIRMATION REPORT</a>"
+             confirmation_report = "<a " +
+                 "class='color-vector' " +
+                 "id='color-vector-a' " +
+                 "href='https://stockvectorrigs.s3.amazonaws.com/static/" + element.confirmation_r + "'" +
+                 ">SEE CONFIRMATION REPORT</a>"
              confirmation_report2 = "<p id='p-tag-confirmation_r'>Confirmation Report: " + element.confirmation_r + "</p>"
          }
          openUpdateBtn()
 
          return "<div class='container' onclick='closeFields()'>"
             + "<div class='inner-container'>"
-            + "<div class='container-left'><img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'></div>"
-            + "<div id='selector' class='container-right'>"
-            + "<p id='name-display' class='color-vector'>" + element.name + "</p>"
-            + "<p class='color-vector'>" + serial_number_display + "</p>"
-            + "<p id='p-instock'>In Stock: " + element.in_stock + "</p>"
-            + "<p id='due-date-info'>Due: " + element.due_date + "</p>"
-            + "<p id='size-info' class='color-vector'>" + element.size + "</p>"
-            + "<div id='desc-info' class='description'>" + element.description + "</div>"
-            + "<p>$</p><p id='price-info' class='price-vector'>" + element.price + "</p>"
-            + "<p>Due On : " + element.due_date + "</p>"
-            + "<p>PO #: </p><p id='po-number-info'>" + element.po_number + "</p>"
-            + confirmation_report
-            + "</div>"
+                + "<div class='container-left'>" +
+                    "<img src='https://stockvectorrigs.s3.amazonaws.com/static/" + element.picture + "' height='140' width='212'>"
+                + "</div>"
+                + "<div id='selector' class='container-right'>"
+                    + "<p id='name-display' class='color-vector'>" + element.name + "</p>"
+                    + "<p class='color-vector'>" + serial_number_display + "</p>"
+                    + in_stock
+                    + "<p id='size-info' class='color-vector'>" + element.size + "</p>"
+                    + "<div id='desc-info' class='description'>" + element.description + "</div>"
+                    + "<p id='price-info' class='price-vector'>$" + element.price + "</p>"
+                    + "<p>PO #: </p><p id='po-number-info'>" + element.po_number + "</p>"
+                    + confirmation_report
+                + "</div>"
             + "</div>"
             + "</div>"
             + "<div class='bottom-display' id='div-box'>"
-             +'<div>'
-            + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
-            + "<p id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</p>"
-            + "<p>Item ID #: " + element.id + "</p>"
-            + "<p id='element-object-id'>InventoryObject ID#: " + element.object_id + "</p>"
-            + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
-            + "<p id='type_display'>Type: " + element.type + "</p>"
-            + "<p id='p-tag-name'>Name: " + element.name + "</p>"+ "<p id='p-tag-size'>Size: " + element.size + "</p>" + "<p id='due-date-info-raw'>Due Date: " + element.due_date + "</p>"
-            + confirmation_report2 + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
-            + "<p>Description: " + element.description + "</p>"
-             + "<p>PO Number: " + element.po_number + "</p>"
-             +'</div>'
+                 +'<div>'
+                    + "<h1 id='h1-info-tag'>Current Build: ID# </h1><h1 id='e-id'>" + element.id + "</h1>"
+                    + "<p id='gh2'>ITEM IN-STOCK: " + element.in_stock + "</p>"
+                    + "<p>Item ID #: " + element.id + "</p>"
+                    + "<p id='element-object-id'>InventoryObject ID#: " + element.object_id + "</p>"
+                    + "<p class='serial-tag' id='gh1'>" + serial_number_display + "</p>"
+                    + "<p id='type_display'>Type: " + element.type + "</p>"
+                    + "<p id='p-tag-name'>Name: " + element.name + "</p>"
+                    + "<p id='p-tag-size'>Size: " + element.size + "</p>"
+                    + "<p id='due-date-info-raw'>Due Date: " + element.due_date + "</p>"
+                    + confirmation_report2
+                    + "<p id='p-tag-picture'>Picture File: " + element.picture + "</p>"
+                    + "<p>Description: " + element.description + "</p>"
+                     + "<p>PO Number: " + element.po_number + "</p>"
+                 +'</div>'
             + "</div>"
 
     }
