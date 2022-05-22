@@ -1,13 +1,25 @@
+{% extends 'index-admin.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/contact-requests.css' %}">
+{% endblock %}
+{% block title %}
+    <title>Contact Requests</title>
+{% endblock %}
+{% block page_title %}<div class="manager-page-title"><h1>Contact Requests</h1></div>{% endblock %}
 
+{% block content %}
+<ol>
     {% for x in messages %}
-    <ol><li>
+    <li>
     <ul>
-        <li>{{ x.email }}</li>
-        <li>{{ x.subject }}</li>
-        <li>{{ x.time }}</li>
-        <li>{{ x.confirmation_number }}</li>
-        <li>{{ x.comment }}</li>
-        <li>{{ x.read }}</li>
-    </ul></li></ol>
+        <li>E-mail: {{ x.email }}</li>
+        <li>Subject: {{ x.subject }}</li>
+        <li>Time: {{ x.time }}</li>
+        <li>Confirmation Number: {{ x.confirmation_number }}</li>
+        <li>Message: {{ x.comment }}</li>
+        <li>Read: {{ x.read }}</li>
+    </ul></li>
     {% endfor %}
-
+</ol>
+{% endblock %}
