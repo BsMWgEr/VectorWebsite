@@ -424,6 +424,10 @@ button {
     background: fuchsia;
 }
 
+#build-create-sold-btn {
+    background: green;
+}
+
 .create-form-upload-btns {
     display: grid;
     margin-top: 500px;
