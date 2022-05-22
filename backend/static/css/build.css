@@ -465,5 +465,6 @@ button {
 .update-sold-new-customer-display input {
     width: 200px;
     font-size: 12pt;
+    margin: 10px
 }
 

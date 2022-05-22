@@ -27,6 +27,7 @@ function sendNewSoldData(event) {
 function openSoldCustomerSelect() {
     closeSoldChangeDiv()
     document.querySelector('#sold-change-display').className = 'sold-change-display'
+    document.querySelector('#update-sold-change-display').className = 'none'
     let obj_id = document.getElementById('element-object-id').innerHTML
 
     const xhr = new XMLHttpRequest()
@@ -207,6 +208,7 @@ function createSoldNewCustomer(event) {
 }
 
 function openNewSoldCustomerDisplay() {
+    document.querySelector('#update-sold-change-display').className = 'none'
     document.querySelector('#sold-change-display').className = 'none'
     document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
     document.getElementById('update-sold-new-customer-display').innerHTML =
