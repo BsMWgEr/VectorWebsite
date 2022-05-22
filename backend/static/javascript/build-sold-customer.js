@@ -159,6 +159,7 @@ function updateSoldData(event) {
 function createSoldInfoChange() {
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
+    document.querySelector('#sold-change-display').className = 'sold-change-display'
     let current_sold_info = document.getElementById('build-sold-info').innerHTML.split(' ')
     let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
     let sold_info = ''
@@ -173,6 +174,7 @@ function createSoldInfoChange() {
 function createSoldOtherChange() {
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
+    document.querySelector('#sold-change-display').className = 'sold-change-display'
     let current_sold_info = document.getElementById('build-sold-other').innerHTML.split(' ')
     let new_id = document.getElementById('sold-id-number').innerHTML.split(' ')
     let sold_info = ''
@@ -204,6 +206,7 @@ function createSoldNewCustomer(event) {
 }
 
 function openNewSoldCustomerDisplay() {
+    document.querySelector('#sold-change-display').className = 'none'
     document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
     document.getElementById('update-sold-new-customer-display').innerHTML =
             '<input type="text" name="first_name" maxLength="100" required id="id_first_name" placeholder="Enter First Name">'
@@ -218,6 +221,7 @@ function openNewSoldCustomerDisplay() {
 }
 
 function createSoldDateChange() {
+    document.querySelector('#sold-change-display').className = 'sold-change-display'
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
     let sold_id = document.getElementById('sold-id-number').innerHTML.split(' ')
