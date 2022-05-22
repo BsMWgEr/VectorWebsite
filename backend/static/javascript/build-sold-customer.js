@@ -159,6 +159,7 @@ function updateSoldData(event) {
 }
 
 function createSoldInfoChange() {
+    document.querySelector('#update-sold-change-display').className = 'update-sold-change-display'
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
     document.querySelector('#sold-change-display').className = 'sold-change-display'
@@ -174,6 +175,7 @@ function createSoldInfoChange() {
 }
 
 function createSoldOtherChange() {
+    document.querySelector('#update-sold-change-display').className = 'update-sold-change-display'
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
     document.querySelector('#sold-change-display').className = 'sold-change-display'
@@ -224,6 +226,7 @@ function openNewSoldCustomerDisplay() {
 }
 
 function createSoldDateChange() {
+    document.querySelector('#update-sold-change-display').className = 'update-sold-change-display'
     document.querySelector('#sold-change-display').className = 'sold-change-display'
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
