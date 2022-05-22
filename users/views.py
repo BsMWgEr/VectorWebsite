@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from backend.models import SearchQuery
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -29,12 +30,24 @@ def login_view(request):
             if x:
                 return render(request, "login.html", {
                     "message": "LOGIN FAILED", "x": x
-            })
+                })
 
     return render(request, "login.html")
 
 
 def logout_view(request):
     logout(request)
-
     return render(request, "logout.html")
+
+
+def registration_view(request):
+    form = UserCreationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/users/home/')
+    context = {"form": form}
+    return render(request, 'register.html', context=context)
+
+
+def customer_home_view(request):
+    return render(request, 'customer-home.html')
