@@ -211,7 +211,6 @@ function createSoldNewCustomer(event) {
 
 function openNewSoldCustomerDisplay() {
     document.querySelector('#update-sold-change-display').className = 'none'
-    document.querySelector('#sold-change-display').className = 'none'
     document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
     document.getElementById('update-sold-new-customer-display').innerHTML =
             '<input type="text" name="first_name" maxLength="100" required id="id_first_name" placeholder="Enter First Name">'
