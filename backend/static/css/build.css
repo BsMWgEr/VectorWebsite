@@ -442,7 +442,7 @@ button {
     display: flex;
 }
 
-.update-sold-change-display, .update-sold-new-customer-display {
+.sold-change-display, .update-sold-new-customer-display {
     display: flex;
     flex-direction: column;
     background: rgba(0,0,0,.5);
