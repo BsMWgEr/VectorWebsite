@@ -26,6 +26,7 @@ function sendNewSoldData(event) {
 
 function openSoldCustomerSelect() {
     closeSoldChangeDiv()
+    document.querySelector('#sold-change-display').className = 'sold-change-display'
     let obj_id = document.getElementById('element-object-id').innerHTML
 
     const xhr = new XMLHttpRequest()
