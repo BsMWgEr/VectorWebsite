@@ -449,17 +449,16 @@ button {
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: 200px;
+
 }
 
 .update-sold-new-customer-display {
     display: flex;
     flex-direction: column;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: 400px;
 }
 
 .update-sold-new-customer-display input {
@@ -475,6 +474,11 @@ button {
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: 200px;
+
+}
+
+#main-edit-div {
+    display: grid;
+    grid-template-columns: auto auto;
 }
 

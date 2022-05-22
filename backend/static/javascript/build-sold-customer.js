@@ -210,6 +210,7 @@ function createSoldNewCustomer(event) {
 }
 
 function openNewSoldCustomerDisplay() {
+    document.querySelector('#create-upload-div').className = 'none'
     document.querySelector('#div-build-update-sold_customer').className = 'none'
     document.querySelector('#update-sold-change-display').className = 'none'
     document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
