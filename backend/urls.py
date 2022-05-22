@@ -11,7 +11,7 @@ urlpatterns = [
     path('builder/', views.build_it, name="builder"),
     path('media/', views.media_view, name="media"),
     path('inventory/', views.inventory_view, name="inventory"),
-
+    path('contact-requests/', views.contact_requests_view, name="messages"),
 
     path('shipped/', views.shipped_view, name="shipped"),
 

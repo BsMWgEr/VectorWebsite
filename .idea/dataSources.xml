@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db.sqlite3" uuid="d1462b08-d9f3-4812-af1c-9eb6e8804950">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="d2ccr3ol8n58bd@ec2-54-86-224-85.compute-1.amazonaws.com" uuid="70dd89b5-ba4f-4d26-b973-022805102a89">
+    <data-source source="LOCAL" name="d4jv4q6lv24g7q@ec2-34-201-95-176.compute-1.amazonaws.com" uuid="45466e1e-dbb2-416c-be6f-25cdce067872">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-86-224-85.compute-1.amazonaws.com:5432/d2ccr3ol8n58bd</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-34-201-95-176.compute-1.amazonaws.com:5432/d4jv4q6lv24g7q</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="Django default" uuid="a2dab136-1ae0-43b0-b8c2-9abae907136c">
+    <data-source source="LOCAL" name="Django default" uuid="f83e0d69-af3d-4a57-a926-cb82e644d3ad">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>

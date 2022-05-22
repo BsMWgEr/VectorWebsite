@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from backend.forms import IdForm, BuildForm
-from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold
+from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold, Message
 
 
 @login_required
@@ -190,3 +190,12 @@ def build_it(request):
         'hold_options': holds,
     }
     return render(request, "build.html", context=context)
+
+
+def contact_requests_view(request):
+    contacts = Message.objects.all()
+
+    context = {
+        'messages': contacts,
+    }
+    return render(request, 'contact-requests.html', context=context)
