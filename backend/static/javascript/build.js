@@ -215,6 +215,7 @@
 
     function closeSoldChangeDiv() {
         document.getElementById('update-sold-change-display').innerHTML = ''
+        document.getElementById('update-sold-change-display').className = 'none'
     }
 
     function closeSoldNewCustomerDiv() {
