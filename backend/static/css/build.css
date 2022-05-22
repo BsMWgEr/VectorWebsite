@@ -442,13 +442,28 @@ button {
     display: flex;
 }
 
-.sold-change-display, .update-sold-new-customer-display {
+.sold-change-display {
     display: flex;
     flex-direction: column;
     background: rgba(0,0,0,.5);
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    transform: translate(50%);
+    margin-left: 200px;
+}
+
+.update-sold-new-customer-display {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.update-sold-new-customer-display input {
+    width: 200px;
+    font-size: 12pt;
 }
 
