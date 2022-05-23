@@ -538,7 +538,7 @@ def build_update_sold_data(request):
     return render(request, 'build-update-sold.html')
 
 
-@api_view(['GET', 'POST'])
+
 def build_create_new_shipping_data(request):
     form = NewShippingDataForm(request.POST or None)
     context = {
