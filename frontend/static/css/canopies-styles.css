@@ -231,3 +231,20 @@ body {
     transform: translate(50%, -150%);
     width: 400px;
 }
+
+.canopies-btn-group {
+    margin-left: 40%;
+}
+
+.canopies-btn-group a {
+    background: firebrick;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 0 5px black;
+}
+
+.canopies-btn-group a:hover {
+    box-shadow: none;
+    background: black;
+}
