@@ -255,6 +255,7 @@ def student_instock_view(request):
 
 
 def canopies(request):
+    canopies = True
     stuff = False
     if request.user.is_staff:
         stuff = True
@@ -279,11 +280,13 @@ def canopies(request):
         'containers_210': containers_210,
         'containers_230': containers_230,
         'stuff': stuff,
+        'canopies': canopies,
     }
     return render(request, "canopies.html", context=context)
 
 
 def canopies_sabre3(request):
+    sabre3 = True
     stuff = False
     if request.user.is_staff:
         stuff = True
@@ -308,6 +311,7 @@ def canopies_sabre3(request):
         'containers_210': containers_210,
         'containers_230': containers_230,
         'stuff': stuff,
+        'sabre3': sabre3,
     }
     return render(request, "canopies.html", context=context)
 
