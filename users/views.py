@@ -60,8 +60,12 @@ def registration_view(request):
         print(info)
         u1 = info.get('username')
         p1 = info.get('password1')
-        e1 = info.get('email')
-        obj = User.objects.create_user(username=u1, password=p1, first_name=first_name, last_name=last_name, email=email)
+        obj = User.objects.create_user(
+            username=u1,
+            password=p1,
+            first_name=first_name,
+            last_name=last_name,
+            email=email)
         obj.save()
         login(request, obj)
         return redirect('/users/home/')

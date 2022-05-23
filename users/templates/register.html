@@ -1,13 +1,25 @@
+<style>
+    .new-user-create-form {
+        display: grid;
+        margin-left: 40%;
+        margin-top: 100px;
+    }
+
+    #new-reg {
+
+    }
+</style>
+
 <div id="new-reg" style="display: grid">
-    <form method="post">
+    <form method="post" id="new-user-create-form" class="new-user-create-form">
         {% csrf_token %}
         {{ form.username }}
         {{ form.password1 }}
         {{ form.password2 }}
         <input type="text" name="first_name" placeholder="first name">
         <input type="text" name="last_name" placeholder="last name">
-        <input type="email" name="email" placeholder="enter">
-        <input type="tel" name="phone_number">
+        <input type="email" name="email" placeholder="enter email">
+        <input type="tel" name="phone_number" placeholder="enter phone number">
     <button type="submit">Submit</button>
     </form>
 </div>
