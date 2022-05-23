@@ -28,6 +28,7 @@
         {% if stuff %}
         <p class="admin-banner">You are currently viewing an Admin-View logged in as {{ user.username }}</p>
         {% endif %}
+    {% if canopies %}
         <div id="div-top">
             <h1>CANOPIES IN STOCK OR COMING SOON</h1>
             <p>Our focus here has always been on stocking Vector and then Javelin containers,
@@ -48,17 +49,50 @@
         </div>
         <div id="filter" class="display-opac">
             <div class="grid">
-            <div class="filter"><a href="/cs-canopies/#div-top">Top</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-230">230's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-210">210's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-190">190's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-170">170's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-150">150's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-135">135's</a></div>
-            <div class="filter"><a href="/cs-canopies/#div-120">120's</a></div>
+            <div class="filter"><a href="/canopies/#div-top">Top</a></div>
+            <div class="filter"><a href="/canopies/#div-230">230's</a></div>
+            <div class="filter"><a href="/canopies/#div-210">210's</a></div>
+            <div class="filter"><a href="/canopies/#div-190">190's</a></div>
+            <div class="filter"><a href="/canopies/#div-170">170's</a></div>
+            <div class="filter"><a href="/canopies/#div-150">150's</a></div>
+            <div class="filter"><a href="/canopies/#div-135">135's</a></div>
+            <div class="filter"><a href="/canopies/#div-120">120's</a></div>
 
             </div>
         </div>
+    {% elif sabre_3 %}
+        <div id="div-top">
+            <h1>Sabre-3 CANOPIES IN STOCK OR COMING SOON</h1>
+            <p>Our focus here has always been on stocking Vector and then Javelin containers,
+                because they were the hard piece to find when trying to put a system together.
+                Lately though, and for several reasons, canopy manufacturers have been having
+                trouble keeping certain canopies in stock. Specifically, for our clientele,
+                the Sabre-3 has been impossible to find so we are starting to buy a few ourselves
+                for stock and we will continue to do so until the situation improves. The canopies
+                are listed here by size first and then by arrival date. A few are in stock but
+                most are due over the next three months. </p>
+            <div id="canopies-btn-group" class="canopies-btn-group">
+                <a href="/sabre3-canopies/">Sabre 3 Canopies</a>
+                <a href="/pulse-canopies/">Pulse Canopies</a>
+            </div>
+
+            <h2>Sabre-3 Canopies Currently Available</h2>
+
+        </div>
+        <div id="filter" class="display-opac">
+            <div class="grid">
+            <div class="filter"><a href="/sabre3-canopies/#div-top">Top</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-230">230's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-210">210's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-190">190's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-170">170's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-150">150's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-135">135's</a></div>
+            <div class="filter"><a href="/sabre3-canopies/#div-120">120's</a></div>
+
+            </div>
+        </div>
+    {% endif %}
         <div id="div-120" class="sections">
         <h1>107's</h1>
         {% for x in containers_107 %}
