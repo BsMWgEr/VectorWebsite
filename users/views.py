@@ -42,11 +42,23 @@ def logout_view(request):
 
 
 def registration_view(request):
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    email = request.POST.get('email')
+    phone_number = request.POST.get('phone_number')
 
-    #new_user = User.objects.create_user(username=name, email=email, password=password)
+    # new_user = User.objects.create_user(username=name, email=email, password=password)
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        info = form.data
+        print(info)
+        u1 = info.get('username')
+        p1 = info.get('password1')
+        e1 = info.get('email')
+        print(e1)
+        obj = User.objects.create_user(username=u1, password=p1, first_name=first_name, last_name=last_name, email=email)
+        print(obj)
+        obj.save()
         return redirect('/users/home/')
     context = {"form": form}
     return render(request, 'register.html', context=context)

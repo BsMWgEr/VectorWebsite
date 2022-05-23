@@ -1,7 +1,13 @@
 <div id="new-reg" style="display: grid">
     <form method="post">
         {% csrf_token %}
-    {{ form }}
+        {{ form.username }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+        <input type="text" name="first_name" placeholder="first name">
+        <input type="text" name="last_name" placeholder="last name">
+        <input type="email" name="email" placeholder="enter">
+        <input type="tel" name="phone_number">
     <button type="submit">Submit</button>
     </form>
 </div>
