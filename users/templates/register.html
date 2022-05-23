@@ -1,8 +1,9 @@
 <style>
     .new-user-create-form {
         display: grid;
-        margin-left: 40%;
+        margin-left: 20%;
         margin-top: 100px;
+        width: 400px;
     }
 
     #new-reg {
@@ -13,8 +14,11 @@
 <div id="new-reg" style="display: grid">
     <form method="post" id="new-user-create-form" class="new-user-create-form">
         {% csrf_token %}
+        <label>Enter Username</label>
         {{ form.username }}
+        <label>Enter Password</label>
         {{ form.password1 }}
+        <label>Re-Enter Password</label>
         {{ form.password2 }}
         <input type="text" name="first_name" placeholder="first name">
         <input type="text" name="last_name" placeholder="last name">
