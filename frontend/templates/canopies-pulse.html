@@ -12,14 +12,16 @@
             <div class="grid2">
                 <div class="filter"><a href="/">Home</a></div>
                 <div class="filter"><a href="/instock/">In Stock</a></div>
-                <div class="filter"><a href="/vector3/">Vector</a></div>
+                <div class="filter"><a href="/cs-sportrigs/">Sport Rigs</a></div>
                 <div class="filter"><a href="/tandem/">Tandem</a></div>
                 <div class="filter"><a href="/student/">Student</a></div>
                 <div class="filter"><a href="/javelin-odyssey/">Javelin</a></div>
+                <div class="filter"><a href="/canopies/">All Canopies</a></div>
+                <div class="filter"><a href="/sabre3-canopies/">Sabre 3 Canopies</a></div>
                 <div class="filter"><a href="/#contact-footer">Contact Us!</a></div>
                 <div class="left-tag" id="sidebar-tag"><p class="sidebar-tag">NAVIGATION</p></div>
                 {% if stuff %}
-                <div class="filter"><a href="/admin/" target="_blank">Admin</a></div>
+                <div class="filter"><a href="/users/" target="_blank">Admin Home</a></div>
                 <div class="filter"><a href="manager/builder/" target="_blank">Add Item</a></div>
                 {% endif %}
             </div>
@@ -28,46 +30,82 @@
             <p class="admin-banner">You are currently viewing an Admin-View logged in as {{ user.username }}</p>
         {% endif %}
         <div id="div-top">
-            <h1>CANOPIES IN STOCK OR COMING SOON</h1>
+            <h1>Pulse CANOPIES IN STOCK OR COMING SOON</h1>
             <p></p>
-            <h2>Tandem Canopies</h2>
+            <h2>Pulse Canopies</h2>
         </div>
         <div id="filter" class="display-opac">
             <div class="grid">
-                <div class="filter"><a href="/cs-canopies/#div-top">Top</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-230">230's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-210">210's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-190">190's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-170">170's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-150">150's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-135">135's</a></div>
-                <div class="filter"><a href="/cs-canopies/#div-120">120's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-top">Top</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-230">230's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-210">210's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-190">190's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-170">170's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-150">150's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-135">135's</a></div>
+                <div class="filter"><a href="/canopies-pulse/#div-120">120's</a></div>
             </div>
         </div>
 
+        <div id="div-120" class="sections">
+        <h1>107's</h1>
+        {% for x in containers_107 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
+                        <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: white;">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>Due: {{ x.due_date }}</p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
+                            {% if x.po_number %}
+                            <p>PO #: {{ x.po_number }}</p>
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
         <div id="div-120" class="sections">
         <h1>120's</h1>
         {% for x in containers_120 %}
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
-                       <div class="container-right">
+                        <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -85,21 +123,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -117,21 +157,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -149,21 +191,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -179,23 +223,25 @@
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
-                       <div class="container-right">
+                        <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -213,21 +259,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -245,21 +293,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>

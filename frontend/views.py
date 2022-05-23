@@ -283,6 +283,64 @@ def canopies(request):
     return render(request, "canopies.html", context=context)
 
 
+def canopies_sabre3(request):
+    stuff = False
+    if request.user.is_staff:
+        stuff = True
+    containers_all = InventoryItem.objects.all()
+    containers_107 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 107').order_by('po_number')
+    containers_120 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 120').order_by('po_number')
+    containers_135 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 135').order_by('po_number')
+    containers_150 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 150').order_by('po_number')
+    containers_170 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 170').order_by('po_number')
+    containers_190 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 190').order_by('po_number')
+    containers_210 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 210').order_by('po_number')
+    containers_230 = InventoryItem.objects.all().filter(name__name__icontains='Sabre-3 230').order_by('po_number')
+
+    context = {
+        'containers': containers_all,
+        'containers_107': containers_107,
+        'containers_120': containers_120,
+        'containers_135': containers_135,
+        'containers_150': containers_150,
+        'containers_170': containers_170,
+        'containers_190': containers_190,
+        'containers_210': containers_210,
+        'containers_230': containers_230,
+        'stuff': stuff,
+    }
+    return render(request, "canopies.html", context=context)
+
+
+def canopies_pulse(request):
+    stuff = False
+    if request.user.is_staff:
+        stuff = True
+    containers_all = InventoryItem.objects.all()
+    containers_107 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 107').order_by('po_number')
+    containers_120 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 120').order_by('po_number')
+    containers_135 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 135').order_by('po_number')
+    containers_150 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 150').order_by('po_number')
+    containers_170 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 170').order_by('po_number')
+    containers_190 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 190').order_by('po_number')
+    containers_210 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 210').order_by('po_number')
+    containers_230 = InventoryItem.objects.all().filter(name__name__icontains='Pulse 230').order_by('po_number')
+
+    context = {
+        'containers': containers_all,
+        'containers_107': containers_107,
+        'containers_120': containers_120,
+        'containers_135': containers_135,
+        'containers_150': containers_150,
+        'containers_170': containers_170,
+        'containers_190': containers_190,
+        'containers_210': containers_210,
+        'containers_230': containers_230,
+        'stuff': stuff,
+    }
+
+    return render(request, 'canopies-pulse.html', context=context)
+
 def javelin(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
