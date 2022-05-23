@@ -259,6 +259,7 @@ def canopies(request):
     if request.user.is_staff:
         stuff = True
     containers_all = InventoryItem.objects.all()
+    containers_107 = InventoryItem.objects.all().filter(name__name__icontains='107').order_by('po_number')
     containers_120 = InventoryItem.objects.all().filter(name__name__icontains='120').order_by('po_number')
     containers_135 = InventoryItem.objects.all().filter(name__name__icontains='135').order_by('po_number')
     containers_150 = InventoryItem.objects.all().filter(name__name__icontains='150').order_by('po_number')
@@ -269,6 +270,7 @@ def canopies(request):
 
     context = {
         'containers': containers_all,
+        'containers_107': containers_107,
         'containers_120': containers_120,
         'containers_135': containers_135,
         'containers_150': containers_150,

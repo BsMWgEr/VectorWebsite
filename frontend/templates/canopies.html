@@ -52,7 +52,38 @@
 
             </div>
         </div>
-
+        <div id="div-120" class="sections">
+        <h1>107's</h1>
+        {% for x in containers_107 %}
+                <div class="container">
+                    <div class="inner-container">
+                        <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
+                       <div class="container-right">
+                            {% if stuff %}
+                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.name.name }} - </p>
+                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            {% if x.in_stock %}
+                                <p>IN STOCK NOW - </p>
+                            {% else %}
+                                <p>Due: {{ x.due_date }} - </p>
+                            {% endif %}
+                            <p class="color-canopies">{{ x.size.size }}</p>
+                            <div class="description">{{ x.description }}</div>
+                            <p class="price-canopies">${{ x.price }}</p>
+                            <button>BUY NOW</button>
+                            {% if x.po_number %}
+                            {{ x.po_number }}
+                            {% endif %}
+                            {% if x.confirmation_r %}
+                                <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
         <div id="div-120" class="sections">
         <h1>120's</h1>
         {% for x in containers_120 %}
