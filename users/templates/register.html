@@ -12,6 +12,15 @@
 </style>
 
 <div id="new-reg" style="display: grid">
+    <h3>Thanks for your interest! We need a few things from you to get this purchase going.</h3>
+    <p>Information Required:</p>
+    <ol>
+        <li>Choose a Username</li>
+        <li>Choose a Password, and re-enter</li>
+        <li>Your name</li>
+        <li>A valid email to reach you at</li>
+        <li>A valid phone number</li>
+    </ol>
     <form method="post" id="new-user-create-form" class="new-user-create-form">
         {% csrf_token %}
         <label>Enter Username</label>
@@ -20,6 +29,7 @@
         {{ form.password1 }}
         <label>Re-Enter Password</label>
         {{ form.password2 }}
+        <hr>
         <input type="text" name="first_name" placeholder="first name">
         <input type="text" name="last_name" placeholder="last name">
         <input type="email" name="email" placeholder="enter email">
