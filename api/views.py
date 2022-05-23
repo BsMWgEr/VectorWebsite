@@ -434,7 +434,7 @@ def customer_data_api(request):
 
 
 # SOLD AND CUSTOMER DATA RETRIEVAL
-@api_view(['GET', 'POST'])
+
 def endpoint3(request):
     if request.GET.get('all_sold_data'):
         data_id = request.GET.get('all_sold_data')
