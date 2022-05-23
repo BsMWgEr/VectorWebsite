@@ -1,0 +1,16 @@
+<div id="customer-purchase-item"></div>
+<h2>User Info:</h2>
+    <ul>
+        <li>{{ first_name }}</li>
+        <li>{{ last_name }}</li>
+        <li>{{ email }}</li>
+        <li>{{ username }}</li>
+    </ul>
+
+
+
+
+<script>
+    let purchase_item = localStorage.getItem('inventoryitem')
+    document.querySelector('#customer-purchase-item').innerHTML = '<h1>' + purchase_item + '</h1>'
+</script>

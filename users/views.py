@@ -53,4 +53,13 @@ def registration_view(request):
 
 
 def customer_home_view(request):
-    return render(request, 'customer-home.html')
+    user = request.user
+
+    context = {
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email': user.email,
+        'username': user.username,
+    }
+
+    return render(request, 'customer-home.html', context=context)
