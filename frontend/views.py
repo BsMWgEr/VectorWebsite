@@ -144,8 +144,10 @@ def sportrigs_view(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
     staff_user = False
+    user_is_admin = False
     if request.user.is_staff:
         staff_user = True
+        user_is_admin = True
     for x in containers_all:
         if not x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=False)
@@ -156,6 +158,7 @@ def sportrigs_view(request):
     context = {
         'containers': container_list,
         'staff_user': staff_user,
+        'user_is_admin': user_is_admin,
     }
 
     return render(request, "sportrigs.html", context=context)
@@ -165,8 +168,10 @@ def sportrigs_instock_view(request):
     containers_all = InventoryObject.objects.all()
     container_list = []
     staff_user = False
+    user_is_admin = False
     if request.user.is_staff:
         staff_user = True
+        user_is_admin = True
     for x in containers_all:
         if not x.sold_data_id:
             container = InventoryItem.objects.filter(id=x.inventory_item_id, type='sport_rigs', in_stock=True)
@@ -177,6 +182,7 @@ def sportrigs_instock_view(request):
     context = {
         'containers': container_list,
         'staff_user': staff_user,
+        'user_is_admin': user_is_admin,
     }
 
     return render(request, 'instock-sportrigs.html', context=context)

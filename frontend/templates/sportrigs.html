@@ -12,7 +12,9 @@
     <div class="instock">
     <h1>Coming Soon</h1>
     <h2>Please Note: UPT is now 8 weeks behind - Price Increase Effective 1/21/22</h2>
-
+        {% if user_is_admin %}
+        <p class="admin-banner">You are currently viewing an Admin-View logged in as {{ user.username }}</p>
+        {% endif %}
     </div>
 
         {% for x in containers %}
