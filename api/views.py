@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
-from backend.forms import BuildForm, SoldDataForm, NewCustomerForm
+from backend.forms import BuildForm, SoldDataForm, NewCustomerForm, NewShippingDataForm
 from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, Name, Size, ShippingDetail
 from stockvectorrigs.aws.utils import AWS
 
@@ -536,3 +536,11 @@ def build_update_sold_data(request):
             SoldDetail.objects.filter(id=dict_id).update(date_sold=dict_date)
 
     return render(request, 'build-update-sold.html')
+
+
+def build_create_new_shipping_data(request):
+    form = NewShippingDataForm(request.POST or None)
+    context = {
+        'form': form
+    }
+    return render(request, 'shipping_data_api.html', context=context)

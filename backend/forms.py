@@ -1,5 +1,5 @@
 from django import forms
-from .models import Message, InventoryObject, SoldDetail, Customer, InventoryItem
+from .models import Message, InventoryObject, SoldDetail, Customer, InventoryItem, ShippingDetail, CustomerShippingAddress
 from django.forms import TextInput, Textarea
 
 
@@ -78,4 +78,18 @@ class NewCustomerForm(forms.ModelForm):
             'phone_number',
             'original_contact',
 
+        ]
+
+
+class NewShippingDataForm(forms.ModelForm):
+    class Meta:
+        model = ShippingDetail
+        fields = [
+            'inventory_item',
+            'sold_detail',
+            'shipping_address',
+            'date_shipped',
+            'tracking_number',
+            'Shipper_info1',
+            'Shipper_info2',
         ]
