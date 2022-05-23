@@ -58,23 +58,25 @@
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
-                       <div class="container-right">
+                        <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -90,23 +92,25 @@
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
-                       <div class="container-right">
+                        <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -124,21 +128,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -156,21 +162,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -188,21 +196,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -218,23 +228,25 @@
                 <div class="container">
                     <div class="inner-container">
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
-                       <div class="container-right">
+                        <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -252,21 +264,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
@@ -284,21 +298,23 @@
                         <div class="container-left"><img src="{% static '' %}{{ x.picture.key }}" height="140" width="212"></div>
                         <div class="container-right">
                             {% if stuff %}
-                            <span class="" style="color: pink; font-size: 20pt">{{ x.id }}</span>
+                            <span class="" style="color: white;">{{ x.id }}</span>
                             {% endif %}
-                            <p class="color-canopies">{{ x.name.name }} - </p>
-                            <p class="color-canopies">Serial #{{ x.serial_number }} - </p>
+                            <p class="color-canopies">{{ x.name.name }}</p>
+                            {% if x.serial_number == 'TBD' %}{% else %}
+                            <p class="color-canopies">Serial #{{ x.serial_number }}</p>
+                            {% endif %}
                             {% if x.in_stock %}
                                 <p>IN STOCK NOW - </p>
                             {% else %}
-                                <p>Due: {{ x.due_date }} - </p>
+                                <p>Due: {{ x.due_date }}</p>
                             {% endif %}
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
                             <button>BUY NOW</button>
                             {% if x.po_number %}
-                            {{ x.po_number }}
+                            <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
                             {% if x.confirmation_r %}
                                 <a class="color-canopies" id="color-canopies-a" href="{% static '' %}{{ x.confirmation_r.key }}">SEE CONFIRMATION REPORT</a>
