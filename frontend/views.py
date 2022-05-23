@@ -311,7 +311,7 @@ def canopies_sabre3(request):
         'containers_210': containers_210,
         'containers_230': containers_230,
         'stuff': stuff,
-        'sabre3': sabre3,
+        'sabre_3': sabre3,
     }
     return render(request, "canopies.html", context=context)
 
