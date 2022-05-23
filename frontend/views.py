@@ -349,7 +349,7 @@ def canopies_pulse(request):
         'stuff': stuff,
     }
 
-    return render(request, 'canopies-pulse.html', context=context)
+    return render(request, 'canopies.html', context=context)
 
 def javelin(request):
     containers_all = InventoryObject.objects.all()
