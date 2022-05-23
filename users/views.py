@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from backend.models import SearchQuery
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -41,6 +42,8 @@ def logout_view(request):
 
 
 def registration_view(request):
+
+    #new_user = User.objects.create_user(username=name, email=email, password=password)
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
         form.save()

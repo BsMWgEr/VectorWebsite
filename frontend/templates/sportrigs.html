@@ -37,7 +37,7 @@
                             {% endif %}
                             <div class="description">{{ x.description }}</div>
                             <p class="price-vector">${{ x.price }}</p>
-                            <button type="button">BUY NOW</button>
+                            <button class="buy-now-button" type="button">BUY NOW</button>
                             {% if x.po_number %}
                                 <p>{{ x.po_number }}</p>
                             {% endif %}
@@ -51,6 +51,13 @@
 
 
         </div>
+
+        <script>
+        document.querySelector('.buy-now-button').addEventListener('click', loadNewUserForm)
+        function loadNewUserForm() {
+            window.location.assign('https://vectorrigs.herokuapp.com/users/register/')
+        }
+        </script>
     <!--
     <script>
     const element = document.getElementById('tweets')
