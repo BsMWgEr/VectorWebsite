@@ -1,3 +1,11 @@
 <div id="new-reg">
     {{ form }}
 </div>
+
+<div id="change-div"></div>
+
+<script>
+    let item_id = localStorage.getItem('inventoryitem')
+    document.getElementById('change-div').innerHTML = 'Future Purchase ${item_id}'
+
+</script>
