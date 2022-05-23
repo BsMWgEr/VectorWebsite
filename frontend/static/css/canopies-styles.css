@@ -43,8 +43,8 @@ body {
 }
 
 .description {
-    margin-top: 3%;
-    margin-bottom: 6%;
+    margin-top: 10%;
+    margin-bottom: 12%;
     color: #bebcc2;
     font-size: 10pt;
     font-weight: 600;
@@ -72,6 +72,10 @@ body {
 .container-right {
     margin-left: 50px;
     font-family: Arial;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
 }
 
 .color-canopies {
