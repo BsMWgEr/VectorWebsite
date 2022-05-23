@@ -44,7 +44,7 @@
                             {% endif %}
                             <div class="description">{{ x.description }}</div>
                             <p class="price-student">${{ x.price }}</p>
-                            <button type="button">BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})" type="button">BUY NOW</button>
                             {% if x.po_number %}
                             {{ x.po_number }}
                             {% endif %}

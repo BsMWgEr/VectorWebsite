@@ -51,7 +51,7 @@
                                 <div class="description">{{ x.description }}</div>
                             {% endif %}
                             <p class="price-javelin">${{ x.price }}</p>
-                            <button type="button">BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})" type="button">BUY NOW</button>
                             {% if x.po_number %}
                                 <p>{{ x.po_number }}</p>
                             {% endif %}

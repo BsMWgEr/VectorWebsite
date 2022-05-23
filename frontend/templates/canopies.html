@@ -74,7 +74,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -108,7 +108,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -142,7 +142,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -176,7 +176,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -210,7 +210,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -244,7 +244,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -278,7 +278,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -312,7 +312,7 @@
                             <p class="color-canopies">{{ x.size.size }}</p>
                             <div class="description">{{ x.description }}</div>
                             <p class="price-canopies">${{ x.price }}</p>
-                            <button>BUY NOW</button>
+                            <button onclick="loadNewUserForm({{ x.id }})">BUY NOW</button>
                             {% if x.po_number %}
                             <p>PO #: {{ x.po_number }}</p>
                             {% endif %}
@@ -328,4 +328,5 @@
     </div>
 
     <script type="text/javascript" src="{% static 'javascript/canopies.js' %}"></script>
+
 {% endblock %}
