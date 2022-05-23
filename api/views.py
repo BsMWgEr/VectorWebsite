@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
@@ -433,6 +434,7 @@ def customer_data_api(request):
 
 
 # SOLD AND CUSTOMER DATA RETRIEVAL
+@api_view(['GET', 'POST'])
 def endpoint3(request):
     if request.GET.get('all_sold_data'):
         data_id = request.GET.get('all_sold_data')
