@@ -582,11 +582,11 @@ def get_shipping_data(request):
         customer_id = 0
         name = ''
         for i in i_obj:
-            y = i.sold_data_id
-            z = i.inventory_item_id
+            y = i.sold_data.id
+            z = i.inventory_item.id
         sold_data = SoldDetail.objects.filter(id=y)
         for x in sold_data:
-            customer_id = x.purchased_by_id
+            customer_id = x.purchased_by.id
         if customer_id:
             customer = Customer.objects.filter(id=customer_id)
             for xx in customer:
