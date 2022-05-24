@@ -79,13 +79,13 @@ function openNewShippingDataForm() {
         console.log(item)
 
         main_str = '<select name="inventory_item" required id="id_inventory_item">'
-                + '<option value="' + item[0].inventory_item_id +'"></option>'
+                + '<option value="' + item[0].inventory_item_id +'" selected>'+ item[0].name + '--' + item[0].serial_number +'</option>'
             + '</select>'
             + '<select name="sold_detail" required id="id_sold_detail">'
-                + '<option value="'+ sold_info[0].sold_data_id +'">'+ sold_info[0].sold_data +'</option>'
+                + '<option value="'+ sold_info[0].sold_data_id +'" selected>'+ sold_info[0].sold_data +'</option>'
             + '</select>'
             + '<select name="shipping_address" required id="id_shipping_address">'
-                + '<option></option>'
+                + '<option selected>Shipping stuff goes here</option>'
             + '</select>'
             + '<input type="text" name="date_shipped" id="id_date_shipped">'
             + '<input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">'

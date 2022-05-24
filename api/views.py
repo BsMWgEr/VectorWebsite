@@ -581,6 +581,8 @@ def get_shipping_data(request):
         z = 0
         customer_id = 0
         name = ''
+        serial_number = ''
+        item_name = ''
         for i in i_obj:
             y = i.sold_data_id
             print(y)
@@ -588,6 +590,11 @@ def get_shipping_data(request):
             print(z)
         sold_data = SoldDetail.objects.filter(id=y)
         print(sold_data)
+        items = InventoryItem.objects.filter(id=z)
+        for x in items:
+            item_name = x.name.name
+            if x.serial_number != 'TBD':
+                serial_number = x.serial_number
         for x in sold_data:
             customer_id = x.purchased_by.id
             print(customer_id)
@@ -611,6 +618,8 @@ def get_shipping_data(request):
         } for u in shipping]
         container_list3 = [{
             'inventory_item_id': z,
+            'name': item_name,
+            'serial_number': serial_number,
         }]
 
         data = {
