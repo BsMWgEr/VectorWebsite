@@ -1,10 +1,10 @@
 function createNewShipping(event) {
     event.preventDefault()
     let my_form = event.target
-    let my_FormData = new FormData(my_Form)
+    let my_FormData = new FormData(my_form)
     let xhr = new XMLHttpRequest()
     let method = my_form.getAttribute('method')
-    let url = my_Form.getAttribute('action')
+    let url = my_form.getAttribute('action')
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
@@ -19,10 +19,10 @@ function createNewShipping(event) {
 function createNewShippingAddress(event) {
     event.preventDefault()
     let my_form = event.target
-    let my_FormData = new FormData(my_Form)
+    let my_FormData = new FormData(my_form)
     let xhr = new XMLHttpRequest()
     let method = my_form.getAttribute('method')
-    let url = my_Form.getAttribute('action')
+    let url = my_form.getAttribute('action')
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
