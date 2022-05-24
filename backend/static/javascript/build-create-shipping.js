@@ -90,6 +90,7 @@ function openNewShippingAddressForm() {
         }
 
         let new_str = ''
+            + '<input type="number" value="'+ element[2] +'" name="inventory_object_id" hidden>'
             +'<select name="customer" required id="id_customer">'
                 + first_str
             +'</select>'
@@ -136,6 +137,7 @@ function openNewShippingDataForm() {
             + '<select name="sold_detail" required id="id_sold_detail" hidden>'
                 + '<option value="'+ sold_info[0].sold_data_id +'" selected>'+ sold_info[0].sold_data +'</option>'
             + '</select>'
+            + '<input type="number" name="inventory_object_id" value="'+ obj_id[2] +'" hidden>'
             + '<select name="shipping_address" required id="id_shipping_address">'
                 + shipping_address
             + '</select>'

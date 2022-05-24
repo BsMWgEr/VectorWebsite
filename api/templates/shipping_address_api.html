@@ -1,5 +1,6 @@
 <form>
     {% csrf_token %}
     {{ form }}
+    <input type="number" name="inventory_object_id">
     <button type="submit">Submit</button>
 </form>
