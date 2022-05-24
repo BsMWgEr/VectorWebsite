@@ -67,7 +67,7 @@ function createNewShippingAddress() {
         let answer = serverResponse.response
         let first_str = ''
         for (let i = 0; i < answer.length; i++) {
-            first_str += '<option value="'+ answer[i].id +'" selected>'+ answer[i].first_name + ' ' + answer[0].last_name +'</option>'
+            first_str += '<option value="'+ answer[i].id +'" selected>'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
         }
 
         let new_str = ''

@@ -457,7 +457,7 @@ button {
 }
 
 .div-build-new-shipping-address {
-
+    display: flex;
 }
 
 .update-sold-new-customer-display {
