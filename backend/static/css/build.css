@@ -68,11 +68,11 @@ input {
 .container {
     background: black;
     display: grid;
-    margin-top: 40px;
+    margin-top: 10%;
     box-shadow: 5px 5px 25px black;
     border-radius: 10px;
-    max-width: 95%;
-    margin-left: 2%;
+    max-width: 75%;
+    margin-left: 10%;
     min-width: 60%;
 
 
@@ -246,8 +246,6 @@ button {
 .bottom-display {
 
     margin-top: 50px;
-    max-width: 98%;
-    min-width:300px;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 50px;
@@ -255,6 +253,8 @@ button {
     background: orange;
     border-radius: 10px;
     box-shadow: 0 0 20px black;
+    max-width: 1380px;
+    min-width: 800px;
 }
 
 .sold-tag {
@@ -327,8 +327,7 @@ button {
 }
 
 .display-right {
-    min-width: 80%;
-    max-width: 95%;
+    width: 100%;
 }
 
 .inputs {
@@ -402,6 +401,7 @@ button {
 
 .container-display {
     margin-bottom: 200px;
+    width: 100%;
 }
 
 .uploadForm {
