@@ -577,9 +577,9 @@ def get_shipping_data(request):
     else:
         objs_id = request.GET.get('objs_id')
         i_obj = InventoryObject.objects.filter(id=objs_id)
-        y = None
-        z = None
-        customer_id = None
+        y = 0
+        z = 0
+        customer_id = 0
         name = ''
         for i in i_obj:
             y = i.sold_data_id
