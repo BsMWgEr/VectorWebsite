@@ -64,7 +64,7 @@ function openNewShippingDataForm() {
     let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = 'https://vectorrigs.herokuapp.com/api/get-shipping-data-api' + "?other_id=" + obj_id[2].toString()
+    const url = '/api/get-shipping-data-api' + "?other_id=" + obj_id[2].toString()
     const responseType = 'json'
     xhr.responseType = responseType
     xhr.open(method, url)

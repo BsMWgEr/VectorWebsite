@@ -611,7 +611,7 @@ def get_shipping_data(request):
     data = {
         "response": container_list,
         "shipping": container_list2,
-        "Inventory_item": container_list3,
+        "inventory_item": container_list3,
     }
     print(data)
     return JsonResponse(data)
