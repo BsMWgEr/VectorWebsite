@@ -54,10 +54,36 @@ function openShippingData() {
     xhr.send()
 }
 
-function getShippingSoldFormData() {
+function createNewShippingAddress() {
+    document.getElementById('div-build-new-shipping-address').className = 'div-build-new-shipping-address'
+    let element = document.getElementById('element-object-id').innerHTML.split(' ')
     let xhr = new XMLHttpRequest()
     let method = 'GET'
-    let url = 'https://vectorrigs.herokuapp.com/api/get-shipping-data-api' + '?'
+    let url = 'https://vectorrigs.herokuapp.com/api/endpoint3'
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = ()=> {
+        let serverResponse = xhr.response
+        let answer = serverResponse.response
+        let first_str = ''
+        for (let i = 0; i < answer.length; i++) {
+            first_str += '<option value="'+ answer[i].id +'" selected>'+ answer[i].first_name + ' ' + answer[0].last_name +'</option>'
+        }
+
+        let new_str = ''
+            +'<select name="customer" required id="id_customer">'
+                + first_str
+            +'</select>'
+            +'<input type="text" name="address" maxLength="255" required id="id_address">'
+            +'<input type="text" name="city" maxLength="100" required id="id_city">'
+            +'<input type="text" name="state" maxLength="2" required id="id_state">'
+            +'<input type="text" name="country" maxLength="100" id="id_country">'
+            +'<input type="text" name="zip_code" maxLength="10" required id="id_zip_code">'
+            +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
+        document.getElementById('shipping-new-address-display').innerHTML = new_str
+    }
+
+    xhr.send()
 }
 
 function openNewShippingDataForm() {
