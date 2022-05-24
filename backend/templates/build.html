@@ -15,10 +15,10 @@
         <div id="display-right" class="display-right">
             <div class="edit-btns-group">
                 <div id="main-btn-group" class="main-btn-group">
-                    <button id="display-form-btn" class="btnchanger" onclick="createForm();closeUpdateGroups(); closeUpdateBtn()">Create A New Item</button>
-                    <button id="display_id_btn" class="btnchanger" onclick="idChange();closeCreateForm()">Select Item To Display</button>
-                    <button id="display_update-btn" class="none" onclick="openUpdateGroup()">Update Item</button>
-                    <button id="display_sold-btn" class="none" onclick="openSoldGroup(); createSoldDetail()">View Customer/Sold</button>
+                    <button id="display-form-btn" class="btnchanger" onclick="createForm();closeUpdateGroups(); closeUpdateBtn(); closeAllShipping()">Create A New Item</button>
+                    <button id="display_id_btn" class="btnchanger" onclick="idChange();closeCreateForm(); closeAllShipping()">Select Item To Display</button>
+                    <button id="display_update-btn" class="none" onclick="openUpdateGroup(); closeAllShipping()">Update Item</button>
+                    <button id="display_sold-btn" class="none" onclick="openSoldGroup(); createSoldDetail(); closeAllShipping()">View Customer/Sold</button>
                     <button id="display_shipping-btn" class="none" onclick="openShippingGroup(); openShippingData()">Add/Update Shipping</button>
                 </div>
                 <div id="item-update-btn-group" class="none">

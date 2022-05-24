@@ -169,11 +169,13 @@
     }
 
     function openShippingGroup() {
+        closeAllSold()
         closeSoldDiv()
         closeCreateForm()
         document.getElementById('item-update-btn-group').className = 'none'
         document.getElementById('sold-update-btn-group').className = 'none'
         document.getElementById('shipping-update-btn-group').className = 'item-update-btn-group'
+        document.getElementById('create-upload-div').className = 'none'
 
     }
 
@@ -205,6 +207,10 @@
 
     }
 
+
+
+
+
     function closeSoldDiv() {
         document.getElementById('div-build-sold_customer').className = 'none'
     }
@@ -232,6 +238,17 @@
         closeSoldChangeDiv()
         closeSoldDiv()
         closeSoldNewCustomerDiv()
+    }
+
+    function closeShipping() {
+        document.getElementById('update-shipping-new-data-display').innerHTML = ''
+        document.getElementById('shipping-new-address-display').innerHTML = ''
+        document.getElementById('div-build-new-shipping-data').className = 'none'
+        document.getElementById('div-build-new-shipping-address').className = 'none'
+    }
+
+    function closeAllShipping() {
+        closeShipping()
     }
 
 
