@@ -582,13 +582,18 @@ def get_shipping_data(request):
         customer_id = 0
         name = ''
         for i in i_obj:
-            y = i.sold_data.id
-            z = i.inventory_item.id
+            y = i.sold_data_id
+            print(y)
+            z = i.inventory_item_id
+            print(z)
         sold_data = SoldDetail.objects.filter(id=y)
+        print(sold_data)
         for x in sold_data:
             customer_id = x.purchased_by.id
+            print(customer_id)
         if customer_id:
             customer = Customer.objects.filter(id=customer_id)
+            print(customer)
             for xx in customer:
                 name = xx.first_name + ' ' + xx.last_name
         shipping = CustomerShippingAddress.objects.all()
