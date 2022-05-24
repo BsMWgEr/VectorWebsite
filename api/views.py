@@ -549,7 +549,7 @@ def build_create_new_shipping_data(request):
         print(data)
         form.save()
         shipping = ShippingDetail.objects.last()
-        InventoryObject.objects.filter(id=data).update(sold_data_id=shipping.id)
+        InventoryObject.objects.filter(id=data).update(shipping_data_id=shipping.id)
         form = NewShippingDataForm()
     context = {
         'form': form
@@ -643,8 +643,8 @@ def create_new_shipping_address(request):
         data = form.data.get('inventory_object_id')
         print(data)
         form.save()
-        shipping = CustomerShippingAddress.objects.last()
-        InventoryObject.objects.filter(id=data).update(shipping_data_id=shipping.id)
+        #shipping = CustomerShippingAddress.objects.last()
+        #InventoryObject.objects.filter(id=data).update(shipping_data_id=shipping.id)
         form = NewShippingAddressForm()
 
     context = {
