@@ -9,6 +9,7 @@ function createSoldNewShipping(event) {
     xhr.onload = ()=> {
         let serverResonse = xhr.response
         console.log(serverResonse)
+
     }
     my_FormData.entries()
     xhr.send(my_FormData)
@@ -53,6 +54,42 @@ function openShippingData() {
     xhr.send()
 }
 
-function openNewShippingDataForm() {
+function getShippingSoldFormData() {
+    let xhr = new XMLHttpRequest()
+    let method = 'GET'
+    let url = 'https://vectorrigs.herokuapp.com/api/get-shipping-data-api' + '?'
+}
 
+function openNewShippingDataForm() {
+    let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = 'https://vectorrigs.herokuapp.com/api/get-shipping-data-api' + "?other_id=" + obj_id[2].toString()
+    const responseType = 'json'
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function () {
+        const serverResponse = xhr.response
+        let sold_info = serverResponse.response
+        let shipping = serverResponse.shipping
+        let item = serverResponse.inventory_item
+        console.log(serverResponse)
+        console.log(shipping)
+        console.log(sold_info)
+        console.log(item)
+        main_str = '<select name="inventory_item" required id="id_inventory_item">'
+            + '<option value="' + +'"></option>'
+            + '</select>'
+            + '<select name="sold_detail" required id="id_sold_detail">'
+            + '<option></option>'
+            + '</select>'
+            + '<select name="shipping_address" required id="id_shipping_address">'
+            + '<option></option>'
+            + '</select>'
+            + '<input type="text" name="date_shipped" id="id_date_shipped">'
+            + '<input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">'
+            + '<input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1">'
+            + '<textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>'
+            + '<button type="submit">Submit</button>'
+    }
 }

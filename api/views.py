@@ -4,7 +4,8 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm, NewShippingDataForm
-from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, Name, Size, ShippingDetail
+from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, \
+    Name, Size, ShippingDetail, CustomerShippingAddress
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -551,26 +552,66 @@ def build_create_new_shipping_data(request):
 
 
 def get_shipping_data(request):
-    print(request.GET)
-    obj_id = request.GET.get('obj_id')
-    print(obj_id)
-    i_obj = InventoryObject.objects.filter(id=obj_id)
-    x = 0
-    for i in i_obj:
-        x = i.shipping_data_id
-    s_obj = ShippingDetail.objects.filter(id=x)
-    container_list = [{
-        'inventory_item': x.inventory_item.id,
-        'sold_detail': x.sold_detail.id,
-        'shipping_address': x.shipping_address.id,
-        'date_shipped': x.date_shipped,
-        'tracking_number': x.tracking_number,
-        'shipper_info1': x.Shipper_info1,
-        'shipper_info2': x.Shipper_info1,
-        'created_date': x.created_date,
-                       } for x in s_obj]
+    container_list = []
+    container_list2 = []
+    container_list3 = []
+    if request.GET.get('obj_id'):
+        obj_id = request.GET.get('obj_id')
+        print(obj_id)
+        i_obj = InventoryObject.objects.filter(id=obj_id)
+        x = 0
+        for i in i_obj:
+            x = i.shipping_data_id
+        s_obj = ShippingDetail.objects.filter(id=x)
+        container_list = [{
+            'inventory_item': x.inventory_item.id,
+            'sold_detail': x.sold_detail.id,
+            'shipping_address': x.shipping_address.id,
+            'date_shipped': x.date_shipped,
+            'tracking_number': x.tracking_number,
+            'shipper_info1': x.Shipper_info1,
+            'shipper_info2': x.Shipper_info1,
+            'created_date': x.created_date,
+                           } for x in s_obj]
+
+    elif request.GET.get('objs_id'):
+        objs_id = request.GET.get('objs_id')
+        i_obj = InventoryObject.objects.filter(id=objs_id)
+        y = None
+        z = None
+        customer_id = None
+        name = ''
+        for i in i_obj:
+            y = i.sold_data_id
+            z = i.inventory_item_id
+        sold_data = SoldDetail.objects.filter(id=y)
+        for x in sold_data:
+            customer_id = x.purchased_by_id
+        if customer_id:
+            customer = Customer.objects.filter(id=customer_id)
+            for xx in customer:
+                name = xx.first_name + ' ' + xx.last_name
+        shipping = CustomerShippingAddress.objects.all()
+        container_list = [{
+            'sold_data_id': y,
+            'sold_data': name,
+        }]
+        container_list2 = [{
+            'shipping_id': u.id,
+            'customer_id': customer_id,
+            'city': u.city,
+            'state': u.state,
+            'zipcode': u.zip_code,
+
+        } for u in shipping]
+        container_list3 = [{
+            'inventory_item_id': z,
+        }]
+
     data = {
-        "response": container_list
+        "response": container_list,
+        "shipping": container_list2,
+        "Inventory_item": container_list3,
     }
     print(data)
     return JsonResponse(data)
