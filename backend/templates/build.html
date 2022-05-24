@@ -42,7 +42,7 @@
                     <button id="" class="btnchanger" onclick="createSoldOtherChange(); closeSoldNewCustomerDiv()">Update Other</button>
                 </div>
                 <div id="shipping-update-btn-group" class="none">
-                    <button id="build-create-address-btn" class="btnchanger" onclick="createNewShippingAddress(event)">Create New Shipping Address</button>
+                    <button id="build-create-address-btn" class="btnchanger" onclick="openNewShippingAddressForm()">Create New Shipping Address</button>
                     <button id="build-create-sold-btn" class="btnchanger" onclick="openNewShippingDataForm()">Change to Shipping</button>
                     <button id="" class="btnchanger" onclick="">Update Customer</button>
                     <button id="" class="btnchanger" onclick="">Update Shipping Address</button>
@@ -94,13 +94,13 @@
                     </form>
                 </div>
                 <div id="div-build-new-shipping-data" class="none">
-                    <form method="POST" id="shipping-new-data-form" action="/api/shipping-data-api/" onsubmit="createSoldNewShipping(event)" >
+                    <form method="POST" id="shipping-new-data-form" action="/api/shipping-data-api/" onsubmit="createNewShipping(event)" >
                         {% csrf_token %}
                         <div id="update-shipping-new-data-display" class="update-shpping-new-data-display"></div>
                     </form>
                 </div>
                 <div id="div-build-new-shipping-address" class="none">
-                    <form method="POST" id="shipping-new-address-form" action="/api/shipping-address-api/" >
+                    <form method="POST" id="shipping-new-address-form" action="/api/shipping-address-api/" onsubmit="createNewShippingAddress(event)">
                         {% csrf_token %}
                         <div id="shipping-new-address-display" class="shipping-new-address-display"></div>
                     </form>

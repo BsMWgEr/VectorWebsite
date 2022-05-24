@@ -1,4 +1,23 @@
-function createSoldNewShipping(event) {
+function createNewShipping(event) {
+    event.preventDefault()
+    let my_form = event.target
+    let my_FormData = new FormData(my_Form)
+    let xhr = new XMLHttpRequest()
+    let method = my_form.getAttribute('method')
+    let url = my_Form.getAttribute('action')
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = ()=> {
+        let serverResonse = xhr.response
+        console.log(serverResonse)
+
+    }
+    my_FormData.entries()
+    xhr.send(my_FormData)
+}
+
+function createNewShippingAddress(event) {
+    event.preventDefault()
     let my_form = event.target
     let my_FormData = new FormData(my_Form)
     let xhr = new XMLHttpRequest()
@@ -54,7 +73,7 @@ function openShippingData() {
     xhr.send()
 }
 
-function createNewShippingAddress() {
+function openNewShippingAddressForm() {
     document.getElementById('div-build-new-shipping-address').className = 'div-build-new-shipping-address'
     let element = document.getElementById('element-object-id').innerHTML.split(' ')
     let xhr = new XMLHttpRequest()
