@@ -19,8 +19,7 @@ function sendNewSoldData(event) {
         console.log('new sold data success')
         closeSoldDiv()
         createSoldDetail()
-        let c_id = document.getElementById('build-sold-purchased_by').innerHTML.split(' ')
-        displayPurchasedBy(c_id[2])
+
     }
 
     my_FormData.entries()
