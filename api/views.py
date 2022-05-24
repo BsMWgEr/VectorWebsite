@@ -551,7 +551,9 @@ def build_create_new_shipping_data(request):
 
 
 def get_shipping_data(request):
+    print(request.GET)
     obj_id = request.GET.get('obj_id')
+    print(obj_id)
     i_obj = InventoryObject.objects.filter(id=obj_id)
     x = None
     for i in i_obj:
