@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
-from backend.forms import BuildForm, SoldDataForm, NewCustomerForm, NewShippingDataForm
+from backend.forms import BuildForm, SoldDataForm, NewCustomerForm, NewShippingDataForm, NewShippingAddressForm
 from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, \
     Name, Size, ShippingDetail, CustomerShippingAddress
 from stockvectorrigs.aws.utils import AWS
@@ -545,6 +545,7 @@ def build_create_new_shipping_data(request):
     form = NewShippingDataForm(request.POST or None)
     if form.is_valid():
         form.save()
+        form = NewShippingDataForm()
     context = {
         'form': form
     }
@@ -629,3 +630,15 @@ def get_shipping_data(request):
         }
     print(data)
     return JsonResponse(data)
+
+
+def create_new_shipping_address(request):
+    form = NewShippingAddressForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = NewShippingAddressForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'shipping_address_api.html', context=context)

@@ -93,3 +93,17 @@ class NewShippingDataForm(forms.ModelForm):
             'Shipper_info1',
             'Shipper_info2',
         ]
+
+
+class NewShippingAddressForm(forms.ModelForm):
+    class Meta:
+        model = CustomerShippingAddress
+        fields = [
+            'customer',
+            'address',
+            'city',
+            'state',
+            'country',
+            'zip_code',
+            'other',
+        ]
