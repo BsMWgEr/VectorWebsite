@@ -93,10 +93,10 @@ function openNewShippingDataForm() {
             + '<select name="shipping_address" required id="id_shipping_address">'
                 + shipping_address
             + '</select>'
-            + '<input type="text" name="date_shipped" id="id_date_shipped">'
-            + '<input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">'
-            + '<input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1">'
-            + '<textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>'
+            + '<input type="date" name="date_shipped" id="id_date_shipped">'
+            + '<input type="text" name="tracking_number" maxlength="200" id="id_tracking_number" placeholder="Enter Tracking Number">'
+            + '<input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1" placeholder="Enter Shipping Info 1">'
+            + '<textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2" placeholder="Enter Shipping Info 2"></textarea>'
             + '<button type="submit">Submit</button>'
         document.querySelector('#div-build-new-shipping-data').className = 'div-build-new-shipping-data'
         document.querySelector('#update-shipping-new-data-display').innerHTML = main_str
