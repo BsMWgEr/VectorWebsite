@@ -560,9 +560,9 @@ def get_shipping_data(request):
         x = i.shipping_data_id
     s_obj = ShippingDetail.objects.filter(id=x)
     container_list = [{
-        'inventory_item': x.inventory_item,
-        'sold_detail': x.sold_detail,
-        'shipping_address': x.shipping_address,
+        'inventory_item': x.inventory_item.id,
+        'sold_detail': x.sold_detail.id,
+        'shipping_address': x.shipping_address.id,
         'date_shipped': x.date_shipped,
         'tracking_number': x.tracking_number,
         'Shipper_info1': x.Shipper_info1,
