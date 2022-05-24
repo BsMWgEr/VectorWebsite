@@ -546,13 +546,13 @@ def build_create_new_shipping_data(request):
     if form.is_valid():
         form.save()
         data = form.data.get('inventory_object_id')
+        print(data)
         form.save()
         shipping = ShippingDetail.objects.last()
         new_id = 0
         for x in shipping:
             new_id = x.id
-        item = InventoryObject.objects.filter(id=data)
-        item.update(sold_data_id=new_id)
+        InventoryObject.objects.filter(id=data).update(sold_data_id=new_id)
         form = NewShippingDataForm()
     context = {
         'form': form
@@ -644,13 +644,13 @@ def create_new_shipping_address(request):
     form = NewShippingAddressForm(request.POST or None)
     if form.is_valid():
         data = form.data.get('inventory_object_id')
+        print(data)
         form.save()
         shipping = CustomerShippingAddress.objects.last()
         new_id = 0
         for x in shipping:
             new_id = x.id
-        item = InventoryObject.objects.filter(id=data)
-        item.update(shipping_data_id=new_id)
+        InventoryObject.objects.filter(id=data).update(shipping_data_id=new_id)
         form = NewShippingAddressForm()
 
     context = {
