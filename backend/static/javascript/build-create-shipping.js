@@ -80,6 +80,7 @@ function createNewShippingAddress() {
             +'<input type="text" name="country" maxLength="100" id="id_country">'
             +'<input type="text" name="zip_code" maxLength="10" required id="id_zip_code">'
             +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
+            +'<button type="submit">Submit</button>'
         document.getElementById('shipping-new-address-display').innerHTML = new_str
     }
 

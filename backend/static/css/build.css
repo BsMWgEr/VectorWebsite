@@ -502,3 +502,14 @@ button {
     display: grid;
 }
 
+#shipping-new-address-display {
+    background: rgba(0,0,0,.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#shipping-new-address-display input {
+    display: grid;
+}
+
