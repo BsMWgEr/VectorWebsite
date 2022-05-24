@@ -102,8 +102,11 @@ function createSoldDetail() {
                     + '</p><p id="build-sold-info">Info: ' + answer[i].info + '</p><p id="build-sold-other">other: ' + answer[i].other
                     + '</p><p>created_date' + answer[i].created_date + '</p><p id="build-sold-purchased_by">Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
             }
-
-            document.getElementById('right-sold-bottom-div').innerHTML = str_detail
+            if (str_detail === '') {
+                document.getElementById('right-sold-bottom-div').innerHTML = '<h1>NO SOLD DATA</h1>'
+            } else {
+                document.getElementById('right-sold-bottom-div').innerHTML = str_detail
+            }
         }
         xhr.send()
 }
