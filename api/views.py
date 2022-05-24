@@ -575,7 +575,7 @@ def get_shipping_data(request):
         }
 
     else:
-        objs_id = request.GET.get('objs_id')
+        objs_id = request.GET.get('other_id')
         i_obj = InventoryObject.objects.filter(id=objs_id)
         y = 0
         z = 0
