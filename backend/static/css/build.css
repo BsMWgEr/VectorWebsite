@@ -442,6 +442,10 @@ button {
     display: flex;
 }
 
+.div-build-new-shipping-data {
+    display: flex;
+}
+
 .sold-change-display {
     display: flex;
     flex-direction: column;

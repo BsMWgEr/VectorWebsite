@@ -77,20 +77,23 @@ function openNewShippingDataForm() {
         console.log(shipping)
         console.log(sold_info)
         console.log(item)
+
         main_str = '<select name="inventory_item" required id="id_inventory_item">'
-            + '<option value="' + +'"></option>'
+                + '<option value="' + item[0].inventory_item_id +'"></option>'
             + '</select>'
             + '<select name="sold_detail" required id="id_sold_detail">'
-            + '<option></option>'
+                + '<option value="'+ sold_info[0].sold_data_id +'">'+ sold_info[0].sold_data +'</option>'
             + '</select>'
             + '<select name="shipping_address" required id="id_shipping_address">'
-            + '<option></option>'
+                + '<option></option>'
             + '</select>'
             + '<input type="text" name="date_shipped" id="id_date_shipped">'
             + '<input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">'
             + '<input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1">'
             + '<textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>'
             + '<button type="submit">Submit</button>'
+        document.querySelector('#div-build-new-shipping-data').className = 'div-build-new-shipping-data'
+        document.querySelector('#update-shipping-new-data-display').innerHTML = main_str
     }
     xhr.send()
 }
