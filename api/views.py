@@ -540,10 +540,35 @@ def build_update_sold_data(request):
     return render(request, 'build-update-sold.html')
 
 
-
 def build_create_new_shipping_data(request):
     form = NewShippingDataForm(request.POST or None)
+    if form.is_valid():
+        form.save()
     context = {
         'form': form
     }
     return render(request, 'shipping_data_api.html', context=context)
+
+
+def get_shipping_data(request):
+    obj_id = request.GET.get('obj_id')
+    i_obj = InventoryObject.objects.filter(id=obj_id)
+    x = None
+    for i in i_obj:
+        x = i.sold_data_id
+    s_obj = ShippingDetail.objects.filter(id=x)
+    container_list = [{
+        'inventory_item': x.inventory_item,
+        'sold_detail': x.sold_detail,
+        'shipping_address': x.shipping_address,
+        'date_shipped': x.date_shipped,
+        'tracking_number': x.tracking_number,
+        'Shipper_info1': x.Shipper_info1,
+        'Shipper_info2': x.Shipper_info1,
+        'created_date': x.created_date,
+                       } for x in s_obj]
+    data = {
+        "response": container_list
+    }
+    print(data)
+    return JsonResponse(data)
