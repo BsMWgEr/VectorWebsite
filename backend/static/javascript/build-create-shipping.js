@@ -92,4 +92,5 @@ function openNewShippingDataForm() {
             + '<textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>'
             + '<button type="submit">Submit</button>'
     }
+    xhr.send()
 }
