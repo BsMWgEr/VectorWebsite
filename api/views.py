@@ -552,9 +552,6 @@ def build_create_new_shipping_data(request):
 
 
 def get_shipping_data(request):
-    container_list = []
-    container_list2 = []
-    container_list3 = []
     if request.GET.get('obj_id'):
         obj_id = request.GET.get('obj_id')
         print(obj_id)
@@ -573,8 +570,11 @@ def get_shipping_data(request):
             'shipper_info2': x.Shipper_info1,
             'created_date': x.created_date,
                            } for x in s_obj]
+        data = {
+            "response": container_list,
+        }
 
-    elif request.GET.get('objs_id'):
+    else:
         objs_id = request.GET.get('objs_id')
         i_obj = InventoryObject.objects.filter(id=objs_id)
         y = None
@@ -608,10 +608,10 @@ def get_shipping_data(request):
             'inventory_item_id': z,
         }]
 
-    data = {
-        "response": container_list,
-        "shipping": container_list2,
-        "inventory_item": container_list3,
-    }
+        data = {
+            "response": container_list,
+            "shipping": container_list2,
+            "inventory_item": container_list3,
+        }
     print(data)
     return JsonResponse(data)
