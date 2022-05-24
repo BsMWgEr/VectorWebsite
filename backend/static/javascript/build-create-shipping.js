@@ -25,7 +25,7 @@ function openShippingData() {
     }
     let xhr = new XMLHttpRequest()
     let method = 'GET'
-    let url = '/api/get-shipping-data-api?obj_id=' + obj_id[2]
+    let url = '/api/get-shipping-data-api?obj_id=' + obj_id[2].toString()
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
