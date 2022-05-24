@@ -486,3 +486,15 @@ button {
     grid-template-columns: auto auto;
 }
 
+#shipping-new-data-form {
+    background: rgba(0,0,0,.5);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#shipping-new-data-form input {
+    font-size: 12pt;
+    display: grid;
+}
+
