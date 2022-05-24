@@ -30,7 +30,7 @@ function openShippingData() {
     xhr.open(method, url)
     xhr.onload = ()=> {
         let serverResponse = xhr.response
-        console.log(serverResponse.response)
+        console.log(serverResponse)
         document.getElementById('bottom-shipping-div').innerHTML = '<h1>NO SHIPPING DATA</h1>'
     }
     xhr.send()
