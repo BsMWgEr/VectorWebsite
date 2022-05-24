@@ -75,17 +75,19 @@ function openNewShippingDataForm() {
         let item = serverResponse.inventory_item
         let shipping_address = ''
         for (let i = 0; i < shipping.length; i++) {
-            shipping_address += '<option value="'+ shipping[i].shipping_id +'" selected>Shipping ID: '+ shipping[i].customer_id + ' -- ' + shipping[i].city + ', ' + shipping[i].state + ' ' + shipping[i].zipcode +'</option>'
+            shipping_address += '<option value="'+ shipping[i].shipping_id +'" selected>Customer ID: '
+                + shipping[i].customer_id + ' -- ' + shipping[i].city + ', ' + shipping[i].state + ' '
+                + shipping[i].zipcode +'</option>'
         }
         console.log(serverResponse)
         console.log(shipping)
         console.log(sold_info)
         console.log(item)
 
-        main_str = '<select name="inventory_item" required id="id_inventory_item">'
+        main_str = '<select name="inventory_item" required id="id_inventory_item" hidden>'
                 + '<option value="' + item[0].inventory_item_id +'" selected>'+ item[0].name + '--' + item[0].serial_number +'</option>'
             + '</select>'
-            + '<select name="sold_detail" required id="id_sold_detail">'
+            + '<select name="sold_detail" required id="id_sold_detail" hidden>'
                 + '<option value="'+ sold_info[0].sold_data_id +'" selected>'+ sold_info[0].sold_data +'</option>'
             + '</select>'
             + '<select name="shipping_address" required id="id_shipping_address">'
