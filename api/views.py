@@ -565,8 +565,8 @@ def get_shipping_data(request):
         'shipping_address': x.shipping_address.id,
         'date_shipped': x.date_shipped,
         'tracking_number': x.tracking_number,
-        'Shipper_info1': x.Shipper_info1,
-        'Shipper_info2': x.Shipper_info1,
+        'shipper_info1': x.Shipper_info1,
+        'shipper_info2': x.Shipper_info1,
         'created_date': x.created_date,
                        } for x in s_obj]
     data = {
