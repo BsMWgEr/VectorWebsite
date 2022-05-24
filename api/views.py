@@ -557,7 +557,7 @@ def get_shipping_data(request):
     i_obj = InventoryObject.objects.filter(id=obj_id)
     x = 0
     for i in i_obj:
-        x = i.sold_data_id
+        x = i.shipping_data_id
     s_obj = ShippingDetail.objects.filter(id=x)
     container_list = [{
         'inventory_item': x.inventory_item,
