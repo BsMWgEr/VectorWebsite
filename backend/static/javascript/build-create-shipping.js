@@ -7,6 +7,11 @@ function createNewShipping(event) {
     let url = my_form.getAttribute('action')
     xhr.responseType = 'json'
     xhr.open(method, url)
+    xhr.onload = ()=> {
+        openShippingData()
+        document.getElementById('div-build-new-shipping-data').className = 'none'
+        document.getElementById('update-shipping-new-data-display').innerHTML = ''
+    }
     my_FormData.entries()
     xhr.send(my_FormData)
 }
@@ -29,7 +34,7 @@ function createNewShippingAddress(event) {
                 let serverResonse = dxhr.response
                 let answer = serverResonse.response
                 let new_str = '<option value="' + answer[0].id + '" selected>ID: ' + answer[0].id + ' Customer: ' + answer[0].customer_id
-                    + answer[0].city + ', ' + answer[0].state + answer[0].zipcode + '</option>'
+                    + ' ' + answer[0].city + ', ' + answer[0].state + ' ' + answer[0].zipcode + '</option>'
                 for (let i = 1; i < answer.length; i++) {
                     new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
                         + answer[i].city + ', ' + answer[i].state + answer[i].zipcode + '</option>'
