@@ -100,13 +100,15 @@ function openNewShippingAddressForm() {
     xhr.onload = ()=> {
         let serverResponse = xhr.response
         let answer = serverResponse.response
+        console.log(serverResponse)
         let selected_item = serverResponse.selected_item
+        console.log(selected_item)
         let first_str = ''
         for (let i = 0; i < answer.length; i++) {
             first_str += '<option value="'+ answer[i].id +'">'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
         }
         let second_str = ''
-        if (selected_item.length === 1) {
+        if (selected_item) {
             second_str = '<option value="'+ selected_item[0].id +'" selected>Customer: '+ selected_item[0].first_name + ' ' + selected_item[0].last_name +'</option>'
         } else {
             second_str = '<option value="" selected>Select a Customer</option>'

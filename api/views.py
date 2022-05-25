@@ -657,6 +657,7 @@ def get_shipping_data(request):
 def get_shipping_address(request):
     info = CustomerShippingAddress.objects.all().order_by('-id')
     item_id = request.GET.get('shipping_customer_id')
+    print(item_id)
     item = CustomerShippingAddress.objects.all().filter(id=item_id)
 
     container_list = [{
@@ -679,7 +680,7 @@ def get_shipping_address(request):
         "response": container_list,
         "selected_item": container_list2,
     }
-
+    print(data)
     return JsonResponse(data)
 
 
