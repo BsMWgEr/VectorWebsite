@@ -108,6 +108,8 @@ function openNewShippingAddressForm() {
         let second_str = ''
         if (selected_item.length === 1) {
             second_str = '<option value="'+ selected_item[0].id +'" selected>Customer: '+ selected_item[0].first_name + ' ' + selected_item[0].last_name +'</option>'
+        } else {
+            second_str = '<option value="" selected>Select a Customer</option>'
         }
 
         let new_str = ''
