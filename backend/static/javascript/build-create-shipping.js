@@ -26,7 +26,7 @@ function createNewShippingAddress(event) {
             dxhr.responseType = 'json'
             dxhr.open('GET', '/api/get-shipping-data-api')
             dxhr.onload = () => {
-                let serverResonse = xhr.response
+                let serverResonse = dxhr.response
                 let answer = serverResonse.response
                 let new_str = '<option value="' + answer[0].id + '" selected>' + answer[0].id + '">Customer ID: ' + answer[0].customer_id
                     + answer[0].city + ', ' + answer[0].state + answer[0].zip_code + '</option>'
@@ -146,7 +146,7 @@ function openNewShippingDataForm() {
             + '<select name="sold_detail" required id="id_sold_detail" hidden>'
                 + '<option value="'+ sold_info[0].sold_data_id +'" selected>'+ sold_info[0].sold_data +'</option>'
             + '</select>'
-            + '<input hidden type="number" name="inventory_object_id" value="'+ obj_id[2] +'">'
+            + '<input  type="number" name="inventory_object_id" value="'+ obj_id[2] +'" hidden>'
             + '<select name="shipping_address" required id="id_shipping_address">'
                 + shipping_address
             + '</select>'
