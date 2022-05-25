@@ -24,7 +24,7 @@ function createNewShippingAddress(event) {
         if (document.getElementById('div-build-new-shipping-data').className === 'div-build-new-shipping-data') {
             let dxhr = new XMLHttpRequest()
             dxhr.responseType = 'json'
-            dxhr.open('GET', '/api/get-shipping-data-api')
+            dxhr.open('GET', '/api/get-shipping-address')
             dxhr.onload = () => {
                 let serverResonse = dxhr.response
                 let answer = serverResonse.response
@@ -131,7 +131,7 @@ function openNewShippingDataForm() {
         let item = serverResponse.inventory_item
         let shipping_address = '<option value="" selected>Choose a Shipping Address (or Create a New One)</option>'
         for (let i = 0; i < shipping.length; i++) {
-            shipping_address += '<option value="'+ shipping[i].shipping_id +'">Customer ID: '
+            shipping_address += '<option value="'+ shipping[i].shipping_id +'">Customer: '
                 + shipping[i].customer_id + ' -- ' + shipping[i].city + ', ' + shipping[i].state + ' '
                 + shipping[i].zipcode +'</option>'
         }

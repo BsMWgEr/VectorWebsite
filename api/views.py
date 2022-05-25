@@ -654,6 +654,24 @@ def get_shipping_data(request):
     return JsonResponse(data)
 
 
+def get_shipping_address(request):
+    info = CustomerShippingAddress.objects.all().order_by('-id')
+
+    container_list = [{
+        'shipping_id': u.id,
+        'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
+        'city': u.city,
+        'state': u.state,
+        'zipcode': u.zip_code,
+    } for u in info]
+
+    data = {
+        "response": container_list,
+    }
+
+    return JsonResponse(request)
+
+
 def create_new_shipping_address(request):
     form = NewShippingAddressForm(request.POST or None)
     if form.is_valid():
