@@ -101,13 +101,14 @@ function openNewShippingAddressForm() {
         let serverResponse = xhr.response
         let answer = serverResponse.response
         let first_str = ''
-        for (let i = 0; i < answer.length; i++) {
-            first_str += '<option value="'+ answer[i].id +'" selected>'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
+        for (let i = 1; i < answer.length; i++) {
+            first_str += '<option value="'+ answer[i].id +'">'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
         }
 
         let new_str = ''
             + '<input type="number" value="'+ element[2] +'" name="inventory_object_id" hidden>'
             +'<select name="customer" required id="id_customer">'
+                + '<option value="'+ answer[0].id +'" selected>Customer: '+ answer[0].first_name + ' ' + answer[0].last_name +'</option>'
                 + first_str
             +'</select>'
             +'<input type="text" name="address" maxLength="255" required id="id_address" placeholder="Enter Address">'
