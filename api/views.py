@@ -656,6 +656,8 @@ def get_shipping_data(request):
 
 def get_shipping_address(request):
     info = CustomerShippingAddress.objects.all().order_by('-id')
+    item_id = request.GET.get('shipping_customer_id')
+    item = CustomerShippingAddress.objects.all().filter(id=item_id)
 
     container_list = [{
         'id': u.id,
@@ -665,8 +667,17 @@ def get_shipping_address(request):
         'zipcode': u.zip_code,
     } for u in info]
 
+    container_list2 = [{
+        'id': u.id,
+        'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
+        'city': u.city,
+        'state': u.state,
+        'zipcode': u.zip_code,
+    } for u in info]
+
     data = {
         "response": container_list,
+        "selected_item": container_list2,
     }
 
     return JsonResponse(data)

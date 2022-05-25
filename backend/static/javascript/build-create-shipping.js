@@ -94,21 +94,26 @@ function openNewShippingAddressForm() {
     let element = document.getElementById('element-object-id').innerHTML.split(' ')
     let xhr = new XMLHttpRequest()
     let method = 'GET'
-    let url = 'https://vectorrigs.herokuapp.com/api/endpoint3'
+    let url = 'https://vectorrigs.herokuapp.com/api/endpoint3?shipping_customer_id=' + element[2].toString()
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
         let serverResponse = xhr.response
         let answer = serverResponse.response
+        let selected_item = serverResponse.selected_item
         let first_str = ''
-        for (let i = 1; i < answer.length; i++) {
+        for (let i = 0; i < answer.length; i++) {
             first_str += '<option value="'+ answer[i].id +'">'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
+        }
+        let second_str = ''
+        if (selected_item.length === 1) {
+            second_str = '<option value="'+ selected_item[0].id +'" selected>Customer: '+ selected_item[0].first_name + ' ' + selected_item[0].last_name +'</option>'
         }
 
         let new_str = ''
             + '<input type="number" value="'+ element[2] +'" name="inventory_object_id" hidden>'
             +'<select name="customer" required id="id_customer">'
-                + '<option value="'+ answer[0].id +'" selected>Customer: '+ answer[0].first_name + ' ' + answer[0].last_name +'</option>'
+                + second_str
                 + first_str
             +'</select>'
             +'<input type="text" name="address" maxLength="255" required id="id_address" placeholder="Enter Address">'
