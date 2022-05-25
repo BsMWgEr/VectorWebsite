@@ -177,6 +177,7 @@
         document.getElementById('shipping-update-btn-group').className = 'item-update-btn-group'
         document.getElementById('create-upload-div').className = 'none'
 
+
     }
 
     function alertM() {
@@ -223,6 +224,7 @@
     function closeSoldChangeDiv() {
         document.getElementById('update-sold-change-display').innerHTML = ''
         document.getElementById('update-sold-change-display').className = 'none'
+        document.getElementById('div-build-update-sold_customer').className = 'none'
     }
 
     function closeSoldNewCustomerDiv() {
