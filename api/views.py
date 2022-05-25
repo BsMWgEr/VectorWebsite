@@ -673,7 +673,7 @@ def get_shipping_address(request):
         'city': u.city,
         'state': u.state,
         'zipcode': u.zip_code,
-    } for u in info]
+    } for u in item]
 
     data = {
         "response": container_list,
