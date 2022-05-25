@@ -103,12 +103,12 @@ function openNewShippingAddressForm() {
             +'<select name="customer" required id="id_customer">'
                 + first_str
             +'</select>'
-            +'<input type="text" name="address" maxLength="255" required id="id_address">'
-            +'<input type="text" name="city" maxLength="100" required id="id_city">'
-            +'<input type="text" name="state" maxLength="2" required id="id_state">'
-            +'<input type="text" name="country" maxLength="100" id="id_country">'
-            +'<input type="text" name="zip_code" maxLength="10" required id="id_zip_code">'
-            +'<textarea name="other" cols="40" rows="10" id="id_other"></textarea>'
+            +'<input type="text" name="address" maxLength="255" required id="id_address" placeholder="Enter Address">'
+            +'<input type="text" name="city" maxLength="100" required id="id_city" placeholder="Enter City">'
+            +'<input type="text" name="state" maxLength="2" required id="id_state" placeholder="Enter State">'
+            +'<input type="text" name="country" maxLength="100" id="id_country" placeholder="Enter Country (not required)">'
+            +'<input type="text" name="zip_code" maxLength="10" required id="id_zip_code" placeholder="Enter Zip Code">'
+            +'<textarea name="other" cols="40" rows="10" id="id_other" placeholder="Enter Other Info (not required)"></textarea>'
             +'<button type="submit">Submit</button>'
         document.getElementById('shipping-new-address-display').innerHTML = new_str
     }
