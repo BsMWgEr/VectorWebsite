@@ -661,7 +661,7 @@ def get_shipping_address(request):
     y = 0
     for x in item_id:
         if x.sold_data_id:
-            y = x.sold_data_id.purchased_by_id
+            y = x.sold_data.purchased_by.id
 
     item = Customer.objects.all().filter(id=y)
 
