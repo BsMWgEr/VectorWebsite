@@ -616,7 +616,7 @@ def get_shipping_data(request):
         }]
         container_list2 = [{
             'shipping_id': u.id,
-            'customer_id': u.customer.id + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
+            'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
             'city': u.city,
             'state': u.state,
             'zipcode': u.zip_code,
