@@ -301,6 +301,7 @@ function serialNumberChange(x) {
 
    // activated from main update-button-group on build.html
 function idChange() {
+    document.getElementById('main-edit-div').style.gridTemplateColumns = 'auto auto'
     closeAllSold()
     document.getElementById('deletebtn').className = 'btnchanger'
     div_change.className = 'none'
