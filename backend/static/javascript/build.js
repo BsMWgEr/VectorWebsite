@@ -193,6 +193,7 @@
 
 
     function createFormUploadBtns() {
+        document.getElementById('create-upload-div').className = 'create-upload-div'
         document.getElementById('create-form-upload-btns').className = 'create-form-upload-btns'
         document.getElementById('create-upload-div').innerHTML = "<div id='displayList'>"
                 + "<p>Upload List</p>"

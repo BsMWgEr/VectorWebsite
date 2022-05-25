@@ -485,6 +485,10 @@ button {
 
 }
 
+.create-upload-div {
+    display: flex;
+}
+
 #main-edit-div {
     display: grid;
     grid-template-columns: auto auto;

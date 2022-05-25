@@ -57,7 +57,7 @@
                     <button id="create-form-confirm_btn" class="btnchanger" onclick="createConfirmChange()">Upload A New Confirmation Report</button>
                     <button id="create-form-picture_btn" class="btnchanger" onclick="createPictureChange()">Upload A New Picture</button>
                 </div>
-                <div id="create-upload-div"></div>
+                <div id="create-upload-div" class="none"></div>
                 <div id='sold-div-change-display' class='none'>
                     <form id='form-sold-change' action='/api/api'  method='POST' onsubmit="">
                         {% csrf_token %}
