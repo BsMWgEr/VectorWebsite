@@ -94,7 +94,7 @@ function openNewShippingAddressForm() {
     let element = document.getElementById('element-object-id').innerHTML.split(' ')
     let xhr = new XMLHttpRequest()
     let method = 'GET'
-    let url = 'https://vectorrigs.herokuapp.com/api/endpoint3?shipping_customer_id=' + element[2].toString()
+    let url = 'https://vectorrigs.herokuapp.com/api/get-shipping-address?shipping_customer_id=' + element[2].toString()
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
@@ -108,7 +108,7 @@ function openNewShippingAddressForm() {
             first_str += '<option value="'+ answer[i].id +'">'+ answer[i].first_name + ' ' + answer[i].last_name +'</option>'
         }
         let second_str = ''
-        if (selected_item) {
+        if (selected_item.length === 1) {
             second_str = '<option value="'+ selected_item[0].id +'" selected>Customer: '+ selected_item[0].first_name + ' ' + selected_item[0].last_name +'</option>'
         } else {
             second_str = '<option value="" selected>Select a Customer</option>'
