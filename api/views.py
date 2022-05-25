@@ -655,25 +655,32 @@ def get_shipping_data(request):
 
 
 def get_shipping_address(request):
-    info = CustomerShippingAddress.objects.all().order_by('-id')
-    item_id = request.GET.get('shipping_customer_id')
-    print(item_id)
-    item = CustomerShippingAddress.objects.all().filter(id=item_id)
+    info = Customer.objects.all().order_by('-id')
+    id_number = request.GET.get('shipping_customer_id')
+    item_id = InventoryObject.objects.all().filter(id=id_number)
+    y = 0
+    for x in item_id:
+        if x.sold_data_id:
+            y = x.sold_data_id.purchased_by_id
+
+    item = Customer.objects.all().filter(id=y)
 
     container_list = [{
-        'id': u.id,
-        'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
-        'city': u.city,
-        'state': u.state,
-        'zipcode': u.zip_code,
+        "id": u.id,
+        "first_name": u.first_name,
+        "last_name": u.last_name,
+        "company_name": u.company_name,
+        "email": u.email,
+        "phone_number": u.phone_number,
     } for u in info]
 
     container_list2 = [{
-        'id': u.id,
-        'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
-        'city': u.city,
-        'state': u.state,
-        'zipcode': u.zip_code,
+        "id": u.id,
+        "first_name": u.first_name,
+        "last_name": u.last_name,
+        "company_name": u.company_name,
+        "email": u.email,
+        "phone_number": u.phone_number,
     } for u in item]
 
     data = {
