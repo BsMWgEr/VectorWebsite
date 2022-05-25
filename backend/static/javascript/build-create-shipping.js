@@ -27,14 +27,16 @@ function createNewShippingAddress(event) {
     xhr.open(method, url)
     xhr.onload = ()=> {
         if (document.getElementById('div-build-new-shipping-data').className === 'div-build-new-shipping-data') {
+            let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
             let dxhr = new XMLHttpRequest()
             dxhr.responseType = 'json'
-            dxhr.open('GET', '/api/get-shipping-address')
+            dxhr.open('GET', '/api/get-shipping-address?id_number=' + obj_id[2].toString())
             dxhr.onload = () => {
                 let serverResonse = dxhr.response
                 let answer = serverResonse.response
-                let new_str = '<option value="' + answer[0].id + '" selected>ID: ' + answer[0].id + ' Customer: ' + answer[0].customer_id
-                    + ' ' + answer[0].city + ', ' + answer[0].state + ' ' + answer[0].zipcode + '</option>'
+                let selected_item = serverResonse.selected_item
+                let new_str = '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
+                    + ' ' + selected_item[0].city + ', ' + selected_item[0].state + ' ' + selected_item[0].zipcode + '</option>'
                 for (let i = 1; i < answer.length; i++) {
                     new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
                         + answer[i].city + ', ' + answer[i].state + answer[i].zipcode + '</option>'
