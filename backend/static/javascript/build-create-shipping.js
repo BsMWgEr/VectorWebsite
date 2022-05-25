@@ -28,8 +28,8 @@ function createNewShippingAddress(event) {
             dxhr.onload = () => {
                 let serverResonse = xhr.response
                 let answer = serverResonse.response
-                let new_str = '<option value="' + answer[0].id + '" selected>' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
-                    + answer[i].city + ', ' + answer[i].state + answer[i].zip_code + '</option>'
+                let new_str = '<option value="' + answer[0].id + '" selected>' + answer[0].id + '">Customer ID: ' + answer[0].customer_id
+                    + answer[0].city + ', ' + answer[0].state + answer[0].zip_code + '</option>'
                 for (let i = 1; i < answer.length; i++) {
                     new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
                         + answer[i].city + ', ' + answer[i].state + answer[i].zip_code + '</option>'
