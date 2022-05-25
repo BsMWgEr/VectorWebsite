@@ -669,7 +669,7 @@ def get_shipping_address(request):
         "response": container_list,
     }
 
-    return JsonResponse(request)
+    return JsonResponse(data)
 
 
 def create_new_shipping_address(request):
