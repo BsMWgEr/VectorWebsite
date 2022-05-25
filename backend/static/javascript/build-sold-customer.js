@@ -205,10 +205,23 @@ function createSoldNewCustomer(event) {
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = function () {
-        let serverResponse = xhr.response
-        console.log('new sold data success')
         closeSoldNewCustomerDiv()
-
+        if (document.getElementById('div-build-sold_customer').className === 'div-build-sold_customer') {
+            let dxhr = new XMLHttpRequest()
+            dxhr.responseType = 'json'
+            dxhr.open('GET', '/api/endpoint3')
+            dxhr.onload = ()=> {
+                let serverResponse = dxhr.response
+                let answer = serverResponse.response
+                let new_str = ''
+                for (let i = 0; i < answer.length; i++) {
+                    new_str += '<option value="'+ answer[i].id +'">'+ answer[i].first_name
+                        + ' ' + answer[i].last_name  + '  ' + answer[i].email + '  ' + answer[i].phone_number +'</option>'
+                }
+                document.getElementById('id_purchased_by-{{ x.id }}').innerHTML = new_str
+            }
+            dxhr.send()
+        }
     }
     my_FormData.entries()
     xhr.send(my_FormData)

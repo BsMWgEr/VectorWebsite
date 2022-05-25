@@ -423,8 +423,8 @@ def customer_data_api(request):
     if form.is_valid():
         #x = request.POST.get('inventory_item')
         print(form.data)
-
         form.save()
+
         form = NewCustomerForm()
 
     context = {
@@ -468,7 +468,7 @@ def endpoint3(request):
         } for x in customers]
 
     else:
-        customers = Customer.objects.all()
+        customers = Customer.objects.all().order_by('-id')
         container_list = [{"id": x.id,
                            "first_name": x.first_name,
                            "last_name": x.last_name,
