@@ -7,11 +7,6 @@ function createNewShipping(event) {
     let url = my_form.getAttribute('action')
     xhr.responseType = 'json'
     xhr.open(method, url)
-    xhr.onload = ()=> {
-        let serverResonse = xhr.response
-        console.log(serverResonse)
-
-    }
     my_FormData.entries()
     xhr.send(my_FormData)
 }
@@ -26,9 +21,23 @@ function createNewShippingAddress(event) {
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = ()=> {
-        let serverResonse = xhr.response
-        console.log(serverResonse)
-
+        if (document.getElementById('div-build-new-shipping-data').className === 'div-build-new-shipping-data') {
+            let dxhr = new XMLHttpRequest()
+            dxhr.responseType = 'json'
+            dxhr.open('GET', '/api/get-shipping-data-api')
+            dxhr.onload = () => {
+                let serverResonse = xhr.response
+                let answer = serverResonse.response
+                let new_str = '<option value="' + answer[0].id + '" selected>' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
+                    + answer[i].city + ', ' + answer[i].state + answer[i].zip_code + '</option>'
+                for (let i = 1; i < answer.length; i++) {
+                    new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
+                        + answer[i].city + ', ' + answer[i].state + answer[i].zip_code + '</option>'
+                }
+                document.getElementById('id_shipping_address').innerHTML = new_str
+            }
+            dxhr.send()
+        }
     }
     my_FormData.entries()
     xhr.send(my_FormData)
@@ -120,9 +129,9 @@ function openNewShippingDataForm() {
         let sold_info = serverResponse.response
         let shipping = serverResponse.shipping
         let item = serverResponse.inventory_item
-        let shipping_address = ''
+        let shipping_address = '<option value="" selected>Choose a Shipping Address (or Create a New One)</option>'
         for (let i = 0; i < shipping.length; i++) {
-            shipping_address += '<option value="'+ shipping[i].shipping_id +'" selected>Customer ID: '
+            shipping_address += '<option value="'+ shipping[i].shipping_id +'">Customer ID: '
                 + shipping[i].customer_id + ' -- ' + shipping[i].city + ', ' + shipping[i].state + ' '
                 + shipping[i].zipcode +'</option>'
         }
@@ -137,7 +146,7 @@ function openNewShippingDataForm() {
             + '<select name="sold_detail" required id="id_sold_detail" hidden>'
                 + '<option value="'+ sold_info[0].sold_data_id +'" selected>'+ sold_info[0].sold_data +'</option>'
             + '</select>'
-            + '<input type="number" name="inventory_object_id" value="'+ obj_id[2] +'" hidden>'
+            + '<input hidden type="number" name="inventory_object_id" value="'+ obj_id[2] +'">'
             + '<select name="shipping_address" required id="id_shipping_address">'
                 + shipping_address
             + '</select>'

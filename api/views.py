@@ -580,7 +580,7 @@ def get_shipping_data(request):
             "response": container_list,
         }
 
-    else:
+    elif request.GET.get('other_id'):
         objs_id = request.GET.get('other_id')
         i_obj = InventoryObject.objects.filter(id=objs_id)
         y = 0
@@ -633,6 +633,23 @@ def get_shipping_data(request):
             "shipping": container_list2,
             "inventory_item": container_list3,
         }
+
+    else:
+        all_objs = ShippingDetail.objects.all().order_by('-id')
+        container_list = [{
+            'inventory_item': x.inventory_item.id,
+            'sold_detail': x.sold_detail.id,
+            'shipping_address': x.shipping_address.id,
+            'date_shipped': x.date_shipped,
+            'tracking_number': x.tracking_number,
+            'shipper_info1': x.Shipper_info1,
+            'shipper_info2': x.Shipper_info1,
+            'created_date': x.created_date,
+        } for x in all_objs]
+        data = {
+            "response": container_list,
+        }
+
     print(data)
     return JsonResponse(data)
 
