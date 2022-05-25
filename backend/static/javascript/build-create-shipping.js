@@ -34,6 +34,8 @@ function createNewShippingAddress(event) {
                     new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
                         + answer[i].city + ', ' + answer[i].state + answer[i].zipcode + '</option>'
                 }
+                document.getElementById('shipping-new-address-display').innerHTML = ''
+                document.getElementById('div-build-new-shipping-address').className = 'none'
                 document.getElementById('id_shipping_address').innerHTML = new_str
             }
             dxhr.send()
