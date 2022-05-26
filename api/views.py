@@ -178,7 +178,8 @@ def api_view(request):
         dict_size = q_dict.get('size')
         dict_po_number = q_dict.get('po_number')
         dict_instock = q_dict.get('in_stock')
-
+        dict_obj_id = q_dict.get('inventory_object_id')
+        dict_completed_order = q_dict.get('completed_order')
         dict_serial_number = q_dict.get('serial_number')
         dict_duedate = q_dict.get('due_date')
         dict_description = q_dict.get('description')
@@ -205,6 +206,8 @@ def api_view(request):
             InventoryItem.objects.filter(id=dict_id).update(picture_id=dict_picture)
         if dict_confirm:
             InventoryItem.objects.filter(id=dict_id).update(confirmation_r_id=dict_confirm)
+        if dict_obj_id:
+            InventoryObject.objects.filter(id=dict_obj_id).update(completed_order=dict_completed_order)
         if dict_delete:
             object_delete = InventoryObject.objects.filter(inventory_item_id=dict_id)
             sold_id_number = ''

@@ -275,7 +275,15 @@
                 {% if x.sold_data.purchased_by %}
                 <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
                 {% endif %}
-                <li>Completed Order: {{ x.completed_order }}</li>{% if x.shipping_data %}<button>Changed to Completed</button>{% endif %}
+                <li>Completed Order: {{ x.completed_order }}</li>
+                {% if x.shipping_data %}
+                    <form onsubmit="updateInstockField(event)">
+                        {% csrf_token %}
+                            <input value="{{ x.id }}" type="number" name="inventory_object_id" hidden>
+                            <input type='checkbox' name='completed_order' id='completed_order' value='True' checked hidden>
+                            <button type="submit">Change to Completed</button>
+                        </form>
+                {% endif %}
                 <li>Date Created: {{ x.created_date }}</li>
                 <li>Inventory info: {{ x.info }}</li>
             </ul>
