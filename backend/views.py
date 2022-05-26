@@ -76,7 +76,10 @@ def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
-    x = InventoryObject.objects.all()
+    if request.GET.get('filter_by'):
+        x = InventoryObject.objects.all().filter(type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
     instock_false = []
     for z in x:
         if not z.inventory_item.in_stock:
