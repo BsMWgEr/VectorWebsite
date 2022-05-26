@@ -56,11 +56,7 @@ function openShippingData() {
     let div_box = document.getElementById('div-box')
     let shipping = document.getElementById('bottom-shipping-div')
     let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
-    if (shipping === null) {
-        let new_shipping = document.createElement('div')
-        new_shipping.setAttribute('id', 'bottom-shipping-div')
-        document.getElementById('bottom-right-inner-div').appendChild(new_shipping)
-    }
+
     let xhr = new XMLHttpRequest()
     let method = 'GET'
     let url = '/api/get-shipping-data-api?obj_id=' + obj_id[2].toString()

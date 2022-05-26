@@ -83,18 +83,22 @@ function createSoldDetail() {
         let left_inner_div = document.createElement('div')
         let right_inner_div = document.createElement('div')
         let bottom_right_div = document.createElement('div')
+        let new_shipping = document.createElement('div')
 
         right_div.setAttribute('id', 'right-sold-bottom-div')
         inner_div.setAttribute('id', 'top-inner-div')
         left_inner_div.setAttribute('id', 'top-left-inner-div')
         right_inner_div.setAttribute('id', 'top-right-inner-div')
         bottom_right_div.setAttribute('id', 'bottom-right-inner-div')
+        new_shipping.setAttribute('id', 'bottom-shipping-div')
+
 
         div_box.appendChild(right_div)
         right_div.appendChild(inner_div)
         inner_div.appendChild(left_inner_div)
         inner_div.appendChild(right_inner_div)
         right_div.appendChild(bottom_right_div)
+        bottom_right_div.appendChild(new_shipping)
 
         inner_div.style.display = 'grid'
         inner_div.style.gridTemplateColumns = 'auto auto'
