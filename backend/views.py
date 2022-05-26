@@ -77,6 +77,7 @@ def inventory_view_comingsoon(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
     if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
     else:
         x = InventoryObject.objects.all()
