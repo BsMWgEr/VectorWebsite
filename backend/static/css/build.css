@@ -68,7 +68,7 @@ input {
 .container {
     background: black;
     display: grid;
-    margin-top: 10%;
+    margin-top: 2%;
     box-shadow: 5px 5px 25px black;
     border-radius: 10px;
     max-width: 75%;
