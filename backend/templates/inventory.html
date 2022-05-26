@@ -213,10 +213,10 @@
                     </div>
                     </div>
                 {% endif %}
-                {% if x.shipping_data %}
+                {% if x.shipping_data and not x.completed_order %}
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
 
-                {% elif x.sold_data %}
+                {% elif x.sold_data and not x.completed_order %}
                     <li><button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button></li>
                     <li><button onclick="openShippingDataForm({{ x.id }})">Change to Shipping</button></li>
                 {% endif %}
@@ -276,7 +276,7 @@
                 <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
-                {% if x.shipping_data %}
+                {% if x.shipping_data and not x.completed_order %}
                     <form onsubmit="updateInstockField(event)">
                         {% csrf_token %}
                             <input value="{{ x.id }}" type="number" name="inventory_object_id" hidden>
