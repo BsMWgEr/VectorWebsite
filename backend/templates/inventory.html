@@ -238,7 +238,7 @@
                                     <option value="{{ t.id }}">{{ t }}</option>
                                 {% endfor %}
                                 {% else %}
-                                    <option value="" selected>Create a New Shipping Address First</option>
+                                    <button id="new-shipping-address-btn" onclick="openShippingAddressForm()"></button>
                             {% endif %}
                             </select>
                             <input type="text" name="date_shipped" id="id_date_shipped">
@@ -248,7 +248,23 @@
                             <input  type="submit" value="Submit">
                         </form>
                     </div>
-
+                    <div id="shipping_address_form-{{ x.id }}" class="none">
+                        <form method="POST" action="/api/shipping-address-api/" onsubmit="shippingAddressSubmit(event, {{ x.id }})">
+                            <select name="customer" required id="id_customer">
+                                <option value="{{ x.sold_data.purchased_by.id }}" selected>{{ x.sold_data.purchased_by }}</option>
+                                {% for u in customers %}
+                                    <option value="{{ u.id }}">{{ u }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="text" name="address" maxlength="255" required id="id_address">
+                            <input type="text" name="city" maxlength="100" required id="id_city">
+                            <input type="text" name="state" maxlength="2" required id="id_state">
+                            <input type="text" name="country" maxlength="100" id="id_country">
+                            <input type="text" name="zip_code" maxlength="10" required id="id_zip_code">
+                            <textarea name="other" cols="40" rows="10" id="id_other"></textarea>
+                            <input type="number" name="inventory_object_id">
+                        </form>
+                    </div>
                     </div>
 
 
