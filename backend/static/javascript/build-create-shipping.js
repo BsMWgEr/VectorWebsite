@@ -53,8 +53,7 @@ function createNewShippingAddress(event) {
 }
 
 function openShippingData() {
-    let div_box = document.getElementById('div-box')
-    let shipping = document.getElementById('bottom-shipping-div')
+
     let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
 
     let xhr = new XMLHttpRequest()

@@ -130,22 +130,15 @@ function createSoldDetail() {
                     + '</p><p>created_date' + answer[i].created_date + '</p><p id="build-sold-purchased_by">Purchased By: '+ answer[i].purchased_by_id +'</p></div>'
             }
             if (str_detail === '') {
-                document.getElementById('right-sold-bottom-div').innerHTML = '<h1>NO SOLD DATA</h1>'
+                document.getElementById('top-left-inner-div').innerHTML = '<h1>NO SOLD DATA</h1>'
             } else {
-                document.getElementById('right-sold-bottom-div').innerHTML = str_detail
+                document.getElementById('top-left-inner-div').innerHTML = str_detail
             }
         }
         xhr.send()
 }
 function displayPurchasedBy(x) {
-    let div_box = document.getElementById('div-box')
-    if (document.getElementById('right-sold-customer-div') === null) {
-        let right_div = document.createElement('div')
-        right_div.setAttribute('id', 'right-sold-customer-div')
-        let right_node = document.createTextNode("new text goes here")
-        right_div.appendChild(right_node)
-        div_box.appendChild(right_div)
-    }
+
     let xhr = new XMLHttpRequest()
     let method = 'GET'
     let url = '/api/endpoint3' + '?all_customer_data=' + x
@@ -161,7 +154,7 @@ function displayPurchasedBy(x) {
                     + '</p><p>Last Name: ' + answer[i].last_name + '</p><p>Company: ' + answer[i].company
                     + '</p><p>Email: ' + answer[i].email + '</p><p>Phone Number: '+ answer[i].phone_number +'</p></div>'
         }
-        document.getElementById('right-sold-customer-div').innerHTML = main_str
+        document.getElementById('top-right-inner-div').innerHTML = main_str
     }
     xhr.send()
 }
