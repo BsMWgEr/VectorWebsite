@@ -34,12 +34,11 @@ function shippingAddressSubmit(event, x){
             dxhr.onload = () => {
                 let serverResonse = dxhr.response
                 let answer = serverResonse.response
+                let new_str = ''
                 if (serverResonse.selected_item) {
                     let selected_item = serverResonse.selected_item
-                    let new_str = '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
+                    new_str += '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
                         + ' ' + selected_item[0].city + ', ' + selected_item[0].state + ' ' + selected_item[0].zipcode + '</option>'
-                } else {
-                    let new_str = ''
                 }
                 for (let i = 1; i < answer.length; i++) {
                     new_str += '<option value="' + answer[i].id + '">Customer ID: ' + answer[i].customer_id
