@@ -53,3 +53,7 @@ function shippingAddressSubmit(event, x){
 function openShippingDataForm(x) {
     document.getElementById('shipping_data_form-' + x.toString()).className = 'shipping-data-form'
 }
+
+function openShippingAddressForm(x) {
+    document.getElementById('shipping_address_form-' + x.toString()).className = 'shipping-address-form'
+}

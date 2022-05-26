@@ -26,3 +26,18 @@
     display: flex;
     border: 5px solid black;
 }
+
+.shipping-data-form * {
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping-address-form {
+    display: flex;
+    border: 5px solid black;
+}
+
+.shipping-address-form * {
+    display: flex;
+    flex-direction: column;
+}

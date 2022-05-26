@@ -217,6 +217,7 @@
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
 
                 {% elif x.sold_data %}
+                    <li><button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button></li>
                     <li><button onclick="openShippingDataForm({{ x.id }})">Change to Shipping</button></li>
                 {% endif %}
 
@@ -238,7 +239,7 @@
                                     <option value="{{ t.id }}">{{ t }}</option>
                                 {% endfor %}
                                 {% else %}
-                                    <button id="new-shipping-address-btn" onclick="openShippingAddressForm()"></button>
+                                    <button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button>
                             {% endif %}
                             </select>
                             <input type="text" name="date_shipped" id="id_date_shipped">
