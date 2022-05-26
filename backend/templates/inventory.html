@@ -242,10 +242,11 @@
                                     <button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button>
                             {% endif %}
                             </select>
-                            <input type="text" name="date_shipped" id="id_date_shipped">
-                            <input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">
-                            <input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1">
-                            <textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>
+                            <label for="id_date_shipped">Select a Shipping Date (not required):</label>
+                            <input type="date" name="date_shipped" id="id_date_shipped">
+                            <input type="text" name="tracking_number" maxlength="200" id="id_tracking_number" placeholder="Enter Tracking Number (not required)">
+                            <input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1" placeholder="Enter Shipping Info (not required)">
+                            <textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2" placeholder="Enter Other Shipping Info (not required)"></textarea>
                             <input  type="submit" value="Submit">
                         </form>
                     </div>
