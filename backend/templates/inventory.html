@@ -157,7 +157,9 @@
                 <li>Inventory Item: {{ x.inventory_item }}</li>
                 {% if x.sold_data %}
                     <li>Sold Data: {{ x.sold_data }}</li>
-                    <button>Update Sold Information</button>
+                    {% if not x.completed_order %}
+                        <button>Update Sold Information</button>
+                    {% endif %}
                 {% else %}
                     <li>Sold Data:
                     {% if not x.inventory_item.in_stock %}
@@ -273,7 +275,7 @@
 
 
                 {% if x.sold_data.purchased_by %}
-                <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
+                <li>Customer: {{ x.sold_data.purchased_by }}</li>{% if not x.completed_order %}<button>Update Customer</button>{% endif %}
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
                 {% if x.shipping_data and not x.completed_order %}
