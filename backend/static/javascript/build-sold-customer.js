@@ -76,7 +76,7 @@ function openSoldCustomerSelect() {
 }
 
 function createSoldDetail() {
-
+        createDisplayTemplate()
         let obj_id = document.getElementById('e-id').innerHTML
         let xhr = new XMLHttpRequest()
         let method = 'GET'

@@ -53,9 +53,8 @@ function createNewShippingAddress(event) {
 }
 
 function openShippingData() {
-
+    createDisplayTemplate()
     let obj_id = document.getElementById('element-object-id').innerHTML.split(' ')
-
     let xhr = new XMLHttpRequest()
     let method = 'GET'
     let url = '/api/get-shipping-data-api?obj_id=' + obj_id[2].toString()
