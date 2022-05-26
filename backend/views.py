@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from stockvectorrigs.aws.connect import s3
 from backend.forms import IdForm, BuildForm
-from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold, Message
+from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold, Message, CustomerShippingAddress
 
 
 @login_required
@@ -108,13 +108,12 @@ def inventory_view_sold(request):
             if not z.shipping_data and not z.completed_order:
                 sold_true.append(z)
 
-
-
-
+    customer_info = CustomerShippingAddress.objects.all()
     context = {
         'all': sold_true,
         'summary_title': summary_title,
         'customers': customers,
+        'shipping': customer_info
     }
     return render(request, 'inventory-sold.html', context=context)
 

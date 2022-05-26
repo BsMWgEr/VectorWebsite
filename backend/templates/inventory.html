@@ -233,9 +233,13 @@
                             </select>
                             <select name="shipping_address" required id="id_shipping_address">
                                 <option value="" selected>Select a Shipping Address</option>
+                            {% if shipping %}
                                 {% for t in shipping %}
                                     <option value="{{ t.id }}">{{ t }}</option>
                                 {% endfor %}
+                                {% else %}
+                                    <option value="" selected>Create a New Shipping Address First</option>
+                            {% endif %}
                             </select>
                             <input type="text" name="date_shipped" id="id_date_shipped">
                             <input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">
