@@ -2,11 +2,22 @@
     color: white;
 }
 
+ol {
+    margin-left: 30%;
+
+    width:fit-content
+}
+
 ol li {
     background: rgba(0,0,0,.5);
     width: 500px;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
+    box-shadow: 0 0 10px black;
+}
 
+ul li {
+    width: 400px;
+    background: white;
 }
