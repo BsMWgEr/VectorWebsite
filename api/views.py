@@ -541,7 +541,7 @@ def build_update_sold_data(request):
     return render(request, 'build-update-sold.html')
 
 
-def build_create_new_shipping_data(request):
+def create_new_shipping_data(request):
     form = NewShippingDataForm(request.POST or None)
     if form.is_valid():
         form.save()

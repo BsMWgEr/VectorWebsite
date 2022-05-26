@@ -151,7 +151,7 @@
     {% for x in all %}
         <li>
         <hr>
-        <details><summary>Inventory Object: {{ x }}</summary>
+        <details><summary id="inventory_object_display">Inventory Object: {{ x }}</summary>
             <hr>
             <ul>
                 <li>Inventory Item: {{ x.inventory_item }}</li>
@@ -217,8 +217,37 @@
                     <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
 
                 {% elif x.sold_data %}
-                    <li><button>Change to Shipping</button></li>
+                    <li><button onclick="openShippingDataForm({{ x.id }})">Change to Shipping</button></li>
                 {% endif %}
+
+                <div class="form-group-shipping">
+                    <div id="shipping_data_form-{{ x.id }}" class="none">
+                        <form method="POST" action="/api/shipping-data-api/" onsubmit="shippingDataSubmit(event, {{ x.id }})">
+                            {% csrf_token %}
+                            <input name="inventory_object_id" value="{{ x.id }}" required hidden>
+                            <select name="inventory_item" required id="id_inventory_item" hidden>
+                                <option value="{{ x.inventory_item.id }}" selected>{{ x.inventory_item}}</option>
+                            </select>
+                            <select name="sold_detail" required id="id_sold_detail">
+                                <option value="{{ x.sold_data.id }}" selected>{{ x.sold_data }}</option>
+                            </select>
+                            <select name="shipping_address" required id="id_shipping_address">
+                                <option value="" selected>Select a Shipping Address</option>
+                                {% for t in shipping %}
+                                    <option value="{{ t.id }}">{{ t }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="text" name="date_shipped" id="id_date_shipped">
+                            <input type="text" name="tracking_number" maxlength="200" id="id_tracking_number">
+                            <input type="text" name="Shipper_info1" maxlength="200" id="id_Shipper_info1">
+                            <textarea name="Shipper_info2" cols="40" rows="10" id="id_Shipper_info2"></textarea>
+                            <input  type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                    </div>
+
+
                 {% if x.sold_data.purchased_by %}
                 <li>Customer: {{ x.sold_data.purchased_by }}</li><button>Update Customer</button>
                 {% endif %}

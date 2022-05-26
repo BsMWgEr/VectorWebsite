@@ -17,3 +17,12 @@
     display: block;
     border: 5px solid black;
 }
+
+.form-group-shipping {
+    display: flex;
+}
+
+.shipping-data-form {
+    display: flex;
+    border: 5px solid black;
+}

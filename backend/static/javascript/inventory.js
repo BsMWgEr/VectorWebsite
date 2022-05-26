@@ -5,6 +5,9 @@
 */
 
 
+
+
+
 let sold_data_id;
 function sold_Data_form(x) {
     document.getElementById('sold_data_form-' + x.toString()).className = "sold-data-form"
