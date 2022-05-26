@@ -59,7 +59,7 @@ function openShippingData() {
     if (shipping === null) {
         let new_shipping = document.createElement('div')
         new_shipping.setAttribute('id', 'bottom-shipping-div')
-        div_box.appendChild(new_shipping)
+        document.getElementById('bottom-right-inner-div').appendChild(new_shipping)
     }
     let xhr = new XMLHttpRequest()
     let method = 'GET'

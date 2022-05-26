@@ -79,10 +79,31 @@ function createSoldDetail() {
     let div_box = document.getElementById('div-box')
     if (document.getElementById('right-sold-bottom-div') === null) {
         let right_div = document.createElement('div')
+        let inner_div = document.createElement('div')
+        let left_inner_div = document.createElement('div')
+        let right_inner_div = document.createElement('div')
+        let bottom_right_div = document.createElement('div')
+
         right_div.setAttribute('id', 'right-sold-bottom-div')
-        let right_node = document.createTextNode("new text goes here")
-        right_div.appendChild(right_node)
+        inner_div.setAttribute('id', 'top-inner-div')
+        left_inner_div.setAttribute('id', 'top-left-inner-div')
+        right_inner_div.setAttribute('id', 'top-right-inner-div')
+        bottom_right_div.setAttribute('id', 'bottom-right-inner-div')
+
         div_box.appendChild(right_div)
+        right_div.appendChild(inner_div)
+        inner_div.appendChild(left_inner_div)
+        inner_div.appendChild(right_inner_div)
+        right_div.appendChild(bottom_right_div)
+
+        inner_div.style.display = 'grid'
+        inner_div.style.gridTemplateColumns = 'auto auto'
+        right_div.style.display = 'grid'
+        right_div.style.gridTemplateColumns = 'auto'
+        bottom_right_div.style.display = 'grid'
+        bottom_right_div.style.gridTemplateColumns = 'auto'
+
+
     }
         let obj_id = document.getElementById('e-id').innerHTML
         let xhr = new XMLHttpRequest()
