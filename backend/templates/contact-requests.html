@@ -11,7 +11,7 @@
 {% block content %}
 <ol>
     {% for x in messages %}
-    <li>
+    <li id="message-container-{{ x.id }}">
     <ul>
         <li>E-mail: {{ x.email }}</li>
         <li>Subject: {{ x.subject }}</li>
@@ -19,7 +19,15 @@
         <li>Confirmation Number: {{ x.confirmation_number }}</li>
         <li>Message: {{ x.comment }}</li>
         <li>Read: {{ x.read }}</li>
+        {% if not x.read %}
+            <script>document.getElementById('message-container-{{ x.id }}').style.background = 'red'</script>
+            <button type="button">Mark As Read</button>
+        {% endif %}
     </ul></li>
     {% endfor %}
 </ol>
+
+    <script>
+
+    </script>
 {% endblock %}
