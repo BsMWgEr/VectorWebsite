@@ -192,7 +192,7 @@ def build_it(request):
 
 
 def contact_requests_view(request):
-    contacts = Message.objects.all()
+    contacts = Message.objects.all().order_by('-id')
 
     context = {
         'messages': contacts,
