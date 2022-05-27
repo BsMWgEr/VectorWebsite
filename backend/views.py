@@ -36,7 +36,11 @@ def inventory_view(request):
     items = InventoryObject.objects.all().filter(sold_data__isnull=True)
     customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
-    x = InventoryObject.objects.all()
+    if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
 
 
     context = {
@@ -51,7 +55,11 @@ def inventory_view(request):
 @login_required
 def inventory_view_instock(request):
     summary_title = "In Stock"
-    x = InventoryObject.objects.all()
+    if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
     customers = Customer.objects.all().order_by('-id')
 
 
@@ -104,7 +112,11 @@ def inventory_view_comingsoon(request):
 @login_required
 def inventory_view_sold(request):
     summary_title = "Sold"
-    x = InventoryObject.objects.all().filter()
+    if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
     customers = Customer.objects.all().order_by('-id')
     sold_true = []
     for z in x:
@@ -125,7 +137,11 @@ def inventory_view_sold(request):
 @login_required
 def inventory_view_shipping(request):
     summary_title = "Shipping"
-    x = InventoryObject.objects.all()
+    if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
     customers = Customer.objects.all().order_by('-id')
     shipping = []
     for z in x:
@@ -146,7 +162,11 @@ def inventory_view_shipping(request):
 @login_required
 def inventory_view_completed(request):
     summary_title = "Completed Orders"
-    x = InventoryObject.objects.all()
+    if request.GET.get('filter_by'):
+        print(request.GET.get('filter_by'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+    else:
+        x = InventoryObject.objects.all()
     customers = Customer.objects.all()
     completed = []
     for z in x:
