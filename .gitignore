@@ -97,6 +97,9 @@ env/
 venv/
 ENV/
 backend/node_modules
+backend/frontend/main.js
+backend/frontend/main.js.LICENSE.txt
+
 # Spyder project settings
 .spyderproject
 .spyproject
