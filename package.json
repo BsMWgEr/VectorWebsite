@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "react/index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "parcel serve react/index.html -p 1234",
+    "prodClean": "rm -rf prod_files",
+    "build": "yarn prodClean && parcel build react/index.html -d prod_files"
+  },
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
