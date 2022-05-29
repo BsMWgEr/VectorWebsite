@@ -42,7 +42,6 @@ def inventory_view(request):
     else:
         x = InventoryObject.objects.all()
 
-
     context = {
         'summary_title': summary_title,
         'all': x,
