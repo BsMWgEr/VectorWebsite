@@ -158,7 +158,7 @@
                 {% if x.sold_data %}
                     <li>Sold Data: {{ x.sold_data }}</li>
                     {% if not x.completed_order %}
-                        <button id="update-sold-information-btn">Update Sold Information</button>
+                        <button id="update-sold-information-btn" onclick="updateInventorySold()">Update Sold Information</button>
                         <div id="div-inventory-update" class="none">
                             <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInfoAPI(event)" >
                             {% csrf_token %}
