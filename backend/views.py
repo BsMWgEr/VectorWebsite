@@ -49,7 +49,7 @@ def inventory_view(request):
         'items': items,
         'customers': customers,
     }
-    return render(request, './../react-frontend/prod_files/index.html', context=context)
+    return render(request, 'inventory.html', context=context)
 
 
 @login_required

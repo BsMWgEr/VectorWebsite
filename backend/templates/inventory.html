@@ -158,7 +158,13 @@
                 {% if x.sold_data %}
                     <li>Sold Data: {{ x.sold_data }}</li>
                     {% if not x.completed_order %}
-                        <button>Update Sold Information</button>
+                        <button id="update-sold-information-btn">Update Sold Information</button>
+                        <div id="div-inventory-update" class="none">
+                            <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInfoAPI(event)" >
+                            {% csrf_token %}
+                                <div id="update-inventory-change-display" class="update-inventory-change-display"></div>
+                            </form>
+                        </div>
                     {% endif %}
                 {% else %}
                     <li>Sold Data:
@@ -359,6 +365,9 @@
 
 {% endblock %}
 </div>
+
+<div id="app"></div><script src="./../react-frontend/prod_files/react-frontend.09619817.js"></script>
+
 
 </main>
 
