@@ -89,6 +89,39 @@ function otherChangeDisplayer(x, id_number) {
         <button type="submit">Submit</button>`
 }
 
+function getCustomers() {
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.open('GET', '/api/endpoint3')
+    xhr.onload = ()=> {
+        let answer = xhr.response.response
+        let select_options = ''
+        for (let i = 0; i < answer.length; i++) {
+            select_options += `<option value="${answer[i].id}" >${answer[i].id} ${answer[i].first_name} ${answer[i].last_name} ${answer[i].email}</option>`
+        }
+
+    }
+    xhr.send()
+}
+
+function customerChangeDisplayer(x,id_number) {
+    console.log(`customerChangeDisplayer: ${x} ${id_number}`)
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.open('GET', '/api/endpoint3')
+    xhr.onload = ()=> {
+        let answer = xhr.response.response
+        let select_options = ''
+        for (let i = 0; i < answer.length; i++) {
+            select_options += `<option value="${answer[i].id}" >${answer[i].id} ${answer[i].first_name} ${answer[i].last_name} ${answer[i].email}</option>`
+        }
+        document.getElementById('inner').innerHTML = `<input name="id" value="${x}" hidden>
+            <select name="purchased_by_id"><option value="" selected>Choose a New Customer</option>${select_options}</select>
+            <button type="submit">Submit</button>`
+    }
+    xhr.send()
+}
+
 function updateInventorySoldSwitch(type, x, id_number) {
     console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
@@ -104,6 +137,9 @@ function updateInventorySoldSwitch(type, x, id_number) {
             break
         case 'update_other':
             inner.innerHTML = otherChangeDisplayer(x, id_number)
+            break
+        case 'update_customer':
+            customerChangeDisplayer(x, id_number)
             break
         default:
             alert('none')
@@ -122,7 +158,7 @@ function updateInventorySold(number, id_number) {
         new_div.innerHTML = `<button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
             <button onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
             <button onclick="updateInventorySoldSwitch({'type': 'update_other'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
-            <button class="${classInput}">Change Customer</button>`
+            <button onclick="updateInventorySoldSwitch({'type': 'update_customer'}, ${number}, ${id_number})" class="${classInput}">Change Customer</button>`
 
 
         document.querySelectorAll('.inventory-sold-btn-group')

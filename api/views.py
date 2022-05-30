@@ -574,6 +574,7 @@ def build_update_sold_data(request):
         dict_info = q_dict.get('info')
         dict_other = q_dict.get('other')
         dict_date = q_dict.get('date_sold')
+        dict_customer = q_dict.get('puchased_by_id')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
@@ -581,6 +582,8 @@ def build_update_sold_data(request):
             SoldDetail.objects.filter(id=dict_id).update(other=dict_other)
         if dict_date:
             SoldDetail.objects.filter(id=dict_id).update(date_sold=dict_date)
+        if dict_customer:
+            SoldDetail.objects.filter(id=dict_id).update(purchased_by_id=dict_customer)
 
     return render(request, 'build-update-sold.html')
 
