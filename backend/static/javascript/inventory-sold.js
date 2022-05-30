@@ -101,7 +101,7 @@ function updateInventorySold(number, id_number) {
 
 
 
-function updateInventorySoldData(event) {
+function updateInventorySoldData(event, obj_id) {
     event.preventDefault()
     let my_Form = event.target
     let my_FormData = new FormData(my_Form)
@@ -113,7 +113,7 @@ function updateInventorySoldData(event) {
     xhr.onload = function () {
         let dxhr = new XMLHttpRequest()
         dxhr.responseType = 'json'
-        dxhr.open('GET', '/api/endpoint3')
+        dxhr.open('GET', '/api/endpoint3?obj_id=' + obj_id.toString())
         dxhr.onload = ()=> {
             console.log(dxhr.response)
             document.getElementById('update-inventory-change-display').innerHTML = ''
