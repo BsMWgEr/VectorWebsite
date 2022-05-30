@@ -60,13 +60,10 @@
                 const serverResponse2 = dxhr.response
                 console.log(serverResponse2)
                 x = JSON.parse(serverResponse2)
-                console.log(x)
-                console.log(x.response)
-                console.log(x.response[20])
                 let final_string = '<option value="" selected>Choose A Customer</option>'
                 for (let i = 0; i < x.response.length; i++) {
-                     final_string += '<option value="' + x.response[i].id + '">' + 'ID: ' + x.response[i].id + x.response[i].first_name
-                        + ' ' + x.response[i].last_name + ' email: ' + x.response[i].email + '</option>'
+                     final_string += '<option value="' + x.new_customers[i].id + '">' + 'ID: ' + x.new_customers[i].id + x.new_customers[i].first_name
+                        + ' ' + x.new_customers[i].last_name + ' email: ' + x.new_customers[i].email + '</option>'
                 }
                 document.getElementById('id_purchased_by-' + old_x).innerHTML = final_string
             }
