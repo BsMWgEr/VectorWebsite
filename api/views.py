@@ -500,8 +500,8 @@ def endpoint3(request):
         item = InventoryObject.objects.filter(id=data_id)
         sold_data_id = ''
         customer_ = ''
-        shipping_address = ''
-        shipping_data = ''
+        shipping_address = 0
+        shipping_data = 0
         inventory_item_id = ''
         for x in item:
             sold_data_id = x.sold_data_id
