@@ -458,6 +458,24 @@ def endpoint3(request):
             'created_date': x.created_date
         } for x in sold_obj]
 
+    elif request.GET.get('obj_id'):
+        data_id = request.GET.get('obj_id')
+        item = InventoryObject.objects.filter(id=data_id)
+        sold_data_id = ''
+        for x in item:
+            sold_data_id = x.sold_data_id
+
+        sold_obj = SoldDetail.objects.filter(id=sold_data_id)
+
+        container_list = [{
+            'id': x.id,
+            'purchased_by_id': x.purchased_by_id,
+            'date_sold': x.date_sold,
+            'info': x.info,
+            'other': x.other,
+            'created_date': x.created_date
+        } for x in sold_obj]
+
     elif request.GET.get('all_customer_data'):
         customer_id = request.GET.get('all_customer_data')
         customers = Customer.objects.filter(id=customer_id)
@@ -541,7 +559,7 @@ def build_update_sold_data(request):
         if dict_date:
             SoldDetail.objects.filter(id=dict_id).update(date_sold=dict_date)
         if request.POST.get('url'):
-            redirect(request.POST.get('url'))
+            redirect(request.POST.get('url') + '?')
 
     return render(request, 'build-update-sold.html')
 
