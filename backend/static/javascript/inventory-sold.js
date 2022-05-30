@@ -1,5 +1,5 @@
 
-
+import {dateChangeDisplayer} from './build-sold-customer'
 
 function shippingDataSubmit(event, x){
     event.preventDefault()
@@ -71,11 +71,17 @@ function updateInventorySold() {
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button class="${classInput}">Update Date</button>`
-            + `<button class="${classInput}">Update Info</button>`
-            + `<button class="${classInput}">Update Other Info</button>`
-            + `<button class="${classInput}">Change Customer</button>`
+        new_div.innerHTML = `<button onclick="updateInventorySoldDate()" class="${classInput}">Update Date</button>
+            <button class="${classInput}">Update Info</button>
+            <button class="${classInput}">Update Other Info</button>
+            <button class="${classInput}">Change Customer</button>`
 
         document.querySelectorAll('.inventory-sold-btn-group')
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
+}
+
+function updateInventorySoldDate() {
+    document.querySelector('#div-inventory-update').className = 'div-inventory-update'
+    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
+    dateChangeDisplayer('inner')
 }
