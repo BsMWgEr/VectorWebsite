@@ -110,7 +110,8 @@ function customerChangeDisplayer(x,id_number) {
     xhr.responseType = 'json'
     xhr.open('GET', '/api/endpoint3')
     xhr.onload = ()=> {
-        let answer = xhr.response.response
+        console.log(xhr.response)
+        let answer = xhr.response.new_customers
         let select_options = ''
         for (let i = 0; i < answer.length; i++) {
             select_options += `<option value="${answer[i].id}" >${answer[i].id} ${answer[i].first_name} ${answer[i].last_name} ${answer[i].email}</option>`

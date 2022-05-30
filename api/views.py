@@ -513,6 +513,7 @@ def endpoint3(request):
 
     else:
         customers = Customer.objects.all().order_by('-id')
+        new_customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
         container_list = [{"id": x.id,
                            "first_name": x.first_name,
                            "last_name": x.last_name,
@@ -520,9 +521,17 @@ def endpoint3(request):
                            "email": x.email,
                            "phone_number": x.phone_number,
                            } for x in customers]
+        container_list2 = [{"id": x.id,
+                           "first_name": x.first_name,
+                           "last_name": x.last_name,
+                           "company_name": x.company_name,
+                           "email": x.email,
+                           "phone_number": x.phone_number,
+                           } for x in new_customers]
 
         data = {
-            "response": container_list
+            "response": container_list,
+            "new_customers": container_list2
         }
 
     print(data)
@@ -583,7 +592,7 @@ def build_update_sold_data(request):
         if dict_date:
             SoldDetail.objects.filter(id=dict_id).update(date_sold=dict_date)
         if dict_customer:
-            SoldDetail.objects.filter(id=dict_id).filter(purchased_by_id__isnull=True).update(purchased_by_id=dict_customer)
+            SoldDetail.objects.filter(id=dict_id).update(purchased_by_id=dict_customer)
 
     return render(request, 'build-update-sold.html')
 
