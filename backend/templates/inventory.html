@@ -183,8 +183,8 @@
                     <div id="sold_data_form-{{ x.id }}" class="none">
                         <form method="POST" action="/api/sold-data-api/" onsubmit="DataSubmit(event, {{ x.id }})">
                             {% csrf_token %}
-                            <select name="inventory_item" required id="id_inventory_item">
-                                <option value="{{ x.inventory_item.id }}">{{ x.inventory_item }}</option>
+                            <select name="inventory_item" required id="id_inventory_item" hidden>
+                                <option value="{{ x.inventory_item.id }}" selected>{{ x.inventory_item }}</option>
                             </select>
 
                             <select name="purchased_by" required id="id_purchased_by-{{ x.id }}">
