@@ -479,7 +479,7 @@ def endpoint3(request):
             'date_sold': x.date_sold,
             'info': x.info,
             'other': x.other,
-            'created_date': x.created_date
+            'created_date': x.created_date.strftime("%B %d, %Y")
         } for x in sold_obj]
         container_list2 = [{
             "id": x.id,
@@ -488,6 +488,7 @@ def endpoint3(request):
             "company_name": x.company_name,
             "email": x.email,
             "phone_number": x.phone_number,
+            "created_date": x.created_date.strftime("%B %d, %Y")
         } for x in customer]
 
         data = {

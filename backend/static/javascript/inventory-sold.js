@@ -171,11 +171,11 @@ function getCustomerDataDisplay(obj_id) {
         document.getElementById('inventory-customer-data-obj-number').innerHTML = `
                     Customer: ${customer[0].id} - ${customer[0].first_name} ${customer[0].last_name}`
         document.getElementById('customer-data-ul-' + obj_id.toString()).innerHTML = `
-                    <li>Name: ${customer[0].first_name} ${customer[0].first_name}</li>
+                    <li>Name: ${customer[0].first_name} ${customer[0].last_name}</li>
                     <li>Phone Number: ${customer[0].phone_number}</li>
                     <li>Email: ${customer[0].email}</li>
-                    <li>Company: ${customer[0].company}</li>
-                    <li>Created Date: ${customer[0].created_date}</li>`
+                    <li>Company: ${customer[0].company_name}</li>
+                    <li>Created Date: ${customer[0].date_created}</li>`
     }
     xhr.send()
 }
