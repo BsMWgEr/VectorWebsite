@@ -574,7 +574,7 @@ def build_update_sold_data(request):
         dict_info = q_dict.get('info')
         dict_other = q_dict.get('other')
         dict_date = q_dict.get('date_sold')
-        dict_customer = q_dict.get('puchased_by_id')
+        dict_customer = q_dict.get('purchased_by_id')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
