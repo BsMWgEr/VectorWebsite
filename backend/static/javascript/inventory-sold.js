@@ -84,7 +84,7 @@ function infoChangeDisplayer(x, id_number) {
         <button type="submit">Submit</button>`
 }
 
-function updateInventorySoldAPI(type, x, id_number) {
+function updateInventorySoldSwitch(type, x, id_number) {
     console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
@@ -110,8 +110,8 @@ function updateInventorySold(number, id_number) {
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventorySoldDate({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
-            <button onclick="updateInventorySoldDate({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
+        new_div.innerHTML = `<button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
+            <button onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
             <button class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
 
