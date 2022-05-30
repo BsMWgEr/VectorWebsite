@@ -85,11 +85,11 @@ function infoChangeDisplayer(x, id_number) {
 }
 
 function updateInventorySoldDate(type, x, id_number) {
-    console.log(`updateInventorySoldDate: ${type} ${x} ${id_number}`)
+    console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    switch (type) {
+    switch (type.type) {
         case 'update_date':
             document.getElementById('inner').innerHTML = dateChangeDisplayer(x, id_number)
             break
