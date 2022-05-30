@@ -81,7 +81,7 @@ def inventory_view_instock(request):
 @login_required
 def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
-    customers = Customer.objects.all().order_by('-id')
+    customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
     summary_title = "Coming Soon"
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
@@ -95,9 +95,6 @@ def inventory_view_comingsoon(request):
                 if not z.shipping_data:
                     if not z.completed_order:
                         instock_false.append(z)
-
-
-
 
     context = {
         'all': instock_false,
