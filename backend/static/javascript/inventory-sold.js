@@ -116,15 +116,17 @@ function updateInventorySoldData(event, obj_id) {
         dxhr.open('GET', '/api/endpoint3?obj_id=' + obj_id.toString())
         dxhr.onload = ()=> {
             console.log(dxhr.response)
+            let answer = xhr.response.response
             document.getElementById('update-inventory-change-display').innerHTML = ''
             document.getElementById('div-inventory-update').className = 'none'
-            str_one = `<ul>
-                        <li>Purchased By: </li>
-                        <li>Date Sold: </li>
-                        <li>Info: </li>
-                        <li>More Info: </li>
-                        <li>Date Created: </li>
-                    </ul>`
+            document.getElementById('sold-data-one-' + obj_id).innerHTML = `Sold
+            Data: ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
+            document.getElementById('sold-data-ul').innerHTML = `
+                        <li>Purchased By: ${answer[0].purchased_by_id}</li>
+                        <li>Date Sold: ${answer[0].date_sold}</li>
+                        <li>Info: ${answer[0].info}</li>
+                        <li>More Info: ${answer[0].other}</li>
+                        <li>Date Created: ${answer[0].created_date}</li>`
         }
         dxhr.send()
 
