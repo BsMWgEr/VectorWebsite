@@ -122,7 +122,7 @@ function updateInventorySoldData(event, obj_id) {
             document.getElementById('sold-data-one-' + obj_id).innerHTML = `Sold
             Data: ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
             document.getElementById('inventory-sold-data-id-number-' + obj_id).innerHTML = `Sold Data: 
-            ${answer[0].id} --- Sold on: ${answer[0].sold_date}`
+            ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
             document.getElementById('sold-data-ul').innerHTML = `
                         <li>Purchased By: ${answer[0].purchased_by_id}</li>
                         <li>Date Sold: ${answer[0].date_sold}</li>
