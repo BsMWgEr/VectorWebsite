@@ -1,4 +1,4 @@
-import dateChangeDisplayer from './build-sold-customer'
+
 
 function shippingDataSubmit(event, x){
     event.preventDefault()
