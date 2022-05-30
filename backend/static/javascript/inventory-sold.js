@@ -85,6 +85,6 @@ function updateInventorySold() {
     new_div.appendChild(button3)
     new_div.appendChild(button4)
     document.querySelectorAll('.inventory-sold-btn-group')
-    document.getElementById('update-sold-information-btn').append(new_div)
+    document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
 
 }
