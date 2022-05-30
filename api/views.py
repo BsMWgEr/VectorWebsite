@@ -536,7 +536,7 @@ def endpoint3(request):
         container_list = [{
             'id': x.id,
             'purchased_by_id': x.purchased_by_id,
-            'date_sold': x.date_sold,
+            'date_sold': x.date_sold.strftime("%B %d, %Y"),
             'info': x.info,
             'other': x.other,
             'created_date': x.created_date.strftime("%B %d, %Y")
