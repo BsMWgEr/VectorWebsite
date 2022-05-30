@@ -175,7 +175,7 @@ function getCustomerDataDisplay(obj_id) {
                     <li>Phone Number: ${customer[0].phone_number}</li>
                     <li>Email: ${customer[0].email}</li>
                     <li>Company: ${customer[0].company_name}</li>
-                    <li>Created Date: ${customer[0].date_created}</li>`
+                    <li>Created Date: ${customer[0].created_date}</li>`
     }
     xhr.send()
 }
