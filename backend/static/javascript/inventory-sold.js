@@ -80,7 +80,10 @@ function updateInventorySold() {
     button3.innerHTML = `Update Other Info`
     button4.className = 'inventory-sold-btn-group'
     button4.innerHTML = `Change Customer`
-    new_div.appendChild(button1 && button2 && button3 && button4)
+    new_div.appendChild(button1)
+    new_div.appendChild(button2)
+    new_div.appendChild(button3)
+    new_div.appendChild(button4)
     document.querySelectorAll('.inventory-sold-btn-group')
     document.getElementById('update-sold-information-btn').append(new_div)
 
