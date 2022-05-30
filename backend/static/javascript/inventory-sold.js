@@ -70,7 +70,7 @@ function dateChangeDisplayer(x, id_number) {
     return `<input name="id" value="${sold_item_id[2]}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
         <input type="number" name="obj_id" value="${id_number}" hidden>
-        <input type="text" name="url" value="/api/endpoint3">
+        <input type="text" name="url" value="/api/endpoint3" hidden>
         <button type="submit">Submit</button>`
 }
 
@@ -112,7 +112,7 @@ function updateInventorySoldData(event) {
     xhr.open(method, url)
     xhr.onload = function () {
         console.log(xhr.response)
-        console.log(xhr.response.response)
+
         document.getElementById('update-inventory-change-display').innerHTML = ''
         document.getElementById('div-inventory-update').className = 'none'
         str_one = `<ul>
