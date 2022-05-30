@@ -1,4 +1,4 @@
-
+import dateChangeDisplayer from './build-sold-customer'
 
 function shippingDataSubmit(event, x){
     event.preventDefault()
@@ -79,8 +79,15 @@ function updateInventorySold() {
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
 }
 
+function dateChangeDisplayer() {
+    let sold_item_id = document.getElementById('sold-id-number').innerHTML.split(' ')
+    return `<input name="id" value="${sold_item_id}" hidden>
+        <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
+        <button type="submit">Submit</button>`
+}
+
 function updateInventorySoldDate() {
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    dateChangeDisplayer('inner')
+    document.getElementById('inner').innerHTML = dateChangeDisplayer()
 }

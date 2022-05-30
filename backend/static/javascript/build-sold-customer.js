@@ -232,18 +232,18 @@ function openNewSoldCustomerDisplay() {
             +'<button type="submit">Submit</button>'
 }
 
-function dateChangeDisplayer(element_id) {
-    let display = document.getElementById(element_id)
+function dateChangeDisplayer() {
     let sold_item_id = document.getElementById('sold-id-number').innerHTML.split(' ')
-    display.innerHTML = `<input name="id" value="${sold_item_id}" hidden>
+    return `<input name="id" value="${sold_item_id}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
         <button type="submit">Submit</button>`
 }
+
 
 function createSoldDateChange() {
     document.querySelector('#update-sold-change-display').className = 'update-sold-change-display'
     document.querySelector('#sold-change-display').className = 'sold-change-display'
     document.getElementById('div-build-sold_customer').className = 'none'
     document.getElementById('div-build-update-sold_customer').className = 'div-build-update-sold_customer'
-    dateChangeDisplayer('update-sold-change-display')
+    document.getElementById('update-sold-change-display').innerHTML = dateChangeDisplayer()
 }
