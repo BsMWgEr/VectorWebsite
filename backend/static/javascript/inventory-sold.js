@@ -166,6 +166,31 @@ function updateInventorySold(number, id_number) {
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
 }
 
+function getCustomerDataDisplay(obj_id) {
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.open('GET', '/api/endpoint3?obj_id=' + obj_id.toString())
+    xhr.onload = ()=> {
+        console.log(xhr.response)
+        let answer = xhr.response.response
+        let customer = xhr.response.customer
+        document.getElementById('update-inventory-change-display').innerHTML = ''
+        document.getElementById('div-inventory-update').className = 'none'
+        document.getElementById('customer-information-title-' + obj_id).innerHTML = `Customer
+            ID: ${answer[0].id} - Name: ${customer[0].last_name}, ${customer[0].first_name} - 
+            Phone #: ${customer[0].phone_number} - ${customer[0].email}`
+        document.getElementById('inventory-sold-data-id-number-' + obj_id.toString()).innerHTML = `
+            Customer: ${answer[0].id} - ${customer[0].first_name} ${customer[0].last_name} ${customer[0].email}`
+        document.getElementById('customer-data-ul-' + obj_id.toString()).innerHTML = `
+                    <li>Name: ${customer[0].first_name} ${customer[0].first_name}</li>
+                    <li>Phone Number: ${customer[0].phone_number}</li>
+                    <li>Email: ${customer[0].email}</li>
+                    <li>Company: ${customer[0].company}</li>
+                    <li>Created Date: ${customer[0].created_date}</li>`
+    }
+    xhr.send()
+}
+
 
 function getSoldDataDisplay(obj_id) {
     let xhr = new XMLHttpRequest()

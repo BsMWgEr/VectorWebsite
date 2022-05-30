@@ -282,7 +282,7 @@
 
 
                 {% if x.sold_data.purchased_by %}
-                <li>Customer: {{ x.sold_data.purchased_by }}</li>{% if not x.completed_order %}<button>Update Customer</button>{% endif %}
+                <li id="customer-information-title-{{ x.id }}">Customer: {{ x.sold_data.purchased_by }}</li>{% if not x.completed_order %}<button>Update Customer</button>{% endif %}
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
                 {% if x.shipping_data and not x.completed_order %}
@@ -340,8 +340,8 @@
             </li>
             {% endif %}
             {% if x.sold_data.purchased_by %}
-                <li><hr><details><summary>Customer: {{ x.sold_data.purchased_by.id }} - {{ x.customer.first_name }}</summary><hr>
-                <ul>
+                <li><hr><details><summary id="inventory-customer-data-obj-number">Customer: {{ x.sold_data.purchased_by.id }} - {{ x.customer.first_name }}</summary><hr>
+                <ul id="customer-data-ul-{{ x.id }}">
                     <li>Name: {{ x.sold_data.purchased_by.first_name }} {{ x.sold_data.purchased_by.last_name }}</li>
                     <li>Phone Number: {{ x.sold_data.purchased_by.phone_number }}</li>
                     <li>Email: {{ x.sold_data.purchased_by.email }}</li>
