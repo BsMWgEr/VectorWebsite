@@ -112,7 +112,6 @@ function updateInventorySoldData(event) {
     xhr.open(method, url)
     xhr.onload = function () {
         console.log(xhr.response)
-
         document.getElementById('update-inventory-change-display').innerHTML = ''
         document.getElementById('div-inventory-update').className = 'none'
         str_one = `<ul>
