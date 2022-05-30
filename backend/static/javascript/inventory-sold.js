@@ -230,6 +230,7 @@ function updateInventorySoldData(event, obj_id) {
     xhr.open(method, url)
     xhr.onload = function () {
         getSoldDataDisplay(obj_id)
+        getCustomerDataDisplay(obj_id)
     }
     my_FormData.entries()
     xhr.send(my_FormData)
