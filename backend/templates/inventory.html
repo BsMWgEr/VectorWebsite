@@ -340,7 +340,8 @@
             </li>
             {% endif %}
             {% if x.sold_data.purchased_by %}
-                <li><hr><details><summary id="inventory-customer-data-obj-number">Customer: {{ x.sold_data.purchased_by.id }} - {{ x.customer.first_name }}</summary><hr>
+                <li><hr><details><summary id="inventory-customer-data-obj-number">Customer: {{ x.sold_data.purchased_by.id }}
+                    - {{ x.sold_data.purchased_by.first_name }} {{ x.sold_data.purchased_by.last_name }}</summary><hr>
                 <ul id="customer-data-ul-{{ x.id }}">
                     <li>Name: {{ x.sold_data.purchased_by.first_name }} {{ x.sold_data.purchased_by.last_name }}</li>
                     <li>Phone Number: {{ x.sold_data.purchased_by.phone_number }}</li>
