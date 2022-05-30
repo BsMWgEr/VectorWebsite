@@ -554,7 +554,7 @@ def endpoint3(request):
             'inventory_item': x.inventory_item.id,
             'sold_detail': x.sold_detail.id,
             'shipping_address': x.shipping_address.id,
-            'date_shipped': x.date_shipped,
+            'date_shipped': x.date_shipped.strftime("%B %d, %Y"),
             'tracking_number': x.tracking_number,
             'shipper_info1': x.Shipper_info1,
             'shipper_info2': x.Shipper_info1,

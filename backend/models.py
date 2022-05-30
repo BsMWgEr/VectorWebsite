@@ -170,8 +170,12 @@ class InventoryItem(models.Model):
         ordering = ['-id']  # orders by descending remove the dash to make ascending
 
     def __str__(self):
-        return f"ID: {self.id} Type: {self.type} Name: {self.name} - Serial #: {self.serial_number} -----  " \
-               f"In Stock: {self.in_stock}"
+        if self.size:
+            size = self.size.size
+        else:
+            size = 'NO SIZE'
+        return f"ID: {self.id} Type: {self.type} {self.name.name} {size} - Serial #: {self.serial_number}" \
+               f"- In Stock: {self.in_stock}"
 
     def serialize(self):
         return {
