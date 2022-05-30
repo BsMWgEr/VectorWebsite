@@ -121,7 +121,7 @@ function updateInventorySold(number, id_number) {
         let classInput = ''
         new_div.innerHTML = `<button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
             <button onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
-            <button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
+            <button onclick="updateInventorySoldSwitch({'type': 'update_other'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
 
         document.querySelectorAll('.inventory-sold-btn-group')
