@@ -243,6 +243,13 @@ function sendstuff(obj_id) {
     xhr.open('GET','/api/endpoint3?everything=' + obj_id.toString())
     xhr.onload = ()=> {
         console.log(xhr.response)
+        console.log(xhr.response.address)
+        console.log(xhr.response.customer)
+        console.log(xhr.response.inventory_item)
+        console.log(xhr.response.shipping_data)
+        console.log(xhr.response.sold_data)
+
+
     }
     xhr.send()
 }
