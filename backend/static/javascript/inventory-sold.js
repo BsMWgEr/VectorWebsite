@@ -87,6 +87,7 @@ function dateChangeDisplayer() {
 }
 
 function updateInventorySoldDate() {
+    document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
     document.getElementById('inner').innerHTML = dateChangeDisplayer()
@@ -102,13 +103,9 @@ function updateInventorySoldData(event) {
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = function () {
-        let serverResponse = xhr.response
-        console.log('new sold data success')
-        document.getElementById('update-sold-change-display').innerHTML = ''
-        createSoldDetail()
+        document.getElementById('update-inventory-change-display').innerHTML = ''
+        document.getElementById('div-inventory-update').className = 'none'
     }
-
     my_FormData.entries()
-    console.log(my_FormData)
     xhr.send(my_FormData)
 }
