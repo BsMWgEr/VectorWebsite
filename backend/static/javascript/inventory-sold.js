@@ -111,16 +111,22 @@ function updateInventorySoldData(event) {
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = function () {
-        console.log(xhr.response)
-        document.getElementById('update-inventory-change-display').innerHTML = ''
-        document.getElementById('div-inventory-update').className = 'none'
-        str_one = `<ul>
-                    <li>Purchased By: </li>
-                    <li>Date Sold: </li>
-                    <li>Info: </li>
-                    <li>More Info: </li>
-                    <li>Date Created: </li>
-                </ul>`
+        let dxhr = new XMLHttpRequest()
+        dxhr.responseType = 'json'
+        dxhr.open('GET', '/api/endpoint3')
+        dxhr.onload = ()=> {
+            console.log(dxhr.response)
+            document.getElementById('update-inventory-change-display').innerHTML = ''
+            document.getElementById('div-inventory-update').className = 'none'
+            str_one = `<ul>
+                        <li>Purchased By: </li>
+                        <li>Date Sold: </li>
+                        <li>Info: </li>
+                        <li>More Info: </li>
+                        <li>Date Created: </li>
+                    </ul>`
+        }
+
     }
     my_FormData.entries()
     xhr.send(my_FormData)

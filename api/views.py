@@ -558,8 +558,6 @@ def build_update_sold_data(request):
             SoldDetail.objects.filter(id=dict_id).update(other=dict_other)
         if dict_date:
             SoldDetail.objects.filter(id=dict_id).update(date_sold=dict_date)
-        if request.POST.get('url'):
-            redirect(request.POST.get('url') + '?obj_id=' + request.POST.get('obj_id'))
 
     return render(request, 'build-update-sold.html')
 
