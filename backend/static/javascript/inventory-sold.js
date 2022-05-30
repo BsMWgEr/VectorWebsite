@@ -63,7 +63,7 @@ function openShippingAddressForm(x) {
 }
 
 function dateChangeDisplayer(x, id_number) {
-    console.log(`dateChangeDisplayer: ${x}`)
+    console.log(`dateChangeDisplayer: ${x} ${id_number}`)
     let number = `inventory-sold-data-id-number-${x}`
     let sold_item_id = document.getElementById(number).innerHTML.split(' ')
     let id_value = document.getElementById('')
@@ -74,7 +74,7 @@ function dateChangeDisplayer(x, id_number) {
 }
 
 function updateInventorySoldDate(x, id_number) {
-    console.log(`updateInventorySoldDate: ${x}`)
+    console.log(`updateInventorySoldDate: ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
@@ -82,7 +82,7 @@ function updateInventorySoldDate(x, id_number) {
 }
 
 function updateInventorySold(number, id_number) {
-    console.log(`updateInventorySold: ${number}`)
+    console.log(`updateInventorySold: ${number} ${id_number}`)
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
         new_div = document.createElement('div')
