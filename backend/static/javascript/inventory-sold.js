@@ -80,17 +80,30 @@ function infoChangeDisplayer(x, id_number) {
         <button type="submit">Submit</button>`
 }
 
+function otherChangeDisplayer(x, id_number) {
+    console.log(`otherChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <textarea name="other" placeholder="Enter Other Info Here"></textarea>
+        <input type="number" name="obj_id" value="${id_number}" hidden>
+        <input type="text" name="url" value="/api/endpoint3" hidden>
+        <button type="submit">Submit</button>`
+}
+
 function updateInventorySoldSwitch(type, x, id_number) {
     console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
+    let inner = document.getElementById('inner')
     switch (type.type) {
         case 'update_date':
-            document.getElementById('inner').innerHTML = dateChangeDisplayer(x, id_number)
+            inner.innerHTML = dateChangeDisplayer(x, id_number)
             break
         case 'update_info':
-            document.getElementById('inner').innerHTML = infoChangeDisplayer(x, id_number)
+            inner.innerHTML = infoChangeDisplayer(x, id_number)
+            break
+        case 'update_other':
+            inner.innerHTML = otherChangeDisplayer(x, id_number)
             break
         default:
             alert('none')
@@ -108,7 +121,7 @@ function updateInventorySold(number, id_number) {
         let classInput = ''
         new_div.innerHTML = `<button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
             <button onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
-            <button class="${classInput}">Update Other Info</button>
+            <button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
 
         document.querySelectorAll('.inventory-sold-btn-group')
