@@ -506,9 +506,9 @@ def endpoint3(request):
         for x in item:
             sold_data_id = x.sold_data_id
             customer_ = x.sold_data.purchased_by.id
-            if x.shipping_data.shipping_address_id:
+            if x.shipping_data:
                 shipping_address = x.shipping_data.shipping_address_id
-            shipping_data = x.shipping_data_id
+                shipping_data = x.shipping_data_id
             inventory_item_id = x.inventory_item_id
 
         inventory_item = InventoryItem.objects.filter(id=inventory_item_id)
