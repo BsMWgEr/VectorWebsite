@@ -65,21 +65,41 @@ function openShippingAddressForm(x) {
 function dateChangeDisplayer(x, id_number) {
     console.log(`dateChangeDisplayer: ${x} ${id_number}`)
     let number = `inventory-sold-data-id-number-${id_number}`
-    let sold_item_id = document.getElementById(number).innerHTML.split(' ')
-    let id_value = document.getElementById('')
-    return `<input name="id" value="${sold_item_id[2]}" hidden>
+    let sold_obj_id = document.getElementById(number).innerHTML.split(' ')
+    return `<input name="id" value="${sold_obj_id[2]}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
         <input type="number" name="obj_id" value="${id_number}" hidden>
         <input type="text" name="url" value="/api/endpoint3" hidden>
         <button type="submit">Submit</button>`
 }
 
-function updateInventorySoldDate(x, id_number) {
-    console.log(`updateInventorySoldDate: ${x} ${id_number}`)
+function infoChangeDisplayer(x, id_number) {
+    console.log(`infoChangeDisplayer: ${x} ${id_number}`)
+    let number = `inventory-sold-data-id-number-${id_number}`
+    let sold_obj_id = document.getElementById(number).innerHTML.split(' ')
+    return `<input name="id" value="${sold_obj_id[2]}" hidden>
+        <textarea name="info" placeholder="Enter Sold Info Here"></textarea>
+        <input type="number" name="obj_id" value="${id_number}" hidden>
+        <input type="text" name="url" value="/api/endpoint3" hidden>
+        <button type="submit">Submit</button>`
+}
+
+function updateInventorySoldDate(type, x, id_number) {
+    console.log(`updateInventorySoldDate: ${type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    document.getElementById('inner').innerHTML = dateChangeDisplayer(x, id_number)
+    switch (type) {
+        case 'update_date':
+            document.getElementById('inner').innerHTML = dateChangeDisplayer(x, id_number)
+            break
+        case 'update_info':
+            document.getElementById('inner').innerHTML = infoChangeDisplayer(x, id_number)
+            break
+        default:
+            alert('none')
+    }
+
 }
 
 function updateInventorySold(number, id_number) {
@@ -90,8 +110,8 @@ function updateInventorySold(number, id_number) {
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventorySoldDate(${number}, ${id_number})" class="${classInput}">Update Date</button>
-            <button class="${classInput}">Update Info</button>
+        new_div.innerHTML = `<button onclick="updateInventorySoldDate({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
+            <button onclick="updateInventorySoldDate({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
             <button class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
 
