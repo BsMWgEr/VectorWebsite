@@ -65,27 +65,17 @@ function openShippingAddressForm(x) {
 
 
 function updateInventorySold() {
+    let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
-        let new_div = document.createElement('div')
+        new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
-        let button1 = document.createElement('button')
-        let button2 = document.createElement('button')
-        let button3 = document.createElement('button')
-        let button4 = document.createElement('button')
-        new_div.style.display = 'flex'
-        button1.innerHTML = `Update Date`
-        button1.className = 'inventory-sold-btn-group'
-        button2.className = 'inventory-sold-btn-group'
-        button2.innerHTML = `Update Info`
-        button3.className = 'inventory-sold-btn-group'
-        button3.innerHTML = `Update Other Info`
-        button4.className = 'inventory-sold-btn-group'
-        button4.innerHTML = `Change Customer`
-        new_div.appendChild(button1)
-        new_div.appendChild(button2)
-        new_div.appendChild(button3)
-        new_div.appendChild(button4)
+    } else  new_div = document.getElementById('inventory-sold-update-btn-group')
+        let classInput = ''
+        new_div.innerHTML = `<button class="${classInput}">Update Date</button>`
+            + `<button class="${classInput}">Update Info</button>`
+            + `<button class="${classInput}">Update Other Info</button>`
+            + `<button class="${classInput}">Change Customer</button>`
+
         document.querySelectorAll('.inventory-sold-btn-group')
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
-    }
 }
