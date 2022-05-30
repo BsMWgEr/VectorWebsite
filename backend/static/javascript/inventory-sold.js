@@ -62,15 +62,28 @@ function openShippingAddressForm(x) {
     document.getElementById('shipping_address_form-' + x.toString()).className = 'shipping-address-form'
 }
 
+function dateChangeDisplayer(x) {
+    let sold_item_id = document.getElementById(`inventory-sold-data-id-number-${x}`).innerHTML.split(' ')
+    return `<input name="id" value="${sold_item_id[2]}" hidden>
+        <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
+        <button type="submit">Submit</button>`
+}
 
-function updateInventorySold() {
+function updateInventorySoldDate(x) {
+    document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
+    document.querySelector('#div-inventory-update').className = 'div-inventory-update'
+    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
+    document.getElementById('inner').innerHTML = dateChangeDisplayer(x)
+}
+
+function updateInventorySold(number) {
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
         new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventorySoldDate()" class="${classInput}">Update Date</button>
+        new_div.innerHTML = `<button onclick="${updateInventorySoldDate(number)}" class="${classInput}">Update Date</button>
             <button class="${classInput}">Update Info</button>
             <button class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
@@ -79,19 +92,7 @@ function updateInventorySold() {
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
 }
 
-function dateChangeDisplayer() {
-    let sold_item_id = document.getElementById('inventory-sold-data-id-number').innerHTML.split(' ')
-    return `<input name="id" value="${sold_item_id[2]}" hidden>
-        <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
-        <button type="submit">Submit</button>`
-}
 
-function updateInventorySoldDate() {
-    document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
-    document.querySelector('#div-inventory-update').className = 'div-inventory-update'
-    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    document.getElementById('inner').innerHTML = dateChangeDisplayer()
-}
 
 function updateInventorySoldData(event) {
     event.preventDefault()
