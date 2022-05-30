@@ -315,8 +315,8 @@
             </details>
                 {% if x.sold_data %}
             </li>
-                <li><hr><details><summary id="inventory-sold-data-id-number-{{ x.sold_data.id }}">Sold Data: {{ x.sold_data.id }} --- Sold on: {{ x.sold_data.date_sold }}</summary><hr>
-                <ul id="sold-data-ul">
+                <li><hr><details><summary id="inventory-sold-data-id-number-{{ x.id }}">Sold Data: {{ x.sold_data.id }} --- Sold on: {{ x.sold_data.date_sold }}</summary><hr>
+                <ul id="sold-data-ul-{{ x.id }}">
                     <li>Purchased By: {{ x.sold_data.purchased_by }}</li>
                     <li>Date Sold: {{ x.sold_data.date_sold }}</li>
                     <li>Info: {{ x.sold_data.info }}</li>
