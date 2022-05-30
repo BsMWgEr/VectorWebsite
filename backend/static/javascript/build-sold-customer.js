@@ -1,3 +1,5 @@
+
+
 /*
 
         SOLD / CUSTOMER BUILD PAGE
@@ -230,7 +232,7 @@ function openNewSoldCustomerDisplay() {
             +'<button type="submit">Submit</button>'
 }
 
-export function dateChangeDisplayer(element_id) {
+function dateChangeDisplayer(element_id) {
     let display = document.getElementById(element_id)
     let sold_item_id = document.getElementById('sold-id-number').innerHTML.split(' ')
     display.innerHTML = `<input name="id" value="${sold_item_id}" hidden>

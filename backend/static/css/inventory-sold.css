@@ -1,3 +1,7 @@
 #sold-btn {
     color: white;
 }
+
+#div-inventory-update {
+    display: flex;
+}
