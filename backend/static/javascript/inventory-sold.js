@@ -69,7 +69,7 @@ function dateChangeDisplayer(x, id_number) {
     let id_value = document.getElementById('')
     return `<input name="id" value="${sold_item_id[2]}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
-        <input type="text" name="url" value="${id_number}">
+        <input type="number" name="url" value="${id_number}">
         <button type="submit">Submit</button>`
 }
 
