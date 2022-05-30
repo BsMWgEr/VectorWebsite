@@ -539,7 +539,7 @@ def endpoint3(request):
             'date_sold': x.date_sold,
             'info': x.info,
             'other': x.other,
-            'created_date': x.created_date.date()
+            'created_date': x.created_date.strftime("%B %d, %Y")
         } for x in sold_obj]
         container_list2 = [{
             "id": x.id,
@@ -558,7 +558,7 @@ def endpoint3(request):
             'tracking_number': x.tracking_number,
             'shipper_info1': x.Shipper_info1,
             'shipper_info2': x.Shipper_info1,
-            'created_date': x.created_date.date(),
+            'created_date': x.created_date.strftime("%B %d, %Y"),
         } for x in shipping_info]
 
         container_list4 = [{
@@ -574,7 +574,7 @@ def endpoint3(request):
                    "confirmation_r": confirm,
                    'price': x.price,
                    "picture": picture,
-                   "created_date": x.created_date.date()
+                   "created_date": x.created_date.strftime("%B %d, %Y")
                            } for x in inventory_item]
         container_list5 = [{
                     'id': u.id,
