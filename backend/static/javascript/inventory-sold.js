@@ -124,6 +124,7 @@ function updateInventorySold(number, id_number) {
             <button onclick="updateInventorySoldSwitch({'type': 'update_other'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
 
+
         document.querySelectorAll('.inventory-sold-btn-group')
         document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
 }
