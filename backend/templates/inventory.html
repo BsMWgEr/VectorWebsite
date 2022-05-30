@@ -158,9 +158,9 @@
                 {% if x.sold_data %}
                     <li id="sold-data-one">Sold Data: {{ x.sold_data }}</li>
                     {% if not x.completed_order %}
-                        <button id="update-sold-information-btn" onclick="updateInventorySold({{ x.sold_data.id }})">Update Sold Information</button>
+                        <button id="update-sold-information-btn" onclick="updateInventorySold({{ x.sold_data.id }}, {{ x.id }})">Update Sold Information</button>
                         <div id="div-inventory-update" class="none">
-                            <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInventorySoldData(event, {{ x.id }})" >
+                            <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInventorySoldData(event)" >
                             {% csrf_token %}
                                 <div id="update-inventory-change-display" class="update-inventory-change-display"></div>
                             </form>
