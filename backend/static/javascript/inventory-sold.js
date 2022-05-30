@@ -126,6 +126,7 @@ function updateInventorySoldData(event) {
                         <li>Date Created: </li>
                     </ul>`
         }
+        dxhr.send()
 
     }
     my_FormData.entries()
