@@ -233,8 +233,8 @@ function openNewSoldCustomerDisplay() {
 }
 
 function dateChangeDisplayer() {
-    let sold_item_id = document.getElementById('sold-id-number').innerHTML.split(' ')
-    return `<input name="id" value="${sold_item_id}" hidden>
+    let sold_item_id = document.getElementById('inventory-sold-data-id-number').innerHTML.split(' ')
+    return `<input name="id" value="${sold_item_id[1]}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
         <button type="submit">Submit</button>`
 }
