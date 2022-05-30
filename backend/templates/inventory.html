@@ -282,7 +282,10 @@
 
 
                 {% if x.sold_data.purchased_by %}
-                <li id="customer-information-title-{{ x.id }}">Customer: {{ x.sold_data.purchased_by }}</li>{% if not x.completed_order %}<button onclick="sendstuff({{ x.id }})">Update Customer</button>{% endif %}
+                <li id="customer-information-title-{{ x.id }}">Customer: {{ x.sold_data.purchased_by }}</li>
+                    {% if not x.completed_order %}
+                        <button id="update-customer-btn-display" onclick="updateInventoryCustomer({{ x.sold_data.purchased_by.id }}, {{ x.id }})">Update Customer</button>
+                    {% endif %}
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>
                 {% if x.shipping_data and not x.completed_order %}

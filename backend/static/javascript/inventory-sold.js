@@ -253,3 +253,19 @@ function sendstuff(obj_id) {
     }
     xhr.send()
 }
+
+function updateInventoryCustomer(number, id_number) {
+    console.log(`updateInventoryCustomer: ${number} ${id_number}`)
+    let new_div;
+    if (!document.getElementById('inventory-customer-update-btn-group')) {
+        new_div = document.createElement('div')
+        new_div.setAttribute('id', 'inventory-customer-update-btn-group')
+    } else  new_div = document.getElementById('inventory-customer-update-btn-group')
+        let classInput = ''
+        new_div.innerHTML = `<button onclick="">Update Name</button>
+            <button >Update Company</button>
+            <button >Update Email</button>
+            <button >Change Phone Number</button>`
+
+        document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
+}
