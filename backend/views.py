@@ -59,8 +59,7 @@ def inventory_view_instock(request):
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
     else:
         x = InventoryObject.objects.all()
-    customers = Customer.objects.all().order_by('-id')
-
+    customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
 
     instock_true = []
     for z in x:
