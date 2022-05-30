@@ -64,7 +64,7 @@ function openShippingAddressForm(x) {
 
 function dateChangeDisplayer(x, id_number) {
     console.log(`dateChangeDisplayer: ${x} ${id_number}`)
-    let number = `inventory-sold-data-id-number-${x}`
+    let number = `inventory-sold-data-id-number-${id_number}`
     let sold_item_id = document.getElementById(number).innerHTML.split(' ')
     let id_value = document.getElementById('')
     return `<input name="id" value="${sold_item_id[2]}" hidden>
