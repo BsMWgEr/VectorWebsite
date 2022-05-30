@@ -64,9 +64,7 @@ function openShippingAddressForm(x) {
 
 function dateChangeDisplayer(x, id_number) {
     console.log(`dateChangeDisplayer: ${x} ${id_number}`)
-    let number = `inventory-sold-data-id-number-${id_number}`
-    let sold_obj_id = document.getElementById(number).innerHTML.split(' ')
-    return `<input name="id" value="${sold_obj_id[2]}" hidden>
+    return `<input name="id" value="${x}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
         <input type="number" name="obj_id" value="${id_number}" hidden>
         <input type="text" name="url" value="/api/endpoint3" hidden>
@@ -75,9 +73,7 @@ function dateChangeDisplayer(x, id_number) {
 
 function infoChangeDisplayer(x, id_number) {
     console.log(`infoChangeDisplayer: ${x} ${id_number}`)
-    let number = `inventory-sold-data-id-number-${id_number}`
-    let sold_obj_id = document.getElementById(number).innerHTML.split(' ')
-    return `<input name="id" value="${sold_obj_id[2]}" hidden>
+    return `<input name="id" value="${x}" hidden>
         <textarea name="info" placeholder="Enter Sold Info Here"></textarea>
         <input type="number" name="obj_id" value="${id_number}" hidden>
         <input type="text" name="url" value="/api/endpoint3" hidden>
