@@ -234,11 +234,11 @@
                     <div id="shipping_data_form-{{ x.id }}" class="none">
                         <form method="POST" action="/api/shipping-data-api/" onsubmit="shippingDataSubmit(event, {{ x.id }})">
                             {% csrf_token %}
-                            <input name="inventory_object_id" value="{{ x.id }}" hidden>
-                            <select name="inventory_item" required id="id_inventory_item" hidden>
+                            <input name="inventory_object_id" value="{{ x.id }}" disabled>
+                            <select name="inventory_item" required id="id_inventory_item" disabled>
                                 <option value="{{ x.inventory_item.id }}" selected>{{ x.inventory_item}}</option>
                             </select>
-                            <select name="sold_detail" required id="id_sold_detail" hidden>
+                            <select name="sold_detail" required id="id_sold_detail" disabled>
                                 <option value="{{ x.sold_data.id }}" selected>{{ x.sold_data }}</option>
                             </select>
                             <select name="shipping_address" required id="id_shipping_address">
