@@ -495,6 +495,104 @@ def endpoint3(request):
             "customer": container_list2
         }
 
+    elif request.GET.get('everything'):
+        data_id = request.GET.get('everything')
+        item = InventoryObject.objects.filter(id=data_id)
+        sold_data_id = ''
+        customer_ = ''
+        shipping_address = ''
+        shipping_data = ''
+        inventory_item_id = ''
+        for x in item:
+            sold_data_id = x.sold_data_id
+            customer_ = x.sold_data.purchased_by.id
+            shipping_address = x.shipping_data.shipping_address.id
+            shipping_data = x.shipping_data_id
+            inventory_item_id = x.inventory_item_id
+
+        inventory_item = InventoryItem.objects.filter(id=inventory_item_id)
+        shipping_info = ShippingDetail.objects.filter(id=shipping_data)
+        shipping_obj = CustomerShippingAddress.objects.filter(id=shipping_address)
+        sold_obj = SoldDetail.objects.filter(id=sold_data_id)
+        customer = Customer.objects.filter(id=customer_)
+
+        picture = None
+        confirm = None
+        l_size = None
+        for x in inventory_item:
+            if x.confirmation_r:
+                confirm = x.confirmation_r.key
+            else:
+                confirm = 'null'
+
+            if x.picture:
+                picture = x.picture.key
+            else:
+                picture = 'null'
+            if x.size:
+                l_size = x.size.size
+
+        container_list = [{
+            'id': x.id,
+            'purchased_by_id': x.purchased_by_id,
+            'date_sold': x.date_sold,
+            'info': x.info,
+            'other': x.other,
+            'created_date': x.created_date
+        } for x in sold_obj]
+        container_list2 = [{
+            "id": x.id,
+            "first_name": x.first_name,
+            "last_name": x.last_name,
+            "company_name": x.company_name,
+            "email": x.email,
+            "phone_number": x.phone_number,
+        } for x in customer]
+        container_list3 = [{
+            'id': x.id,
+            'inventory_item': x.inventory_item.id,
+            'sold_detail': x.sold_detail.id,
+            'shipping_address': x.shipping_address.id,
+            'date_shipped': x.date_shipped,
+            'tracking_number': x.tracking_number,
+            'shipper_info1': x.Shipper_info1,
+            'shipper_info2': x.Shipper_info1,
+            'created_date': x.created_date,
+        } for x in shipping_info]
+
+        container_list4 = [{
+                   "id": x.id,
+                   "type": x.type,
+                   "name": x.name.name,
+                   "size": l_size,
+                   "serial_number": x.serial_number,
+                   "due_date": x.due_date,
+                   "po_number": x.po_number,
+                   "description": x.description,
+                   "in_stock": x.in_stock,
+                   "confirmation_r": confirm,
+                   'price': x.price,
+                   "picture": picture
+                           } for x in inventory_item]
+        container_list5 = [{
+                    'id': u.id,
+                    'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
+                    'address': u.address,
+                    'city': u.city,
+                    'state': u.state,
+                    'country': u.country,
+                    'zipcode': u.zip_code,
+                    'other': u.other
+                } for u in shipping_obj]
+
+        data = {
+                "response": container_list,
+                "customer": container_list2,
+                "shipping_data": container_list3,
+                "inventory_item": container_list4,
+                "address": container_list5
+            }
+
     elif request.GET.get('all_customer_data'):
         customer_id = request.GET.get('all_customer_data')
         customers = Customer.objects.filter(id=customer_id)
@@ -623,6 +721,7 @@ def get_shipping_data(request):
             x = i.shipping_data_id
         s_obj = ShippingDetail.objects.filter(id=x)
         container_list = [{
+            'id': x.id,
             'inventory_item': x.inventory_item.id,
             'sold_detail': x.sold_detail.id,
             'shipping_address': x.shipping_address.id,

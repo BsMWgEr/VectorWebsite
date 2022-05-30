@@ -235,3 +235,14 @@ function updateInventorySoldData(event, obj_id) {
     my_FormData.entries()
     xhr.send(my_FormData)
 }
+
+
+function sendstuff(obj_id) {
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.open('GET','/api/endpoint3?everything=' + obj_id.toString())
+    xhr.onload = ()=> {
+        console.log(xhr.response)
+    }
+    xhr.send()
+}

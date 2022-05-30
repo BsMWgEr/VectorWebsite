@@ -80,7 +80,7 @@ def inventory_view_instock(request):
 @login_required
 def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
-    customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
+    customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
