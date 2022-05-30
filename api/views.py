@@ -458,15 +458,21 @@ def endpoint3(request):
             'created_date': x.created_date
         } for x in sold_obj]
 
+        data = {
+            "response": container_list
+        }
+
     elif request.GET.get('obj_id'):
         data_id = request.GET.get('obj_id')
         item = InventoryObject.objects.filter(id=data_id)
         sold_data_id = ''
+        customer_id = ''
         for x in item:
             sold_data_id = x.sold_data_id
+            customer_id = x.sold_data.purchased_by.id
 
         sold_obj = SoldDetail.objects.filter(id=sold_data_id)
-
+        customer = Customer.objects.filter(id=customer_id)
         container_list = [{
             'id': x.id,
             'purchased_by_id': x.purchased_by_id,
@@ -475,6 +481,19 @@ def endpoint3(request):
             'other': x.other,
             'created_date': x.created_date
         } for x in sold_obj]
+        container_list2 = [{
+            "id": x.id,
+            "first_name": x.first_name,
+            "last_name": x.last_name,
+            "company_name": x.company_name,
+            "email": x.email,
+            "phone_number": x.phone_number,
+        } for x in customer]
+
+        data = {
+            "response": container_list,
+            "customer": container_list2
+        }
 
     elif request.GET.get('all_customer_data'):
         customer_id = request.GET.get('all_customer_data')
@@ -488,6 +507,10 @@ def endpoint3(request):
             "phone_number": x.phone_number,
         } for x in customers]
 
+        data = {
+            "response": container_list
+        }
+
     else:
         customers = Customer.objects.all().order_by('-id')
         container_list = [{"id": x.id,
@@ -498,9 +521,9 @@ def endpoint3(request):
                            "phone_number": x.phone_number,
                            } for x in customers]
 
-    data = {
-        "response": container_list
-    }
+        data = {
+            "response": container_list
+        }
 
     print(data)
 

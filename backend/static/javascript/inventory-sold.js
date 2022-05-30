@@ -84,7 +84,7 @@ function infoChangeDisplayer(x, id_number) {
         <button type="submit">Submit</button>`
 }
 
-function updateInventorySoldDate(type, x, id_number) {
+function updateInventorySoldAPI(type, x, id_number) {
     console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
@@ -120,6 +120,32 @@ function updateInventorySold(number, id_number) {
 }
 
 
+function getSoldDataDisplay(obj_id) {
+    let xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.open('GET', '/api/endpoint3?obj_id=' + obj_id.toString())
+    xhr.onload = ()=> {
+        console.log(xhr.response)
+        let answer = xhr.response.response
+        let customer = xhr.response.customer
+        document.getElementById('update-inventory-change-display').innerHTML = ''
+        document.getElementById('div-inventory-update').className = 'none'
+        document.getElementById('sold-data-one-' + obj_id).innerHTML = `Sold
+            Data: ${answer[0].id} --- Customer: ID:${customer[0].id} - ${customer[0].last_name}, ${customer[0].first_name} - 
+            Phone #: ${customer[0].phone_number} - ${customer[0].email} - Date Sold: ${answer[0].date_sold}`
+        document.getElementById('inventory-sold-data-id-number-' + obj_id.toString()).innerHTML = `
+            Sold Data: ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
+        document.getElementById('sold-data-ul-' + obj_id.toString()).innerHTML = `
+                    <li>Purchased By: ID: ${customer[0].id} - ${customer[0].last_name}, ${customer[0].first_name}
+                        - Phone #: ${customer[0].phone_number} - ${customer[0].email}</li>
+                    <li>Date Sold: ${answer[0].date_sold}</li>
+                    <li>Info: ${answer[0].info}</li>
+                    <li>More Info: ${answer[0].other}</li>
+                    <li>Date Created: ${answer[0].created_date}</li>`
+    }
+    xhr.send()
+}
+
 
 function updateInventorySoldData(event, obj_id) {
     event.preventDefault()
@@ -131,26 +157,7 @@ function updateInventorySoldData(event, obj_id) {
     xhr.responseType = 'json'
     xhr.open(method, url)
     xhr.onload = function () {
-        let dxhr = new XMLHttpRequest()
-        dxhr.responseType = 'json'
-        dxhr.open('GET', '/api/endpoint3?obj_id=' + obj_id.toString())
-        dxhr.onload = ()=> {
-            console.log(dxhr.response)
-            let answer = dxhr.response.response
-            document.getElementById('update-inventory-change-display').innerHTML = ''
-            document.getElementById('div-inventory-update').className = 'none'
-            document.getElementById('sold-data-one-' + obj_id).innerHTML = `Sold
-            Data: ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
-            document.getElementById('inventory-sold-data-id-number-' + obj_id.toString()).innerHTML = `Sold Data: ${answer[0].id} --- Sold on: ${answer[0].date_sold}`
-            document.getElementById('sold-data-ul-' + obj_id.toString()).innerHTML = `
-                        <li>Purchased By: ${answer[0].purchased_by_id}</li>
-                        <li>Date Sold: ${answer[0].date_sold}</li>
-                        <li>Info: ${answer[0].info}</li>
-                        <li>More Info: ${answer[0].other}</li>
-                        <li>Date Created: ${answer[0].created_date}</li>`
-        }
-        dxhr.send()
-
+        getSoldDataDisplay(obj_id)
     }
     my_FormData.entries()
     xhr.send(my_FormData)
