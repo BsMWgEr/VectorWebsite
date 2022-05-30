@@ -160,7 +160,7 @@
                     {% if not x.completed_order %}
                         <button id="update-sold-information-btn" onclick="updateInventorySold()">Update Sold Information</button>
                         <div id="div-inventory-update" class="none">
-                            <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInfoAPI(event)" >
+                            <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInventorySoldData(event)" >
                             {% csrf_token %}
                                 <div id="update-inventory-change-display" class="update-inventory-change-display"></div>
                             </form>

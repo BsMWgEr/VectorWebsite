@@ -91,3 +91,24 @@ function updateInventorySoldDate() {
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
     document.getElementById('inner').innerHTML = dateChangeDisplayer()
 }
+
+function updateInventorySoldData(event) {
+    event.preventDefault()
+    let my_Form = event.target
+    let my_FormData = new FormData(my_Form)
+    let xhr = new XMLHttpRequest()
+    let method = my_Form.getAttribute('method')
+    let url = my_Form.getAttribute('action')
+    xhr.responseType = 'json'
+    xhr.open(method, url)
+    xhr.onload = function () {
+        let serverResponse = xhr.response
+        console.log('new sold data success')
+        document.getElementById('update-sold-change-display').innerHTML = ''
+        createSoldDetail()
+    }
+
+    my_FormData.entries()
+    console.log(my_FormData)
+    xhr.send(my_FormData)
+}
