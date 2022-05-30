@@ -62,25 +62,26 @@ function openShippingAddressForm(x) {
     document.getElementById('shipping_address_form-' + x.toString()).className = 'shipping-address-form'
 }
 
-function dateChangeDisplayer(x) {
+function dateChangeDisplayer(x, id_number) {
     console.log(`dateChangeDisplayer: ${x}`)
     let number = `inventory-sold-data-id-number-${x}`
     let sold_item_id = document.getElementById(number).innerHTML.split(' ')
+    let id_value = document.getElementById('')
     return `<input name="id" value="${sold_item_id[2]}" hidden>
         <input type="date" name="date_sold" id="id_date_sold" placeholder="Enter Date Sold">
+        <input type="text" name="url" value="${id_number}">
         <button type="submit">Submit</button>`
 }
 
-function updateInventorySoldDate(x) {
+function updateInventorySoldDate(x, id_number) {
     console.log(`updateInventorySoldDate: ${x}`)
-    let number = x
     document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    document.getElementById('inner').innerHTML = dateChangeDisplayer(number)
+    document.getElementById('inner').innerHTML = dateChangeDisplayer(x, id_number)
 }
 
-function updateInventorySold(number) {
+function updateInventorySold(number, id_number) {
     console.log(`updateInventorySold: ${number}`)
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
@@ -88,7 +89,7 @@ function updateInventorySold(number) {
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventorySoldDate(${number})" class="${classInput}">Update Date</button>
+        new_div.innerHTML = `<button onclick="updateInventorySoldDate(${number}, ${id_number})" class="${classInput}">Update Date</button>
             <button class="${classInput}">Update Info</button>
             <button class="${classInput}">Update Other Info</button>
             <button class="${classInput}">Change Customer</button>`
@@ -111,6 +112,13 @@ function updateInventorySoldData(event) {
     xhr.onload = function () {
         document.getElementById('update-inventory-change-display').innerHTML = ''
         document.getElementById('div-inventory-update').className = 'none'
+        str_one = `<ul>
+                    <li>Purchased By: </li>
+                    <li>Date Sold: </li>
+                    <li>Info: </li>
+                    <li>More Info: </li>
+                    <li>Date Created: </li>
+                </ul>`
     }
     my_FormData.entries()
     xhr.send(my_FormData)
