@@ -179,8 +179,6 @@ function getCustomerDataDisplay(obj_id) {
         document.getElementById('customer-information-title-' + obj_id).innerHTML = `Customer
             ID: ${answer[0].id} - Name: ${customer[0].last_name}, ${customer[0].first_name} - 
             Phone #: ${customer[0].phone_number} - ${customer[0].email}`
-        document.getElementById('inventory-sold-data-id-number-' + obj_id.toString()).innerHTML = `
-            Customer: ${answer[0].id} - ${customer[0].first_name} ${customer[0].last_name} ${customer[0].email}`
         document.getElementById('customer-data-ul-' + obj_id.toString()).innerHTML = `
                     <li>Name: ${customer[0].first_name} ${customer[0].first_name}</li>
                     <li>Phone Number: ${customer[0].phone_number}</li>
