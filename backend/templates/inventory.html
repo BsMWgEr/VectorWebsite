@@ -159,7 +159,7 @@
                 {% if x.sold_data %}
                     <li id="sold-data-one-{{ x.id }}">Sold Data: {{ x.sold_data }}</li>
                     {% if not x.completed_order %}
-                        <button id="update-sold-information-btn" onclick="updateInventorySold({{ x.sold_data.id }}, {{ x.id }})">Update Sold Information</button>
+                        <button id="update-sold-information-btn" onclick="updateInventorySoldBtns({{ x.sold_data.id }}, {{ x.id }})">Update Sold Information</button>
                         <div id="div-inventory-update" class="none">
                             <form method="POST" id="inventory-update-form" action="/api/build-update-sold-data-api/" onsubmit="updateInventorySoldData(event, {{ x.id }})" >
                             {% csrf_token %}
@@ -284,7 +284,7 @@
                 {% if x.sold_data.purchased_by %}
                 <li id="customer-information-title-{{ x.id }}">Customer: {{ x.sold_data.purchased_by }}</li>
                     {% if not x.completed_order %}
-                        <button id="update-customer-btn-display" onclick="updateInventoryCustomer({{ x.sold_data.purchased_by.id }}, {{ x.id }})">Update Customer</button>
+                        <button id="update-customer-btn-display" onclick="updateInventoryCustomerBtns({{ x.sold_data.purchased_by.id }}, {{ x.id }})">Update Customer</button>
                     {% endif %}
                 {% endif %}
                 <li>Completed Order: {{ x.completed_order }}</li>

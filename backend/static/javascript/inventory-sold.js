@@ -62,6 +62,10 @@ function openShippingAddressForm(x) {
     document.getElementById('shipping_address_form-' + x.toString()).className = 'shipping-address-form'
 }
 
+// **********************************************
+// Inventory Sold Change Functions ********************
+// ***********************************************
+
 function dateChangeDisplayer(x, id_number) {
     console.log(`dateChangeDisplayer: ${x} ${id_number}`)
     return `<input name="id" value="${x}" hidden>
@@ -87,21 +91,6 @@ function otherChangeDisplayer(x, id_number) {
         <input type="number" name="obj_id" value="${id_number}" hidden>
         <input type="text" name="url" value="/api/endpoint3" hidden>
         <button type="submit">Submit</button>`
-}
-
-function getCustomers() {
-    let xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.open('GET', '/api/endpoint3')
-    xhr.onload = ()=> {
-        let answer = xhr.response.response
-        let select_options = ''
-        for (let i = 0; i < answer.length; i++) {
-            select_options += `<option value="${answer[i].id}" >${answer[i].id} ${answer[i].first_name} ${answer[i].last_name} ${answer[i].email}</option>`
-        }
-
-    }
-    xhr.send()
 }
 
 function customerChangeDisplayer(x,id_number) {
@@ -148,7 +137,7 @@ function updateInventorySoldSwitch(type, x, id_number) {
 
 }
 
-function updateInventorySold(number, id_number) {
+function updateInventorySoldBtns(number, id_number) {
     console.log(`updateInventorySold: ${number} ${id_number}`)
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
@@ -237,32 +226,57 @@ function updateInventorySoldData(event, obj_id) {
 }
 
 
-function sendstuff(obj_id) {
-    let xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.open('GET','/api/endpoint3?everything=' + obj_id.toString())
-    xhr.onload = ()=> {
-        console.log(xhr.response)
-        console.log(xhr.response.address)
-        console.log(xhr.response.customer)
-        console.log(xhr.response.inventory_item)
-        console.log(xhr.response.shipping_data)
-        console.log(xhr.response.sold_data)
+// **********************************************
+// Inventory Customer Change Functions ********************
+// ***********************************************
 
 
-    }
-    xhr.send()
+
+function nameChangeDisplayer(x, id_number) {
+    console.log(`nameChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <input type="text" name="first_name" placeholder="Enter First Name">
+        <input type="text" name="last_name" placeholder="Enter Last Name">
+        <button type="submit">Submit</button>`
 }
 
-function updateInventoryCustomer(number, id_number) {
-    console.log(`updateInventoryCustomer: ${number} ${id_number}`)
+
+function updateInventoryCustomerSwitch(type, x, id_number) {
+    console.log(`updateInventoryCustomerSwitch: ${type.type} ${x} ${id_number}`)
+    document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
+    document.querySelector('#div-inventory-update').className = 'div-inventory-update'
+    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
+    let inner = document.getElementById('inner')
+    switch (type.type) {
+        case 'update_name':
+            inner.innerHTML = nameChangeDisplayer(x, id_number)
+            break
+        case 'update_company':
+            inner.innerHTML = companyDisplayer(x, id_number)
+            break
+        case 'update_email':
+            inner.innerHTML = emailChangeDisplayer(x, id_number)
+            break
+        case 'update_phone_number':
+            inner.innerHTML = emailChangeDisplayer(x, id_number)
+            break
+        case 'update_customer':
+            customerChangeDisplayer(x, id_number)
+            break
+        default:
+            alert('none')
+    }
+}
+
+function updateInventoryCustomerBtns(number, id_number) {
+    console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
     let new_div;
     if (!document.getElementById('inventory-customer-update-btn-group')) {
         new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-customer-update-btn-group')
     } else  new_div = document.getElementById('inventory-customer-update-btn-group')
         let classInput = ''
-        new_div.innerHTML = `<button onclick="">Update Name</button>
+        new_div.innerHTML = `<button onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
             <button >Update Company</button>
             <button >Update Email</button>
             <button >Change Phone Number</button>`
