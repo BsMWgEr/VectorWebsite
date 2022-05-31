@@ -180,6 +180,10 @@ function getCustomerDataDisplay(obj_id) {
     xhr.send()
 }
 
+//*****************************************************************************
+// API Functions shared by ^^^ Sold functions above and Customer functions below
+//*****************************************************************************
+
 
 function getSoldDataDisplay(obj_id) {
     let xhr = new XMLHttpRequest()
@@ -289,6 +293,23 @@ function updateInventoryCustomerSwitch(type, x, id_number) {
 }
 
 function updateInventoryCustomerBtns(number, id_number) {
+    console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
+    let new_div;
+    if (!document.getElementById('inventory-customer-update-btn-group')) {
+        new_div = document.createElement('div')
+        new_div.setAttribute('id', 'inventory-customer-update-btn-group')
+    } else  new_div = document.getElementById('inventory-customer-update-btn-group')
+        let classInput = ''
+        new_div.innerHTML = `<button onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
+            <button onclick="updateInventoryCustomerSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
+            <button onclick="updateInventoryCustomerSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
+            <button onclick="updateInventoryCustomerSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
+
+        document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
+}
+
+
+function updateInventoryShippingBtns() {
     console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
     let new_div;
     if (!document.getElementById('inventory-customer-update-btn-group')) {

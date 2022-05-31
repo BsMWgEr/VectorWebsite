@@ -8,3 +8,30 @@
 }
 
 
+#coming-soon-btn {
+    color: white;
+}
+
+.main-div {
+    background: grey;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.main-div ul li:hover {
+    background: beige;
+    border-radius: 8px;
+
+}
+
+.main-div ul li:hover {
+    font-size: 14pt;
+}
+
+.main-div ul li li li:hover {
+    background: black;
+    color:white;
+}
+
+
