@@ -708,7 +708,7 @@ def build_update_sold_data(request):
         if dict_phone_number:
             Customer.objects.filter(id=dict_id).update(phone_number=dict_phone_number)
         if dict_company:
-            Customer.objects.filter(id=dict_id).update(company=dict_company)
+            Customer.objects.filter(id=dict_id).update(company_name=dict_company)
 
     return render(request, 'build-update-sold.html')
 
