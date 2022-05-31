@@ -39,9 +39,6 @@ a {
 
 .nav-container {
     display: grid;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 10px;
     max-width: 98%;
     margin: 1%;
     grid-template-rows: 1fr;
