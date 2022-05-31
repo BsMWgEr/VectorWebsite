@@ -33,16 +33,6 @@
     transform: translate(15%);
 }
 
-.nav-links:hover {
-    background: black;
-    color: whitesmoke;
-    transition: .5s;
-}
-
-.nav-links:hover .top-nav-links {
-    color: white;
-}
-
 .nav-links {
     display: flex;
     height: 35px;

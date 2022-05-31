@@ -1,5 +1,8 @@
 #sold-btn {
-    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    background: white;
+    height:30%;
 }
 
 #div-inventory-update {
