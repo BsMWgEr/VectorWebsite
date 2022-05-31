@@ -522,3 +522,9 @@ button {
     display: grid;
 }
 
+.nav-container {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10px;
+}
+
