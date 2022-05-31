@@ -114,8 +114,8 @@
 }
 
 .dropdown-content a:hover {
-    background: #242323;
-    color: #b5db1a;
+    background: black;
+    color: grey;
     border-radius: 10px;
 }
 
