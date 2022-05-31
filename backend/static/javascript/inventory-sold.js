@@ -327,7 +327,7 @@ function updateInventoryShippingSwitch(type, x, id_number) {
     document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
     let inner = document.getElementById('inner')
     switch (type.type) {
-        case 'update_name':
+        case 'update_date_shipped':
             inner.innerHTML = date_shippedChangeDisplayer(x, id_number)
             break
         case 'update_company':
