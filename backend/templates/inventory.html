@@ -232,7 +232,7 @@
                     </div>
                 {% endif %}
                 {% if x.shipping_data and not x.completed_order %}
-                    <li>Shipping Data: {{ x.shipping_data }}</li><button>Update Shipping</button>
+                    <li>Shipping Data: {{ x.shipping_data }}</li><button onclick="updateInventoryShippingBtns({{ x.shipping_data.id }}, {{ x.id }})">Update Shipping</button>
 
                 {% elif x.sold_data and not x.completed_order %}
                     <li><button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button></li>

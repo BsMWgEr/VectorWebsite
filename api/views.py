@@ -690,6 +690,7 @@ def build_update_sold_data(request):
         dict_lname = q_dict.get('last_name')
         dict_customer = q_dict.get('purchased_by_id')
         dict_email = q_dict.get('email')
+        dict_date_shipped = q_dict.get('date_shipped')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
@@ -709,6 +710,8 @@ def build_update_sold_data(request):
             Customer.objects.filter(id=dict_id).update(phone_number=dict_phone_number)
         if dict_company:
             Customer.objects.filter(id=dict_id).update(company_name=dict_company)
+        if dict_date_shipped:
+            ShippingDetail.objects.filter(id=dict_id).update(date_shipped=dict_date_shipped)
 
     return render(request, 'build-update-sold.html')
 
