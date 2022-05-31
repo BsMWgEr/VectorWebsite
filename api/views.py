@@ -685,6 +685,8 @@ def build_update_sold_data(request):
         dict_other = q_dict.get('other')
         dict_date = q_dict.get('date_sold')
         dict_fname = q_dict.get('first_name')
+        dict_phone_number = q_dict.get('phone_number')
+        dict_company = q_dict.get('company')
         dict_lname = q_dict.get('last_name')
         dict_customer = q_dict.get('purchased_by_id')
         dict_email = q_dict.get('email')
@@ -703,6 +705,10 @@ def build_update_sold_data(request):
             Customer.objects.filter(id=dict_id).update(last_name=dict_lname)
         if dict_email:
             Customer.objects.filter(id=dict_id).update(email=dict_email)
+        if dict_phone_number:
+            Customer.objects.filter(id=dict_id).update(phone_number=dict_phone_number)
+        if dict_company:
+            Customer.objects.filter(id=dict_id).update(company=dict_company)
 
     return render(request, 'build-update-sold.html')
 
