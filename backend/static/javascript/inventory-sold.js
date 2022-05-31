@@ -351,10 +351,10 @@ function updateInventoryShippingSwitch(type, x, id_number) {
 function updateInventoryShippingBtns(number, id_number) {
     console.log(`updateInventoryShippingBtns: ${number} ${id_number}`)
     let new_div;
-    if (!document.getElementById('inventory-customer-update-btn-group')) {
+    if (!document.getElementById('inventory-shipping-update-btn-group')) {
         new_div = document.createElement('div')
-        new_div.setAttribute('id', 'inventory-customer-update-btn-group')
-    } else  new_div = document.getElementById('inventory-customer-update-btn-group')
+        new_div.setAttribute('id', 'inventory-shipping-update-btn-group')
+    } else  new_div = document.getElementById('inventory-shipping-update-btn-group')
         let classInput = ''
         new_div.innerHTML = `<button onclick="updateInventoryShippingSwitch({'type': 'update_date_shipped'}, ${number}, ${id_number})">Update Shipping Date</button>
             <button onclick="updateInventoryShippingSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
