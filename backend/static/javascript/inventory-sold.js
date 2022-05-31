@@ -284,8 +284,8 @@ function updateInventoryCustomerBtns(number, id_number) {
     } else  new_div = document.getElementById('inventory-customer-update-btn-group')
         let classInput = ''
         new_div.innerHTML = `<button onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
+            <button onclick="updateInventoryCustomerSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
             <button >Update Company</button>
-            <button >Update Email</button>
             <button >Change Phone Number</button>`
 
         document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
