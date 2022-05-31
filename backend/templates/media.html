@@ -1,9 +1,10 @@
 {% extends 'index-admin.html' %}
 {% load static %}
-{% block content %}
 {% block styles %}<link rel="stylesheet" href="{% static 'css/media-styles.css' %}">{% endblock %}
 {% block title %}<title>Media Manager</title>{% endblock %}
+{% block page_title %}<div class="manager-page-title"><h1>BUILD/UPDATE PAGE</h1></div>{% endblock %}
 
+{% block content %}
 <div class="media-intro">
 <div class="upload-instructions">
 <h3>To Upload a File:</h3>
