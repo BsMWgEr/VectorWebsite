@@ -124,20 +124,13 @@ class Size(models.Model):
         return f'ID: {self.id} - {self.size} - {self.type}'
 
 
-
-
-
-
-
-
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     company_name = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField()
-    phone_number = models.IntegerField()
+    phone_number = models.CharField(max_length=25)
     original_contact = models.OneToOneField(Message, on_delete=models.SET_NULL, blank=True, null=True)
-
     created_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
