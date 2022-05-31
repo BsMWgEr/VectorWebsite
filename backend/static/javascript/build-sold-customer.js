@@ -225,7 +225,7 @@ function openNewSoldCustomerDisplay() {
             +'<input type="text" name="last_name" maxLength="100" required id="id_last_name" placeholder="Enter Last Name">'
             +'<input type="text" name="company_name" maxLength="200" id="id_company_name" placeholder="Enter Company Name">'
             +'<input type="email" name="email" maxLength="254" required id="id_email" placeholder="Enter E-Mail">'
-            +'<input type="number" name="phone_number" required id="id_phone_number" placeholder="Enter Phone Number">'
+            +'<input type="text" name="phone_number" required id="id_phone_number" placeholder="Enter Phone Number">'
             //+'<select name="purchased_item" id="id_purchased_item" multiple>'
             //    +'<option value="74">ID: 74 Type: canopies Name: ID: 38 - New Sabre-3 210 - canopies - Serial #: TBD ----- In Stock: False</option>'
             //+'</select>'
