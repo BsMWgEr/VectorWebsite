@@ -66,6 +66,9 @@ a {
     left: 170px;
 }
 
+.top-nav-links:hover {
+    color: #005ff0;
+}
 
 .nav-links {
     height: 35px;

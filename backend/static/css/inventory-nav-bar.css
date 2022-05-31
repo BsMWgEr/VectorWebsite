@@ -5,7 +5,7 @@
 }
 
 .top-nav-links {
-    color: red;
+    color: #b5db1a;
 }
 
 .links3 {
@@ -111,7 +111,7 @@
 
 .nav-links:hover .dropdown-content {
     display: block;
-    box-shadow: 0 0 25px red;
+    box-shadow: 0 0 25px #b5db1a;
 
 
 }
@@ -123,9 +123,6 @@
     height: 0;
 }
 
-.nav-container {
-    border: 10px solid red;
-}
 
 main {
     display: grid;
