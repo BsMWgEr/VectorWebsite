@@ -5,28 +5,18 @@
 
 .form-group {
     display: flex;
+
     flex-direction: row;
-    transform: translate(-15%);
 }
 
 .sold-data-form {
     display: flex;
-    height: fit-content;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    background: blueviolet;
-    box-shadow: 0 0 10px black;
+    border: 5px solid black;
 }
 
 .sold-data-form * {
-    display: flex;
-    margin: 5px;
-    flex-direction: column;
-    font-size: 12pt;
-    border-radius: 5px;
-    border: hidden;
-    max-width: 350px;
+    display: grid;
+    padding: 5px;
 }
 
 .create-customer-form {
@@ -52,24 +42,45 @@
 
 .form-group-shipping {
     display: flex;
+    transform: translate(-15%);
 }
 
 .shipping-data-form {
     display: flex;
-    border: 5px solid black;
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: blueviolet;
+    box-shadow: 0 0 10px black;
 }
 
 .shipping-data-form * {
     display: flex;
+    margin: 5px;
     flex-direction: column;
+    font-size: 12pt;
+    border-radius: 5px;
+    border: hidden;
+    max-width: 500px;
 }
 
 .shipping-address-form {
     display: flex;
-    border: 5px solid black;
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: blueviolet;
+    box-shadow: 0 0 10px black;
 }
 
 .shipping-address-form * {
     display: flex;
+    margin: 5px;
     flex-direction: column;
+    font-size: 12pt;
+    border-radius: 5px;
+    border: hidden;
+    max-width: 500px;
 }
