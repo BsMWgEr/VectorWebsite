@@ -231,6 +231,13 @@ function updateInventorySoldData(event, obj_id) {
 // ***********************************************
 
 
+function emailChangeDisplayer(x, id_number) {
+    console.log(`emailChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <input type="email" name="email" placeholder="Enter Email">
+        <button type="submit">Submit</button>`
+}
+
 
 function nameChangeDisplayer(x, id_number) {
     console.log(`nameChangeDisplayer: ${x} ${id_number}`)
@@ -252,7 +259,7 @@ function updateInventoryCustomerSwitch(type, x, id_number) {
             inner.innerHTML = nameChangeDisplayer(x, id_number)
             break
         case 'update_company':
-            inner.innerHTML = companyDisplayer(x, id_number)
+            inner.innerHTML = emailChangeDisplayer(x, id_number)
             break
         case 'update_email':
             inner.innerHTML = emailChangeDisplayer(x, id_number)
