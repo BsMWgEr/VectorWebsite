@@ -348,7 +348,7 @@ function updateInventoryShippingSwitch(type, x, id_number) {
 }
 
 
-function updateInventoryShippingBtns() {
+function updateInventoryShippingBtns(number, id_number) {
     console.log(`updateInventoryShippingBtns: ${number} ${id_number}`)
     let new_div;
     if (!document.getElementById('inventory-customer-update-btn-group')) {
