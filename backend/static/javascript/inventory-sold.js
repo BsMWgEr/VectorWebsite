@@ -240,7 +240,7 @@ function companyChangeDisplayer(x, id_number) {
 function phone_numberChangeDisplayer(x, id_number) {
     console.log(`phone_numberChangeDisplayer: ${x} ${id_number}`)
     return `<input name="id" value="${x}" hidden>
-        <input type="number" name="phone_number" placeholder="Enter Phone Number">
+        <input type="text" name="phone_number" placeholder="Enter Phone Number">
         <button type="submit">Submit</button>`
 }
 
