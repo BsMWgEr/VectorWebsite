@@ -30,6 +30,9 @@ a {
 .nav-container {
     display: grid;
     width: 98%;
+    position: sticky;
+    position: -webkit-sticky;
+    top:10px;
     height: 100px;
     grid-template-rows: 1fr;
     background: #242323;
