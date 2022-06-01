@@ -150,11 +150,11 @@ function updateInventorySoldBtns(number, id_number) {
         new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-sold-update-btn-group')
     } else  new_div = document.getElementById('inventory-sold-update-btn-group')
-        let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
-            <button onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
-            <button onclick="updateInventorySoldSwitch({'type': 'update_other'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
-            <button onclick="updateInventorySoldSwitch({'type': 'update_customer'}, ${number}, ${id_number})" class="${classInput}">Change Customer</button>`
+        let classInput = 'changeBtns'
+        new_div.innerHTML = `<button class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
+            <button class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
+            <button  class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_other'}, ${number}, ${id_number})" class="${classInput}">Update Other Info</button>
+            <button  class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_customer'}, ${number}, ${id_number})" class="${classInput}">Change Customer</button>`
 
 
         document.querySelectorAll('.inventory-sold-btn-group')
@@ -311,11 +311,11 @@ function updateInventoryCustomerBtns(number, id_number) {
         new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-customer-update-btn-group')
     } else  new_div = document.getElementById('inventory-customer-update-btn-group')
-        let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
-            <button onclick="updateInventoryCustomerSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
-            <button onclick="updateInventoryCustomerSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
-            <button onclick="updateInventoryCustomerSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
+        let classInput = 'changeBtns'
+        new_div.innerHTML = `<button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
+            <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
+            <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
+            <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
 
         document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
 }
@@ -373,11 +373,11 @@ function updateInventoryShippingBtns(number, id_number) {
         new_div = document.createElement('div')
         new_div.setAttribute('id', 'inventory-shipping-update-btn-group')
     } else  new_div = document.getElementById('inventory-shipping-update-btn-group')
-        let classInput = ''
-        new_div.innerHTML = `<button onclick="updateInventoryShippingSwitch({'type': 'update_date_shipped'}, ${number}, ${id_number})">Update Shipping Date</button>
-            <button onclick="updateInventoryShippingSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
-            <button onclick="updateInventoryShippingSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
-            <button onclick="updateInventoryShippingSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
+        let classInput = 'changeBtns'
+        new_div.innerHTML = `<button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_date_shipped'}, ${number}, ${id_number})">Update Shipping Date</button>
+            <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
+            <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
+            <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
 
         document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
 }

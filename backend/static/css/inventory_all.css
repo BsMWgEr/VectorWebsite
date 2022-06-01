@@ -34,4 +34,6 @@
     box-shadow: none;
 }
 
-.main ul input
+.changeBtns {
+    background: #f2bd1e;
+}
