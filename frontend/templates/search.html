@@ -60,10 +60,7 @@
         <div id="container-{{ x.id }}" class="container" onclick="superButton({{ x.id }})">
             <div class="inner-container">
                 <div class="container-left">
-                    <img src="./../../media/{{ x.picture }}" height="140" width="212">
-                    {% if x.sold %}
-                        <img id="sold-img-{{ x.id }}" class="sold-img" src="./../static/images/sold.gif">
-                    {% endif %}
+                    <img src="{% static '' %}{{ x.picture.key }}" height="140" width="212">
                 </div>
                 <div class="container-right">
                     {% if stuff %}
