@@ -139,11 +139,11 @@ function updateInventorySoldSwitch(type, x, id_number) {
 
 function updateInventorySoldBtns(number, id_number) {
     console.log(`updateInventorySold: ${number} ${id_number}`)
-    if (document.getElementById('update-customer-change-display')) {
-        document.getElementById('update-customer-change-display').innerHTML = ''
+    if (document.getElementById('inventory-shipping-update-btn-group')) {
+        document.getElementById('inventory-shipping-update-btn-group').innerHTML = ''
     }
-    if (document.getElementById('update-shipping-change-display')) {
-        document.getElementById('update-shipping-change-display').innerHTML = ''
+    if (document.getElementById('inventory-customer-update-btn-group')) {
+        document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
     }
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
@@ -300,11 +300,11 @@ function updateInventoryCustomerSwitch(type, x, id_number) {
 
 function updateInventoryCustomerBtns(number, id_number) {
     console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
-    if (document.getElementById('update-shipping-change-display')) {
-        document.getElementById('update-shipping-change-display').innerHTML = ''
+    if (document.getElementById('inventory-shipping-update-btn-group')) {
+        document.getElementById('inventory-shipping-update-btn-group').innerHTML = ''
     }
-    if (document.getElementById('update-sold-change-display')) {
-        document.getElementById('update-sold-change-display').innerHTML = ''
+    if (document.getElementById('inventory-sold-update-btn-group')) {
+        document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     }
     let new_div;
     if (!document.getElementById('inventory-customer-update-btn-group')) {
@@ -362,11 +362,11 @@ function updateInventoryShippingSwitch(type, x, id_number) {
 
 function updateInventoryShippingBtns(number, id_number) {
     console.log(`updateInventoryShippingBtns: ${number} ${id_number}`)
-    if (document.getElementById('update-customer-change-display')) {
-        document.getElementById('update-customer-change-display').innerHTML = ''
+    if (document.getElementById('inventory-customer-update-btn-group')) {
+        document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
     }
-    if (document.getElementById('update-sold-change-display')) {
-        document.getElementById('update-sold-change-display').innerHTML = ''
+    if (document.getElementById('inventory-sold-update-btn-group')) {
+        document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
     }
     let new_div;
     if (!document.getElementById('inventory-shipping-update-btn-group')) {
