@@ -28,7 +28,7 @@
             <form method="post" action="/api/build-update-sold-data-api/" onsubmit="updateContactRequests(event)">
             {% csrf_token %}
                 <input type="number" name="id" hidden value="{{ x.id }}">
-                <input type="checkbox" name="read" checked hidden>
+                <input type="text" name="read" value="True" checked hidden>
                 <button type="submit">Mark As Read</button>
             </form>
             <script>
