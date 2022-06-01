@@ -37,3 +37,10 @@
 .changeBtns {
     background: #f2bd1e;
 }
+
+.inventory-sidebar {
+    background: black;
+    border-radius: 8px;
+    margin-right: 5px;
+    border-right: 2px solid gray;
+}
