@@ -4,9 +4,8 @@
         } else document.getElementById('filter').className = 'display-none';
     }
 
-/*
 
-{% if admin %}
+
 
 
     let change_display = document.getElementById('super-form')
@@ -239,8 +238,3 @@
 
     }
 
-
-
-    {% endif %}
-
-*/
