@@ -44,14 +44,34 @@
 }
 
 .inventory-sidebar {
+    display: flex;
+    flex-direction: column;
     background: black;
     border-radius: 8px;
     margin-right: 5px;
     border-right: 2px solid gray;
 }
 
+.inventory-sidebar a {
+    color: #b5db1a;
+    margin: 0 0 0 20%;
+
+}
+
 .left-sidebar {
     position: sticky;
     top: 300px;
     height: fit-content;
+
+}
+
+.edit-options-menu {
+    margin: 10px 0 0 20%;
+    row-gap: 10px;
+}
+
+.edit-options-menu button {
+    width: 100px;
+    background: #b5db1a;
+    border: hidden;
 }
