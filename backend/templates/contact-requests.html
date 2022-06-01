@@ -29,7 +29,7 @@
             {% csrf_token %}
                 <input type="number" name="id" hidden value="{{ x.id }}">
                 <input type="checkbox" name="read" checked hidden>
-                <button type="button">Mark As Read</button>
+                <button type="submit">Mark As Read</button>
             </form>
             <script>
             function updateContactRequests(event) {
