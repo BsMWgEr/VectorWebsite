@@ -22,7 +22,7 @@
         <li>Read: {{ x.read }}</li>
         {% if not x.read %}
             <script>document.getElementById('message-container-{{ x.id }}').style.background = 'red'</script>
-            <form>
+            <form method="post" action="/api/build-update-sold-data-api/">
             {% csrf_token %}
                 <input type="number" name="id" hidden value="{{ x.id }}">
                 <input type="checkbox" name="read" checked hidden>
