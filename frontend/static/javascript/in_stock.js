@@ -74,6 +74,7 @@
     }
 
     function NameChange() {
+        let change_display = document.getElementById('super-form')
         change_display.innerHTML =
             "<input class='id-input-superdiv' type='number' name='id' id='id'>"
             + "<input class='string-input-superdiv' type='text' name='name' id='name' placeholder='Enter Name'>"
@@ -135,15 +136,16 @@
 
 
     function PriceChange() {
-            change_display.innerHTML =
-                "<input type='number' name='id' id='id' placeholder='Enter ID'>"
-                + "<input type='text' name='price' id='price' placeholder='Enter Price'>"
-                + "<button id='btn' type='submit'>Update Price</button>"
-            document.getElementById('id').defaultValue = p1.id
-            document.getElementById('price').defaultValue = document.getElementById('price-description-' + p1.id).innerHTML
+        document.getElementById('super-form').innerHTML =
+            "<input type='number' name='id' id='id' placeholder='Enter ID'>"
+            + "<input type='text' name='price' id='price' placeholder='Enter Price'>"
+            + "<button id='btn' type='submit'>Update Price</button>"
+        document.getElementById('id').defaultValue = p1.id
+        document.getElementById('price').defaultValue = document.getElementById('price-description-' + p1.id).innerHTML
     }
 
     function sizeChange() {
+        let change_display = document.getElementById('super-form')
         change_display.innerHTML =
             "<input type='number' name='id' id='id' >"
             + "<input type='text' name='size' id='size' placeholder='Enter Size'>"
@@ -154,6 +156,7 @@
     }
 
     function dueDateChange() {
+        let change_display = document.getElementById('super-form')
         change_display.innerHTML =
             "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<input type='text' name='due_date' id='due_date' placeholder='Change Due Date'>"
@@ -163,7 +166,7 @@
     }
 
      function descriptionChange() {
-         change_display.innerHTML =
+         document.getElementById('super-form').innerHTML =
             "<input style='display: flex; float: top;' type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<textarea  rows='4' cols='40' name='description' id='description' placeholder='Change Description'></textarea>"
             + "<button onmouseout='closeFields()' style='display: flex; float: top' id='btn' type='submit'>Update Description</button>"
@@ -181,7 +184,7 @@
             x = "checked"
             y = "";
         }
-        change_display.innerHTML =
+        document.getElementById('super-form').innerHTML =
             "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<label for='in_stock'>False</label> "
             + "<input type='radio' name='in_stock' id='in_stock' value='False' placeholder='Change In Stock' " + x + ">"
@@ -201,7 +204,7 @@
             x = "checked"
             y = "";
         }
-        change_display.innerHTML =
+        document.getElementById('super-form').innerHTML =
             "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<label for='sold'>False</label> "
             + "<input type='radio' name='sold' id='sold' value='False' placeholder='Change Sold' " + x + ">"
@@ -213,7 +216,7 @@
     }
 
     function deleteContainer() {
-        change_display.innerHTML =
+        document.getElementById('super-form').innerHTML =
             "<input class='d1' type='number' name='id' id='id' placeholder='Enter ID to Delete'>"
             + "<label class='d4' for='delete'>Check Box to DELETE Item #"
             + "<input class='d2' type='checkbox' name='delete' id='delete' value='True'> "
@@ -222,7 +225,7 @@
     }
 
     function SerialNumberChange() {
-        change_display.innerHTML =
+        document.getElementById('super-form').innerHTML =
             "<input type='number' name='id' id='id' placeholder='Enter ID'>"
             + "<input type='text' name='serial_number' id='serial_number' placeholder='Enter Serial #'>"
             + "<button type='submit'>Change Serial #</button>"

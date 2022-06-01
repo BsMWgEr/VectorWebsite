@@ -52,7 +52,7 @@
             <button id="soldclicker" class="btnchanger" onclick=soldChange()>Change Sold</button>
             <button id="deletebtn" class="btnchanger" onclick=deleteContainer()>Delete Item</button>
         </div>
-            <form action='/api'  method='POST' onsubmit="updateFields(event)" >
+            <form action='/api'  method='POST' onsubmit="updateFields(event)">
             {% csrf_token %}
             <div id="super-form"></div>
             </form>
