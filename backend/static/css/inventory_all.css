@@ -18,3 +18,20 @@
     background: black;
     color:white;
 }
+
+.main-div ul button {
+    background: #b5db1a;
+    box-shadow: 0 0 15px black;
+    border: hidden;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 10px 2px 5px 0;
+}
+
+.main-div ul button:hover {
+    background: black;
+    color: white;
+    box-shadow: none;
+}
+
+.main ul input
