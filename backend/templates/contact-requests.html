@@ -22,7 +22,13 @@
         <li>Read: {{ x.read }}</li>
         {% if not x.read %}
             <script>document.getElementById('message-container-{{ x.id }}').style.background = 'red'</script>
-            <button type="button">Mark As Read</button>
+            <form>
+            {% csrf_token %}
+                <input type="number" name="id" hidden value="{{ x.id }}">
+                <input type="checkbox" name="read" checked hidden>
+                <button type="button">Mark As Read</button>
+            </form>
+
         {% endif %}
     </ul></li>
     {% endfor %}

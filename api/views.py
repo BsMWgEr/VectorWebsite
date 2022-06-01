@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from backend.forms import BuildForm, SoldDataForm, NewCustomerForm, NewShippingDataForm, NewShippingAddressForm
 from backend.models import InventoryItem, InventoryObject, Media, SoldDetail, Customer, \
-    Name, Size, ShippingDetail, CustomerShippingAddress
+    Name, Size, ShippingDetail, CustomerShippingAddress, Message
 from stockvectorrigs.aws.utils import AWS
 
 S3File = Media
@@ -694,6 +694,7 @@ def build_update_sold_data(request):
         dict_tracking_number = q_dict.get('tracking_number')
         dict_info1 = q_dict.get('info1')
         dict_info2 = q_dict.get('info2')
+        dict_read = q_dict.get('read')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
@@ -721,6 +722,8 @@ def build_update_sold_data(request):
             ShippingDetail.objects.filter(id=dict_id).update(Shipper_info1=dict_info1)
         if dict_info2:
             ShippingDetail.objects.filter(id=dict_id).update(Shipper_info1=dict_info2)
+        if dict_read:
+            Message.objects.filter(id=dict_id).update(read=dict_read)
 
     return render(request, 'build-update-sold.html')
 
