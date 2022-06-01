@@ -326,7 +326,28 @@ function updateInventoryCustomerBtns(number, id_number) {
 function date_shippedChangeDisplayer(x, id_number) {
     console.log(`date_shippedChangeDisplayer: ${x} ${id_number}`)
     return `<input name="id" value="${x}" hidden>
-        <input type="date" name="date_shipped">
+        <input type="date" name="date_shipped" placeholder="Enter Date Shipped">
+        <button type="submit">Submit</button>`
+}
+
+function tracking_numberChangeDisplayer(x, id_number) {
+    console.log(`tracking_numberChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <input type="text" name="tracking_number" placeholder="Enter Tracking Number">
+        <button type="submit">Submit</button>`
+}
+
+function info_1ChangeDisplayer(x, id_number) {
+    console.log(`Shipperinfo_1ChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <input type="text" name="Shipper_info1" placeholder="Enter Information">
+        <button type="submit">Submit</button>`
+}
+
+function info_2ChangeDisplayer(x, id_number) {
+    console.log(`Shipperinfo_2ChangeDisplayer: ${x} ${id_number}`)
+    return `<input name="id" value="${x}" hidden>
+        <input type="text" name="Shipper_info2" placeholder="Enter Other Information">
         <button type="submit">Submit</button>`
 }
 
@@ -343,13 +364,13 @@ function updateInventoryShippingSwitch(type, x, id_number) {
             inner.innerHTML = date_shippedChangeDisplayer(x, id_number)
             break
         case 'update_company':
-            inner.innerHTML = companyChangeDisplayer(x, id_number)
+            inner.innerHTML = tracking_numberChangeDisplayer(x, id_number)
             break
         case 'update_email':
-            inner.innerHTML = emailChangeDisplayer(x, id_number)
+            inner.innerHTML = info_1ChangeDisplayer(x, id_number)
             break
         case 'update_phone_number':
-            inner.innerHTML = phone_numberChangeDisplayer(x, id_number)
+            inner.innerHTML = info_2ChangeDisplayer(x, id_number)
             break
         case 'update_customer':
             customerChangeDisplayer(x, id_number)

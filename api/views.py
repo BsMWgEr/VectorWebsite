@@ -691,6 +691,9 @@ def build_update_sold_data(request):
         dict_customer = q_dict.get('purchased_by_id')
         dict_email = q_dict.get('email')
         dict_date_shipped = q_dict.get('date_shipped')
+        dict_tracking_number = q_dict.get('tracking_number')
+        dict_info1 = q_dict.get('info1')
+        dict_info2 = q_dict.get('info2')
 
         if dict_info:
             SoldDetail.objects.filter(id=dict_id).update(info=dict_info)
@@ -712,6 +715,12 @@ def build_update_sold_data(request):
             Customer.objects.filter(id=dict_id).update(company_name=dict_company)
         if dict_date_shipped:
             ShippingDetail.objects.filter(id=dict_id).update(date_shipped=dict_date_shipped)
+        if dict_tracking_number:
+            ShippingDetail.objects.filter(id=dict_id).update(tracking_number=dict_tracking_number)
+        if dict_info1:
+            ShippingDetail.objects.filter(id=dict_id).update(Shipper_info1=dict_info1)
+        if dict_info2:
+            ShippingDetail.objects.filter(id=dict_id).update(Shipper_info1=dict_info2)
 
     return render(request, 'build-update-sold.html')
 
