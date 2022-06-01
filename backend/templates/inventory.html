@@ -147,6 +147,7 @@
 
 
 {% block nothing %}
+    {% if filter %}{{ filter }}{% else %}<p>Filter: None</p>{% endif %}
 <details>
     <summary>{{ summary_title }}</summary>
 {% endblock %}

@@ -36,17 +36,21 @@ def inventory_view(request):
     items = InventoryObject.objects.all().filter(sold_data__isnull=True)
     customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
+
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
 
     context = {
         'summary_title': summary_title,
         'all': x,
         'items': items,
         'customers': customers,
+        'filter': filter_info,
     }
     return render(request, 'inventory.html', context=context)
 
@@ -57,8 +61,11 @@ def inventory_view_instock(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_by = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
+
     customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
 
     instock_true = []
@@ -73,6 +80,7 @@ def inventory_view_instock(request):
         'all': instock_true,
         'summary_title': summary_title,
         'customers': customers,
+        'filter': filter_by,
     }
     return render(request, 'inventory-instock.html', context=context)
 
@@ -85,8 +93,11 @@ def inventory_view_comingsoon(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
+
     instock_false = []
     for z in x:
         if not z.inventory_item.in_stock:
@@ -100,6 +111,7 @@ def inventory_view_comingsoon(request):
         'summary_title': summary_title,
         'items': items,
         'customers': customers,
+        'filter': filter_info,
     }
     return render(request, 'inventory-comingsoon.html', context=context)
 
@@ -110,8 +122,11 @@ def inventory_view_sold(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
+
     customers = Customer.objects.all().order_by('-id')
     sold_true = []
     for z in x:
@@ -124,7 +139,8 @@ def inventory_view_sold(request):
         'all': sold_true,
         'summary_title': summary_title,
         'customers': customers,
-        'shipping': customer_info
+        'shipping': customer_info,
+        'filter': filter_info,
     }
     return render(request, 'inventory-sold.html', context=context)
 
@@ -135,8 +151,11 @@ def inventory_view_shipping(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
+
     customers = Customer.objects.all().order_by('-id')
     shipping = []
     for z in x:
@@ -144,12 +163,11 @@ def inventory_view_shipping(request):
             if not z.completed_order:
                 shipping.append(z)
 
-
-
     context = {
         'all': shipping,
         'summary_title': summary_title,
         'customers': customers,
+        'filter': filter_info,
     }
     return render(request, 'inventory-shipping.html', context=context)
 
@@ -160,8 +178,11 @@ def inventory_view_completed(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
+        filter_info = None
+
     customers = Customer.objects.all()
     completed = []
     for z in x:
@@ -172,6 +193,7 @@ def inventory_view_completed(request):
         'all': completed,
         'summary_title': summary_title,
         'customers': customers,
+        'filter': filter_info,
     }
     return render(request, 'inventory-completed.html', context=context)
 
