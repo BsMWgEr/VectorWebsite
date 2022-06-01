@@ -139,6 +139,12 @@ function updateInventorySoldSwitch(type, x, id_number) {
 
 function updateInventorySoldBtns(number, id_number) {
     console.log(`updateInventorySold: ${number} ${id_number}`)
+    if (document.getElementById('update-customer-change-display')) {
+        document.getElementById('update-customer-change-display').innerHTML = ''
+    }
+    if (document.getElementById('update-shipping-change-display')) {
+        document.getElementById('update-shipping-change-display').innerHTML = ''
+    }
     let new_div;
     if (!document.getElementById('inventory-sold-update-btn-group')) {
         new_div = document.createElement('div')
@@ -294,6 +300,12 @@ function updateInventoryCustomerSwitch(type, x, id_number) {
 
 function updateInventoryCustomerBtns(number, id_number) {
     console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
+    if (document.getElementById('update-shipping-change-display')) {
+        document.getElementById('update-shipping-change-display').innerHTML = ''
+    }
+    if (document.getElementById('update-sold-change-display')) {
+        document.getElementById('update-sold-change-display').innerHTML = ''
+    }
     let new_div;
     if (!document.getElementById('inventory-customer-update-btn-group')) {
         new_div = document.createElement('div')
@@ -350,6 +362,12 @@ function updateInventoryShippingSwitch(type, x, id_number) {
 
 function updateInventoryShippingBtns(number, id_number) {
     console.log(`updateInventoryShippingBtns: ${number} ${id_number}`)
+    if (document.getElementById('update-customer-change-display')) {
+        document.getElementById('update-customer-change-display').innerHTML = ''
+    }
+    if (document.getElementById('update-sold-change-display')) {
+        document.getElementById('update-sold-change-display').innerHTML = ''
+    }
     let new_div;
     if (!document.getElementById('inventory-shipping-update-btn-group')) {
         new_div = document.createElement('div')
