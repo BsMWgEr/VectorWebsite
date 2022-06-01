@@ -17,6 +17,8 @@
     border-radius: 10px;
     background: blueviolet;
     box-shadow: 0 0 10px black;
+    max-width: 500px;
+    min-width: 200px;
 }
 
 .sold-data-form * {
@@ -27,6 +29,7 @@
     border-radius: 5px;
     border: hidden;
     max-width: 500px;
+    min-width: 200px;
 }
 
 .create-customer-form {
@@ -37,6 +40,8 @@
     border-radius: 10px;
     background: blueviolet;
     box-shadow: 0 0 10px black;
+    max-width: 500px;
+    min-width: 200px;
 
 }
 
@@ -48,6 +53,7 @@
     border-radius: 5px;
     border: hidden;
     max-width: 500px;
+    min-width: 200px;
 
 }
 
