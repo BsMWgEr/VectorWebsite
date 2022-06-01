@@ -21,7 +21,7 @@
             document.getElementById('main').className = 'main-container-0margin'
             document.body.style.background = 'rgba(0,0,0,.5)'
             document.getElementById('container-' + x).className = 'border'
-            gh.className = 'super-div'
+            document.getElementById('super-div').className = 'super-div'
             window.scrollBy(0, 800)
 
         } else if (p1.id !== x && p1.count === 1) {
