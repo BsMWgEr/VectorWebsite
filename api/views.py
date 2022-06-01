@@ -723,6 +723,7 @@ def build_update_sold_data(request):
         if dict_info2:
             ShippingDetail.objects.filter(id=dict_id).update(Shipper_info1=dict_info2)
         if dict_read:
+            print(dict_read)
             Message.objects.filter(id=dict_id).update(read=dict_read)
 
     return render(request, 'build-update-sold.html')
