@@ -21,8 +21,27 @@
         <li>Message: {{ x.comment }}</li>
         <li>Read: {{ x.read }}</li>
         {% if not x.read %}
-            <script>document.getElementById('message-container-{{ x.id }}').style.background = 'red'</script>
-            <form method="post" action="/api/build-update-sold-data-api/">
+            <script>
+
+            function updateContactRequests(event) {
+                event.preventDefault()
+                let my_Form = event.target
+                let my_FormData = new FormData(my_Form)
+                let xhr = new XMLHttpRequest()
+                let method = my_Form.getAttribute('method')
+                let url = my_Form.getAttribute('action')
+                xhr.responseType = 'json'
+                xhr.open(method, url)
+                xhr.onload = function () {
+                    window.location.reload()
+                }
+                my_FormData.entries()
+                xhr.send(my_FormData)
+            }
+
+                document.getElementById('message-container-{{ x.id }}').style.background = 'red'
+            </script>
+            <form method="post" action="/api/build-update-sold-data-api/" onsubmit="updateContactRequests(event)">
             {% csrf_token %}
                 <input type="number" name="id" hidden value="{{ x.id }}">
                 <input type="checkbox" name="read" checked hidden>
