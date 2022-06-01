@@ -61,7 +61,7 @@ def inventory_view_instock(request):
     if request.GET.get('filter_by'):
         print(request.GET.get('filter_by'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_by = request.GET.get('filter_by')
+        filter_info = request.GET.get('filter_by')
     else:
         x = InventoryObject.objects.all()
         filter_info = None
@@ -80,7 +80,7 @@ def inventory_view_instock(request):
         'all': instock_true,
         'summary_title': summary_title,
         'customers': customers,
-        'filter': filter_by,
+        'filter': filter_info,
     }
     return render(request, 'inventory-instock.html', context=context)
 
