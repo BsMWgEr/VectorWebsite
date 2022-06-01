@@ -134,11 +134,6 @@ main {
     top: 300px;
 }
 
-#left-sidebar {
-    position: sticky;
-    top: 300px;
-    height: 10px;
-}
 
 .main-div {
     margin-top: 50px;
