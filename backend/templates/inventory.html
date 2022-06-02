@@ -142,7 +142,7 @@
 
 {% if filter %}{{ filter }}{% else %}<p>Filter: None</p>{% endif %}
     <div id="slide-down-menu" class="edit-options-menu">
-        <button type="button">Filter By Name</button>
+        <button class="filter-Btn" type="button">Filter By Name</button>
         <div class="dropdown-content">
          {% for names in name %}
              <button type="button" onclick="superFilter('name', '{{ names.name }}')">{{ names.name }}</button>
