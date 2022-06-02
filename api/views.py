@@ -11,7 +11,6 @@ from stockvectorrigs.aws.utils import AWS
 S3File = Media
 
 
-
 def build_api_new_view(request):
     q = InventoryItem.objects.all()
     y = InventoryItem()
@@ -101,7 +100,6 @@ def cookie_list_view(request):
 
 
 def endpoint_view(request):
-
     q_dict = request.POST
     dict_id = q_dict.get('id')
     y = InventoryItem.objects.all().filter(id=dict_id)
@@ -155,7 +153,7 @@ def build_api_view(request):
         form.save()
         # do other logic here
 
-        #if next_url is not None:
+        # if next_url is not None:
         #    return redirect(next_url)
         form = BuildForm()
 
@@ -320,7 +318,6 @@ def create_image_api(request):
             'phone_number': x.phone_number,
             'created_date': x.created_date
 
-
         } for x in all_customers]
 
         data = {
@@ -424,7 +421,7 @@ def customer_data_api(request):
     x = 1
     print(request.POST.get('inventory_item'))
     if form.is_valid():
-        #x = request.POST.get('inventory_item')
+        # x = request.POST.get('inventory_item')
         print(form.data)
         form.save()
 
@@ -563,38 +560,38 @@ def endpoint3(request):
         } for x in shipping_info]
 
         container_list4 = [{
-                   "id": x.id,
-                   "type": x.type,
-                   "name": x.name.name,
-                   "size": l_size,
-                   "serial_number": x.serial_number,
-                   "due_date": x.due_date,
-                   "po_number": x.po_number,
-                   "description": x.description,
-                   "in_stock": x.in_stock,
-                   "confirmation_r": confirm,
-                   'price': x.price,
-                   "picture": picture,
-                   "created_date": x.created_date.strftime("%B %d, %Y")
-                           } for x in inventory_item]
+            "id": x.id,
+            "type": x.type,
+            "name": x.name.name,
+            "size": l_size,
+            "serial_number": x.serial_number,
+            "due_date": x.due_date,
+            "po_number": x.po_number,
+            "description": x.description,
+            "in_stock": x.in_stock,
+            "confirmation_r": confirm,
+            'price': x.price,
+            "picture": picture,
+            "created_date": x.created_date.strftime("%B %d, %Y")
+        } for x in inventory_item]
         container_list5 = [{
-                    'id': u.id,
-                    'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
-                    'address': u.address,
-                    'city': u.city,
-                    'state': u.state,
-                    'country': u.country,
-                    'zipcode': u.zip_code,
-                    'other': u.other
-                } for u in shipping_obj]
+            'id': u.id,
+            'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
+            'address': u.address,
+            'city': u.city,
+            'state': u.state,
+            'country': u.country,
+            'zipcode': u.zip_code,
+            'other': u.other
+        } for u in shipping_obj]
 
         data = {
-                "sold_data": container_list,
-                "customer": container_list2,
-                "shipping_data": container_list3,
-                "inventory_item": container_list4,
-                "address": container_list5
-            }
+            "sold_data": container_list,
+            "customer": container_list2,
+            "shipping_data": container_list3,
+            "inventory_item": container_list4,
+            "address": container_list5
+        }
 
     elif request.GET.get('all_customer_data'):
         customer_id = request.GET.get('all_customer_data')
@@ -623,12 +620,12 @@ def endpoint3(request):
                            "phone_number": x.phone_number,
                            } for x in customers]
         container_list2 = [{"id": x.id,
-                           "first_name": x.first_name,
-                           "last_name": x.last_name,
-                           "company_name": x.company_name,
-                           "email": x.email,
-                           "phone_number": x.phone_number,
-                           } for x in new_customers]
+                            "first_name": x.first_name,
+                            "last_name": x.last_name,
+                            "company_name": x.company_name,
+                            "email": x.email,
+                            "phone_number": x.phone_number,
+                            } for x in new_customers]
 
         data = {
             "response": container_list,
@@ -764,7 +761,7 @@ def get_shipping_data(request):
             'shipper_info1': x.Shipper_info1,
             'shipper_info2': x.Shipper_info1,
             'created_date': x.created_date,
-                           } for x in s_obj]
+        } for x in s_obj]
         data = {
             "response": container_list,
         }
@@ -882,8 +879,9 @@ def get_shipping_address(request):
         item_id = InventoryObject.objects.all().filter(id=id_number)
         y = 0
         for x in item_id:
-            if x.sold_data_id:
+            if x.sold_data:
                 y = x.sold_data.purchased_by.id
+        print(y)
 
         info = CustomerShippingAddress.objects.all().order_by('-id')
         other_info = CustomerShippingAddress.objects.all().filter(customer_id=y)
@@ -918,8 +916,8 @@ def create_new_shipping_address(request):
         data = form.data.get('inventory_object_id')
         print(data)
         form.save()
-        #shipping = CustomerShippingAddress.objects.last()
-        #InventoryObject.objects.filter(id=data).update(shipping_data_id=shipping.id)
+        # shipping = CustomerShippingAddress.objects.last()
+        # InventoryObject.objects.filter(id=data).update(shipping_data_id=shipping.id)
         form = NewShippingAddressForm()
 
     context = {

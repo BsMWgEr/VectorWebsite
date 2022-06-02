@@ -17,7 +17,7 @@ urlpatterns = [
     path('customer-data-api/', customer_data_api),
     path('shipping-address-api/', create_new_shipping_address),
     path('shipping-data-api/', create_new_shipping_data),
-    path('get-shipping-address/', get_shipping_address),
+    path('get-shipping-address', get_shipping_address),
     path('get-shipping-data-api', get_shipping_data),
     path('upload-helper', upload_helper_view, name="up-helper"),
     path('build-update-sold-data-api/', build_update_sold_data, name="build-update-sold-data"),
