@@ -8,8 +8,9 @@ function superFilter(filter_by, x) {
     }
     current_url = current_url.split('.')
     current_url = current_url[2].split('/')
+    console.log(x)
+    console.log(current_url)
     let xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.open('GET', `/manager/${current_url[2]}/?filter_by=${x}`)
+    xhr.open('GET', `/manager/${current_url[2]}/?filter_by=${x}`, false)
     xhr.send()
 }
