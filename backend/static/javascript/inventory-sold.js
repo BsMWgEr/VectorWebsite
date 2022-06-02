@@ -36,8 +36,10 @@ function shippingAddressSubmit(event, x){
                 let answer = dxhr.response.response
                 let new_str = ''
                 let selected_item = dxhr.response.selected_item
-                new_str += '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
+                for (let i = 0; i < selected_item.length; i++) {
+                    new_str += '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
                         + ' ' + selected_item[0].city + ', ' + selected_item[0].state + ' ' + selected_item[0].zipcode + '</option>'
+                }
                 for (let i = 1; i < answer.length; i++) {
                     new_str += `<option value="${answer[i].id}">Customer ID: ${answer[i].customer_id}
                     + ${answer[i].city} , ${answer[i].state} ${answer[i].zipcode}</option>`
