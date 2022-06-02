@@ -176,17 +176,27 @@
     }
 
     function superFilter(filter_by, value) {
-        let current_url = window.location.href.split('.')
-        let current_location = current_url[2].split('/')
-        let starting_filter
+        let current_url = window.location.href.split('.');
+        console.log(current_url)
+        let current_location = current_url[2].split('/');
+        console.log(current_location)
+        let starting_filter;
         if (current_location[3]) {
             starting_filter = current_location[3].split('?')
+            console.log(starting_filter)
             starting_filter = starting_filter[1].split('=')
+            console.log(starting_filter)
             starting_filter = 'filter_by_type=' + starting_filter[1]
+            console.log(starting_filter)
         } else starting_filter = ''
         let xhr = new XMLHttpRequest()
+        let url = `/manager/${current_location[2]}?filter_by_type=${starting_filter}&filter_by=${filter_by}&value=${value}`
+        console.log(url)
         xhr.responseType = 'json'
-        xhr.open('GET', `/manager/${current_location[2]}?filter_by_type=${starting_filter}&filter_by=${filter_by}&value=${value}`, false)
+        xhr.open('GET', url, false)
+        xhr.onload = ()=> {
+
+        }
         xhr.send()
     }
 
