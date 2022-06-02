@@ -59,7 +59,8 @@ function customerDataSubmit(event, x){
         dxhr.onload = function () {
             const serverResponse2 = dxhr.response
             console.log(serverResponse2)
-            x = serverResponse2
+            x = dxhr.response.response
+            console.log(x)
             let final_string = '<option value="" selected>Choose A Customer</option>'
             for (let i = 0; i < x.new_customers.length; i++) {
                  final_string += '<option value="' + x.new_customers[i].id + '">' + 'ID: ' + x.new_customers[i].id + x.new_customers[i].first_name
