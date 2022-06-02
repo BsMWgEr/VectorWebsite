@@ -176,7 +176,7 @@
     }
 
     function superFilter(filter_by, value) {
-        let current_url = window.location.pathname
+        let current_url = window.location.href
         console.log(current_url)
         //let current_location = current_url[2].split('/');
         //console.log(current_location)
