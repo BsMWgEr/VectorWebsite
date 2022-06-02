@@ -175,3 +175,18 @@
         xhr.send(new_form)
     }
 
+    function superFilter(filter_by, value) {
+        let current_url = window.location.href.split('.')
+        let current_location = current_url[2].split('/')
+        let starting_filter
+        if (current_location[3]) {
+            starting_filter = current_location[3].split('?')
+            starting_filter = starting_filter[1].split('=')
+            starting_filter = 'filter_by_type=' + starting_filter[1]
+        } else starting_filter = ''
+        let xhr = new XMLHttpRequest()
+        xhr.responseType = 'json'
+        xhr.open('GET', `/manager/${current_location[2]}?filter_by_type=${starting_filter}&filter_by=${filter_by}&value=${value}`, false)
+        xhr.send()
+    }
+
