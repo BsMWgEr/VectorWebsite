@@ -884,12 +884,7 @@ def get_shipping_address(request):
         print(y)
 
         info = CustomerShippingAddress.objects.all().order_by('-id')
-        other_info = CustomerShippingAddress.objects.all()
-        other = []
-        for x in other_info:
-            if x.id > other:
-                other.remove([0])
-                other.append(x)
+        other_info = CustomerShippingAddress.objects.all().order_by('-id')
 
         container_list = [{
             'id': u.id,
@@ -905,7 +900,7 @@ def get_shipping_address(request):
             'city': u.city,
             'state': u.state,
             'zipcode': u.zip_code,
-        } for u in other]
+        } for u in other_info]
 
         data = {
             "response": container_list,
