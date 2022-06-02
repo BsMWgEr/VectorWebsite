@@ -207,7 +207,7 @@ def inventory_view_sold(request):
         'customers': customers,
         'shipping': customer_info,
         'filter': filter_info,
-        'names': names
+        'name': names
     }
     return render(request, 'inventory-sold.html', context=context)
 
