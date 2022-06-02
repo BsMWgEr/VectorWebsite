@@ -33,14 +33,11 @@ function shippingAddressSubmit(event, x){
             dxhr.responseType = 'json'
             dxhr.open('GET', '/api/get-shipping-address?id_number=' + obj_id.toString())
             dxhr.onload = () => {
-                let serverResonse = dxhr.response
-                let answer = serverResonse.response
+                let answer = dxhr.response.response
                 let new_str = ''
-                if (serverResonse.selected_item) {
-                    let selected_item = serverResonse.selected_item
-                    new_str += '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
+                let selected_item = dxhr.response.selected_item
+                new_str += '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
                         + ' ' + selected_item[0].city + ', ' + selected_item[0].state + ' ' + selected_item[0].zipcode + '</option>'
-                }
                 for (let i = 1; i < answer.length; i++) {
                     new_str += `<option value="${answer[i].id}">Customer ID: ${answer[i].customer_id}
                     + ${answer[i].city} , ${answer[i].state} ${answer[i].zipcode}</option>`
