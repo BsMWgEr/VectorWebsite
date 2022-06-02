@@ -91,10 +91,14 @@ def inventory_view_comingsoon(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
 
-    if request.GET.get('filter_by'):
-        x = InventoryObject.objects.all().filter(inventory_item__name__name=request.GET.get('value'))
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        for y in filter_key:
+            if y == '_':
+                y = ' '
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_key)
         filter_info = request.GET.get('value')
-        names = Name.objects.all().filter(name=request.GET.get('value'))
+        names = Name.objects.all().filter(name=filter_key)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
