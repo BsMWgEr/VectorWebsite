@@ -103,7 +103,7 @@
     <div><a href="/manager/inventory-completed">Completed Orders</a></div>
      <div id="slide-down-menu" class="edit-options-menu">
          {% for names in name %}
-            <button onclick="superFilter('name', {{ names }})">Name</button>
+            <button type="button" onclick="superFilter('name', {{ names.name }})">Name</button>
          {% endfor %}
     <button>Size</button>
     <button>FIlter Option</button>
