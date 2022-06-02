@@ -47,7 +47,7 @@ function shippingAddressSubmit(event, x){
                     new_str += `<option value="${answer[i].id}">Customer ID: ${answer[i].customer_id}
                     + ${answer[i].city} , ${answer[i].state} ${answer[i].zipcode}</option>`
                 }
-
+                console.log(new_str)
                 document.getElementById('id_shipping_address').innerHTML = new_str
             }
             dxhr.send()

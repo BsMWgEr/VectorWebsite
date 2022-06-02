@@ -257,13 +257,6 @@
                             </select>
                             <select name="shipping_address" required id="id_shipping_address">
                                 <option value="" selected>Select a Shipping Address or Create a New One</option>
-                            {% if shipping %}
-                                {% for t in shipping %}
-                                    <option value="{{ t.id }}">{{ t }}</option>
-                                {% endfor %}
-                                {% else %}
-                                    <button id="new-shipping-address-btn" onclick="openShippingAddressForm({{ x.id }})">Create New Shipping Address</button>
-                            {% endif %}
                             </select>
                             <label for="id_date_shipped">Select a Shipping Date (not required):</label>
                             <input type="date" name="date_shipped" id="id_date_shipped">
