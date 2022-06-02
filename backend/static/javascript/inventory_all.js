@@ -15,7 +15,7 @@ function superFilter(filter_by, x) {
     } else current_url2 += '?'
     console.log(x)
     console.log(current_url)
-    let url = `${current_url2}filter_by=${new_str}`
+    let url = `${current_url2}filter_by=${filter_by}&value=${new_str}`
     console.log(url)
     window.location.assign(url)
     console.log(filter_by, new_str, url, current_url2)
