@@ -6,9 +6,7 @@
 
 
     function superFilter(filter_by, value) {
-        console.log(window.location.href)
-        console.log(filter_by)
-        console.log(value)
+        console.log('hello')
     }
 
 
