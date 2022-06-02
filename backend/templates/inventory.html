@@ -255,7 +255,7 @@
                             <select name="sold_detail" required id="id_sold_detail">
                                 <option value="{{ x.sold_data.id }}" selected>{{ x.sold_data }}</option>
                             </select>
-                            <select name="shipping_address" required id="id_shipping_address">
+                            <select name="shipping_address" required id="id_shipping_address-{{ x.id }}">
                                 <option value="" selected>Select a Shipping Address or Create a New One</option>
                             </select>
                             <label for="id_date_shipped">Select a Shipping Date (not required):</label>
