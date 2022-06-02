@@ -2,7 +2,7 @@ function superFilter(filter_by, x) {
     let current_url = document.location.href
     if (x.split(' ')) {
         x = ''
-        for (let i = 0; i < value.length; i++) {
+        for (let i = 0; i < x.length; i++) {
             x += '%' + x[i]
         }
     }
