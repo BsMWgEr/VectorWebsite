@@ -367,6 +367,8 @@ body {
 #nav-home {
     margin: 0;
     width: 100%;
+    top: 0;
+    position: relative;
 }
 
 @media screen and (max-width: 900px) {
