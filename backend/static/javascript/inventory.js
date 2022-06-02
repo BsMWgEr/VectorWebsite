@@ -55,6 +55,7 @@ function customerDataSubmit(event, x){
     xhr.onload = function() {
         document.getElementById('create-customer-form-' + x.toString()).className = "none"
         const dxhr = new XMLHttpRequest()
+        dxhr.responseType = 'json'
         dxhr.open('GET', '/api/endpoint3')
         dxhr.onload = function () {
             const serverResponse2 = dxhr.response
