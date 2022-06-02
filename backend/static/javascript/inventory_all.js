@@ -1,9 +1,8 @@
 function superFilter(filter_by, x) {
     let current_url = document.location.href
-    if (x.split(' ').length > 1) {
-        x = ''
-        for (let i = 0; i < x.length; i++) {
-            x = x + x[i] + '%'
+    for (let i = 0; i < x.length; i++) {
+        if (x[i] === ' ') {
+            x[i] = '%'
         }
     }
     current_url = current_url.split('.')
