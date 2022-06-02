@@ -99,6 +99,8 @@ def inventory_view_comingsoon(request):
                 filter_str += ' '
             else:
                 filter_str += y
+        print(filter_str)
+        print(filter_key)
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
