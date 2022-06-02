@@ -11,8 +11,8 @@ function superFilter(filter_by, x) {
     current_url = current_url.split('.')
     current_url = current_url[2].split('/')
     if (current_url[3] !== '') {
-        current_url2 += '?'
-    } else current_url2 += current_url[3] + '&'
+        current_url2 =  current_url2 + current_url[3] + '&'
+    } else current_url2 += '?'
     console.log(x)
     console.log(current_url)
     let url = `${current_url2}filter_by=${new_str}`
