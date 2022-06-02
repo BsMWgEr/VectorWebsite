@@ -115,7 +115,7 @@
     box-shadow: 0 0 25px #b5db1a;
 }
 
-.filter-Btn:hover .dropdown-content {
+.edit-options-menu:hover .dropdown-content {
     display: block;
     box-shadow: 0 0 25px #b5db1a;
 }
