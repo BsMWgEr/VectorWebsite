@@ -884,7 +884,7 @@ def get_shipping_address(request):
         print(y)
 
         info = CustomerShippingAddress.objects.all().order_by('-id')
-        other_info = CustomerShippingAddress.objects.all().filter(customer_id=y)
+        other_info = CustomerShippingAddress.objects.last()
         container_list = [{
             'id': u.id,
             'customer_id': str(u.customer.id) + ' ' + u.customer.first_name + ' ' + u.customer.last_name,
