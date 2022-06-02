@@ -37,13 +37,28 @@ def inventory_view(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
 
-    if request.GET.get('filter_by'):
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     context = {
         'summary_title': summary_title,
@@ -51,6 +66,7 @@ def inventory_view(request):
         'items': items,
         'customers': customers,
         'filter': filter_info,
+        'name': names
     }
     return render(request, 'inventory.html', context=context)
 
@@ -58,13 +74,29 @@ def inventory_view(request):
 @login_required
 def inventory_view_instock(request):
     summary_title = "In Stock"
-    if request.GET.get('filter_by'):
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
 
@@ -81,6 +113,7 @@ def inventory_view_instock(request):
         'summary_title': summary_title,
         'customers': customers,
         'filter': filter_info,
+        'name': names
     }
     return render(request, 'inventory-instock.html', context=context)
 
@@ -136,13 +169,29 @@ def inventory_view_comingsoon(request):
 @login_required
 def inventory_view_sold(request):
     summary_title = "Sold"
-    if request.GET.get('filter_by'):
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     customers = Customer.objects.all().order_by('-id')
     sold_true = []
@@ -158,6 +207,7 @@ def inventory_view_sold(request):
         'customers': customers,
         'shipping': customer_info,
         'filter': filter_info,
+        'names': names
     }
     return render(request, 'inventory-sold.html', context=context)
 
@@ -165,13 +215,29 @@ def inventory_view_sold(request):
 @login_required
 def inventory_view_shipping(request):
     summary_title = "Shipping"
-    if request.GET.get('filter_by'):
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     customers = Customer.objects.all().order_by('-id')
     shipping = []
@@ -185,6 +251,7 @@ def inventory_view_shipping(request):
         'summary_title': summary_title,
         'customers': customers,
         'filter': filter_info,
+        'name': names
     }
     return render(request, 'inventory-shipping.html', context=context)
 
@@ -192,13 +259,29 @@ def inventory_view_shipping(request):
 @login_required
 def inventory_view_completed(request):
     summary_title = "Completed Orders"
-    if request.GET.get('filter_by'):
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+
+    if request.GET.get('value'):
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     customers = Customer.objects.all()
     completed = []
@@ -211,6 +294,7 @@ def inventory_view_completed(request):
         'summary_title': summary_title,
         'customers': customers,
         'filter': filter_info,
+        'name': names
     }
     return render(request, 'inventory-completed.html', context=context)
 
