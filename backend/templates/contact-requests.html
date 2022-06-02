@@ -33,7 +33,7 @@
             </form>
             <script>
             function updateContactRequests(event) {
-
+                event.preventDefault()
                 let my_Form = event.target
                 let my_FormData = new FormData(my_Form)
                 let xhr = new XMLHttpRequest()
