@@ -11,6 +11,12 @@ function superFilter(filter_by, x) {
     console.log(x)
     console.log(current_url)
     let xhr = new XMLHttpRequest()
-    xhr.open('GET', `/manager/${current_url[2]}/?filter_by=${x}`, false)
+    xhr.responseType = 'json'
+    let url = `/manager/${current_url[2]}/?filter_by=${x}`
+    console.log(url)
+    xhr.open('GET', url)
+    xhr.onload = ()=> {
+        window.location.assign(url)
+    }
     xhr.send()
 }
