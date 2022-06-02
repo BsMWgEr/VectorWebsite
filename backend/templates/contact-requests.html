@@ -43,6 +43,7 @@
                 xhr.open(method, url)
                 xhr.onload = function () {
                     console.log(event)
+                    window.location.reload()
                 }
                 my_FormData.entries()
                 xhr.send(my_FormData)
