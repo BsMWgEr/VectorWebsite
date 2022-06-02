@@ -90,15 +90,20 @@ def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
-    if request.GET.get('filter_by'):
-        filter_key = request.GET.get('filter_by')
 
-        print(request.GET.get('filter_by'))
-        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by'))
-        filter_info = request.GET.get('filter_by')
+    if request.GET.get('filter_by'):
+        x = InventoryObject.objects.all().filter(inventory_item__name__name=request.GET.get('value'))
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(name=request.GET.get('value'))
+    elif request.GET.get('filter_by_type'):
+        print(request.GET.get('filter_by_type'))
+        x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
+        filter_info = request.GET.get('filter_by_type')
+        names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
     else:
         x = InventoryObject.objects.all()
         filter_info = None
+        names = Name.objects.all()
 
     instock_false = []
     for z in x:
@@ -114,6 +119,7 @@ def inventory_view_comingsoon(request):
         'items': items,
         'customers': customers,
         'filter': filter_info,
+        'name': names,
     }
     return render(request, 'inventory-comingsoon.html', context=context)
 
