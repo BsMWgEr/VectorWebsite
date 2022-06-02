@@ -611,7 +611,7 @@ def endpoint3(request):
 
     else:
         customers = Customer.objects.all().order_by('-id')
-        new_customers = Customer.objects.filter(solddetail__isnull=True).order_by('-id')
+        new_customers = Customer.objects.all().order_by('-id')
         container_list = [{"id": x.id,
                            "first_name": x.first_name,
                            "last_name": x.last_name,
