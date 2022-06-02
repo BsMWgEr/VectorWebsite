@@ -221,10 +221,10 @@ def api_view(request):
             print('object delete')
             InventoryItem.objects.filter(id=dict_id).delete()
             print('item delete')
-            if sold_id_number is not '':
+            if sold_id_number != '':
                 SoldDetail.objects.filter(id=sold_id_number).delete()
                 print('sold delete')
-            if shipping_id_number is not '':
+            if shipping_id_number != '':
                 ShippingDetail.objects.filter(id=shipping_id_number).delete()
                 print('shipping delete')
         if next_url is not None:
