@@ -189,14 +189,6 @@
             starting_filter = 'filter_by_type=' + starting_filter[1]
             console.log(starting_filter)
         } else starting_filter = ''*/
-        let xhr = new XMLHttpRequest()
-        let url = `${current_url}?filter_by=${filter_by}&value=${value}`
-        console.log(url)
-        xhr.responseType = 'json'
-        xhr.open('GET', url, false)
-        xhr.onload = ()=> {
 
-        }
-        xhr.send()
     }
 
