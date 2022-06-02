@@ -101,14 +101,6 @@
     <div><a href="/manager/inventory-sold">Sold Inventory</a></div>
     <div><a href="/manager/inventory-shipping">Inventory Currently Shipping</a></div>
     <div><a href="/manager/inventory-completed">Completed Orders</a></div>
-     <div id="slide-down-menu" class="edit-options-menu">
-         {% for names in name %}
-            <button type="button" onclick="superFilter('name', '{{ names.name }}')">Name</button>
-         {% endfor %}
-    <button>Size</button>
-    <button>FIlter Option</button>
-    <button>FIlter option</button>
-    </div>
     </div>
 
 </div>
@@ -152,6 +144,14 @@
 {% block nothing %}
 
 <details>
+    <div id="slide-down-menu" class="edit-options-menu">
+         {% for names in name %}
+            <button type="button" onclick="superFilter('name', '{{ names.name }}')">{{ names.name }}</button>
+         {% endfor %}
+    <button>Size</button>
+    <button>FIlter Option</button>
+    <button>FIlter option</button>
+    </div>
     <summary>{{ summary_title }}</summary>
 {% endblock %}
 {% block search %}

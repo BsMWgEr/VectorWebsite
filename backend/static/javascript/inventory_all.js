@@ -20,3 +20,10 @@ function superFilter(filter_by, x) {
     window.location.assign(url)
     console.log(filter_by, new_str, url, current_url2)
 }
+
+function removeFilter() {
+    let current_url = document.location.href
+    current_url = current_url.split('.')
+    current_url = current_url[1].split('/')
+
+}

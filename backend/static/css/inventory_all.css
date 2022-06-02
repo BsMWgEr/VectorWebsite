@@ -38,10 +38,6 @@
     background: #f2bd1e;
 }
 
-.edit-options-menu {
-    display: flex;
-    flex-direction: column;
-}
 
 .inventory-sidebar {
     display: flex;
@@ -66,8 +62,8 @@
 }
 
 .edit-options-menu {
+    display: flex;
     margin: 10px 0 0 20%;
-    row-gap: 10px;
 }
 
 .edit-options-menu button {
