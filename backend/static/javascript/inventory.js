@@ -61,7 +61,7 @@ function customerDataSubmit(event, x){
             console.log(serverResponse2)
             x = serverResponse2
             let final_string = '<option value="" selected>Choose A Customer</option>'
-            for (let i = 0; i < x.response.length; i++) {
+            for (let i = 0; i < x.new_customers.length; i++) {
                  final_string += '<option value="' + x.new_customers[i].id + '">' + 'ID: ' + x.new_customers[i].id + x.new_customers[i].first_name
                     + ' ' + x.new_customers[i].last_name + ' email: ' + x.new_customers[i].email + '</option>'
             }
