@@ -33,8 +33,9 @@ function createNewShippingAddress(event) {
             dxhr.open('GET', '/api/get-shipping-address?id_number=' + obj_id[2].toString())
             dxhr.onload = () => {
                 let serverResonse = dxhr.response
+                console.log(serverResonse)
                 let answer = serverResonse.response
-                let selected_item = serverResonse.selected_item
+                let selected_item = dxhr.response.selected_item
                 let new_str = '<option value="' + selected_item[0].id + '" selected>ID: ' + selected_item[0].id + ' Customer: ' + selected_item[0].customer_id
                     + ' ' + selected_item[0].city + ', ' + selected_item[0].state + ' ' + selected_item[0].zipcode + '</option>'
                 for (let i = 1; i < answer.length; i++) {
