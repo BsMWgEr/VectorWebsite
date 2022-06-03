@@ -427,7 +427,7 @@ def inventory_search_view(request):
                 for y in containers_search2:
                     w.append(y)
 
-            containers_search.filter(inventory_item__description__search=query)
+            containers_search.filter(inventory_item__description__icontains=query)
             if containers_search:
                 for y in containers_search:
                     w.append(y)
