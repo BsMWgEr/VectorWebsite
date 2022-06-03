@@ -142,6 +142,7 @@
 
 {% if filter %}{{ filter }}{% else %}<p>Filter: None</p>{% endif %}
 <div id="inventory-filtering-group" class="inventory-filtering-group">
+    <button type="button" onclick="clearAllFilters()">Clear All Filters</button>
     <div id="slide-down-menu-type" class="edit-options-menu">
         <button class="filter-Btn" type="button">Filter By Type</button>
         <div class="dropdown-content">

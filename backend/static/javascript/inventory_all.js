@@ -12,7 +12,7 @@ function superFilter(filter_by, x) {
     current_url = current_url.split('.')
     current_url = current_url[2].split('/')
     if (current_url[3] !== '') {
-        current_url2 =  current_url2 + current_url[3] + '&'
+        current_url2 =  current_url2 + '&'
     } else current_url2 += '?'
     console.log(x)
     console.log(current_url)
@@ -24,9 +24,8 @@ function superFilter(filter_by, x) {
     console.log(filter_by, new_str, url, current_url2)
 }
 
-function removeFilter() {
-    let current_url = document.location.href
-    current_url = current_url.split('.')
-    current_url = current_url[1].split('/')
-
+function clearAllFilters() {
+    let current_url = document.location.href.split('/')
+    let new_url = current_url[0] + current_url[1] + current_url[2] + current_url[3]
+    window.location.assign(new_url)
 }
