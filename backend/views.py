@@ -421,31 +421,32 @@ def inventory_search_view(request):
             if query == "in stock":
                 for x in containers_search2:
                     if x.inventory_item.in_stock:
+                        print('in stock:  ')
+                        print(x.id)
                         w.append(x)
-                print('in stock:  ')
-                print(w)
+
             else:
                 containers_search2.filter(inventory_item__name__name__icontains=query)
                 if containers_search2:
                     for y in containers_search2:
-
+                        print('name: ')
+                        print(y)
                         w.append(y)
-                    print('name: ')
-                    print(w)
+
                 containers_search.filter(inventory_item__description__icontains=query)
                 if containers_search:
                     for y in containers_search:
-
+                        print('description:  ')
+                        print(y)
                         w.append(y)
-                    print('description:  ')
-                    print(w)
+
                 containers_search4.filter(inventory_item__size__size__icontains=query)
                 if containers_search4:
-                    for y in containers_search:
-
+                    for y in containers_search4:
+                        print('size:   ')
+                        print(y)
                         w.append(y)
-                print('size:   ')
-                print(w)
+
             if not w:
                 for x in containers_search3:
                     if query == x.inventory_item.serial_number:
@@ -454,6 +455,8 @@ def inventory_search_view(request):
                 no_return = True
 
         search_count = len(w)
+        print('ALL   ')
+        print(w)
 
     context = {
         'all': w,
