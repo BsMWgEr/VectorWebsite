@@ -46,7 +46,7 @@ function superFilter(filter_by, x) {
     current_url = current_url.split('.')
     current_url = current_url[2].split('/')
     let str = createSearchURL()
-    url = `https://vectorrigs.herokuapp.com/manager/${current_url}/${str}`
+    url = `https://vectorrigs.herokuapp.com/manager/${current_url[2]}/${str}`
 
     console.log(x)
     console.log(current_url)
