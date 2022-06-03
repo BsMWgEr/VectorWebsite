@@ -170,7 +170,7 @@ def inventory_view_comingsoon(request):
 def inventory_view_sold(request):
     summary_title = "Sold"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -183,6 +183,20 @@ def inventory_view_sold(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
+
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))

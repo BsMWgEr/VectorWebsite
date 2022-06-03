@@ -142,6 +142,16 @@
 
 {% if filter %}{{ filter }}{% else %}<p>Filter: None</p>{% endif %}
 <div id="inventory-filtering-group" class="inventory-filtering-group">
+    <div id="slide-down-menu-type" class="edit-options-menu">
+        <button class="filter-Btn" type="button">Filter By Type</button>
+        <div class="dropdown-content">
+            <button type="button" onclick="superFilter('type', 'sport_rigs')">Sport Rigs</button>
+            <button type="button" onclick="superFilter('type', 'tandem')">Tandem</button>
+            <button type="button" onclick="superFilter('type', 'student')">Student</button>
+            <button type="button" onclick="superFilter('type', 'canopies')">Canopies</button>
+            <button type="button" onclick="superFilter('type', 'javelin_odyssey')">Jevelin Odyssey</button>
+        </div>
+    </div>
     <div id="slide-down-menu" class="edit-options-menu">
         <button class="filter-Btn" type="button">Filter By Name</button>
         <div class="dropdown-content">
