@@ -71,3 +71,8 @@
     background: #b5db1a;
     border: hidden;
 }
+
+button {
+    color: black;
+    font-size: 10pt;
+}
