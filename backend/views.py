@@ -137,14 +137,14 @@ def inventory_view_comingsoon(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
 
-    x = InventoryObject.objects.all()
+    x = []
     filter_info = ''
     names = Name.objects.all()
 
     if request.GET.get('filter_by_type'):
         filter_key = request.GET.get('filter_by_type')
         print(filter_key)
-        x.filter(inventory_item__type=filter_key)
+        x = InventoryObject.filter(inventory_item__type=filter_key)
         filter_info += filter_key
         names = Name.objects.all().filter(type=filter_key)
 
