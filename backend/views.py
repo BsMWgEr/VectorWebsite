@@ -418,19 +418,34 @@ def inventory_search_view(request):
             search_query.search = query
             search_query.save()
 
-            for x in containers_search2:
-                if query == "in stock":
+            if query == "in stock":
+                for x in containers_search2:
                     if x.inventory_item.in_stock:
                         w.append(x)
-            containers_search2.filter(inventory_item__name__name__icontains=query)
-            if containers_search2:
-                for y in containers_search2:
-                    w.append(y)
+                print('in stock:  ')
+                print(w)
+            else:
+                containers_search2.filter(inventory_item__name__name__icontains=query)
+                if containers_search2:
+                    for y in containers_search2:
 
-            containers_search.filter(inventory_item__description__icontains=query)
-            if containers_search:
-                for y in containers_search:
-                    w.append(y)
+                        w.append(y)
+                    print('name: ')
+                    print(w)
+                containers_search.filter(inventory_item__description__icontains=query)
+                if containers_search:
+                    for y in containers_search:
+
+                        w.append(y)
+                    print('description:  ')
+                    print(w)
+                containers_search4.filter(inventory_item__size__size__icontains=query)
+                if containers_search4:
+                    for y in containers_search:
+
+                        w.append(y)
+                print('size:   ')
+                print(w)
             if not w:
                 for x in containers_search3:
                     if query == x.inventory_item.serial_number:
