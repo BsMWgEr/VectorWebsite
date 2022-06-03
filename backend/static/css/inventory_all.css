@@ -76,3 +76,7 @@ button {
     color: black;
     font-size: 10pt;
 }
+
+.inventory-filtering-group {
+    display: flex;
+}
