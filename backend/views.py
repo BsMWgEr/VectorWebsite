@@ -37,7 +37,7 @@ def inventory_view(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -50,6 +50,19 @@ def inventory_view(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
@@ -75,7 +88,7 @@ def inventory_view(request):
 def inventory_view_instock(request):
     summary_title = "In Stock"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -88,6 +101,19 @@ def inventory_view_instock(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
@@ -124,7 +150,7 @@ def inventory_view_comingsoon(request):
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -137,6 +163,19 @@ def inventory_view_comingsoon(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
@@ -230,7 +269,7 @@ def inventory_view_sold(request):
 def inventory_view_shipping(request):
     summary_title = "Shipping"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -243,6 +282,19 @@ def inventory_view_shipping(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
@@ -274,7 +326,7 @@ def inventory_view_shipping(request):
 def inventory_view_completed(request):
     summary_title = "Completed Orders"
 
-    if request.GET.get('value'):
+    if request.GET.get('filter_by') == 'name':
         filter_key = request.GET.get('value')
         filter_str = ''
         for y in filter_key:
@@ -287,6 +339,19 @@ def inventory_view_completed(request):
         x = InventoryObject.objects.all().filter(inventory_item__name__name=filter_str)
         filter_info = request.GET.get('value')
         names = Name.objects.all().filter(name=filter_str)
+    elif request.GET.get('filter_by') == 'type':
+        filter_key = request.GET.get('value')
+        filter_str = ''
+        for y in filter_key:
+            if y == '_':
+                filter_str += ' '
+            else:
+                filter_str += y
+        print(filter_str)
+        print(filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_str)
+        filter_info = request.GET.get('value')
+        names = Name.objects.all().filter(type=filter_str)
     elif request.GET.get('filter_by_type'):
         print(request.GET.get('filter_by_type'))
         x = InventoryObject.objects.all().filter(inventory_item__type=request.GET.get('filter_by_type'))
