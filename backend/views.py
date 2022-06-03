@@ -144,7 +144,7 @@ def inventory_view_comingsoon(request):
     if request.GET.get('filter_by_type'):
         filter_key = request.GET.get('filter_by_type')
         print(filter_key)
-        x = InventoryObject.filter(inventory_item__type=filter_key)
+        x = InventoryObject.objects.all().filter(inventory_item__type=filter_key)
         filter_info += filter_key
         names = Name.objects.all().filter(type=filter_key)
 
