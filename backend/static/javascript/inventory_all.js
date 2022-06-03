@@ -5,7 +5,7 @@ function createSearchURL() {
     let size = ''
     if (sessionStorage.getItem('type')) {
         type = sessionStorage.getItem('type')
-        type = 'filter_by=' + type
+        type = 'filter_by_type=' + type
     } else type = 'filter_by_type=none'
     if (sessionStorage.getItem('name')) {
         name = sessionStorage.getItem('name')
