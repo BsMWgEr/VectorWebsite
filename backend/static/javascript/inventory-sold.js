@@ -101,7 +101,7 @@ function customerChangeDisplayer(x,id_number) {
         for (let i = 0; i < answer.length; i++) {
             select_options += `<option value="${answer[i].id}" >${answer[i].id} ${answer[i].first_name} ${answer[i].last_name} ${answer[i].email}</option>`
         }
-        document.getElementById('inner').innerHTML = `<input name="id" value="${x}" hidden>
+        document.getElementById(`inner-${id_number}`).innerHTML = `<input name="id" value="${x}" hidden>
             <select name="purchased_by_id"><option value="" selected>Choose a New Customer</option>${select_options}</select>
             <button type="submit">Submit</button>`
     }
@@ -110,10 +110,10 @@ function customerChangeDisplayer(x,id_number) {
 
 function updateInventorySoldSwitch(type, x, id_number) {
     console.log(`updateInventorySoldDate: ${type.type} ${x} ${id_number}`)
-    document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
+    document.getElementById(`inventory-sold-update-btn-group-${id_number}`).innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
-    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    let inner = document.getElementById('inner')
+    document.getElementById(`update-inventory-change-display-${id_number}`).innerHTML = `<div id="inner-${id_number}"></div>`
+    let inner = document.getElementById(`inner-${id_number}`)
     switch (type.type) {
         case 'update_date':
             inner.innerHTML = dateChangeDisplayer(x, id_number)
@@ -135,17 +135,17 @@ function updateInventorySoldSwitch(type, x, id_number) {
 
 function updateInventorySoldBtns(number, id_number) {
     console.log(`updateInventorySold: ${number} ${id_number}`)
-    if (document.getElementById('inventory-shipping-update-btn-group')) {
-        document.getElementById('inventory-shipping-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-shipping-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-shipping-update-btn-group-${id_number}`).innerHTML = ''
     }
-    if (document.getElementById('inventory-customer-update-btn-group')) {
-        document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-customer-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-customer-update-btn-group-${id_number}`).innerHTML = ''
     }
     let new_div;
-    if (!document.getElementById('inventory-sold-update-btn-group')) {
+    if (!document.getElementById(`inventory-sold-update-btn-group-${id_number}`)) {
         new_div = document.createElement('div')
-        new_div.setAttribute('id', 'inventory-sold-update-btn-group')
-    } else  new_div = document.getElementById('inventory-sold-update-btn-group')
+        new_div.setAttribute('id', `inventory-sold-update-btn-group-${id_number}`)
+    } else  new_div = document.getElementById(`inventory-sold-update-btn-group-${id_number}`)
         let classInput = 'changeBtns'
         new_div.innerHTML = `<button class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_date'}, ${number}, ${id_number})" class="${classInput}">Update Date</button>
             <button class="${classInput}" onclick="updateInventorySoldSwitch({'type': 'update_info'}, ${number}, ${id_number})" class="${classInput}">Update Info</button>
@@ -154,7 +154,7 @@ function updateInventorySoldBtns(number, id_number) {
 
 
         document.querySelectorAll('.inventory-sold-btn-group')
-        document.getElementById('update-sold-information-btn').insertAdjacentElement('afterend', new_div)
+        document.getElementById(`update-sold-information-btn-${id_number}`).insertAdjacentElement('afterend', new_div)
 }
 
 function getCustomerDataDisplay(obj_id) {
@@ -165,12 +165,12 @@ function getCustomerDataDisplay(obj_id) {
         console.log(xhr.response)
         let answer = xhr.response.response
         let customer = xhr.response.customer
-        document.getElementById('update-inventory-change-display').innerHTML = ''
+        document.getElementById(`update-inventory-change-display-${obj_id}`).innerHTML = ''
         document.getElementById('div-inventory-update').className = 'none'
         document.getElementById('customer-information-title-' + obj_id).innerHTML = `Customer
             ID: ${answer[0].id} - Name: ${customer[0].last_name}, ${customer[0].first_name} - 
             Phone #: ${customer[0].phone_number} - ${customer[0].email}`
-        document.getElementById('inventory-customer-data-obj-number').innerHTML = `
+        document.getElementById(`inventory-customer-data-obj-number-${obj_id}`).innerHTML = `
                     Customer: ${customer[0].id} - ${customer[0].first_name} ${customer[0].last_name}`
         document.getElementById('customer-data-ul-' + obj_id.toString()).innerHTML = `
                     <li>Name: ${customer[0].first_name} ${customer[0].last_name}</li>
@@ -195,7 +195,7 @@ function getSoldDataDisplay(obj_id) {
         console.log(xhr.response)
         let answer = xhr.response.response
         let customer = xhr.response.customer
-        document.getElementById('update-inventory-change-display').innerHTML = ''
+        document.getElementById(`update-inventory-change-display-${obj_id}`).innerHTML = ''
         document.getElementById('div-inventory-update').className = 'none'
         document.getElementById('sold-data-one-' + obj_id).innerHTML = `Sold
             Data: ${answer[0].id} --- Customer: ID:${customer[0].id} - ${customer[0].last_name}, ${customer[0].first_name} - 
@@ -269,10 +269,10 @@ function nameChangeDisplayer(x, id_number) {
 
 function updateInventoryCustomerSwitch(type, x, id_number) {
     console.log(`updateInventoryCustomerSwitch: ${type.type} ${x} ${id_number}`)
-    document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
+    document.getElementById(`inventory-customer-update-btn-group-${id_number}`).innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
-    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    let inner = document.getElementById('inner')
+    document.getElementById(`update-inventory-change-display-${id_number}`).innerHTML = `<div id="inner-${id_number}"></div>`
+    let inner = document.getElementById(`inner-${id_number}`)
     switch (type.type) {
         case 'update_name':
             inner.innerHTML = nameChangeDisplayer(x, id_number)
@@ -296,24 +296,24 @@ function updateInventoryCustomerSwitch(type, x, id_number) {
 
 function updateInventoryCustomerBtns(number, id_number) {
     console.log(`updateInventoryCustomerBtns: ${number} ${id_number}`)
-    if (document.getElementById('inventory-shipping-update-btn-group')) {
-        document.getElementById('inventory-shipping-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-shipping-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-shipping-update-btn-group-${id_number}`).innerHTML = ''
     }
-    if (document.getElementById('inventory-sold-update-btn-group')) {
-        document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-sold-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-sold-update-btn-group-${id_number}`).innerHTML = ''
     }
     let new_div;
-    if (!document.getElementById('inventory-customer-update-btn-group')) {
+    if (!document.getElementById(`inventory-customer-update-btn-group-${id_number}`)) {
         new_div = document.createElement('div')
-        new_div.setAttribute('id', 'inventory-customer-update-btn-group')
-    } else  new_div = document.getElementById('inventory-customer-update-btn-group')
+        new_div.setAttribute('id', `inventory-customer-update-btn-group-${id_number}`)
+    } else  new_div = document.getElementById(`inventory-customer-update-btn-group-${id_number}`)
         let classInput = 'changeBtns'
         new_div.innerHTML = `<button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_name'}, ${number}, ${id_number})">Update Name</button>
             <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
             <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
             <button class="${classInput}" onclick="updateInventoryCustomerSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
 
-        document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
+        document.getElementById(`update-customer-btn-display-${id_number}`).insertAdjacentElement('afterend', new_div)
 }
 
 
@@ -351,10 +351,10 @@ function info_2ChangeDisplayer(x, id_number) {
 
 function updateInventoryShippingSwitch(type, x, id_number) {
     console.log(`updateInventoryShippingSwitch: ${type.type} ${x} ${id_number}`)
-    document.getElementById('inventory-shipping-update-btn-group').innerHTML = ''
+    document.getElementById(`inventory-shipping-update-btn-group-${id_number}`).innerHTML = ''
     document.querySelector('#div-inventory-update').className = 'div-inventory-update'
-    document.getElementById('update-inventory-change-display').innerHTML = '<div id="inner"></div>'
-    let inner = document.getElementById('inner')
+    document.getElementById(`update-inventory-change-display-${id_number}`).innerHTML = `<div id="inner-${id_number}"></div>`
+    let inner = document.getElementById(`inner-${id_number}`)
     switch (type.type) {
         case 'update_date_shipped':
             inner.innerHTML = date_shippedChangeDisplayer(x, id_number)
@@ -379,22 +379,22 @@ function updateInventoryShippingSwitch(type, x, id_number) {
 
 function updateInventoryShippingBtns(number, id_number) {
     console.log(`updateInventoryShippingBtns: ${number} ${id_number}`)
-    if (document.getElementById('inventory-customer-update-btn-group')) {
-        document.getElementById('inventory-customer-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-customer-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-customer-update-btn-group-${id_number}`).innerHTML = ''
     }
-    if (document.getElementById('inventory-sold-update-btn-group')) {
-        document.getElementById('inventory-sold-update-btn-group').innerHTML = ''
+    if (document.getElementById(`inventory-sold-update-btn-group-${id_number}`)) {
+        document.getElementById(`inventory-sold-update-btn-group-${id_number}`).innerHTML = ''
     }
     let new_div;
-    if (!document.getElementById('inventory-shipping-update-btn-group')) {
+    if (!document.getElementById(`inventory-shipping-update-btn-group-${id_number}`)) {
         new_div = document.createElement('div')
-        new_div.setAttribute('id', 'inventory-shipping-update-btn-group')
-    } else  new_div = document.getElementById('inventory-shipping-update-btn-group')
+        new_div.setAttribute('id', `inventory-shipping-update-btn-group-${id_number}`)
+    } else  new_div = document.getElementById(`inventory-shipping-update-btn-group-${id_number}`)
         let classInput = 'changeBtns'
         new_div.innerHTML = `<button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_date_shipped'}, ${number}, ${id_number})">Update Shipping Date</button>
             <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_email'}, ${number}, ${id_number})">Update Email</button>
             <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_company'}, ${number}, ${id_number})">Update Company</button>
             <button class="${classInput}" onclick="updateInventoryShippingSwitch({'type': 'update_phone_number'}, ${number}, ${id_number})">Change Phone Number</button>`
 
-        document.getElementById('update-customer-btn-display').insertAdjacentElement('afterend', new_div)
+        document.getElementById(`update-customer-btn-display-${id_number}`).insertAdjacentElement('afterend', new_div)
 }

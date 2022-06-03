@@ -4,12 +4,6 @@
 
     */
 
-
-
-
-
-
-
 let sold_data_id;
 function sold_Data_form(x) {
     document.getElementById('sold_data_form-' + x.toString()).className = "sold-data-form"
@@ -98,40 +92,4 @@ function updateInstockField(event) {
 // Update Customer
 
 
-function createUpdateCustomerButtons() {
-    let sold_btn = document.querySelector('#update-sold-information-btn')
-    let customer_div_btns = document.createElement('div')
-    customer_div_btns.setAttribute('id', 'customer-div')
-    sold_btn.append(customer_div_btns)
-    let customer_div_form = document.createElement('button')
-
-}
-
-function updateInfoAPI() {
-    event.preventDefault()
-    let my_form = event.target
-    const new_form = new FormData(my_form)
-    const url = ''
-    const method = 'GET'
-    const xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.open(method, url)
-    xhr.onload = function() {
-        let serverResponse = xhr.response
-        document.getElementById('div-build-new-sold_customer').className = 'div-build-new-sold_customer'
-        document.getElementById('update-sold-new-customer-display').innerHTML =
-        '<input type="text" name="first_name" maxLength="100" required id="id_first_name" placeholder="Enter First Name">'
-        +'<input type="text" name="last_name" maxLength="100" required id="id_last_name" placeholder="Enter Last Name">'
-        +'<input type="text" name="company_name" maxLength="200" id="id_company_name" placeholder="Enter Company Name">'
-        +'<input type="email" name="email" maxLength="254" required id="id_email" placeholder="Enter E-Mail">'
-        +'<input type="text" name="phone_number" required id="id_phone_number" placeholder="Enter Phone Number">'
-        //+'<select name="purchased_item" id="id_purchased_item" multiple>'
-        //    +'<option value="74">ID: 74 Type: canopies Name: ID: 38 - New Sabre-3 210 - canopies - Serial #: TBD ----- In Stock: False</option>'
-        //+'</select>'
-        +'<button type="submit">Submit</button>'
-
-    }
-    new_form.entries()
-    xhr.send(new_form)
-}
 
