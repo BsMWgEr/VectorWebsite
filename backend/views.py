@@ -440,7 +440,7 @@ def inventory_search_view(request):
                         print(y)
                         w.append(y)
 
-                containers_search4.filter(inventory_item__size__size__icontains=query)
+                containers_search4.filter(inventory_item__size__size__iexact=query)
                 if containers_search4:
                     for y in containers_search4:
                         print('size:   ')
