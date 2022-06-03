@@ -30,3 +30,4 @@ function clearAllFilters() {
     console.log(current_url)
     window.location.assign(new_url)
 }
+

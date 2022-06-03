@@ -1,14 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-
+from datetime import datetime
+from pytz import timezone
 from stockvectorrigs.aws.connect import s3
 from backend.forms import IdForm, BuildForm
-from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, Size, CustomerHold, Message, CustomerShippingAddress
+from backend.models import InventoryObject, InventoryItem, PageVisitData, Media, Customer, Name, \
+    Size, CustomerHold, Message, CustomerShippingAddress, SearchQuery
 
 
 @login_required
 def media_view(request):
-
     buckets = s3.Bucket(name='stockvectorrigs')  # or just the variable AWS_BUCKET_NAME
     bucket_object_name = []
     bucket_object2 = []
@@ -181,6 +182,7 @@ def inventory_view_comingsoon(request):
         'filter': filter_info,
         'name': names,
     }
+
     return render(request, 'inventory-comingsoon.html', context=context)
 
 
@@ -377,3 +379,77 @@ def contact_requests_view(request):
         'messages': contacts,
     }
     return render(request, 'contact-requests.html', context=context)
+
+
+def inventory_search_view(request):
+    customers = Customer.objects.all().order_by('-id')
+    summary_title = 'Search'
+
+    names = []
+    filter_info = []
+
+    query = []
+    w = []
+    search_count = 0
+    no_return = False
+    if request.GET.get('search_key'):
+        tz = timezone('America/New_York')
+        search_query = SearchQuery()
+        date = datetime.now(tz)  # .strftime('%Y-%m-%d %H:%M:%S')
+        search_query.moment = date
+
+        containers_search = InventoryObject.objects.all()
+        containers_search2 = InventoryObject.objects.all()
+        containers_search3 = InventoryObject.objects.all()
+        containers_search4 = InventoryObject.objects.all()
+
+        query = request.GET.get('search_key') or None
+
+        if query is not None and query != "":
+            query = query.lower()
+            x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')  # ip address retrieval method
+
+            if x_forwarded_for:
+                ipaddress = x_forwarded_for.split(',')[-1].strip()
+            else:
+                ipaddress = request.META.get('REMOTE_ADDR')
+
+            search_query.ip_address = ipaddress
+            search_query.search = query
+            search_query.save()
+
+            for x in containers_search2:
+                if query == "in stock":
+                    if x.inventory_item.in_stock:
+                        w.append(x)
+            containers_search2.filter(inventory_item__name__name__icontains=query)
+            if containers_search2:
+                for y in containers_search2:
+                    w.append(y)
+
+            containers_search.filter(inventory_item__description__search=query)
+            if containers_search:
+                for y in containers_search:
+                    w.append(y)
+            if not w:
+                for x in containers_search3:
+                    if query == x.inventory_item.serial_number:
+                        w = [x]
+            if not w:
+                no_return = True
+
+        search_count = len(w)
+
+    context = {
+        'all': w,
+        'summary_title': summary_title,
+        'customers': customers,
+        'filter': filter_info,
+        'name': names,
+        'w': w,
+        'search_term': query,
+        'search_count': search_count,
+        'no_return': no_return,
+    }
+
+    return render(request, 'inventory-search.html', context=context)

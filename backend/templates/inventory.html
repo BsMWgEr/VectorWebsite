@@ -150,7 +150,7 @@
             <button type="button" onclick="superFilter('type', 'tandem')">Tandem</button>
             <button type="button" onclick="superFilter('type', 'student')">Student</button>
             <button type="button" onclick="superFilter('type', 'canopies')">Canopies</button>
-            <button type="button" onclick="superFilter('type', 'javelin_odyssey')">Jevelin Odyssey</button>
+            <button type="button" onclick="superFilter('type', 'javelin_odyssey')">Javelin Odyssey</button>
         </div>
     </div>
     <div id="slide-down-menu" class="edit-options-menu">
@@ -172,8 +172,8 @@
     <summary>{{ summary_title }}</summary>
 {% endblock %}
 {% block search %}
-    <form>
-    <input type="text" placeholder="search inventory">
+    <form method="get" action="/manager/search/">
+    <input name="search_key" type="text" placeholder="search inventory">
     <input type="submit" value="Search">
     </form>
 {% endblock %}
