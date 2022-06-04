@@ -42,6 +42,8 @@ function superFilter(filter_by, x) {
         case 'size':
             sessionStorage.setItem('size', `${new_str}`)
             break
+        case 'all':
+            break
         default:
             sessionStorage.clear()
     }
@@ -59,6 +61,7 @@ function superFilter(filter_by, x) {
 
 function clearAllFilters() {
     document.getElementById('inventory-filter-Btn').setAttribute('display', 'none')
+    document.getElementById('inventory-size-filter-Btn').setAttribute('display', 'flex')
     sessionStorage.clear()
     let current_url = document.location.href.split('/')
     let new_url = `${current_url[0]}/${current_url[1]}/${current_url[2]}/${current_url[3]}/${current_url[4]}`

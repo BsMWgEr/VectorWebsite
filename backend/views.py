@@ -139,6 +139,7 @@ def inventory_view_comingsoon(request):
     filter_info = ''
     names = Name.objects.all()
     sizes = Size.objects.all()
+    x = []
 
     if request.GET.get('display') == 'all':
         x = InventoryObject.objects.all()
