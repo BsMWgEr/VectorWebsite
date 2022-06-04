@@ -48,10 +48,8 @@ function superFilter(filter_by, x) {
             sessionStorage.setItem('size', x)
             str = createSearchURL()
             break
-        case 'all':
-            str = `?display=all`
-            break
         default:
+            str = `?display=all`
             sessionStorage.clear()
     }
 
