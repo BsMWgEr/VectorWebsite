@@ -101,3 +101,13 @@
     border: hidden;
     max-width: 500px;
 }
+
+input{
+    font-size: 12pt;
+}
+
+.update-inventory-change-display div{
+    display: inline-flex;
+    position: relative;
+
+}
