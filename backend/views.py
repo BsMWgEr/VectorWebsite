@@ -175,13 +175,8 @@ def inventory_view_comingsoon(request):
     if request.GET.get('filter_by_size'):
         filter_key = request.GET.get('filter_by_size')
         print(request.GET.get('filter_by_size'))
-        filter_str = ''
-        for y in filter_key:
-            if y == '_':
-                filter_str += ' '
-            else:
-                filter_str += y
-        x = InventoryObject.objects.filter(inventory_item__type=request.GET.get('filter_by_type')).filter(inventory_item__size__size=filter_str)
+        filter_type = request.GET.get('filter_by_type')
+        x = InventoryObject.objects.filter(inventory_item__type=filter_type).filter(inventory_item__size_id__exact=filter_key)
         filter_info = filter_str
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
         filter_name = True

@@ -170,7 +170,7 @@
         <button id="inventory-size-filter-Btn" class="filter-Btn" type="button">Filter By Size</button>
         <div class="dropdown-content">
              {% for sizes in size %}
-                 <button type="button" onclick="superFilter('size', '{{ sizes.size }}')">{{ sizes.size }}</button>
+                 <button type="button" onclick="superFilter('size', {{ sizes.id }})">{{ sizes.size }}</button>
              {% endfor %}
         </div>
     {% endif %}

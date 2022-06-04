@@ -23,7 +23,7 @@ function superFilter(filter_by, x) {
     let current_url = document.location.href
     let new_str = ''
     let url = ''
-    if (filter_by === 'name' || filter_by === 'size') {
+    if (filter_by === 'name') {
         for (let i = 0; i < x.length; i++) {
             if (x[i] === ' ') {
                 new_str += '_'
@@ -42,7 +42,7 @@ function superFilter(filter_by, x) {
             sessionStorage.setItem('name', `${new_str}`)
             break
         case 'size':
-            sessionStorage.setItem('size', `${new_str}`)
+            sessionStorage.setItem('size', x)
             break
         case 'all':
             url = `https://vectorrigs.herokuapp.com/manager/${current_url[2]}/?display=all`
