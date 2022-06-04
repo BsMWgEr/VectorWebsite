@@ -101,7 +101,7 @@ def inventory_view(request):
         'filter_name': filter_name,
         'filter_size': filter_size,
         'size': sizes,
-        ' total_completed': total_completed,
+        'total_completed': total_completed,
         'total_sold': total_sold,
         'total_shipped': total_shipped,
         'total_active': total_active,
