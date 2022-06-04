@@ -1,4 +1,9 @@
 
+function closeForms(x) {
+    document.getElementById(`${x}`).className = 'none'
+}
+
+
 function createSearchURL() {
     let type = ''
     let name = ''

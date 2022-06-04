@@ -156,13 +156,12 @@
     <div id="slide-down-menu-type" class="edit-options-menu">
         <button class="filter-Btn" type="button">Filter By Type</button>
         <div class="dropdown-content">
+            <button type="button" onclick="superFilter('display', 'all')">ALL</button>
             <button type="button" onclick="superFilter('type', 'sport_rigs')">Sport Rigs</button>
             <button type="button" onclick="superFilter('type', 'tandem')">Tandem</button>
             <button type="button" onclick="superFilter('type', 'student')">Student</button>
             <button type="button" onclick="superFilter('type', 'canopies')">Canopies</button>
             <button type="button" onclick="superFilter('type', 'javelin_odyssey')">Javelin Odyssey</button>
-            <button type="button" onclick="superFilter('display', 'all')">ALL</button>
-
         </div>
     </div>
     <div id="slide-down-menu" class="edit-options-menu">
@@ -235,6 +234,7 @@
                     <div class="form-group">
                     <div id="sold_data_form-{{ x.id }}" class="none">
                         <form method="POST" action="/api/sold-data-api/" onsubmit="DataSubmit(event, {{ x.id }})">
+                        <button type="button" onclick="closeForms('sold_data_form-{{ x.id }}')">CLICK TO CLOSE FORM</button>
                             {% csrf_token %}
                             <select name="inventory_item" required id="id_inventory_item" type="hidden">
                                 <option value="{{ x.inventory_item.id }}" selected>{{ x.inventory_item }}</option>
@@ -255,6 +255,7 @@
                     </div>
                     <div id="create-customer-form-{{ x.id }}" class="none">
                         <form id="customer-form" method="POST" action="/api/customer-data-api/" onsubmit="customerDataSubmit(event, {{ x.id }})">
+                        <button type="button" onclick="closeForms('create-customer-form-{{ x.id }}')">CLICK TO CLOSE FORM</button>
                             {% csrf_token %}
                             <input type="text" name="first_name" maxlength="100" required id="id_first_name" placeholder="Enter First Name">
                             <input type="text" name="last_name" maxlength="100" required id="id_last_name" placeholder="Enter Last Name">
@@ -287,6 +288,7 @@
                     <div id="shipping_data_form-{{ x.id }}" class="none">
                         <form method="POST" action="/api/shipping-data-api/" onsubmit="shippingDataSubmit(event, {{ x.id }})">
                             {% csrf_token %}
+                            <button type="button" onclick="closeForms('shipping_data_form-{{ x.id }}')">CLICK TO CLOSE FORM</button>
                             <input name="inventory_object_id" value="{{ x.id }}" hidden>
                             <select name="inventory_item" required id="id_inventory_item">
                                 <option value="{{ x.inventory_item.id }}" selected>{{ x.inventory_item}}</option>
@@ -307,6 +309,7 @@
                     </div>
                     <div id="shipping_address_form-{{ x.id }}" class="none">
                         <form method="POST" action="/api/shipping-address-api/" onsubmit="shippingAddressSubmit(event, {{ x.id }})">
+                        <button type="button" onclick="closeForms('shipping_address_form-{{ x.id }}')">CLICK TO CLOSE FORM</button>
                         {% csrf_token %}
                             <input type="number" name="inventory_object_id" value="{{ x.id }}" type="hidden">
                             <select name="customer" required id="id_customer">
