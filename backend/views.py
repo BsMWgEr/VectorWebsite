@@ -177,7 +177,7 @@ def inventory_view_comingsoon(request):
         print(request.GET.get('filter_by_size'))
         filter_type = request.GET.get('filter_by_type')
         x = InventoryObject.objects.filter(inventory_item__type=filter_type).filter(inventory_item__size_id__exact=filter_key)
-        filter_info = filter_str
+        filter_info = filter_key
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
         filter_name = True
         filter_size = True
