@@ -37,8 +37,6 @@ function superFilter(filter_by, x) {
     switch (filter_by) {
         case 'type':
             sessionStorage.setItem('type', `${x}`)
-            document.getElementById('inventory-filter-Btn').style.display = 'flex'
-            document.getElementById('inventory-size-filter-Btn').style.display = 'flex'
             break
         case 'name':
             sessionStorage.setItem('name', `${new_str}`)
@@ -65,8 +63,6 @@ function superFilter(filter_by, x) {
 }
 
 function clearAllFilters() {
-    document.getElementById('inventory-filter-Btn').setAttribute('display', 'none')
-    document.getElementById('inventory-size-filter-Btn').setAttribute('display', 'flex')
     sessionStorage.clear()
     let current_url = document.location.href.split('/')
     let new_url = `${current_url[0]}/${current_url[1]}/${current_url[2]}/${current_url[3]}/${current_url[4]}`

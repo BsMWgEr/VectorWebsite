@@ -140,6 +140,8 @@ def inventory_view_comingsoon(request):
     names = Name.objects.all()
     sizes = Size.objects.all()
     x = []
+    filter_name = None
+    filter_size = None
 
     if request.GET.get('display') == 'all':
         x = InventoryObject.objects.all()
@@ -151,6 +153,8 @@ def inventory_view_comingsoon(request):
         filter_info += filter_key
         names = Name.objects.all().filter(type=filter_key)
         sizes = Size.objects.all().filter(type=filter_key)
+        filter_name = True
+        filter_size = True
 
     if request.GET.get('filter_by_name'):
         filter_key = request.GET.get('filter_by_name')
@@ -165,6 +169,8 @@ def inventory_view_comingsoon(request):
         x = InventoryObject.objects.filter(inventory_item__type=request.GET.get('filter_by_type')).filter(inventory_item__name__name=filter_str)
         filter_info += filter_str
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
+        filter_name = True
+        filter_size = True
 
     if request.GET.get('filter_by_size'):
         filter_key = request.GET.get('filter_by_size')
@@ -178,6 +184,8 @@ def inventory_view_comingsoon(request):
         x = InventoryObject.objects.filter(inventory_item__type=request.GET.get('filter_by_type')).filter(inventory_item__size__size=filter_str)
         filter_info = filter_str
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
+        filter_name = True
+        filter_size = True
 
     instock_false = []
     for z in x:
@@ -194,6 +202,8 @@ def inventory_view_comingsoon(request):
         'customers': customers,
         'filter': filter_info,
         'name': names,
+        'filter_name': filter_name,
+        'filter_size': filter_size,
         'size': sizes
     }
 
