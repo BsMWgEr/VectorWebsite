@@ -104,15 +104,17 @@
     color: black
 }
 
-.dropdown-content button:hover {
-    background: black;
-    color: grey;
+.dropdown-content button:hover, a:hover {
+    background: #242323;
+    color: #b5db1a;
     border-radius: 10px;
 }
 
 .nav-links:hover .dropdown-content {
     display: block;
     box-shadow: 0 0 25px #b5db1a;
+    background: black;
+
 }
 
 .edit-options-menu:hover .dropdown-content {
