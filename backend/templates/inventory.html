@@ -157,7 +157,7 @@
     </div>
     <div id="slide-down-menu" class="edit-options-menu">
     {% if filter_name %}
-        <button id="inventory-filter-Btn" class="filter-Btn" type="button" style="display: none">Filter By Name</button>
+        <button id="inventory-filter-Btn" class="filter-Btn" type="button" >Filter By Name</button>
         <div class="dropdown-content">
          {% for names in name %}
              <button type="button" onclick="superFilter('name', '{{ names.name }}')">{{ names.name }}</button>
