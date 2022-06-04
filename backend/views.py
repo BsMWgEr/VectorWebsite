@@ -158,7 +158,7 @@ def inventory_view_comingsoon(request):
                 filter_str += y
         print(filter_str)
         print(filter_key)
-        x.filter(inventory_item__name__name=filter_str)
+        x = InventoryObject.objects.filter(inventory_item__type=request.GET.get('filter_by_type')).filter(inventory_item__name__name=filter_str)
         filter_info += filter_str
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
 
@@ -171,7 +171,7 @@ def inventory_view_comingsoon(request):
                 filter_str += ' '
             else:
                 filter_str += y
-        x.filter(inventory_item__size__size=filter_str)
+        x = InventoryObject.objects.filter(inventory_item__type=request.GET.get('filter_by_type')).filter(inventory_item__size__size=filter_str)
         filter_info = filter_str
         names = Name.objects.all().filter(type=request.GET.get('filter_by_type'))
 
