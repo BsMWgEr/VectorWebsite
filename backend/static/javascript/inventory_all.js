@@ -30,6 +30,10 @@ function superFilter(filter_by, x) {
             } else new_str += x[i]
         }
     }
+
+    current_url = current_url.split('.')
+    current_url = current_url[2].split('/')
+
     switch (filter_by) {
         case 'type':
             sessionStorage.setItem('type', `${x}`)
@@ -43,12 +47,13 @@ function superFilter(filter_by, x) {
             sessionStorage.setItem('size', `${new_str}`)
             break
         case 'all':
+            url = `https://vectorrigs.herokuapp.com/manager/${current_url[2]}/?display=all`
+            window.location.assign(url)
             break
         default:
             sessionStorage.clear()
     }
-    current_url = current_url.split('.')
-    current_url = current_url[2].split('/')
+
     let str = createSearchURL()
     url = `https://vectorrigs.herokuapp.com/manager/${current_url[2]}/${str}`
 
