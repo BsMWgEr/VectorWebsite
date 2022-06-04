@@ -37,8 +37,8 @@ function superFilter(filter_by, x) {
     switch (filter_by) {
         case 'type':
             sessionStorage.setItem('type', `${x}`)
-            document.getElementById('inventory-filter-Btn').setAttribute('display', 'flex')
-            document.getElementById('inventory-size-filter-Btn').setAttribute('display', 'flex')
+            document.getElementById('inventory-filter-Btn').style.display = 'flex'
+            document.getElementById('inventory-size-filter-Btn').style.display = 'flex'
             break
         case 'name':
             sessionStorage.setItem('name', `${new_str}`)
