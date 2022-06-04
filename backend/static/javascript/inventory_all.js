@@ -36,6 +36,7 @@ function superFilter(filter_by, x) {
     let str;
     switch (filter_by) {
         case 'type':
+            sessionStorage.clear()
             sessionStorage.setItem('type', `${x}`)
             str = createSearchURL()
             break
