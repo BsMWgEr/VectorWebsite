@@ -118,11 +118,21 @@
 
     <div>
     <h3>Current Statistics</h3>
-    <ul>
-    <li>Total Active Items</li>
-    <li>Amount coming soon</li>
-    <li>Amount in stock</li>
-    </ul>
+    <dl>
+        <dt>Active Items</dt>
+            <dd>{{ total_active }}</dd>
+        <dt>Coming Soon</dt>
+            <dd>{{ total_coming_soon }}</dd>
+        <dt>Amount in stock</dt>
+            <dd>{{ total_in_stock }}</dd>
+        <dt>Amount in Sold</dt>
+            <dd>{{ total_sold }}</dd>
+        <dt>Amount in Shipping</dt>
+            <dd>{{ total_shipped }}</dd>
+        <dt>Amount Completed</dt>
+            <dd>{{  total_completed }}</dd>
+
+    </dl>
         <ul>
             <li>by type</li>
             <li>by size</li>

@@ -34,6 +34,12 @@ def media_view(request):
 
 @login_required
 def inventory_view(request):
+    total_active = InventoryObject.objects.all().filter(completed_order=False).count()
+    total_coming_soon = InventoryObject.objects.all().filter(completed_order=False).filter(inventory_item__in_stock=False).count()
+    total_in_stock = InventoryObject.objects.all().filter(completed_order=False).filter(inventory_item__in_stock=True).count()
+    total_sold = InventoryObject.objects.all().filter(completed_order=False).filter(sold_data=True).count()
+    total_shipped = InventoryObject.objects.all().filter(completed_order=False).filter(shipping_data=True).count()
+    total_completed = InventoryObject.objects.all().filter(completed_order=True).count()
     items = InventoryObject.objects.all().filter(sold_data__isnull=True)
     customers = Customer.objects.all().order_by('-id')
     summary_title = "ALL (Click to Expand)"
@@ -94,7 +100,13 @@ def inventory_view(request):
         'name': names,
         'filter_name': filter_name,
         'filter_size': filter_size,
-        'size': sizes
+        'size': sizes,
+        ' total_completed': total_completed,
+        'total_sold': total_sold,
+        'total_shipped': total_shipped,
+        'total_active': total_active,
+        'total_in_stock': total_in_stock,
+        'total_coming_soon': total_coming_soon
     }
     return render(request, 'inventory.html', context=context)
 
