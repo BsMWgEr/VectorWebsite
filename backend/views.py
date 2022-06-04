@@ -136,10 +136,12 @@ def inventory_view_comingsoon(request):
     items = InventoryItem.objects.all()
     customers = Customer.objects.all().order_by('-id')
     summary_title = "Coming Soon"
-
-    x = []
     filter_info = ''
     names = Name.objects.all()
+    sizes = Size.objects.all()
+
+    if request.GET.get('display') == 'all':
+        x = InventoryObject.objects.all()
 
     if request.GET.get('filter_by_type'):
         filter_key = request.GET.get('filter_by_type')
@@ -147,6 +149,7 @@ def inventory_view_comingsoon(request):
         x = InventoryObject.objects.all().filter(inventory_item__type=filter_key)
         filter_info += filter_key
         names = Name.objects.all().filter(type=filter_key)
+        sizes = Size.objects.all().filter(type=filter_key)
 
     if request.GET.get('filter_by_name'):
         filter_key = request.GET.get('filter_by_name')
@@ -190,6 +193,7 @@ def inventory_view_comingsoon(request):
         'customers': customers,
         'filter': filter_info,
         'name': names,
+        'size': sizes
     }
 
     return render(request, 'inventory-comingsoon.html', context=context)

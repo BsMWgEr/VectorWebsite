@@ -30,7 +30,7 @@
                 </div>
                 <div class="nav-links"><a class="top-nav-links" id="coming-soon-btn" href="/manager/inventory-comingsoon/">Coming Soon</a>
                     <div class="dropdown-content">
-                        <a href="/manager/inventory-comingsoon/">ALL</a>
+                        <a href="/manager/inventory-comingsoon?display=all">ALL</a>
                         <a href="/manager/inventory-comingsoon?filter_by_type=sport_rigs">Sport Rigs</a>
                         <a href="/manager/inventory-comingsoon?filter_by_type=tandem">Tandem</a>
                         <a href="/manager/inventory-comingsoon?filter_by_type=student">Student</a>
@@ -151,17 +151,26 @@
             <button type="button" onclick="superFilter('type', 'student')">Student</button>
             <button type="button" onclick="superFilter('type', 'canopies')">Canopies</button>
             <button type="button" onclick="superFilter('type', 'javelin_odyssey')">Javelin Odyssey</button>
+            <button type="button" onclick="superFilter('type', 'all')">ALL</button>
+
         </div>
     </div>
     <div id="slide-down-menu" class="edit-options-menu">
-        <button id="inventory-filter-Btn" class="filter-Btn" type="button" disabled>Filter By Name</button>
+        <button id="inventory-filter-Btn" class="filter-Btn" type="button" style="display: none">Filter By Name</button>
         <div class="dropdown-content">
          {% for names in name %}
              <button type="button" onclick="superFilter('name', '{{ names.name }}')">{{ names.name }}</button>
          {% endfor %}
         </div>
     </div>
-    <button>Size</button>
+    <div id="slide-down-menu-size" class="edit-options-menu">
+        <button id="inventory-size-filter-Btn" class="filter-Btn" type="button">Filter By Size</button>
+        <div class="dropdown-content">
+             {% for sizes in size %}
+                 <button type="button" onclick="superFilter('name', '{{ sizes.size }}')">{{ sizes.size }}</button>
+             {% endfor %}
+        </div>
+    </div>
     <button>FIlter Option</button>
     <button>FIlter option</button>
     </div>
