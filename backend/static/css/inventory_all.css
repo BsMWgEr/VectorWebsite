@@ -79,4 +79,11 @@ button {
 
 .inventory-filtering-group {
     display: flex;
+    max-width: 800px;
+    min-width: 300px;
+}
+
+.edit-options-menu .dropdown-content {
+    overflow: scroll;
+    max-height: 400px;
 }
