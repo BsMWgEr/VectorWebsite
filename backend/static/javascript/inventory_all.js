@@ -56,6 +56,7 @@ function superFilter(filter_by, x) {
     }
 
     url = `https://vectorrigs.herokuapp.com/manager/${current_url[2]}/${str}`
+    window.location.assign(url)
 
     console.log(filter_by,x, new_str, url)
 }
